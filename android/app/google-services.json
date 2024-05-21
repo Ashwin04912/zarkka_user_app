@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "243047293613",
+    "project_id": "tailme-46aef",
+    "storage_bucket": "tailme-46aef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243047293613:android:3f6065b17c79bb78dd9c24",
+        "android_client_info": {
+          "package_name": "com.example.tailme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg-fbwwkPmmj1WuPz4jJDJ5C_EVqxWSCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

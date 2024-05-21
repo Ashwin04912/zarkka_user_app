@@ -1,0 +1,17 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Paper Write" clip-path="url(#clip0_102_226)">
+<g id="Group">
+<path id="Vector" d="M13.05 19.1401L9.33002 19.6701L9.86002 16.0001L19.41 6.46008C19.8365 6.06264 20.4007 5.84627 20.9836 5.85655C21.5665 5.86684 22.1226 6.10297 22.5349 6.51521C22.9471 6.92745 23.1833 7.48361 23.1935 8.06651C23.2038 8.64941 22.9875 9.21355 22.59 9.64008L13.05 19.1401Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M5.5 0.75H12.5C12.5 0.75 13.25 0.75 13.25 1.5V4C13.25 4 13.25 4.75 12.5 4.75H5.5C5.5 4.75 4.75 4.75 4.75 4V1.5C4.75 1.5 4.75 0.75 5.5 0.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M13.25 2.75H15.75C16.1478 2.75 16.5294 2.90804 16.8107 3.18934C17.092 3.47064 17.25 3.85218 17.25 4.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M17.25 18.75V21.75C17.25 22.1478 17.092 22.5294 16.8107 22.8107C16.5294 23.092 16.1478 23.25 15.75 23.25H2.25C1.85218 23.25 1.47064 23.092 1.18934 22.8107C0.908035 22.5294 0.75 22.1478 0.75 21.75V4.25C0.75 3.85218 0.908035 3.47064 1.18934 3.18934C1.47064 2.90804 1.85218 2.75 2.25 2.75H4.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M5.25 8.75H12.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M5.25 13.25H7.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_102_226">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>

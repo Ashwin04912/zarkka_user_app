@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/RegisterUser/register_user_bloc.dart';
-import 'package:tailme/infrastructure/RegisterUser/repository/register_usr_repo.dart';
 import 'package:tailme/presentation/Login/ScreenLogin.dart';
 
 import '../../domain/RegisterUser/model/user_register_model.dart';
@@ -246,6 +245,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                   password: passwordController.text,
                                   confirmPassword:
                                       confirmPasswordController.text,
+                                  userName: usernameController.text,
                                 );
                                 BlocProvider.of<RegisterUserBloc>(context).add(
                                   RegisterUserEvent.signUpButtonPressed(

@@ -45,6 +45,7 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
   bloc: ^8.1.4
+  shared_preferences: ^2.2.3
   # injectable: ^2.4.1
 
 

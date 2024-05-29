@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tailme/presentation/ChangePassword/change_password_screen.dart';
 import 'package:tailme/presentation/ContactUs/ScreenContactUs.dart';
 import 'package:tailme/presentation/AddAddress/add_address.dart';
-import 'package:tailme/presentation/MyProfile/ScreenMyProfiles.dart';
+import 'package:tailme/presentation/MyProfile/screen_my_profiles.dart';
 import 'package:tailme/core/widgets/ProfileRepeating.dart';
 import 'package:tailme/presentation/SavedAddress/saved_address_screen.dart';
 

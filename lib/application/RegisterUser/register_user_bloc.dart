@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tailme/domain/RegisterUser/model/user_register_model.dart';
-
 
 import '../../domain/Login/auth_failure.dart';
 import '../../infrastructure/i_auth_facade_impl.dart';
@@ -16,8 +14,7 @@ class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
   final _authFacde = AuthFacadeImpl();
   RegisterUserBloc() : super(RegisterUserState.intial()) {
     on<RegisterUserEvent>((event, emit) async {
-     await event.map(
-        signUpButtonPressed: (_SignUpButtonPressed value) async {
+      await event.map(signUpButtonPressed: (_SignUpButtonPressed value) async {
         emit(state.copyWith(
             isSubmitting: true,
             showErrorMessages: false,
@@ -26,8 +23,8 @@ class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
           email: value.user.email,
           pass: value.user.password,
           cpass: value.user.confirmPassword,
+          userName: value.user.userName,
         );
-       
 
         resp.fold(
           (l) {

@@ -6,6 +6,7 @@ abstract class IAuthFacade {
     required String email,
     required String pass,
     required String cpass,
+    required String userName
   });
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
     required emailAddress,

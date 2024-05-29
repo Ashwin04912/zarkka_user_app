@@ -194,8 +194,8 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                       .showSnackBar(SnackBar(
                                     content: l.maybeWhen(
                                       invalidEmailAndPasswordCombination: () =>
-                                          const Text("invalid user"),
-                                      orElse: () => const Text("unknown error"),
+                                          const Text("invalid username and password"),
+                                      orElse: () => const Text("Some Error Occured"),
                                     ),
                                   ));
                                 },
@@ -229,7 +229,6 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                         final user = UserLogin(
                                             email: _emailController.text,
                                             password: _passwordController.text);
-
                                         BlocProvider.of<LoginBloc>(context).add(
                                           LoginEvent.loginButtonPressedEvent(
                                             user: user,

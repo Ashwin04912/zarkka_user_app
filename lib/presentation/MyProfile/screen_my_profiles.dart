@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:tailme/presentation/BookNow/Screenbooknow.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tailme/presentation/Logo/ScreenLogo.dart';
 
 class ScreenMyProfiles extends StatefulWidget {
   const ScreenMyProfiles({Key? key}) : super(key: key);
@@ -13,13 +13,15 @@ class ScreenMyProfiles extends StatefulWidget {
 
 class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
   Future<void> _signOut(BuildContext context) async {
-    // final GoogleSignIn googleSignIn = GoogleSignIn();
-    // await FirebaseAuth.instance.signOut().then((value) {
-    //   googleSignIn.signOut();
-    //   Navigator.of(context).pushAndRemoveUntil(
-    //       MaterialPageRoute(builder: (context) => const ScreenBookNow()),
-    //       (route) => false);
-    // });
+
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('token');
+   debugPrint(prefs.getString('token'));
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const ScreenLogo()),
+      );
+    
+   
   }
 
   @override
@@ -60,7 +62,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
             Center(
               child: Text(
                 "$name\n",
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontFamily: 'Raleway',
@@ -72,15 +74,14 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
             SizedBox(
               height: 24.h,
             ),
-            Divider(),
-            
+            const Divider(),
             SizedBox(
               height: 30.h,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Mobile",
                   style: TextStyle(
                     color: Colors.white,
@@ -91,14 +92,14 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                 ),
                 Text(
                   phoneNumber.toString(), // Access 'Phone' field here
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                Text(
+                const Text(
                   'Email Id',
                   style: TextStyle(
                     color: Colors.white,
@@ -108,7 +109,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                     height: 5,
                   ),
                 ),
-                Text(
+                const Text(
                   "Ashwin",
                   // FirebaseAuth.instance.currentUser!.email.toString(),
                   style: TextStyle(
@@ -119,7 +120,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                     height: -2,
                   ),
                 ),
-                Text(
+                const Text(
                   'Gender',
                   style: TextStyle(
                     color: Colors.white,
@@ -131,7 +132,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                 ),
                 Text(
                   gender.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontFamily: 'Raleway',
@@ -144,7 +145,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
             SizedBox(
               height: 30.h,
             ),
-           Divider(),
+            const Divider(),
             SizedBox(
               height: 70.h,
             ),
@@ -167,7 +168,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                           color: Colors.white,
                         ),
                         SizedBox(width: 8.w),
-                        Text(
+                        const Text(
                           'Signout',
                           style: TextStyle(
                             color: Colors.white,

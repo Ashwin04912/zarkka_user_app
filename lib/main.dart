@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tailme/application/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/application/login/login_bloc.dart';
-
-import 'package:tailme/presentation/Logo/ScreenLogo.dart';
+import 'package:tailme/presentation/SplashScreen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +37,7 @@ class MainApp extends StatelessWidget {
             ),
           ),
           debugShowCheckedModeBanner: false,
-          home: const ScreenLogo(),
+          home: const Splashscreen(),
         ),
       ),
     );

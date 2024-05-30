@@ -16,20 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginEvent {
-  UserLogin get user => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserLogin user) loginButtonPressedEvent,
+    required TResult Function() eyeButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(UserLogin user)? loginButtonPressedEvent,
+    TResult? Function()? eyeButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserLogin user)? loginButtonPressedEvent,
+    TResult Function()? eyeButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -37,22 +39,21 @@ mixin _$LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginButtonPressedEvent value)
         loginButtonPressedEvent,
+    required TResult Function(_EyeButtonPressed value) eyeButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult? Function(_EyeButtonPressed value)? eyeButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult Function(_EyeButtonPressed value)? eyeButtonPressed,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $LoginEventCopyWith<LoginEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,10 +62,6 @@ abstract class $LoginEventCopyWith<$Res> {
   factory $LoginEventCopyWith(
           LoginEvent value, $Res Function(LoginEvent) then) =
       _$LoginEventCopyWithImpl<$Res, LoginEvent>;
-  @useResult
-  $Res call({UserLogin user});
-
-  $UserLoginCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -76,41 +73,17 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? user = null,
-  }) {
-    return _then(_value.copyWith(
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserLogin,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserLoginCopyWith<$Res> get user {
-    return $UserLoginCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$LoginButtonPressedEventImplCopyWith<$Res>
-    implements $LoginEventCopyWith<$Res> {
+abstract class _$$LoginButtonPressedEventImplCopyWith<$Res> {
   factory _$$LoginButtonPressedEventImplCopyWith(
           _$LoginButtonPressedEventImpl value,
           $Res Function(_$LoginButtonPressedEventImpl) then) =
       __$$LoginButtonPressedEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({UserLogin user});
 
-  @override
   $UserLoginCopyWith<$Res> get user;
 }
 
@@ -134,6 +107,14 @@ class __$$LoginButtonPressedEventImplCopyWithImpl<$Res>
           : user // ignore: cast_nullable_to_non_nullable
               as UserLogin,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserLoginCopyWith<$Res> get user {
+    return $UserLoginCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -172,6 +153,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserLogin user) loginButtonPressedEvent,
+    required TResult Function() eyeButtonPressed,
   }) {
     return loginButtonPressedEvent(user);
   }
@@ -180,6 +162,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(UserLogin user)? loginButtonPressedEvent,
+    TResult? Function()? eyeButtonPressed,
   }) {
     return loginButtonPressedEvent?.call(user);
   }
@@ -188,6 +171,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserLogin user)? loginButtonPressedEvent,
+    TResult Function()? eyeButtonPressed,
     required TResult orElse(),
   }) {
     if (loginButtonPressedEvent != null) {
@@ -201,6 +185,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoginButtonPressedEvent value)
         loginButtonPressedEvent,
+    required TResult Function(_EyeButtonPressed value) eyeButtonPressed,
   }) {
     return loginButtonPressedEvent(this);
   }
@@ -209,6 +194,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult? Function(_EyeButtonPressed value)? eyeButtonPressed,
   }) {
     return loginButtonPressedEvent?.call(this);
   }
@@ -217,6 +203,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult Function(_EyeButtonPressed value)? eyeButtonPressed,
     required TResult orElse(),
   }) {
     if (loginButtonPressedEvent != null) {
@@ -230,12 +217,113 @@ abstract class _LoginButtonPressedEvent implements LoginEvent {
   const factory _LoginButtonPressedEvent({required final UserLogin user}) =
       _$LoginButtonPressedEventImpl;
 
-  @override
   UserLogin get user;
-  @override
   @JsonKey(ignore: true)
   _$$LoginButtonPressedEventImplCopyWith<_$LoginButtonPressedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EyeButtonPressedImplCopyWith<$Res> {
+  factory _$$EyeButtonPressedImplCopyWith(_$EyeButtonPressedImpl value,
+          $Res Function(_$EyeButtonPressedImpl) then) =
+      __$$EyeButtonPressedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EyeButtonPressedImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$EyeButtonPressedImpl>
+    implements _$$EyeButtonPressedImplCopyWith<$Res> {
+  __$$EyeButtonPressedImplCopyWithImpl(_$EyeButtonPressedImpl _value,
+      $Res Function(_$EyeButtonPressedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EyeButtonPressedImpl implements _EyeButtonPressed {
+  const _$EyeButtonPressedImpl();
+
+  @override
+  String toString() {
+    return 'LoginEvent.eyeButtonPressed()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EyeButtonPressedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(UserLogin user) loginButtonPressedEvent,
+    required TResult Function() eyeButtonPressed,
+  }) {
+    return eyeButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(UserLogin user)? loginButtonPressedEvent,
+    TResult? Function()? eyeButtonPressed,
+  }) {
+    return eyeButtonPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(UserLogin user)? loginButtonPressedEvent,
+    TResult Function()? eyeButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (eyeButtonPressed != null) {
+      return eyeButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoginButtonPressedEvent value)
+        loginButtonPressedEvent,
+    required TResult Function(_EyeButtonPressed value) eyeButtonPressed,
+  }) {
+    return eyeButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult? Function(_EyeButtonPressed value)? eyeButtonPressed,
+  }) {
+    return eyeButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult Function(_EyeButtonPressed value)? eyeButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (eyeButtonPressed != null) {
+      return eyeButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EyeButtonPressed implements LoginEvent {
+  const factory _EyeButtonPressed() = _$EyeButtonPressedImpl;
 }
 
 /// @nodoc
@@ -244,6 +332,7 @@ mixin _$LoginState {
   String get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isEyePressed => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get successOrfailure =>
       throw _privateConstructorUsedError;
 
@@ -263,6 +352,7 @@ abstract class $LoginStateCopyWith<$Res> {
       String password,
       bool showErrorMessages,
       bool isSubmitting,
+      bool isEyePressed,
       Option<Either<AuthFailure, Unit>> successOrfailure});
 }
 
@@ -283,6 +373,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? password = null,
     Object? showErrorMessages = null,
     Object? isSubmitting = null,
+    Object? isEyePressed = null,
     Object? successOrfailure = null,
   }) {
     return _then(_value.copyWith(
@@ -301,6 +392,10 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
       isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isEyePressed: null == isEyePressed
+          ? _value.isEyePressed
+          : isEyePressed // ignore: cast_nullable_to_non_nullable
               as bool,
       successOrfailure: null == successOrfailure
           ? _value.successOrfailure
@@ -323,6 +418,7 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       String password,
       bool showErrorMessages,
       bool isSubmitting,
+      bool isEyePressed,
       Option<Either<AuthFailure, Unit>> successOrfailure});
 }
 
@@ -341,6 +437,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? password = null,
     Object? showErrorMessages = null,
     Object? isSubmitting = null,
+    Object? isEyePressed = null,
     Object? successOrfailure = null,
   }) {
     return _then(_$LoginStateImpl(
@@ -360,6 +457,10 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      isEyePressed: null == isEyePressed
+          ? _value.isEyePressed
+          : isEyePressed // ignore: cast_nullable_to_non_nullable
+              as bool,
       successOrfailure: null == successOrfailure
           ? _value.successOrfailure
           : successOrfailure // ignore: cast_nullable_to_non_nullable
@@ -376,6 +477,7 @@ class _$LoginStateImpl implements _LoginState {
       required this.password,
       required this.showErrorMessages,
       required this.isSubmitting,
+      required this.isEyePressed,
       required this.successOrfailure});
 
   @override
@@ -387,11 +489,13 @@ class _$LoginStateImpl implements _LoginState {
   @override
   final bool isSubmitting;
   @override
+  final bool isEyePressed;
+  @override
   final Option<Either<AuthFailure, Unit>> successOrfailure;
 
   @override
   String toString() {
-    return 'LoginState(email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, successOrfailure: $successOrfailure)';
+    return 'LoginState(email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, isEyePressed: $isEyePressed, successOrfailure: $successOrfailure)';
   }
 
   @override
@@ -406,13 +510,15 @@ class _$LoginStateImpl implements _LoginState {
                 other.showErrorMessages == showErrorMessages) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 other.isSubmitting == isSubmitting) &&
+            (identical(other.isEyePressed, isEyePressed) ||
+                other.isEyePressed == isEyePressed) &&
             (identical(other.successOrfailure, successOrfailure) ||
                 other.successOrfailure == successOrfailure));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, email, password,
-      showErrorMessages, isSubmitting, successOrfailure);
+      showErrorMessages, isSubmitting, isEyePressed, successOrfailure);
 
   @JsonKey(ignore: true)
   @override
@@ -427,6 +533,7 @@ abstract class _LoginState implements LoginState {
           required final String password,
           required final bool showErrorMessages,
           required final bool isSubmitting,
+          required final bool isEyePressed,
           required final Option<Either<AuthFailure, Unit>> successOrfailure}) =
       _$LoginStateImpl;
 
@@ -438,6 +545,8 @@ abstract class _LoginState implements LoginState {
   bool get showErrorMessages;
   @override
   bool get isSubmitting;
+  @override
+  bool get isEyePressed;
   @override
   Option<Either<AuthFailure, Unit>> get successOrfailure;
   @override

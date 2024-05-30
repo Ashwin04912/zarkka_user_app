@@ -94,52 +94,17 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         SizedBox(
                           height: ScreenUtil().setHeight(15),
                         ),
-                        SizedBox(
-                          height: ScreenUtil().setHeight(56),
-                          child: TextFormField(
-                            controller: _emailController,
-                            keyboardType: TextInputType.emailAddress,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your email';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              hintText: "Enter your email",
-                              hintStyle: const TextStyle(
-                                color: Color(0xFF8390A1),
-                                fontSize: 15,
-                                fontFamily: 'Urbanist',
-                                fontWeight: FontWeight.w500,
-                                height: 0.08,
-                              ),
-                              filled: true,
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: ScreenUtil().setWidth(16)),
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.white),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
                         TextFormField(
-                          controller: _passwordController,
-                          keyboardType: TextInputType.visiblePassword,
+                          controller: _emailController,
+                          keyboardType: TextInputType.emailAddress,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your password';
+                              return 'Please enter your email';
                             }
                             return null;
                           },
                           decoration: InputDecoration(
-                            hintText: "Enter Your password",
+                            hintText: "Enter your email",
                             hintStyle: const TextStyle(
                               color: Color(0xFF8390A1),
                               fontSize: 15,
@@ -151,17 +116,60 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: ScreenUtil().setWidth(16)),
                             fillColor: Colors.white,
-                            suffixIcon: Padding(
-                              padding:
-                                  EdgeInsets.all(ScreenUtil().setWidth(12)),
-                              child: SvgPicture.asset(
-                                  'assets/images/fluent_eye-20-filled.svg'),
-                            ),
                             border: OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                        ),
+                        SizedBox(
+                          height: 15.h,
+                        ),
+                        BlocBuilder<LoginBloc, LoginState>(
+                          builder: (context, state) {
+                            return TextFormField(
+                              obscureText: state.isEyePressed,
+                              controller: _passwordController,
+                              keyboardType: TextInputType.visiblePassword,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your password';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: "Enter Your password",
+                                hintStyle: const TextStyle(
+                                  color: Color(0xFF8390A1),
+                                  fontSize: 15,
+                                  fontFamily: 'Urbanist',
+                                  fontWeight: FontWeight.w500,
+                                  height: 0.08,
+                                ),
+                                filled: true,
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: ScreenUtil().setWidth(16)),
+                                fillColor: Colors.white,
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    context
+                                        .read<LoginBloc>()
+                                        .add(LoginEvent.eyeButtonPressed());
+                                  },
+                                  icon: Icon(
+                                    state.isEyePressed
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                  ),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.white),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           height: ScreenUtil().setHeight(5),
@@ -192,10 +200,13 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 (l) {
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(SnackBar(
+                                        closeIconColor: Colors.red,
                                     content: l.maybeWhen(
                                       invalidEmailAndPasswordCombination: () =>
-                                          const Text("invalid username and password"),
-                                      orElse: () => const Text("Some Error Occured"),
+                                          const Text(
+                                              "invalid username and password"),
+                                      orElse: () =>
+                                          const Text("Some Error Occured",style: TextStyle(color: Colors.red),),
                                     ),
                                   ));
                                 },

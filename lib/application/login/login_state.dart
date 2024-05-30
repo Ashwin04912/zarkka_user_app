@@ -7,6 +7,7 @@ class LoginState with _$LoginState {
           required String password,
           required bool showErrorMessages,
           required bool isSubmitting,
+          required bool isEyePressed,
           required Option<Either<AuthFailure, Unit>> successOrfailure}) =
       _LoginState;
 
@@ -15,5 +16,6 @@ class LoginState with _$LoginState {
       password: '',
       showErrorMessages: false,
       isSubmitting: false,
+      isEyePressed: true,
       successOrfailure: None());
 }

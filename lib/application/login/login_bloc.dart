@@ -32,7 +32,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               emit(
                 state.copyWith(
                   isSubmitting: false,
-                  showErrorMessages: false,
+                  showErrorMessages: true,
                   successOrfailure: some(left(l)),
                 ),
               );
@@ -47,8 +47,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               );
             },
           );
-        },
+        }, eyeButtonPressed: (_EyeButtonPressed value) {  },
+
       );
+    });
+     on<_EyeButtonPressed>((event, emit) {
+      emit(state.copyWith(isEyePressed: !state.isEyePressed));
     });
   }
 }
+
+
+

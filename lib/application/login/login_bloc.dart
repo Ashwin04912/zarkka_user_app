@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tailme/domain/Login/auth_failure.dart';
@@ -47,15 +48,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               );
             },
           );
-        }, eyeButtonPressed: (_EyeButtonPressed value) {  },
-
+        },
+        eyeButtonPressed: (_EyeButtonPressed value) {
+         emit( state.copyWith(
+            isEyePressed: !state.isEyePressed,
+            isSubmitting: false,
+            showErrorMessages: false,
+            successOrfailure: const None()
+          ));
+        },
       );
-    });
-     on<_EyeButtonPressed>((event, emit) {
-      emit(state.copyWith(isEyePressed: !state.isEyePressed));
     });
   }
 }
-
-
-

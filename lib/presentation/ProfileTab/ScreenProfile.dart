@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tailme/presentation/ChangePassword/change_password_screen.dart';
+import 'package:tailme/presentation/auth/ChangePassword/change_password_screen.dart';
 import 'package:tailme/presentation/ContactUs/ScreenContactUs.dart';
 import 'package:tailme/presentation/AddAddress/add_address.dart';
 import 'package:tailme/presentation/MyProfile/screen_my_profiles.dart';

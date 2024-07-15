@@ -1,18 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:tailme/domain/Login/auth_failure.dart';
-import 'package:tailme/infrastructure/i_auth_facade_impl.dart';
+import 'package:tailme/infrastructure/auth/repository/auth_repository.dart';
 import '../../domain/Login/model/user_login_model.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
 
+
+@injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final _authFacde = AuthFacadeImpl();
+  final _authFacde = AuthRepository();
   LoginBloc() : super(LoginState.initial()) {
     on<LoginEvent>((event, emit) async {
       await event.map(

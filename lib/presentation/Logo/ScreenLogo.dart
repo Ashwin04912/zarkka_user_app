@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tailme/presentation/Login/ScreenLogin.dart';
-import 'package:tailme/presentation/RegisterUser/register_user.dart';
+import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
+import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
 
 
 class ScreenLogo extends StatelessWidget {

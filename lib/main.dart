@@ -4,10 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tailme/application/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/application/login/login_bloc.dart';
+import 'package:tailme/injection.dart';
 import 'package:tailme/presentation/SplashScreen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   runApp(const MainApp());
 }
 
@@ -25,8 +27,8 @@ class MainApp extends StatelessWidget {
       designSize: const Size(393, 812),
       builder: (context, child) => MultiBlocProvider(
         providers: [
-           BlocProvider<LoginBloc>(create: (context) => LoginBloc()),
-          BlocProvider<RegisterUserBloc>(create: (context) => RegisterUserBloc()),
+           BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
+          BlocProvider<RegisterUserBloc>(create: (context) => getIt<RegisterUserBloc> ()),
         ],
         child: MaterialApp(
           theme: ThemeData(

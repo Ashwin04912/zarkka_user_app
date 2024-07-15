@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/RegisterUser/register_user_bloc.dart';
-import 'package:tailme/presentation/Login/ScreenLogin.dart';
+import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
 
-import '../../domain/RegisterUser/model/user_register_model.dart';
+import '../../../domain/RegisterUser/model/user_register_model.dart';
 
 class ScreenUserRegistration extends StatefulWidget {
   const ScreenUserRegistration({super.key});

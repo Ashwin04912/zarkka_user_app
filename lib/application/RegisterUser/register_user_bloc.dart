@@ -1,17 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:tailme/domain/RegisterUser/model/user_register_model.dart';
+import 'package:tailme/infrastructure/auth/repository/auth_repository.dart';
 
 import '../../domain/Login/auth_failure.dart';
-import '../../infrastructure/i_auth_facade_impl.dart';
 
 part 'register_user_event.dart';
 part 'register_user_state.dart';
 part 'register_user_bloc.freezed.dart';
 
+
+@injectable
 class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
-  final _authFacde = AuthFacadeImpl();
+  final _authFacde = AuthRepository();
   RegisterUserBloc() : super(RegisterUserState.intial()) {
     on<RegisterUserEvent>((event, emit) async {
       await event.map(signUpButtonPressed: (_SignUpButtonPressed value) async {

@@ -3,7 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:dartz/dartz.dart'; // Make sure to add dartz package to your pubspec.yaml
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/domain/Login/auth_failure.dart';
+import 'package:tailme/domain/Login/model/login_response_model.dart';
 import 'package:tailme/infrastructure/i_auth_facade.dart';
 import 'package:tailme/infrastructure/string.dart';
 
@@ -69,6 +71,7 @@ class AuthRepository implements IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required emailAddress, required password}) async {
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
       debugPrint(
           "EMAIL AND PWD $emailAddress $password ${'$baseUrl$userLogin'}");
@@ -89,7 +92,10 @@ class AuthRepository implements IAuthFacade {
         data: data,
       );
 
+      final resp = LoginResponse.fromJson(response.data);
+
       if (response.statusCode == 200) {
+        await prefs.setString('token' ,resp.token);
         return right(unit);
       } else {
         return left(const AuthFailure.serverError());

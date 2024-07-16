@@ -11,7 +11,6 @@ part 'register_user_event.dart';
 part 'register_user_state.dart';
 part 'register_user_bloc.freezed.dart';
 
-
 @injectable
 class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
   final _authFacde = AuthRepository();
@@ -46,11 +45,23 @@ class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
               state.copyWith(
                   isSubmitting: false,
                   showErrorMessages: false,
-                  successOrfailure: None()),
+                  successOrfailure: none()),
             );
           },
         );
-      });
+      }, eyePassButtonPressed: (_eyeButtonPressed value) {
+        emit(state.copyWith(
+            isPassEyePressed: !state.isPassEyePressed,
+            isSubmitting: false,
+            showErrorMessages: false,
+            successOrfailure: const None()));
+      }, eyeCPassButtonPressed: (_eyeCPassButtonPressed value) { 
+        emit(state.copyWith(
+            isCpassEyePressed: !state.isCpassEyePressed,
+            isSubmitting: false,
+            showErrorMessages: false,
+            successOrfailure: const None()));
+       });
     });
   }
 }

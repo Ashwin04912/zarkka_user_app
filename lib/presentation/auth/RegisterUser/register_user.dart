@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
 
 import '../../../domain/RegisterUser/model/user_register_model.dart';
 
+// ignore: must_be_immutable
 class ScreenUserRegistration extends StatefulWidget {
   const ScreenUserRegistration({super.key});
 
@@ -14,14 +16,20 @@ class ScreenUserRegistration extends StatefulWidget {
 }
 
 class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  TextEditingController usernameController = TextEditingController();
+
+  TextEditingController emailController = TextEditingController();
+
+  TextEditingController passwordController = TextEditingController();
+
+  TextEditingController confirmPasswordController = TextEditingController();
+
+  bool _isButtonClicked = false;
+
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    TextEditingController usernameController = TextEditingController();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-    TextEditingController confirmPasswordController = TextEditingController();
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFF343333),
@@ -34,10 +42,34 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                       top: 72, left: 18, right: 18, bottom: 20),
                   child: BlocConsumer<RegisterUserBloc, RegisterUserState>(
                     listener: (context, state) {
-                      // TODO: implement listener
+                      state.successOrfailure.fold(
+                        () {},
+                        (a) {
+                          a.fold((l) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: l.maybeWhen(
+                                emailAlreadyInUse: () =>
+                                    const Text("Email already in use"),
+                                orElse: () => const Text("unknown error"),
+                              ),
+                            ));
+                          }, (r) {
+                            debugPrint("navigate work");
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                       ScreenLogin()),
+                              (route) => false,
+                            );
+                          });
+                        },
+                      );
                     },
                     builder: (context, state) {
                       return Form(
+                        autovalidateMode: _isButtonClicked
+                            ? AutovalidateMode.always
+                            : AutovalidateMode.disabled,
                         key: formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,6 +118,8 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter your username';
+                                } else if (value.length < 7) {
+                                  return 'Email should be atleast 6 characters';
                                 }
                                 return null;
                               },
@@ -116,12 +150,12 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             TextFormField(
                               controller: emailController,
                               validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your email';
+                                if (value!.isEmpty) {
+                                  return 'Please enter an email address';
                                 } else if (!RegExp(
-                                        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                                        r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
                                     .hasMatch(value)) {
-                                  return 'Please enter a valid email';
+                                  return 'Please enter a valid email address';
                                 }
                                 return null;
                               },
@@ -177,11 +211,14 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 suffixIcon: Padding(
                                   padding: const EdgeInsets.all(12),
                                   child: GestureDetector(
-                                    onTap: (){
-                                      BlocProvider.of<RegisterUserBloc>(context).add(const RegisterUserEvent.eyePassButtonPressed());
+                                    onTap: () {
+                                      BlocProvider.of<RegisterUserBloc>(context)
+                                          .add(const RegisterUserEvent
+                                              .eyePassButtonPressed());
                                     },
-                                    child: SvgPicture.asset(
-                                        'assets/images/fluent_eye-20-filled.svg'),
+                                    child: state.isPassEyePressed
+                                        ? const Icon(Icons.visibility)
+                                        : const Icon(Icons.visibility_off),
                                   ),
                                 ),
                                 border: OutlineInputBorder(
@@ -221,8 +258,16 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 fillColor: Colors.white,
                                 suffixIcon: Padding(
                                   padding: const EdgeInsets.all(12),
-                                  child: SvgPicture.asset(
-                                      'assets/images/fluent_eye-20-filled.svg'),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      BlocProvider.of<RegisterUserBloc>(context)
+                                          .add(const RegisterUserEvent
+                                              .eyeCPassButtonPressed());
+                                    },
+                                    child: state.isCpassEyePressed
+                                        ? const Icon(Icons.visibility)
+                                        : const Icon(Icons.visibility_off),
+                                  ),
                                 ),
                                 border: OutlineInputBorder(
                                   borderSide:
@@ -234,93 +279,63 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             const SizedBox(
                               height: 50,
                             ),
-                            SizedBox(
-                              width: double.infinity,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () async {
-                                  if (formKey.currentState!.validate()) {
-                                    var user = RegisterUserModel(
-                                      email: emailController.text,
-                                      password: passwordController.text,
-                                      confirmPassword:
-                                          confirmPasswordController.text,
-                                      userName: usernameController.text,
-                                    );
-                                    BlocProvider.of<RegisterUserBloc>(context)
-                                        .add(
-                                      RegisterUserEvent.signUpButtonPressed(
-                                        user: user,
+                            BlocBuilder<RegisterUserBloc,
+                                RegisterUserState>(
+                              builder: (context, state) {
+                                if (state.isSubmitting) {
+                                  return const LinearProgressIndicator(color: Colors.blue,);
+                                }
+                                return SizedBox(
+                                   width: double.infinity,
+                                height: ScreenUtil().setHeight(50),
+                                  child: ElevatedButton(
+                                    onPressed: () async {
+                                      _isButtonClicked = true;
+                                      if (formKey.currentState!.validate()) {
+                                        var user = RegisterUserModel(
+                                          email: emailController.text,
+                                          password: passwordController.text,
+                                          confirmPassword:
+                                              confirmPasswordController.text,
+                                          userName: usernameController.text,
+                                        );
+                                        BlocProvider.of<RegisterUserBloc>(
+                                                context)
+                                            .add(
+                                          RegisterUserEvent.signUpButtonPressed(
+                                            user: user,
+                                          ),
+                                        );
+                                      }
+                                    },
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          WidgetStateProperty.all<Color>(
+                                        const Color(
+                                            0xFFFFAC4B), // Set background color here
                                       ),
-                                    );
-                                  }
-                                },
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      WidgetStateProperty.all<Color>(
-                                    const Color(
-                                        0xFFFFAC4B), // Set background color here
-                                  ),
-                                  shape: WidgetStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
+                                      shape: WidgetStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      'Submit',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        fontFamily: 'Urbanist',
+                                        fontWeight: FontWeight.w600,
+                                        height: 0,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                child: BlocConsumer<RegisterUserBloc,
-                                    RegisterUserState>(
-                                  listener: (context, state) {
-                                    state.successOrfailure.fold(
-                                      () {},
-                                      (a) {
-                                        a.fold((l) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
-                                            content: l.maybeWhen(
-                                              invalidEmailAndPasswordCombination:
-                                                  () => const Text(
-                                                      "invalid user"),
-                                              orElse: () =>
-                                                  const Text("unknown error"),
-                                            ),
-                                          ));
-                                        }, (r) {
-                                          debugPrint("navigate work");
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const ScreenLogin(),
-                                            ),
-                                          );
-                                        });
-                                      },
-                                    );
-                                  },
-                                  builder: (context, state) {
-                                    if (state.isSubmitting) {
-                                      return const Center(
-                                        child: LinearProgressIndicator(
-                                          color: Color(0xFFFFAC4B),
-                                        ),
-                                      );
-                                    } else {
-                                      return const Text(
-                                        'Agree and Register',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                          fontFamily: 'Urbanist',
-                                          fontWeight: FontWeight.w600,
-                                          height: 0,
-                                        ),
-                                      );
-                                    }
-                                  },
-                                ),
-                              ),
+                                );
+                              },
                             ),
                             const SizedBox(
                               height: 36,

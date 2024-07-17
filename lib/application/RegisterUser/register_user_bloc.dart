@@ -45,7 +45,8 @@ class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
               state.copyWith(
                   isSubmitting: false,
                   showErrorMessages: false,
-                  successOrfailure: none()),
+                  successOrfailure: some(right(unit))
+                  ),
             );
           },
         );

@@ -9,7 +9,6 @@ import 'package:tailme/domain/Login/model/login_response_model.dart';
 import 'package:tailme/infrastructure/i_auth_facade.dart';
 import 'package:tailme/infrastructure/string.dart';
 
-
 @LazySingleton(as: IAuthFacade)
 class AuthRepository implements IAuthFacade {
   // Response model should return
@@ -43,9 +42,11 @@ class AuthRepository implements IAuthFacade {
         data: data,
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
+        print("i got response");
         return right(unit);
       } else {
+        print(response.data);
         return left(const AuthFailure.serverError());
       }
     } on DioException catch (e) {
@@ -53,14 +54,14 @@ class AuthRepository implements IAuthFacade {
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
         // Dio error with a response
+        if(e.response?.statusCode == 409){
+          return left(const AuthFailure.emailAlreadyInUse());
+        }
+
         debugPrint(
             'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
         return left(const AuthFailure.serverError());
-      } else if (e.response?.statusCode == 401) {
-        return left(const AuthFailure.invalidEmailAndPasswordCombination());
-      } else if (e.response?.statusCode == 404) {
-        return left(const AuthFailure.userNotFound());
-      } else {
+      }  else {
         // Dio error without a response
         debugPrint('Dio error! Message: ${e.message}');
         return left(const AuthFailure.serverError());
@@ -71,7 +72,7 @@ class AuthRepository implements IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required emailAddress, required password}) async {
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
       debugPrint(
           "EMAIL AND PWD $emailAddress $password ${'$baseUrl$userLogin'}");
@@ -95,7 +96,7 @@ class AuthRepository implements IAuthFacade {
       final resp = LoginResponse.fromJson(response.data);
 
       if (response.statusCode == 200) {
-        await prefs.setString('token' ,resp.token);
+        await prefs.setString('token', resp.token);
         return right(unit);
       } else {
         return left(const AuthFailure.serverError());
@@ -104,13 +105,12 @@ class AuthRepository implements IAuthFacade {
       if (e.type == DioExceptionType.cancel) {
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
-        if(e.response?.statusCode ==401){
+        if (e.response?.statusCode == 401) {
           print("hello");
           return left(const AuthFailure.invalidEmailAndPasswordCombination());
+        } else if (e.response?.statusCode == 404) {
+          return left(const AuthFailure.userNotFound());
         }
-        else if (e.response?.statusCode == 404) {
-        return left(const AuthFailure.userNotFound());
-      }
         // Dio error with a response
         debugPrint(
             'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');

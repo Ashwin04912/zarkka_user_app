@@ -7,13 +7,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/login/login_bloc.dart';
 import 'package:tailme/domain/Login/model/user_login_model.dart';
 import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
-import 'package:tailme/presentation/Home/ScreenHome.dart';
 import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
 
 // Importing bottom navigation screen
 
 class ScreenLogin extends StatefulWidget {
-  const ScreenLogin({Key? key}) : super(key: key);
+   ScreenLogin({Key? key}) : super(key: key);
 
   @override
   State<ScreenLogin> createState() => _ScreenLoginState();
@@ -21,10 +20,13 @@ class ScreenLogin extends StatefulWidget {
 
 class _ScreenLoginState extends State<ScreenLogin> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
+
  bool _submitted = false;
-  
+
   @override
   Widget build(BuildContext context) {
     
@@ -437,7 +439,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const ScreenUserRegistration()),
+                                         ScreenUserRegistration()),
                               );
                             },
                         ),

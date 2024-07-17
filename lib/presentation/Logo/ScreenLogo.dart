@@ -82,7 +82,7 @@ class ScreenLogo extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ScreenUserRegistration()),
+                    MaterialPageRoute(builder: (context) =>  ScreenUserRegistration()),
                   );
                 },
                 style: ButtonStyle(

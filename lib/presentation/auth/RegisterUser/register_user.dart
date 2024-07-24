@@ -218,8 +218,8 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                               .eyePassButtonPressed());
                                     },
                                     child: state.isPassEyePressed
-                                        ? const Icon(Icons.visibility)
-                                        : const Icon(Icons.visibility_off),
+                                        ? const Icon(Icons.visibility_off)
+                                        : const Icon(Icons.visibility),
                                   ),
                                 ),
                                 border: OutlineInputBorder(
@@ -266,8 +266,8 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                               .eyeCPassButtonPressed());
                                     },
                                     child: state.isCpassEyePressed
-                                        ? const Icon(Icons.visibility)
-                                        : const Icon(Icons.visibility_off),
+                                        ? const Icon(Icons.visibility_off)
+                                        : const Icon(Icons.visibility),
                                   ),
                                 ),
                                 border: OutlineInputBorder(

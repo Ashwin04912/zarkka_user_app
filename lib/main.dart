@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tailme/application/RegisterUser/register_user_bloc.dart';
-import 'package:tailme/application/login/login_bloc.dart';
+import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
+import 'package:tailme/application/auth/RegisterUser/register_user_bloc.dart';
+import 'package:tailme/application/auth/login/login_bloc.dart';
 import 'package:tailme/injection.dart';
 import 'package:tailme/presentation/SplashScreen/splash_screen.dart';
 
@@ -29,6 +30,7 @@ class MainApp extends StatelessWidget {
         providers: [
            BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
           BlocProvider<RegisterUserBloc>(create: (context) => getIt<RegisterUserBloc> ()),
+          BlocProvider<OtpVerificationBloc>(create: (context) => getIt<OtpVerificationBloc> ()),
         ],
         child: MaterialApp(
           theme: ThemeData(

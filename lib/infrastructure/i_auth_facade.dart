@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:tailme/domain/Login/auth_failure.dart';
+import 'package:tailme/domain/auth/Login/auth_failure.dart';
 
 abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
@@ -9,7 +9,12 @@ abstract class IAuthFacade {
     required String userName
   });
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
-    required emailAddress,
-    required password,
+    required String emailAddress,
+    required String password,
+  });
+
+  Future<Either<AuthFailure,Unit>> otpVerification({
+    required String otp,
+    required String email
   });
 }

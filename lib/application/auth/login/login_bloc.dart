@@ -3,9 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tailme/domain/Login/auth_failure.dart';
+import 'package:tailme/domain/auth/Login/auth_failure.dart';
 import 'package:tailme/infrastructure/auth/repository/auth_repository.dart';
-import '../../domain/Login/model/user_login_model.dart';
+import '../../../domain/auth/Login/model/user_login_model.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

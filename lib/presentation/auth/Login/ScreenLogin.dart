@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tailme/application/login/login_bloc.dart';
-import 'package:tailme/domain/Login/model/user_login_model.dart';
+import 'package:tailme/application/auth/login/login_bloc.dart';
+import 'package:tailme/domain/auth/Login/model/user_login_model.dart';
 import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
 

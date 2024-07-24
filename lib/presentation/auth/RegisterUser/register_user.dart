@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tailme/application/RegisterUser/register_user_bloc.dart';
+import 'package:tailme/application/auth/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
+import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
 
-import '../../../domain/RegisterUser/model/user_register_model.dart';
+import '../../../domain/auth/RegisterUser/model/user_register_model.dart';
 
 // ignore: must_be_immutable
 class ScreenUserRegistration extends StatefulWidget {
@@ -55,11 +56,11 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             ));
                           }, (r) {
                             debugPrint("navigate work");
-                            Navigator.of(context).pushAndRemoveUntil(
+                            Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (context) =>
-                                       ScreenLogin()),
-                              (route) => false,
+                                       ScreenOtpVerfication(email: emailController.text,)),
+                              
                             );
                           });
                         },
@@ -123,7 +124,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 }
                                 return null;
                               },
-                              keyboardType: TextInputType.emailAddress,
+                              keyboardType: TextInputType.name,
                               decoration: InputDecoration(
                                 hintText: "Username",
                                 hintStyle: const TextStyle(
@@ -159,7 +160,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 }
                                 return null;
                               },
-                              keyboardType: TextInputType.visiblePassword,
+                              keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 hintText: "Email",
                                 hintStyle: const TextStyle(

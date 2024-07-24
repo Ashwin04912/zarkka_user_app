@@ -2,10 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tailme/domain/RegisterUser/model/user_register_model.dart';
+import 'package:tailme/domain/auth/RegisterUser/model/user_register_model.dart';
 import 'package:tailme/infrastructure/auth/repository/auth_repository.dart';
 
-import '../../domain/Login/auth_failure.dart';
+import '../../../domain/auth/Login/auth_failure.dart';
 
 part 'register_user_event.dart';
 part 'register_user_state.dart';
@@ -29,18 +29,18 @@ class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
         );
 
         resp.fold(
-          (l) {
+          (f) {
             emit(
               state.copyWith(
                 isSubmitting: false,
                 showErrorMessages: false,
                 successOrfailure: some(
-                  left(l),
+                  left(f),
                 ),
               ),
             );
           },
-          (r) {
+          (s) {
             emit(
               state.copyWith(
                   isSubmitting: false,

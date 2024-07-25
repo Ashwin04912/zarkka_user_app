@@ -8,5 +8,12 @@ class OtpVerificationEvent with _$OtpVerificationEvent {
     
   }) = _VerifyButtonClicked;
 
+  const factory OtpVerificationEvent.resendButtonClicked({
+    required String email
+  }) = _resendButtonClicked;
+    
+  }
+  
+
  
-}
+

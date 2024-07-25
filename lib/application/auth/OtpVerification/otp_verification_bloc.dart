@@ -26,14 +26,41 @@ class OtpVerificationBloc
 
         resp.fold((f) {
           emit(state.copyWith(
+            isSubmit: true,
+            isResendOtp: false,
             successOrfailure: some(left(f)),
             isSubmitting: false,
-
           ));
         }, (s) {
           emit(state.copyWith(
             successOrfailure: some(right(unit)),
-            isSubmitting: false
+            isResendOtp: false,
+            isSubmitting: false,
+            isSubmit: true,
+          ));
+        });
+      }, resendButtonClicked: (_resendButtonClicked value) async {
+        emit(state.copyWith(
+          isSubmitting: true,
+          isSubmit: false,
+          isResendOtp: true,
+          successOrfailure: none(),
+        ));
+        final resp = await _authFacde.resendOtp(email: value.email);
+
+        resp.fold((f) {
+          emit(state.copyWith(
+            isSubmitting: false,
+            isSubmit: false,
+            isResendOtp: true,
+            successOrfailure: some(left(f)),
+          ));
+        }, (s) {
+          emit(state.copyWith(
+            isSubmitting: false,
+            successOrfailure: some(right(unit)),
+            isSubmit: false,
+            isResendOtp: true,
           ));
         });
       });

@@ -17,4 +17,9 @@ abstract class IAuthFacade {
     required String otp,
     required String email
   });
+
+  Future<Either<AuthFailure,Unit>> resendOtp({
+    
+    required String email
+  });
 }

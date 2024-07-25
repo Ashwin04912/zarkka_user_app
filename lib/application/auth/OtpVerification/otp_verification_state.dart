@@ -4,9 +4,15 @@ part of 'otp_verification_bloc.dart';
 class OtpVerificationState with _$OtpVerificationState {
   const factory OtpVerificationState({
     required bool isSubmitting,
+    required bool isResendOtp,
+    required bool isSubmit,
     required Option<Either<AuthFailure, Unit>> successOrfailure,
   }) = _OtpVerificationState;
 
-  factory OtpVerificationState.initial() =>
-      const OtpVerificationState(isSubmitting: false, successOrfailure: None());
+  factory OtpVerificationState.initial() => const OtpVerificationState(
+        isSubmitting: false,
+        successOrfailure: None(),
+        isSubmit: false,
+        isResendOtp: false,
+      );
 }

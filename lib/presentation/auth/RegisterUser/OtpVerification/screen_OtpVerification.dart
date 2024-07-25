@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/verification_completed.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ScreenOtpVerfication extends StatefulWidget {
   final String email;
@@ -34,68 +35,14 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Container(
-                    height: 40.h,
-                    width: 40.w,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.r),
-                    ),
-                    child: Center(
-                        child: Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: SvgPicture.asset('assets/images/back_arrow.svg',
-                          color: Colors.black),
-                    )),
-                  ),
-                ),
-                SizedBox(height: 55.h),
-                const Text(
-                  'OTP Verification',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'urbanist',
-                    fontWeight: FontWeight.w700,
-                    fontSize: 30,
-                  ),
-                ),
-                SizedBox(height: 8.h),
-                const Text(
-                  'Enter the verification code we just sent on your email address.',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 172, 166, 166),
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    fontFamily: 'urbanist',
-                  ),
-                ),
-                SizedBox(height: 30.h),
-                Form(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      buildOtpField(context, otp1),
-                      buildOtpField(context, otp2),
-                      buildOtpField(context, otp3),
-                      buildOtpField(context, otp4),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 30.h),
-                BlocConsumer<OtpVerificationBloc, OtpVerificationState>(
-                  listener: (context, state) {
-                    state.successOrfailure.fold(() {}, (some) {
+          child: BlocConsumer<OtpVerificationBloc, OtpVerificationState>(
+           listener: (context, state) {
+            if(state.isSubmit){
+              state.successOrfailure.fold(() {}, (some) {
                       some.fold((f) {
                         final message = f.maybeWhen(
                           invalidOtp: () => 'Invalid Otp',
+                          
                           serverError: () => 'Server error',
                           userNotFound: () => 'User not found',
                           orElse: () => 'Some error occurred',
@@ -109,12 +56,97 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const OtpVerificationCompleted()));
                       });
                     });
+            }
+            else if(state.isResendOtp){
+              state.successOrfailure.fold(() {}, (some) {
+                      some.fold((f) {
+                        final message = f.maybeWhen(
+                          invalidOtp: () => 'Invalid Otp',
+                          
+                          serverError: () => 'Server error',
+                          userNotFound: () => 'User not found',
+                          orElse: () => 'Some error occurred',
+                        );
+
+                        
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(message)),
+                        );
+                      }, (s) {
+                         ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Otp sent')));
+                      });
+                    });
+            }
+                    
                   },
-                  builder: (context, state) {
-                    if(state.isSubmitting){
-                      return const LinearProgressIndicator(color: Colors.blue,);
-                    }
-                    return SizedBox(
+            builder: (context, state) {
+              if (state.isSubmitting) {
+                return Center(
+                  child: LoadingAnimationWidget.staggeredDotsWave(
+                    color: Colors.white,
+                    size: 200,
+                  ),
+                );
+              }
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: 40.h,
+                        width: 40.w,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: Center(
+                            child: Padding(
+                          padding: const EdgeInsets.all(1.0),
+                          child: SvgPicture.asset(
+                              'assets/images/back_arrow.svg',
+                              color: Colors.black),
+                        )),
+                      ),
+                    ),
+                    SizedBox(height: 55.h),
+                    const Text(
+                      'OTP Verification',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'urbanist',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 30,
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    const Text(
+                      'Enter the verification code we just sent on your email address.',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 172, 166, 166),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        fontFamily: 'urbanist',
+                      ),
+                    ),
+                    SizedBox(height: 30.h),
+                    Form(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          buildOtpField(context, otp1),
+                          buildOtpField(context, otp2),
+                          buildOtpField(context, otp3),
+                          buildOtpField(context, otp4),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 30.h),
+                    SizedBox(
                       height: 55.h,
                       width: double.infinity,
                       child: ElevatedButton(
@@ -144,45 +176,49 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                           ),
                         ),
                       ),
-                    );
-                  },
-                ),
-                SizedBox(
-                  height: 370.h,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    ),
+                    SizedBox(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          const Text(
-                            'Didn’t receive the code?',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'urbanist',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              'Resend',
-                              style: TextStyle(
-                                color: Colors.cyan,
-                                fontFamily: 'urbanist',
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Didn’t receive the code?',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'urbanist',
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
-                            ),
-                          )
+                              TextButton(
+                                onPressed: () {
+                                  BlocProvider.of<OtpVerificationBloc>(context)
+                                      .add(OtpVerificationEvent
+                                          .resendButtonClicked(
+                                              email: widget.email));
+                                },
+                                child: const Text(
+                                  'Resend',
+                                  style: TextStyle(
+                                    color: Colors.cyan,
+                                    fontFamily: 'urbanist',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+                    )
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ),

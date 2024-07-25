@@ -166,4 +166,50 @@ class AuthRepository implements IAuthFacade {
       }
     }
   }
+  
+  @override
+  Future<Either<AuthFailure, Unit>> resendOtp({required String email}) async {
+    try {
+      var headers = {'Content-Type': 'application/json'};
+      var data = json.encode({"email": email});
+      var dio = Dio();
+      var response = await dio.request(
+        '$baseUrl$otpresend',
+        options: Options(
+          method: 'POST',
+          headers: headers,
+        ),
+        data: data,
+      );
+      print(response.statusCode);
+
+
+      if (response.statusCode == 200) {
+        debugPrint('otp sent');
+        return right(unit);
+        
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.cancel) {
+        return left(const AuthFailure.cancelledByUser());
+      } else if (e.response != null) {
+        if (e.response?.statusCode == 404) {
+          print("hello");
+          return left(const AuthFailure.userNotFound());
+        } else if (e.response?.statusCode == 400) {
+          return left(const AuthFailure.invalidOtp());
+        }
+        // Dio error with a response
+        debugPrint(
+            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        return left(const AuthFailure.serverError());
+      } else {
+        // Dio error without a response
+        debugPrint('Dio error! Message: ${e.message}');
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
 }

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/auth/RegisterUser/register_user_bloc.dart';
-import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
 
 import '../../../domain/auth/RegisterUser/model/user_register_model.dart';

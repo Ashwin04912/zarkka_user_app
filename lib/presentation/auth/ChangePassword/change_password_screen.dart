@@ -9,8 +9,8 @@ class ScreenChangePassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Change Password'),
-        titleTextStyle: TextStyle(
+        title: const Text('Change Password'),
+        titleTextStyle: const TextStyle(
           color: Colors.white,
           fontSize: 16,
           fontFamily: 'Raleway',
@@ -24,7 +24,7 @@ class ScreenChangePassword extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Enter Old Password',
               style: TextStyle(
                 color: Colors.white,
@@ -43,7 +43,7 @@ class ScreenChangePassword extends StatelessWidget {
                 textAlignVertical: TextAlignVertical.top,
                 decoration: InputDecoration(
                   hintText: "Password",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Color(0xFF707070),
                     fontSize: 15,
                     fontFamily: 'Raleway',
@@ -63,7 +63,7 @@ class ScreenChangePassword extends StatelessWidget {
             SizedBox(
               height: 43.h,
             ),
-            Text(
+            const Text(
               'Enter Old Password',
               style: TextStyle(
                 color: Colors.white,
@@ -82,7 +82,7 @@ class ScreenChangePassword extends StatelessWidget {
                 textAlignVertical: TextAlignVertical.top,
                 decoration: InputDecoration(
                   hintText: "Enter New Password",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Color(0xFF707070),
                     fontSize: 15,
                     fontFamily: 'Raleway',
@@ -108,7 +108,7 @@ class ScreenChangePassword extends StatelessWidget {
                 textAlignVertical: TextAlignVertical.top,
                 decoration: InputDecoration(
                   hintText: "Re-Enter New Password",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Color(0xFF707070),
                     fontSize: 15,
                     fontFamily: 'Raleway',

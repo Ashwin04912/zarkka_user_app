@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:tailme/domain/auth/Login/auth_failure.dart';
+import 'package:tailme/core/failures/auth/auth_failure.dart';
 
 abstract class IAuthFacade {
+
+
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     required String email,
     required String pass,

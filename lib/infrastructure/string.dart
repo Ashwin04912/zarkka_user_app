@@ -3,3 +3,5 @@ const String userLogin = 'user-login';
 const String userRegUrl = 'user-register';
 const String otpVerifyUrl = 'verify-email';
 const String otpresend = 'resend-otp';
+const String addAddressUrl = 'save-address';
+const String getAddress = 'getAllAddress';

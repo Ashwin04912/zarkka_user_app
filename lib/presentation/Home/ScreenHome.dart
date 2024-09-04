@@ -1,9 +1,6 @@
-// Importing necessary packages
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:dio/dio.dart';
-import 'package:tailme/presentation/getHttp.dart';
 import 'package:tailme/presentation/Shop/ScreenShop.dart';
+import 'package:tailme/presentation/getHttp.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/core/widgets/imagewithtext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,9 +21,6 @@ class _ScreenHomeState extends State<ScreenHome> {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize ScreenUtil for width and height adaptation
-
-
     return Scaffold(
       backgroundColor: const Color(0xFF343333),
       appBar: ReusableWidgets.getAppBar(context),
@@ -50,7 +44,6 @@ class _ScreenHomeState extends State<ScreenHome> {
                     fontSize: 24,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w700,
-                
                   ),
                 ),
                 SizedBox(
@@ -60,9 +53,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                   children: [
                     Center(
                       child: InkWell(
-                        onTap: () {
-                          getHttp();
-                        },
+                        onTap: () {},
                         child: ImageWithText(
                           imagePath: 'assets/images/men.jpg',
                           text: 'Men',
@@ -81,173 +72,143 @@ class _ScreenHomeState extends State<ScreenHome> {
                       ),
                     ),
                     const Spacer(),
-                    SvgPicture.asset('assets/images/all.svg'),
+                    Container(
+                      width: ScreenUtil().setWidth(103.67),
+                      height: ScreenUtil().setHeight(44),
+                      clipBehavior: Clip.antiAlias,
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFD66728),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Kids',
+                          style: TextStyle(
+                            fontFamily: 'Raleway',
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: ScreenUtil().setHeight(30)),
                   child: const Text(
-                    'Featured Shops',
+                    'Offers',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize:24,
+                      fontSize: 24,
                       fontFamily: 'Raleway',
                       fontWeight: FontWeight.w700,
-                     
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(200), // Adjust height as needed
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5, // Number of items
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        width: ScreenUtil().setWidth(314), // Width of each item
+                        margin: EdgeInsets.only(
+                            right: ScreenUtil().setWidth(10)), // Margin between items
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/home/offers.jpg',
+                            fit: BoxFit.cover, // Ensure the image covers the container properly
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: ScreenUtil().setHeight(30)),
+                  child: const Text(
+                    'Find your styles',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: ScreenUtil().setHeight(25),
+                  height: ScreenUtil().setHeight(10),
                 ),
-                FutureBuilder<Response>(
-                  future: getHttp(),
-                  builder: (context, AsyncSnapshot<Response> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasError) {
-                      return Text('Error: ${snapshot.error}');
-                    } else if (!snapshot.hasData ||
-                        snapshot.data!.data.isEmpty) {
-                      return const Text('No data available');
-                    } else {
-                      final bodyResponse = snapshot.data!.data;
-                      final List<dynamic> shops = bodyResponse['data'] ?? [];
-                      return ListView.builder(
-                        shrinkWrap: true,
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: shops.length,
-                        itemBuilder: (context, index) {
-                          final shop = shops[index];
-                          final shopName = shop['business_name'];
-                          final location = shop['location'];
-                          final image = shop['image'];
-
-                          return InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ScreenShop(
-                                      shopname: shopName.toString(),
-                                      location: location.toString(),
-                                      image: image.toString()),
-                                ),
-                              );
-                            },
-                            child: Container(
-                              width: ScreenUtil().setWidth(343),
-                              height: ScreenUtil().setHeight(288),
-                              margin: EdgeInsets.symmetric(
-                                vertical: ScreenUtil().setHeight(10),
-                              ),
-                              decoration: ShapeDecoration(
-                                color: const Color(0xFFFDEBC9),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18),
-                                ),
-                              ),
-                              child: Column(
-                                
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      left:20.sp,
-                                      right:21.sp,
-                                      top: 21.sp,
-                                    ),
-                                    child: Container(
-                                      width: ScreenUtil().setWidth(302),
-                                      height: ScreenUtil().setHeight(170),
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: ShapeDecoration(
-                                        color: const Color(0xFFBCAD92),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            ScreenUtil().setWidth(18),
-                                          ),
-                                        ),
-                                      ),
-                                      child: Image.network(
-                                        image,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      left: ScreenUtil().setWidth(20),
-                                      right: ScreenUtil().setWidth(20),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Text.rich(
-                                          TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: shopName,
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize:
-                                                      ScreenUtil().setSp(24),
-                                                  fontFamily: 'Raleway',
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              TextSpan(
-                                                text: "\n$location",
-                                                style: TextStyle(
-                                                  color: const Color(0xDB363535),
-                                                  fontSize:
-                                                      ScreenUtil().setSp(13),
-                                                  fontFamily: 'Raleway',
-                                                  fontWeight: FontWeight.w700,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        const Spacer(),
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: SvgPicture.asset(
-                                            'assets/images/filled_like.svg',
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      left: ScreenUtil().setWidth(22),
-                                      top: ScreenUtil().setHeight(15),
-                                      right: ScreenUtil().setWidth(23),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          '\$69',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: ScreenUtil().setSp(13),
-                                            fontFamily: 'Raleway',
-                                            fontWeight: FontWeight.w700,
-                                            height: 0.11,
-                                            letterSpacing: -0.50,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // Number of columns
+                    crossAxisSpacing: 8.0, // Horizontal spacing
+                    mainAxisSpacing: 8.0, // Vertical spacing
+                    childAspectRatio: (230 / 248), // Aspect ratio of each item
+                  ),
+                  itemCount: 8, // Number of items
+                  shrinkWrap: true, // Makes GridView take only the necessary space
+                  physics: const NeverScrollableScrollPhysics(), // Disables scrolling within GridView
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return ScreenShop(shopname: "hello", location: "Ernakulam", image: "https://suta.in/cdn/shop/products/crimson-cranberry-248511.jpg?v=1681121009&width=900");
+                        }));
+                      },
+                      child: SizedBox(
+                        width: ScreenUtil().setWidth(185),
+                        height: ScreenUtil().setHeight(248),
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                'assets/images/home/blouse.jpg',
+                                fit: BoxFit.cover, // Ensure the image covers the container
                               ),
                             ),
-                          );
-                        },
-                      );
-                    }
+                            Positioned(
+                              top: 80,
+                              child: Container(
+                                width: 171.w,
+                                height:91.h,
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    begin: Alignment(0.00, -1.00),
+                                    end: Alignment(0, 1),
+                                    colors: [Color(0x00D9D9D9), Color(0xFF080808)],
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: const Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'Blouse',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontFamily: 'Urbanist',
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
                   },
                 ),
               ],

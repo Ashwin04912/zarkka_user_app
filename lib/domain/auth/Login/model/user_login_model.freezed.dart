@@ -23,8 +23,12 @@ mixin _$UserLogin {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
+  /// Serializes this UserLogin to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserLogin
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserLoginCopyWith<UserLogin> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$UserLoginCopyWithImpl<$Res, $Val extends UserLogin>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserLogin
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$UserLoginImplCopyWithImpl<$Res>
       _$UserLoginImpl _value, $Res Function(_$UserLoginImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserLogin
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$UserLoginImpl implements _UserLogin {
                 other.password == password));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, email, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserLogin
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserLoginImplCopyWith<_$UserLoginImpl> get copyWith =>
@@ -162,8 +172,11 @@ abstract class _UserLogin implements UserLogin {
   String get email;
   @override
   String get password;
+
+  /// Create a copy of UserLogin
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserLoginImplCopyWith<_$UserLoginImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

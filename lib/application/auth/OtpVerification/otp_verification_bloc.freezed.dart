@@ -56,7 +56,9 @@ mixin _$OtpVerificationEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OtpVerificationEventCopyWith<OtpVerificationEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -81,6 +83,8 @@ class _$OtpVerificationEventCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +118,8 @@ class __$$VerifyButtonClickedImplCopyWithImpl<$Res>
       $Res Function(_$VerifyButtonClickedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,7 +166,9 @@ class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
   @override
   int get hashCode => Object.hash(runtimeType, otp, email);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VerifyButtonClickedImplCopyWith<_$VerifyButtonClickedImpl> get copyWith =>
@@ -238,8 +246,11 @@ abstract class _VerifyButtonClicked implements OtpVerificationEvent {
   String get otp;
   @override
   String get email;
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VerifyButtonClickedImplCopyWith<_$VerifyButtonClickedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -263,6 +274,8 @@ class __$$resendButtonClickedImplCopyWithImpl<$Res>
       $Res Function(_$resendButtonClickedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -301,7 +314,9 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   @override
   int get hashCode => Object.hash(runtimeType, email);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$resendButtonClickedImplCopyWith<_$resendButtonClickedImpl> get copyWith =>
@@ -377,8 +392,11 @@ abstract class _resendButtonClicked implements OtpVerificationEvent {
 
   @override
   String get email;
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$resendButtonClickedImplCopyWith<_$resendButtonClickedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -391,7 +409,9 @@ mixin _$OtpVerificationState {
   Option<Either<AuthFailure, Unit>> get successOrfailure =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OtpVerificationStateCopyWith<OtpVerificationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -420,6 +440,8 @@ class _$OtpVerificationStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -472,6 +494,8 @@ class __$$OtpVerificationStateImplCopyWithImpl<$Res>
       $Res Function(_$OtpVerificationStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -543,7 +567,9 @@ class _$OtpVerificationStateImpl implements _OtpVerificationState {
   int get hashCode => Object.hash(
       runtimeType, isSubmitting, isResendOtp, isSubmit, successOrfailure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OtpVerificationStateImplCopyWith<_$OtpVerificationStateImpl>
@@ -568,8 +594,11 @@ abstract class _OtpVerificationState implements OtpVerificationState {
   bool get isSubmit;
   @override
   Option<Either<AuthFailure, Unit>> get successOrfailure;
+
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OtpVerificationStateImplCopyWith<_$OtpVerificationStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

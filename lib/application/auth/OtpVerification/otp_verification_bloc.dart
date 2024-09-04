@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tailme/domain/auth/Login/auth_failure.dart';
+import 'package:tailme/core/failures/auth/auth_failure.dart';
 
-import 'package:tailme/infrastructure/auth/repository/auth_repository.dart';
+import 'package:tailme/infrastructure/auth/auth_repository.dart';
 
 part 'otp_verification_event.dart';
 part 'otp_verification_state.dart';

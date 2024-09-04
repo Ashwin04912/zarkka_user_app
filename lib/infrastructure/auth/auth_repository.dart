@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:dartz/dartz.dart'; // Make sure to add dartz package to your pubspec.yaml
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tailme/domain/auth/Login/auth_failure.dart';
+import 'package:tailme/core/failures/auth/auth_failure.dart';
 import 'package:tailme/domain/auth/Login/model/login_response_model.dart';
-import 'package:tailme/infrastructure/i_auth_facade.dart';
+import 'package:tailme/infrastructure/facades/i_auth_facade.dart';
 import 'package:tailme/infrastructure/string.dart';
 
 @LazySingleton(as: IAuthFacade)

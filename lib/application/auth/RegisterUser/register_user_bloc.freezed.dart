@@ -79,6 +79,9 @@ class _$RegisterUserEventCopyWithImpl<$Res, $Val extends RegisterUserEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of RegisterUserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -98,6 +101,8 @@ class __$$SignUpButtonPressedImplCopyWithImpl<$Res>
       $Res Function(_$SignUpButtonPressedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RegisterUserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -136,7 +141,9 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
   @override
   int get hashCode => Object.hash(runtimeType, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RegisterUserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SignUpButtonPressedImplCopyWith<_$SignUpButtonPressedImpl> get copyWith =>
@@ -218,7 +225,10 @@ abstract class _SignUpButtonPressed implements RegisterUserEvent {
       _$SignUpButtonPressedImpl;
 
   RegisterUserModel get user;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RegisterUserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignUpButtonPressedImplCopyWith<_$SignUpButtonPressedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -237,6 +247,9 @@ class __$$eyeButtonPressedImplCopyWithImpl<$Res>
   __$$eyeButtonPressedImplCopyWithImpl(_$eyeButtonPressedImpl _value,
       $Res Function(_$eyeButtonPressedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RegisterUserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -347,6 +360,9 @@ class __$$eyeCPassButtonPressedImplCopyWithImpl<$Res>
   __$$eyeCPassButtonPressedImplCopyWithImpl(_$eyeCPassButtonPressedImpl _value,
       $Res Function(_$eyeCPassButtonPressedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RegisterUserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -456,7 +472,9 @@ mixin _$RegisterUserState {
   bool get isPassEyePressed => throw _privateConstructorUsedError;
   bool get isCpassEyePressed => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RegisterUserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RegisterUserStateCopyWith<RegisterUserState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -489,6 +507,8 @@ class _$RegisterUserStateCopyWithImpl<$Res, $Val extends RegisterUserState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RegisterUserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -571,6 +591,8 @@ class __$$RegisterUserStateImplCopyWithImpl<$Res>
       $Res Function(_$RegisterUserStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RegisterUserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -700,7 +722,9 @@ class _$RegisterUserStateImpl implements _RegisterUserState {
       isPassEyePressed,
       isCpassEyePressed);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RegisterUserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RegisterUserStateImplCopyWith<_$RegisterUserStateImpl> get copyWith =>
@@ -738,8 +762,11 @@ abstract class _RegisterUserState implements RegisterUserState {
   bool get isPassEyePressed;
   @override
   bool get isCpassEyePressed;
+
+  /// Create a copy of RegisterUserState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RegisterUserStateImplCopyWith<_$RegisterUserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

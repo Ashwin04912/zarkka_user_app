@@ -12,7 +12,7 @@ import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
 // Importing bottom navigation screen
 
 class ScreenLogin extends StatefulWidget {
-   ScreenLogin({Key? key}) : super(key: key);
+  const ScreenLogin({Key? key}) : super(key: key);
 
   @override
   State<ScreenLogin> createState() => _ScreenLoginState();
@@ -25,11 +25,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
 
   final TextEditingController _passwordController = TextEditingController();
 
- bool _submitted = false;
+  bool _submitted = false;
 
   @override
   Widget build(BuildContext context) {
-    
     debugPrint("build print");
     // Initialize ScreenUtil for width and height adaptation
 
@@ -71,7 +70,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     },
                     builder: (context, state) {
                       return Form(
-                        autovalidateMode: _submitted? AutovalidateMode.always : AutovalidateMode.disabled,
+                        autovalidateMode: _submitted
+                            ? AutovalidateMode.always
+                            : AutovalidateMode.disabled,
                         key: _formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,19 +212,25 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             SizedBox(
                               height: ScreenUtil().setHeight(5),
                             ),
-                            const Row(
+                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(
-                                  'Forgot Password?',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontFamily: 'Urbanist',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
+                                TextButton(
+                                  onPressed: (){
+                                    print('hellp');
+                                  },
+                                  child: const Text(
+                                    
+                                    'Forgot Password?',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontFamily: 'Urbanist',
+                                      fontWeight: FontWeight.w600,
+                                      height: 0,
+                                    ),
                                   ),
-                                ),
+                                )
                               ],
                             ),
                             SizedBox(
@@ -242,7 +249,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                     builder: (context, state) {
                                       return ElevatedButton(
                                         onPressed: () {
-                                         _submitted = true;
+                                          _submitted = true;
                                           if (_formKey.currentState!
                                               .validate()) {
                                             final user = UserLogin(
@@ -439,7 +446,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                         ScreenUserRegistration()),
+                                        const ScreenUserRegistration()),
                               );
                             },
                         ),

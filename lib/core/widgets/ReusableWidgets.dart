@@ -47,7 +47,16 @@ class ReusableWidgets {
                 MaterialPageRoute(
                     builder: (context) => const ScreenWishlist()));
           },
-          icon: SvgPicture.asset('assets/images/heart_ic.svg'),
+          icon: SvgPicture.asset('assets/images/home/heart_ic.svg'),
+        ),
+        IconButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ScreenWishlist()));
+          },
+          icon: SvgPicture.asset('assets/images/home/cart.svg'),
         ),
         IconButton(
           onPressed: () {
@@ -56,7 +65,7 @@ class ReusableWidgets {
                 MaterialPageRoute(
                     builder: (context) => const ScreenNotification()));
           },
-          icon: SvgPicture.asset('assets/images/Alert_Bell.svg'),
+          icon: SvgPicture.asset('assets/images/home/Alert_Bell.svg'),
         ),
       ],
     );

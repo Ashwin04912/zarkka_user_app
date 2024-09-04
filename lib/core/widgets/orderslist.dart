@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 
 class OrdersList extends StatelessWidget {
- const  OrdersList({ Key? key});
+ const  OrdersList({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class OrdersList extends StatelessWidget {
             width: 340.w,
             height: 159.h,
             decoration: ShapeDecoration(
-              color: Color(0xFFD9D9D9),
+              color: const Color(0xFFD9D9D9),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(9.w), // You can choose to use .w here too
               ),
@@ -38,7 +38,7 @@ class OrdersList extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             '  Delivered',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -77,13 +77,13 @@ class OrdersList extends StatelessWidget {
                   width: 317.w,
                   height: 106.h,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFAAAAAA),
+                    color: const Color(0xFFAAAAAA),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(9.w),
                     ),
                     shadows: [
                       BoxShadow(
-                        color: Color(0x47000000),
+                        color: const Color(0x47000000),
                         blurRadius: 6.w,
                         offset: Offset(0, 4.h),
                         spreadRadius: 0,
@@ -102,7 +102,7 @@ class OrdersList extends StatelessWidget {
                               width: 81.w,
                               height: 46.h,
                               decoration: ShapeDecoration(
-                                color: Color(0xFFBCAD92),
+                                color: const Color(0xFFBCAD92),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.w),
                                 ),
@@ -113,14 +113,14 @@ class OrdersList extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "D LOOK",
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontFamily: 'Raleway',
                                         fontWeight: FontWeight.w700),
                                   ),
-                                  Text(
+                                  const Text(
                                     "Kalamassery Kochi",
                                     style: TextStyle(
                                       color: Color(0xDB363535),
@@ -134,7 +134,7 @@ class OrdersList extends StatelessWidget {
                                   Text(
                                     'Size: M',
                                     style: TextStyle(
-                                      color: Color(0xDB363535),
+                                      color: const Color(0xDB363535),
                                       fontSize: 6, // Using 
                                       fontFamily: 'Raleway',
                                       fontWeight: FontWeight.w700,
@@ -145,16 +145,16 @@ class OrdersList extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             SvgPicture.asset('assets/images/leftarrow.svg'),
                           ],
                         ),
-                        Spacer(
+                        const Spacer(
                           flex: 2,
                         ),
                         Row(
                           children: [
-                            Text(
+                            const Text(
                               'Rate the shop',
                               style: TextStyle(
                                 color: Colors.black,

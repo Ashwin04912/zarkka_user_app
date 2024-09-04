@@ -3,9 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tailme/domain/auth/RegisterUser/model/user_register_model.dart';
-import 'package:tailme/infrastructure/auth/repository/auth_repository.dart';
+import 'package:tailme/infrastructure/auth/auth_repository.dart';
 
-import '../../../domain/auth/Login/auth_failure.dart';
+import '../../../core/failures/auth/auth_failure.dart';
 
 part 'register_user_event.dart';
 part 'register_user_state.dart';

@@ -8,5 +8,10 @@ class LoginEvent with _$LoginEvent {
 
  const factory LoginEvent.eyeButtonPressed() = _EyeButtonPressed;
   
+  const factory LoginEvent.sendCodePressesEvent({
+    required String email
+  }) = _sendCodePressesEvent;
+  
+ 
   
 }

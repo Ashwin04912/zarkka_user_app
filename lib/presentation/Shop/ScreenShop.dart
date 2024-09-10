@@ -1,23 +1,16 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 
-
-// ignore: must_be_immutable
 class ScreenShop extends StatefulWidget {
+  final String shopname;
+  final String location;
+  final String image;
 
-  String shopname;
-  String location;
-  String image;
-
-  ScreenShop({
+  const ScreenShop({
     Key? key,
-    
     required this.shopname,
     required this.location,
     required this.image,
@@ -28,12 +21,10 @@ class ScreenShop extends StatefulWidget {
 }
 
 class _ScreenShopState extends State<ScreenShop> {
-  bool option1 = false;
-  bool option2 = false;
-  bool option3 = false;
-  bool option4 = false;
-  bool option5 = false;
-  bool option6 = false;
+  List<bool> options = [
+    false,
+    false,
+  ]; // State list for checkboxes
 
   @override
   Widget build(BuildContext context) {
@@ -45,284 +36,156 @@ class _ScreenShopState extends State<ScreenShop> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Row(
-                      children: [
-                        SvgPicture.asset(
-                          'assets/images/back_arrow.svg',
-                          color: Colors.white,
-                          height: 20,
-                        ),
-                        Text(
-                          widget.shopname,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w700,
-                            height: 0.05,
-                            letterSpacing: -0.50,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                width: 343.w,
-                height: 288.h,
-                margin:  EdgeInsets.symmetric(vertical: 10.h),
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFDEBC9),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Row(
                   children: [
-                    Padding(
-                      padding:
-                           EdgeInsets.only(left: 20.w, right: 20.w, top: 21.h),
-                      child: Container(
-                        width: 402,
-                        height: 170,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFBCAD92),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                        ),
-                        child: Image.network(
-                          widget.image,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                    SvgPicture.asset(
+                      'assets/images/back_arrow.svg',
+                      color: Colors.white,
+                      height: 20,
                     ),
-                    Padding(
-                      padding:  EdgeInsets.only(left: 20.w, right: 20.w),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: widget.shopname + "\n",
-                                  style:  TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 24.sp,
-                                    fontFamily: 'Raleway',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: widget.location,
-                                  style:  TextStyle(
-                                    color: Color(0xDB363535),
-                                    fontSize: 13.sp,
-                                    fontFamily: 'Raleway',
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Spacer(),
-                          IconButton(
-                            onPressed: () {},
-                            icon: SvgPicture.asset(
-                                'assets/images/filled_like.svg'),
-                          ),
-                        ],
-                      ),
-                    ),
-                     Padding(
-                      padding: EdgeInsets.only(left: 22.w, top: 15.h, right: 23.w),
-                      child: Row(
-                        children: [
-                          Text(
-                            '\$69',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 12.sp,
-                              fontFamily: 'Raleway',
-                              fontWeight: FontWeight.w700,
-                              height: 0.11,
-                              letterSpacing: -0.50,
-                            ),
-                          ),
-                        ],
+                    const SizedBox(width: 5),
+                    Text(
+                      widget.shopname,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontFamily: 'Raleway',
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 10,
+              const SizedBox(height: 8),
+              Container(
+                width: double.infinity,
+                height: 140,
+                clipBehavior: Clip.antiAlias,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFBCAD92),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                ),
+                child: Image.network(
+                  widget.image,
+                  fit: BoxFit.cover,
+                ),
               ),
+              const SizedBox(height: 10),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Please select any option',
+                    'Choose one',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFFA2A2A2),
                       fontSize: 12,
                       fontFamily: 'Raleway',
                       fontWeight: FontWeight.w600,
-                      height: 0.07,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[700]),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[700],
+                  ),
                   width: double.infinity,
-                  child: Column(
-                    children: [
-                      // if (widget.shopsnap['services'].contains('Chudidar'))
-                        SizedBox(
-                          height: 50.h,
-                          child: CheckboxListTile(
-                            title: const Text(
-                              "Churidar",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontFamily: 'Raleway',
-                                fontWeight: FontWeight.w400,
-                              ),
+                  child: ListView.builder(
+                    itemCount: options.length,
+                    shrinkWrap: true, // Important to prevent infinite height
+                    physics:
+                        const NeverScrollableScrollPhysics(), // Prevent independent scrolling
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        height: 50.h,
+                        child: CheckboxListTile(
+                          title: const Text(
+                            "Embroidery", // Use the title relevant to each option
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w400,
                             ),
-                            value: option1,
-                            onChanged: (newValue) {
-                              setState(() {
-                                option1 = newValue!;
-                              });
-                            },
                           ),
+                          value: options[index],
+                          onChanged: (newValue) {
+                            setState(() {
+                              options[index] = newValue!;
+                            });
+                          },
                         ),
-                      // if (widget.shopsnap['services'].contains('Nighty'))
-                        SizedBox(
-                          height: 50.h,
-                          child: CheckboxListTile(
-                              title:  Text(
-                                "Nighty",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              value: option2,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  option2 = newValue!;
-                                });
-                              }),
-                        ),
-                      // if (widget.shopsnap['services'].contains('Blouse'))
-                        SizedBox(
-                          height: 50.h,
-                          child: CheckboxListTile(
-                              title:  Text(
-                                "Blouse",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              value: option3,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  option3 = newValue!;
-                                });
-                              }),
-                        ),
-                      // if (widget.shopsnap['services'].contains('Top'))
-                        SizedBox(
-                          height: 50.h,
-                          child: CheckboxListTile(
-                              title:  Text(
-                                "Top",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              value: option4,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  option4 = newValue!;
-                                });
-                              }),
-                        ),
-                      // if (widget.shopsnap['services'].contains('Reshaping'))
-                        SizedBox(
-                          height: 50.h,
-                          child: CheckboxListTile(
-                              title:  Text(
-                                "Reshaping",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              value: option5,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  option5 = newValue!;
-                                });
-                              }),
-                        ),
-                      // if (widget.shopsnap['services'].contains('Pant'))
-                        SizedBox(
-                          height: 50.h,
-                          child: CheckboxListTile(
-                              title:  Text(
-                                "Pant",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.sp,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              value: option6,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  option6 = newValue!;
-                                });
-                              }),
-                        ),
-                    ],
+                      );
+                    },
                   ),
                 ),
               ),
+SizedBox(height: 10,),
+Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Add on',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFFA2A2A2),
+                      fontSize: 12,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),]),
+Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[700],
+                  ),
+                  width: double.infinity,
+                  child: ListView.builder(
+                    itemCount: options.length,
+                    shrinkWrap: true, // Important to prevent infinite height
+                    physics:
+                        const NeverScrollableScrollPhysics(), // Prevent independent scrolling
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        height: 50.h,
+                        child: CheckboxListTile(
+                          title: const Text(
+                            "Embroidery", // Use the title relevant to each option
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          value: options[index],
+                          onChanged: (newValue) {
+                            setState(() {
+                              options[index] = newValue!;
+                            });
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+
               const Text(
-                'Add  Comments (Optional)',
+                'Describe additional design',
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.white,
@@ -332,29 +195,90 @@ class _ScreenShopState extends State<ScreenShop> {
                   height: 2,
                 ),
               ),
+              Row(
+                children: [
+                  SvgPicture.asset(
+                    'assets/images/home/emergency.svg',
+                    height: 20,
+                  ),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  const Text(
+                    'Extra payment will be there',
+                    style: TextStyle(
+                      color: Color(0xFFE00000),
+                      fontSize: 12,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
               TextFormField(
-                style: TextStyle(color: Colors.white),
-                maxLines: 4,
+                style: const TextStyle(color: Colors.white),
+                maxLines: 3,
                 decoration: InputDecoration(
-                  hintText: "Write here",
-                  hintStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.3),
-                    fontSize: 16,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w400,
+                  hintText: "eg : Straight Cut Salwar Suit",
+                  hintStyle: const TextStyle(
+                    color: Color(0x99E8E8E8),
+                    fontSize: 10,
+                    fontFamily: 'Urbanist',
+                    fontWeight: FontWeight.w500,
                     height: 0,
                   ),
                   border: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Colors.white, // Border color
-                      width: 2, // Border width
+                      color: Colors.white,
+                      width: 2,
                     ),
-                    borderRadius: BorderRadius.circular(10), // Border radius
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              const SizedBox(height: 20),
+              Container(
+                width: double.infinity,
+                height: 85,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFF616161),
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(width: 1, color: Colors.white),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('assets/images/home/upload.svg'),
+                    const Text(
+                      '  Upload',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontFamily: 'Urbanist',
+                        fontWeight: FontWeight.w500,
+                        height: 0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15,),
+
+               const Text(
+                'Select from below',
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w400,
+                  height: 2,
+                ),
               ),
               Container(
                 width: double.infinity,
@@ -365,6 +289,7 @@ class _ScreenShopState extends State<ScreenShop> {
                     borderRadius: BorderRadius.circular(14),
                   ),
                 ),
+
                 child: Padding(
                   padding: const EdgeInsets.all(15),
                   child: Column(
@@ -376,9 +301,7 @@ class _ScreenShopState extends State<ScreenShop> {
                             'assets/images/arrow.svg',
                             color: Colors.amber,
                           ),
-                          const SizedBox(
-                            width: 15,
-                          ),
+                          const SizedBox(width: 15),
                           const SizedBox(
                             width: 187,
                             height: 50,
@@ -397,7 +320,7 @@ class _ScreenShopState extends State<ScreenShop> {
                                   ),
                                   TextSpan(
                                     text:
-                                        '4140 parker rd kadavantara \nKochi 682020',
+                                        '4140 Parker Rd Kadavanthra\nKochi 682020',
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 11,
@@ -412,27 +335,24 @@ class _ScreenShopState extends State<ScreenShop> {
                           ),
                           const Spacer(),
                           IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.edit,
-                                color: Colors.black,
-                              ))
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.edit,
+                              color: Colors.black,
+                            ),
+                          ),
                         ],
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               CommonButton(
                 buttonText: "\$69 Proceed to checkout",
                 ontap: () {},
               ),
-              const SizedBox(
-                height: 15,
-              )
+              const SizedBox(height: 15),
             ],
           ),
         ),

@@ -4,7 +4,8 @@ import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
 
 class OtpVerificationCompleted extends StatefulWidget {
-  const OtpVerificationCompleted({super.key});
+  final bool isResetPass;
+  const OtpVerificationCompleted({super.key, required this.isResetPass});
 
   @override
   _OtpVerificationCompletedState createState() =>
@@ -60,7 +61,7 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
                     height: circleSize,
                     width: circleSize,
                     decoration: const BoxDecoration(
-                      color: Colors.green,
+                      color: Color(0xFF18C07A),
                       shape: BoxShape.circle,
                     ),
                     child: SizeTransition(
@@ -74,18 +75,57 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
                 ),
               ),
             ),
-            Text(
-              'Otp Verification Completed',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24.sp,
-                  fontFamily: 'Urbanist',
-                  fontWeight: FontWeight.w600),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Column(
+                children: [
+                  widget.isResetPass
+                      ? Text(
+                          'Password Changed!',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24.sp,
+                              fontFamily: 'Urbanist',
+                              fontWeight: FontWeight.w600),
+                        )
+                      : Text(
+                          'Otp Verification Completed',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24.sp,
+                              fontFamily: 'Urbanist',
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(height: 5,),
+                  widget.isResetPass
+                      ? const Text(
+                          'Your password has been changed \n successfully.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF8390A1),
+                            fontSize: 15,
+                            fontFamily: 'Urbanist',
+                            fontWeight: FontWeight.w500,
+                           
+                          ),
+                        )
+                      : const Text(""),
+                ],
+              ),
             ),
-            SizedBox(height: 20.h,),
-            CommonButton(ontap: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ScreenLogin()), (route)=>false);
-            }, buttonText: 'Go to Login')
+            SizedBox(
+              height: 20.h,
+            ),
+            CommonButton(
+              ontap: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ScreenLogin()),
+                    (route) => false);
+              },
+              buttonText: 'Back to Login',
+            )
           ],
         ),
       ),

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:dartz/dartz.dart'; // Make sure to add dartz package to your pubspec.yaml
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tailme/domain/auth/Login/auth_failure.dart';
+import 'package:tailme/core/failures/auth/auth_failure.dart';
 import 'package:tailme/domain/auth/Login/model/login_response_model.dart';
-import 'package:tailme/infrastructure/i_auth_facade.dart';
+import 'package:tailme/infrastructure/facades/i_auth_facade.dart';
 import 'package:tailme/infrastructure/string.dart';
 
 @LazySingleton(as: IAuthFacade)
@@ -124,13 +124,16 @@ class AuthRepository implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> otpVerification(
-      {required String otp, required String email}) async {
+  Future<Either<AuthFailure, Unit>> otpVerification({
+    required String otp,
+    required String email,
+  }) async {
     try {
       var headers = {'Content-Type': 'application/json'};
       var data = json.encode({"email": email, "otp": otp});
       var dio = Dio();
-      var response = await dio.request(
+
+      final response = await dio.request(
         '$baseUrl$otpVerifyUrl',
         options: Options(
           method: 'POST',
@@ -138,7 +141,6 @@ class AuthRepository implements IAuthFacade {
         ),
         data: data,
       );
-      print(response.statusCode);
 
       if (response.statusCode == 200) {
         return right(unit);
@@ -150,7 +152,6 @@ class AuthRepository implements IAuthFacade {
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
         if (e.response?.statusCode == 404) {
-          print("hello");
           return left(const AuthFailure.userNotFound());
         } else if (e.response?.statusCode == 400) {
           return left(const AuthFailure.invalidOtp());
@@ -166,10 +167,65 @@ class AuthRepository implements IAuthFacade {
       }
     }
   }
+
+  @override
+  Future<Either<AuthFailure, String>> otpVerificationForReset({
+    required String otp,
+    required String email,
+  }) async {
   
+    try {
+      print("reached api");
+      var headers = {'Content-Type': 'application/json'};
+      var data = json.encode({"email": email, "otp": otp});
+      var dio = Dio();
+
+      final response = await dio.request(
+        '$baseUrl$verifyOtpForResetPass',
+        options: Options(
+          method: 'POST',
+          headers: headers,
+        ),
+        data: data,
+      );
+
+      print("reset token is ${response.data['passwordResetToken']}");
+      if (response.statusCode == 200) {
+        return right(response.data['passwordResetToken']);
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.cancel) {
+        return left(const AuthFailure.cancelledByUser());
+      } else if (e.response != null) {
+        if (e.response?.statusCode == 404) {
+          debugPrint("user not fount");
+          return left(const AuthFailure.userNotFound());
+        } else if (e.response?.statusCode == 400) {
+          debugPrint("invalid otp");
+          return left(const AuthFailure.invalidOtp());
+        }
+        else if (e.response?.statusCode == 401) {
+          debugPrint("expired otp");
+          return left(const AuthFailure.otpExpired());
+        }
+        // Dio error with a response
+        debugPrint(
+            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        return left(const AuthFailure.serverError());
+      } else {
+        // Dio error without a response
+        debugPrint('Dio error! Message: ${e.message}');
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
   @override
   Future<Either<AuthFailure, Unit>> resendOtp({required String email}) async {
     try {
+      print("i reached api call $email");
       var headers = {'Content-Type': 'application/json'};
       var data = json.encode({"email": email});
       var dio = Dio();
@@ -183,12 +239,11 @@ class AuthRepository implements IAuthFacade {
       );
       print(response.statusCode);
 
-
       if (response.statusCode == 200) {
         debugPrint('otp sent');
         return right(unit);
-        
       } else {
+        debugPrint("server error");
         return left(const AuthFailure.serverError());
       }
     } on DioException catch (e) {
@@ -196,10 +251,120 @@ class AuthRepository implements IAuthFacade {
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
         if (e.response?.statusCode == 404) {
-          print("hello");
+          print("user not found");
           return left(const AuthFailure.userNotFound());
         } else if (e.response?.statusCode == 400) {
-          return left(const AuthFailure.invalidOtp());
+          debugPrint("email already verified");
+          return left(const AuthFailure.emailAlreadyInUse());
+        }
+        // Dio error with a response
+        debugPrint(
+            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        return left(const AuthFailure.serverError());
+      } else {
+        // Dio error without a response
+        debugPrint('Dio error! Message: ${e.message}');
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> forgetPassword(
+      {required String email}) async {
+    try {
+      print('$baseUrl$forgetpass');
+      print(email);
+      var headers = {'Content-Type': 'application/json'};
+      var data = json.encode({"email": email});
+      var dio = Dio();
+      var response = await dio.request(
+        '$baseUrl$forgetpass',
+        options: Options(
+          method: 'POST',
+          headers: headers,
+        ),
+        data: data,
+      );
+      print(response.statusCode);
+
+      if (response.statusCode == 200) {
+        print("success");
+        return right(unit);
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.cancel) {
+        print("somemee");
+        return left(const AuthFailure.cancelledByUser());
+      } else if (e.response != null) {
+        if (e.response?.statusCode == 404) {
+          print("hello");
+          print(e.response);
+          return left(const AuthFailure.userNotFound());
+        } else if (e.response?.statusCode == 400) {
+          debugPrint("invalidEmailFormat");
+          return left(const AuthFailure.invalidEmailFormat());
+        }
+        // Dio error with a response
+        debugPrint(
+            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        return left(const AuthFailure.serverError());
+      } else {
+        // Dio error without a response
+        debugPrint('Dio error! Message: ${e.message}');
+        return left(const AuthFailure.serverError());
+      }
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> resetPassword(
+      {required String email,
+      required String passwordResetToken,
+      required String newPassword,
+      required String confirmPassword}) async {
+    try {
+      print("reset password triggereed");
+      print('$baseUrl$resetPass $passwordResetToken, $email , $newPassword, $confirmPassword');
+      print(email);
+      var headers = {'Content-Type': 'application/json'};
+      var data = json.encode({
+        "passwordResetToken": passwordResetToken,
+        "email": email,
+        "newPassword": newPassword,
+        "confirmPassword": confirmPassword
+      });
+      var dio = Dio();
+      var response = await dio.request(
+        '$baseUrl$resetPass',
+        options: Options(
+          method: 'POST',
+          headers: headers,
+        ),
+        data: data,
+      );
+      print(response.statusCode);
+
+      if (response.statusCode == 200) {
+        print("success");
+        return right(unit);
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.cancel) {
+        print("cancelledByUser");
+        return left(const AuthFailure.cancelledByUser());
+      } else if (e.response != null) {
+        if (e.response?.statusCode == 404) {
+          print("hello");
+          print(e.response);
+          return left(const AuthFailure.userNotFound());
+        } else if (e.response?.statusCode == 400) {
+          print("invalidOtp");
+          return left(const AuthFailure.passwordNotMatch());
         }
         // Dio error with a response
         debugPrint(

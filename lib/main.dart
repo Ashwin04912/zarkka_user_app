@@ -8,6 +8,8 @@ import 'package:tailme/application/auth/login/login_bloc.dart';
 import 'package:tailme/injection.dart';
 import 'package:tailme/presentation/SplashScreen/splash_screen.dart';
 
+import 'application/AddAddress/add_address_bloc.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
@@ -31,6 +33,7 @@ class MainApp extends StatelessWidget {
            BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
           BlocProvider<RegisterUserBloc>(create: (context) => getIt<RegisterUserBloc> ()),
           BlocProvider<OtpVerificationBloc>(create: (context) => getIt<OtpVerificationBloc> ()),
+          BlocProvider<AddAddressBloc>(create : (context)=> getIt<AddAddressBloc>()),
         ],
         child: MaterialApp(
           theme: ThemeData(

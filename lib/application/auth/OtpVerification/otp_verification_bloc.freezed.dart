@@ -19,20 +19,36 @@ mixin _$OtpVerificationEvent {
   String get email => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String otp, String email) verifyButtonClicked,
+    required TResult Function(String otp, String email, bool isForget)
+        verifyButtonClicked,
     required TResult Function(String email) resendButtonClicked,
+    required TResult Function(String otp, String email)
+        otpVerificationForResetEvent,
+    required TResult Function(
+            String email, String password, String cPassword, String resetToken)
+        resetPasswordPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String otp, String email)? verifyButtonClicked,
+    TResult? Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
     TResult? Function(String email)? resendButtonClicked,
+    TResult? Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult? Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String otp, String email)? verifyButtonClicked,
+    TResult Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
     TResult Function(String email)? resendButtonClicked,
+    TResult Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,23 +56,37 @@ mixin _$OtpVerificationEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_VerifyButtonClicked value) verifyButtonClicked,
     required TResult Function(_resendButtonClicked value) resendButtonClicked,
+    required TResult Function(_otpVerificationForResetEvent value)
+        otpVerificationForResetEvent,
+    required TResult Function(_resetPasswordPressedEvent value)
+        resetPasswordPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_VerifyButtonClicked value)? verifyButtonClicked,
     TResult? Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult? Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult? Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_VerifyButtonClicked value)? verifyButtonClicked,
     TResult Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OtpVerificationEventCopyWith<OtpVerificationEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -81,6 +111,8 @@ class _$OtpVerificationEventCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -103,7 +135,7 @@ abstract class _$$VerifyButtonClickedImplCopyWith<$Res>
       __$$VerifyButtonClickedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String otp, String email});
+  $Res call({String otp, String email, bool isForget});
 }
 
 /// @nodoc
@@ -114,11 +146,14 @@ class __$$VerifyButtonClickedImplCopyWithImpl<$Res>
       $Res Function(_$VerifyButtonClickedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? otp = null,
     Object? email = null,
+    Object? isForget = null,
   }) {
     return _then(_$VerifyButtonClickedImpl(
       otp: null == otp
@@ -129,6 +164,10 @@ class __$$VerifyButtonClickedImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      isForget: null == isForget
+          ? _value.isForget
+          : isForget // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -136,16 +175,19 @@ class __$$VerifyButtonClickedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
-  const _$VerifyButtonClickedImpl({required this.otp, required this.email});
+  const _$VerifyButtonClickedImpl(
+      {required this.otp, required this.email, required this.isForget});
 
   @override
   final String otp;
   @override
   final String email;
+  @override
+  final bool isForget;
 
   @override
   String toString() {
-    return 'OtpVerificationEvent.verifyButtonClicked(otp: $otp, email: $email)';
+    return 'OtpVerificationEvent.verifyButtonClicked(otp: $otp, email: $email, isForget: $isForget)';
   }
 
   @override
@@ -154,13 +196,17 @@ class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
         (other.runtimeType == runtimeType &&
             other is _$VerifyButtonClickedImpl &&
             (identical(other.otp, otp) || other.otp == otp) &&
-            (identical(other.email, email) || other.email == email));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.isForget, isForget) ||
+                other.isForget == isForget));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, otp, email);
+  int get hashCode => Object.hash(runtimeType, otp, email, isForget);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VerifyButtonClickedImplCopyWith<_$VerifyButtonClickedImpl> get copyWith =>
@@ -170,30 +216,46 @@ class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String otp, String email) verifyButtonClicked,
+    required TResult Function(String otp, String email, bool isForget)
+        verifyButtonClicked,
     required TResult Function(String email) resendButtonClicked,
+    required TResult Function(String otp, String email)
+        otpVerificationForResetEvent,
+    required TResult Function(
+            String email, String password, String cPassword, String resetToken)
+        resetPasswordPressedEvent,
   }) {
-    return verifyButtonClicked(otp, email);
+    return verifyButtonClicked(otp, email, isForget);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String otp, String email)? verifyButtonClicked,
+    TResult? Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
     TResult? Function(String email)? resendButtonClicked,
+    TResult? Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult? Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
   }) {
-    return verifyButtonClicked?.call(otp, email);
+    return verifyButtonClicked?.call(otp, email, isForget);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String otp, String email)? verifyButtonClicked,
+    TResult Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
     TResult Function(String email)? resendButtonClicked,
+    TResult Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
     required TResult orElse(),
   }) {
     if (verifyButtonClicked != null) {
-      return verifyButtonClicked(otp, email);
+      return verifyButtonClicked(otp, email, isForget);
     }
     return orElse();
   }
@@ -203,6 +265,10 @@ class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
   TResult map<TResult extends Object?>({
     required TResult Function(_VerifyButtonClicked value) verifyButtonClicked,
     required TResult Function(_resendButtonClicked value) resendButtonClicked,
+    required TResult Function(_otpVerificationForResetEvent value)
+        otpVerificationForResetEvent,
+    required TResult Function(_resetPasswordPressedEvent value)
+        resetPasswordPressedEvent,
   }) {
     return verifyButtonClicked(this);
   }
@@ -212,6 +278,10 @@ class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_VerifyButtonClicked value)? verifyButtonClicked,
     TResult? Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult? Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult? Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
   }) {
     return verifyButtonClicked?.call(this);
   }
@@ -221,6 +291,10 @@ class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_VerifyButtonClicked value)? verifyButtonClicked,
     TResult Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
     required TResult orElse(),
   }) {
     if (verifyButtonClicked != null) {
@@ -233,13 +307,18 @@ class _$VerifyButtonClickedImpl implements _VerifyButtonClicked {
 abstract class _VerifyButtonClicked implements OtpVerificationEvent {
   const factory _VerifyButtonClicked(
       {required final String otp,
-      required final String email}) = _$VerifyButtonClickedImpl;
+      required final String email,
+      required final bool isForget}) = _$VerifyButtonClickedImpl;
 
   String get otp;
   @override
   String get email;
+  bool get isForget;
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VerifyButtonClickedImplCopyWith<_$VerifyButtonClickedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -263,6 +342,8 @@ class __$$resendButtonClickedImplCopyWithImpl<$Res>
       $Res Function(_$resendButtonClickedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -301,7 +382,9 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   @override
   int get hashCode => Object.hash(runtimeType, email);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$resendButtonClickedImplCopyWith<_$resendButtonClickedImpl> get copyWith =>
@@ -311,8 +394,14 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String otp, String email) verifyButtonClicked,
+    required TResult Function(String otp, String email, bool isForget)
+        verifyButtonClicked,
     required TResult Function(String email) resendButtonClicked,
+    required TResult Function(String otp, String email)
+        otpVerificationForResetEvent,
+    required TResult Function(
+            String email, String password, String cPassword, String resetToken)
+        resetPasswordPressedEvent,
   }) {
     return resendButtonClicked(email);
   }
@@ -320,8 +409,13 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String otp, String email)? verifyButtonClicked,
+    TResult? Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
     TResult? Function(String email)? resendButtonClicked,
+    TResult? Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult? Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
   }) {
     return resendButtonClicked?.call(email);
   }
@@ -329,8 +423,13 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String otp, String email)? verifyButtonClicked,
+    TResult Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
     TResult Function(String email)? resendButtonClicked,
+    TResult Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
     required TResult orElse(),
   }) {
     if (resendButtonClicked != null) {
@@ -344,6 +443,10 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   TResult map<TResult extends Object?>({
     required TResult Function(_VerifyButtonClicked value) verifyButtonClicked,
     required TResult Function(_resendButtonClicked value) resendButtonClicked,
+    required TResult Function(_otpVerificationForResetEvent value)
+        otpVerificationForResetEvent,
+    required TResult Function(_resetPasswordPressedEvent value)
+        resetPasswordPressedEvent,
   }) {
     return resendButtonClicked(this);
   }
@@ -353,6 +456,10 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_VerifyButtonClicked value)? verifyButtonClicked,
     TResult? Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult? Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult? Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
   }) {
     return resendButtonClicked?.call(this);
   }
@@ -362,6 +469,10 @@ class _$resendButtonClickedImpl implements _resendButtonClicked {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_VerifyButtonClicked value)? verifyButtonClicked,
     TResult Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
     required TResult orElse(),
   }) {
     if (resendButtonClicked != null) {
@@ -377,10 +488,421 @@ abstract class _resendButtonClicked implements OtpVerificationEvent {
 
   @override
   String get email;
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$resendButtonClickedImplCopyWith<_$resendButtonClickedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$otpVerificationForResetEventImplCopyWith<$Res>
+    implements $OtpVerificationEventCopyWith<$Res> {
+  factory _$$otpVerificationForResetEventImplCopyWith(
+          _$otpVerificationForResetEventImpl value,
+          $Res Function(_$otpVerificationForResetEventImpl) then) =
+      __$$otpVerificationForResetEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String otp, String email});
+}
+
+/// @nodoc
+class __$$otpVerificationForResetEventImplCopyWithImpl<$Res>
+    extends _$OtpVerificationEventCopyWithImpl<$Res,
+        _$otpVerificationForResetEventImpl>
+    implements _$$otpVerificationForResetEventImplCopyWith<$Res> {
+  __$$otpVerificationForResetEventImplCopyWithImpl(
+      _$otpVerificationForResetEventImpl _value,
+      $Res Function(_$otpVerificationForResetEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? otp = null,
+    Object? email = null,
+  }) {
+    return _then(_$otpVerificationForResetEventImpl(
+      otp: null == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$otpVerificationForResetEventImpl
+    implements _otpVerificationForResetEvent {
+  const _$otpVerificationForResetEventImpl(
+      {required this.otp, required this.email});
+
+  @override
+  final String otp;
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'OtpVerificationEvent.otpVerificationForResetEvent(otp: $otp, email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$otpVerificationForResetEventImpl &&
+            (identical(other.otp, otp) || other.otp == otp) &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, otp, email);
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$otpVerificationForResetEventImplCopyWith<
+          _$otpVerificationForResetEventImpl>
+      get copyWith => __$$otpVerificationForResetEventImplCopyWithImpl<
+          _$otpVerificationForResetEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String otp, String email, bool isForget)
+        verifyButtonClicked,
+    required TResult Function(String email) resendButtonClicked,
+    required TResult Function(String otp, String email)
+        otpVerificationForResetEvent,
+    required TResult Function(
+            String email, String password, String cPassword, String resetToken)
+        resetPasswordPressedEvent,
+  }) {
+    return otpVerificationForResetEvent(otp, email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
+    TResult? Function(String email)? resendButtonClicked,
+    TResult? Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult? Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
+  }) {
+    return otpVerificationForResetEvent?.call(otp, email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
+    TResult Function(String email)? resendButtonClicked,
+    TResult Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
+    required TResult orElse(),
+  }) {
+    if (otpVerificationForResetEvent != null) {
+      return otpVerificationForResetEvent(otp, email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_VerifyButtonClicked value) verifyButtonClicked,
+    required TResult Function(_resendButtonClicked value) resendButtonClicked,
+    required TResult Function(_otpVerificationForResetEvent value)
+        otpVerificationForResetEvent,
+    required TResult Function(_resetPasswordPressedEvent value)
+        resetPasswordPressedEvent,
+  }) {
+    return otpVerificationForResetEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_VerifyButtonClicked value)? verifyButtonClicked,
+    TResult? Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult? Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult? Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
+  }) {
+    return otpVerificationForResetEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_VerifyButtonClicked value)? verifyButtonClicked,
+    TResult Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
+    required TResult orElse(),
+  }) {
+    if (otpVerificationForResetEvent != null) {
+      return otpVerificationForResetEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _otpVerificationForResetEvent implements OtpVerificationEvent {
+  const factory _otpVerificationForResetEvent(
+      {required final String otp,
+      required final String email}) = _$otpVerificationForResetEventImpl;
+
+  String get otp;
+  @override
+  String get email;
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$otpVerificationForResetEventImplCopyWith<
+          _$otpVerificationForResetEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$resetPasswordPressedEventImplCopyWith<$Res>
+    implements $OtpVerificationEventCopyWith<$Res> {
+  factory _$$resetPasswordPressedEventImplCopyWith(
+          _$resetPasswordPressedEventImpl value,
+          $Res Function(_$resetPasswordPressedEventImpl) then) =
+      __$$resetPasswordPressedEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String email, String password, String cPassword, String resetToken});
+}
+
+/// @nodoc
+class __$$resetPasswordPressedEventImplCopyWithImpl<$Res>
+    extends _$OtpVerificationEventCopyWithImpl<$Res,
+        _$resetPasswordPressedEventImpl>
+    implements _$$resetPasswordPressedEventImplCopyWith<$Res> {
+  __$$resetPasswordPressedEventImplCopyWithImpl(
+      _$resetPasswordPressedEventImpl _value,
+      $Res Function(_$resetPasswordPressedEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? cPassword = null,
+    Object? resetToken = null,
+  }) {
+    return _then(_$resetPasswordPressedEventImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      cPassword: null == cPassword
+          ? _value.cPassword
+          : cPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      resetToken: null == resetToken
+          ? _value.resetToken
+          : resetToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$resetPasswordPressedEventImpl implements _resetPasswordPressedEvent {
+  const _$resetPasswordPressedEventImpl(
+      {required this.email,
+      required this.password,
+      required this.cPassword,
+      required this.resetToken});
+
+  @override
+  final String email;
+  @override
+  final String password;
+  @override
+  final String cPassword;
+  @override
+  final String resetToken;
+
+  @override
+  String toString() {
+    return 'OtpVerificationEvent.resetPasswordPressedEvent(email: $email, password: $password, cPassword: $cPassword, resetToken: $resetToken)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$resetPasswordPressedEventImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.cPassword, cPassword) ||
+                other.cPassword == cPassword) &&
+            (identical(other.resetToken, resetToken) ||
+                other.resetToken == resetToken));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, email, password, cPassword, resetToken);
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$resetPasswordPressedEventImplCopyWith<_$resetPasswordPressedEventImpl>
+      get copyWith => __$$resetPasswordPressedEventImplCopyWithImpl<
+          _$resetPasswordPressedEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String otp, String email, bool isForget)
+        verifyButtonClicked,
+    required TResult Function(String email) resendButtonClicked,
+    required TResult Function(String otp, String email)
+        otpVerificationForResetEvent,
+    required TResult Function(
+            String email, String password, String cPassword, String resetToken)
+        resetPasswordPressedEvent,
+  }) {
+    return resetPasswordPressedEvent(email, password, cPassword, resetToken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
+    TResult? Function(String email)? resendButtonClicked,
+    TResult? Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult? Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
+  }) {
+    return resetPasswordPressedEvent?.call(
+        email, password, cPassword, resetToken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String otp, String email, bool isForget)?
+        verifyButtonClicked,
+    TResult Function(String email)? resendButtonClicked,
+    TResult Function(String otp, String email)? otpVerificationForResetEvent,
+    TResult Function(
+            String email, String password, String cPassword, String resetToken)?
+        resetPasswordPressedEvent,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordPressedEvent != null) {
+      return resetPasswordPressedEvent(email, password, cPassword, resetToken);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_VerifyButtonClicked value) verifyButtonClicked,
+    required TResult Function(_resendButtonClicked value) resendButtonClicked,
+    required TResult Function(_otpVerificationForResetEvent value)
+        otpVerificationForResetEvent,
+    required TResult Function(_resetPasswordPressedEvent value)
+        resetPasswordPressedEvent,
+  }) {
+    return resetPasswordPressedEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_VerifyButtonClicked value)? verifyButtonClicked,
+    TResult? Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult? Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult? Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
+  }) {
+    return resetPasswordPressedEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_VerifyButtonClicked value)? verifyButtonClicked,
+    TResult Function(_resendButtonClicked value)? resendButtonClicked,
+    TResult Function(_otpVerificationForResetEvent value)?
+        otpVerificationForResetEvent,
+    TResult Function(_resetPasswordPressedEvent value)?
+        resetPasswordPressedEvent,
+    required TResult orElse(),
+  }) {
+    if (resetPasswordPressedEvent != null) {
+      return resetPasswordPressedEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _resetPasswordPressedEvent implements OtpVerificationEvent {
+  const factory _resetPasswordPressedEvent(
+      {required final String email,
+      required final String password,
+      required final String cPassword,
+      required final String resetToken}) = _$resetPasswordPressedEventImpl;
+
+  @override
+  String get email;
+  String get password;
+  String get cPassword;
+  String get resetToken;
+
+  /// Create a copy of OtpVerificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$resetPasswordPressedEventImplCopyWith<_$resetPasswordPressedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -388,10 +910,15 @@ mixin _$OtpVerificationState {
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isResendOtp => throw _privateConstructorUsedError;
   bool get isSubmit => throw _privateConstructorUsedError;
+  String get resetPassToken => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get successOrfailure =>
       throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get newPasswordCreateSuccessOrFailure =>
+      throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OtpVerificationStateCopyWith<OtpVerificationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -406,7 +933,9 @@ abstract class $OtpVerificationStateCopyWith<$Res> {
       {bool isSubmitting,
       bool isResendOtp,
       bool isSubmit,
-      Option<Either<AuthFailure, Unit>> successOrfailure});
+      String resetPassToken,
+      Option<Either<AuthFailure, Unit>> successOrfailure,
+      Option<Either<AuthFailure, Unit>> newPasswordCreateSuccessOrFailure});
 }
 
 /// @nodoc
@@ -420,13 +949,17 @@ class _$OtpVerificationStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isSubmitting = null,
     Object? isResendOtp = null,
     Object? isSubmit = null,
+    Object? resetPassToken = null,
     Object? successOrfailure = null,
+    Object? newPasswordCreateSuccessOrFailure = null,
   }) {
     return _then(_value.copyWith(
       isSubmitting: null == isSubmitting
@@ -441,9 +974,18 @@ class _$OtpVerificationStateCopyWithImpl<$Res,
           ? _value.isSubmit
           : isSubmit // ignore: cast_nullable_to_non_nullable
               as bool,
+      resetPassToken: null == resetPassToken
+          ? _value.resetPassToken
+          : resetPassToken // ignore: cast_nullable_to_non_nullable
+              as String,
       successOrfailure: null == successOrfailure
           ? _value.successOrfailure
           : successOrfailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+      newPasswordCreateSuccessOrFailure: null ==
+              newPasswordCreateSuccessOrFailure
+          ? _value.newPasswordCreateSuccessOrFailure
+          : newPasswordCreateSuccessOrFailure // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
     ) as $Val);
   }
@@ -461,7 +1003,9 @@ abstract class _$$OtpVerificationStateImplCopyWith<$Res>
       {bool isSubmitting,
       bool isResendOtp,
       bool isSubmit,
-      Option<Either<AuthFailure, Unit>> successOrfailure});
+      String resetPassToken,
+      Option<Either<AuthFailure, Unit>> successOrfailure,
+      Option<Either<AuthFailure, Unit>> newPasswordCreateSuccessOrFailure});
 }
 
 /// @nodoc
@@ -472,13 +1016,17 @@ class __$$OtpVerificationStateImplCopyWithImpl<$Res>
       $Res Function(_$OtpVerificationStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isSubmitting = null,
     Object? isResendOtp = null,
     Object? isSubmit = null,
+    Object? resetPassToken = null,
     Object? successOrfailure = null,
+    Object? newPasswordCreateSuccessOrFailure = null,
   }) {
     return _then(_$OtpVerificationStateImpl(
       isSubmitting: null == isSubmitting
@@ -493,9 +1041,18 @@ class __$$OtpVerificationStateImplCopyWithImpl<$Res>
           ? _value.isSubmit
           : isSubmit // ignore: cast_nullable_to_non_nullable
               as bool,
+      resetPassToken: null == resetPassToken
+          ? _value.resetPassToken
+          : resetPassToken // ignore: cast_nullable_to_non_nullable
+              as String,
       successOrfailure: null == successOrfailure
           ? _value.successOrfailure
           : successOrfailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+      newPasswordCreateSuccessOrFailure: null ==
+              newPasswordCreateSuccessOrFailure
+          ? _value.newPasswordCreateSuccessOrFailure
+          : newPasswordCreateSuccessOrFailure // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
     ));
   }
@@ -508,7 +1065,9 @@ class _$OtpVerificationStateImpl implements _OtpVerificationState {
       {required this.isSubmitting,
       required this.isResendOtp,
       required this.isSubmit,
-      required this.successOrfailure});
+      required this.resetPassToken,
+      required this.successOrfailure,
+      required this.newPasswordCreateSuccessOrFailure});
 
   @override
   final bool isSubmitting;
@@ -517,11 +1076,15 @@ class _$OtpVerificationStateImpl implements _OtpVerificationState {
   @override
   final bool isSubmit;
   @override
+  final String resetPassToken;
+  @override
   final Option<Either<AuthFailure, Unit>> successOrfailure;
+  @override
+  final Option<Either<AuthFailure, Unit>> newPasswordCreateSuccessOrFailure;
 
   @override
   String toString() {
-    return 'OtpVerificationState(isSubmitting: $isSubmitting, isResendOtp: $isResendOtp, isSubmit: $isSubmit, successOrfailure: $successOrfailure)';
+    return 'OtpVerificationState(isSubmitting: $isSubmitting, isResendOtp: $isResendOtp, isSubmit: $isSubmit, resetPassToken: $resetPassToken, successOrfailure: $successOrfailure, newPasswordCreateSuccessOrFailure: $newPasswordCreateSuccessOrFailure)';
   }
 
   @override
@@ -535,15 +1098,29 @@ class _$OtpVerificationStateImpl implements _OtpVerificationState {
                 other.isResendOtp == isResendOtp) &&
             (identical(other.isSubmit, isSubmit) ||
                 other.isSubmit == isSubmit) &&
+            (identical(other.resetPassToken, resetPassToken) ||
+                other.resetPassToken == resetPassToken) &&
             (identical(other.successOrfailure, successOrfailure) ||
-                other.successOrfailure == successOrfailure));
+                other.successOrfailure == successOrfailure) &&
+            (identical(other.newPasswordCreateSuccessOrFailure,
+                    newPasswordCreateSuccessOrFailure) ||
+                other.newPasswordCreateSuccessOrFailure ==
+                    newPasswordCreateSuccessOrFailure));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, isSubmitting, isResendOtp, isSubmit, successOrfailure);
+      runtimeType,
+      isSubmitting,
+      isResendOtp,
+      isSubmit,
+      resetPassToken,
+      successOrfailure,
+      newPasswordCreateSuccessOrFailure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OtpVerificationStateImplCopyWith<_$OtpVerificationStateImpl>
@@ -554,11 +1131,13 @@ class _$OtpVerificationStateImpl implements _OtpVerificationState {
 
 abstract class _OtpVerificationState implements OtpVerificationState {
   const factory _OtpVerificationState(
-          {required final bool isSubmitting,
-          required final bool isResendOtp,
-          required final bool isSubmit,
-          required final Option<Either<AuthFailure, Unit>> successOrfailure}) =
-      _$OtpVerificationStateImpl;
+      {required final bool isSubmitting,
+      required final bool isResendOtp,
+      required final bool isSubmit,
+      required final String resetPassToken,
+      required final Option<Either<AuthFailure, Unit>> successOrfailure,
+      required final Option<Either<AuthFailure, Unit>>
+          newPasswordCreateSuccessOrFailure}) = _$OtpVerificationStateImpl;
 
   @override
   bool get isSubmitting;
@@ -567,9 +1146,16 @@ abstract class _OtpVerificationState implements OtpVerificationState {
   @override
   bool get isSubmit;
   @override
+  String get resetPassToken;
+  @override
   Option<Either<AuthFailure, Unit>> get successOrfailure;
   @override
-  @JsonKey(ignore: true)
+  Option<Either<AuthFailure, Unit>> get newPasswordCreateSuccessOrFailure;
+
+  /// Create a copy of OtpVerificationState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OtpVerificationStateImplCopyWith<_$OtpVerificationStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

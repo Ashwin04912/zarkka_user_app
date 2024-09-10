@@ -24,6 +24,9 @@ mixin _$AuthFailure {
     required TResult Function() userNotFound,
     required TResult Function() invalidOtp,
     required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,9 @@ mixin _$AuthFailure {
     TResult? Function()? userNotFound,
     TResult? Function()? invalidOtp,
     TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +50,9 @@ mixin _$AuthFailure {
     TResult Function()? userNotFound,
     TResult Function()? invalidOtp,
     TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +65,9 @@ mixin _$AuthFailure {
     required TResult Function(InvalidOtp value) invalidOtp,
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +79,9 @@ mixin _$AuthFailure {
     TResult? Function(InvalidOtp value)? invalidOtp,
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +93,9 @@ mixin _$AuthFailure {
     TResult Function(InvalidOtp value)? invalidOtp,
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -99,6 +117,9 @@ class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -115,6 +136,9 @@ class __$$CancelledByUserImplCopyWithImpl<$Res>
   __$$CancelledByUserImplCopyWithImpl(
       _$CancelledByUserImpl _value, $Res Function(_$CancelledByUserImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -145,6 +169,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function() userNotFound,
     required TResult Function() invalidOtp,
     required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
   }) {
     return cancelledByUser();
   }
@@ -158,6 +185,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function()? userNotFound,
     TResult? Function()? invalidOtp,
     TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
   }) {
     return cancelledByUser?.call();
   }
@@ -171,6 +201,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function()? userNotFound,
     TResult Function()? invalidOtp,
     TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -189,6 +222,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function(InvalidOtp value) invalidOtp,
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
   }) {
     return cancelledByUser(this);
   }
@@ -203,6 +239,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function(InvalidOtp value)? invalidOtp,
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -217,6 +256,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function(InvalidOtp value)? invalidOtp,
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -244,6 +286,9 @@ class __$$ServerErrorImplCopyWithImpl<$Res>
   __$$ServerErrorImplCopyWithImpl(
       _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -274,6 +319,9 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function() userNotFound,
     required TResult Function() invalidOtp,
     required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
   }) {
     return serverError();
   }
@@ -287,6 +335,9 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function()? userNotFound,
     TResult? Function()? invalidOtp,
     TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
   }) {
     return serverError?.call();
   }
@@ -300,6 +351,9 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function()? userNotFound,
     TResult Function()? invalidOtp,
     TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -318,6 +372,9 @@ class _$ServerErrorImpl implements ServerError {
     required TResult Function(InvalidOtp value) invalidOtp,
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
   }) {
     return serverError(this);
   }
@@ -332,6 +389,9 @@ class _$ServerErrorImpl implements ServerError {
     TResult? Function(InvalidOtp value)? invalidOtp,
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
   }) {
     return serverError?.call(this);
   }
@@ -346,6 +406,9 @@ class _$ServerErrorImpl implements ServerError {
     TResult Function(InvalidOtp value)? invalidOtp,
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -373,6 +436,9 @@ class __$$EmailAlreadyInUseImplCopyWithImpl<$Res>
   __$$EmailAlreadyInUseImplCopyWithImpl(_$EmailAlreadyInUseImpl _value,
       $Res Function(_$EmailAlreadyInUseImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -403,6 +469,9 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     required TResult Function() userNotFound,
     required TResult Function() invalidOtp,
     required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
   }) {
     return emailAlreadyInUse();
   }
@@ -416,6 +485,9 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult? Function()? userNotFound,
     TResult? Function()? invalidOtp,
     TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -429,6 +501,9 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult Function()? userNotFound,
     TResult Function()? invalidOtp,
     TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -447,6 +522,9 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     required TResult Function(InvalidOtp value) invalidOtp,
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -461,6 +539,9 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult? Function(InvalidOtp value)? invalidOtp,
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -475,6 +556,9 @@ class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
     TResult Function(InvalidOtp value)? invalidOtp,
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -502,6 +586,9 @@ class __$$UserNotFoundImplCopyWithImpl<$Res>
   __$$UserNotFoundImplCopyWithImpl(
       _$UserNotFoundImpl _value, $Res Function(_$UserNotFoundImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -532,6 +619,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function() userNotFound,
     required TResult Function() invalidOtp,
     required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
   }) {
     return userNotFound();
   }
@@ -545,6 +635,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function()? userNotFound,
     TResult? Function()? invalidOtp,
     TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
   }) {
     return userNotFound?.call();
   }
@@ -558,6 +651,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function()? userNotFound,
     TResult Function()? invalidOtp,
     TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -576,6 +672,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function(InvalidOtp value) invalidOtp,
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
   }) {
     return userNotFound(this);
   }
@@ -590,6 +689,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function(InvalidOtp value)? invalidOtp,
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
   }) {
     return userNotFound?.call(this);
   }
@@ -604,6 +706,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function(InvalidOtp value)? invalidOtp,
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -631,6 +736,9 @@ class __$$InvalidOtpImplCopyWithImpl<$Res>
   __$$InvalidOtpImplCopyWithImpl(
       _$InvalidOtpImpl _value, $Res Function(_$InvalidOtpImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -661,6 +769,9 @@ class _$InvalidOtpImpl implements InvalidOtp {
     required TResult Function() userNotFound,
     required TResult Function() invalidOtp,
     required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
   }) {
     return invalidOtp();
   }
@@ -674,6 +785,9 @@ class _$InvalidOtpImpl implements InvalidOtp {
     TResult? Function()? userNotFound,
     TResult? Function()? invalidOtp,
     TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
   }) {
     return invalidOtp?.call();
   }
@@ -687,6 +801,9 @@ class _$InvalidOtpImpl implements InvalidOtp {
     TResult Function()? userNotFound,
     TResult Function()? invalidOtp,
     TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (invalidOtp != null) {
@@ -705,6 +822,9 @@ class _$InvalidOtpImpl implements InvalidOtp {
     required TResult Function(InvalidOtp value) invalidOtp,
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
   }) {
     return invalidOtp(this);
   }
@@ -719,6 +839,9 @@ class _$InvalidOtpImpl implements InvalidOtp {
     TResult? Function(InvalidOtp value)? invalidOtp,
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
   }) {
     return invalidOtp?.call(this);
   }
@@ -733,6 +856,9 @@ class _$InvalidOtpImpl implements InvalidOtp {
     TResult Function(InvalidOtp value)? invalidOtp,
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (invalidOtp != null) {
@@ -763,6 +889,9 @@ class __$$InvalidEmailAndPasswordCombinationImplCopyWithImpl<$Res>
       _$InvalidEmailAndPasswordCombinationImpl _value,
       $Res Function(_$InvalidEmailAndPasswordCombinationImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -795,6 +924,9 @@ class _$InvalidEmailAndPasswordCombinationImpl
     required TResult Function() userNotFound,
     required TResult Function() invalidOtp,
     required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
   }) {
     return invalidEmailAndPasswordCombination();
   }
@@ -808,6 +940,9 @@ class _$InvalidEmailAndPasswordCombinationImpl
     TResult? Function()? userNotFound,
     TResult? Function()? invalidOtp,
     TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
   }) {
     return invalidEmailAndPasswordCombination?.call();
   }
@@ -821,6 +956,9 @@ class _$InvalidEmailAndPasswordCombinationImpl
     TResult Function()? userNotFound,
     TResult Function()? invalidOtp,
     TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPasswordCombination != null) {
@@ -839,6 +977,9 @@ class _$InvalidEmailAndPasswordCombinationImpl
     required TResult Function(InvalidOtp value) invalidOtp,
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
   }) {
     return invalidEmailAndPasswordCombination(this);
   }
@@ -853,6 +994,9 @@ class _$InvalidEmailAndPasswordCombinationImpl
     TResult? Function(InvalidOtp value)? invalidOtp,
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
   }) {
     return invalidEmailAndPasswordCombination?.call(this);
   }
@@ -867,6 +1011,9 @@ class _$InvalidEmailAndPasswordCombinationImpl
     TResult Function(InvalidOtp value)? invalidOtp,
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPasswordCombination != null) {
@@ -879,4 +1026,454 @@ class _$InvalidEmailAndPasswordCombinationImpl
 abstract class InvalidEmailAndPasswordCombination implements AuthFailure {
   const factory InvalidEmailAndPasswordCombination() =
       _$InvalidEmailAndPasswordCombinationImpl;
+}
+
+/// @nodoc
+abstract class _$$invalidEmailFormatImplCopyWith<$Res> {
+  factory _$$invalidEmailFormatImplCopyWith(_$invalidEmailFormatImpl value,
+          $Res Function(_$invalidEmailFormatImpl) then) =
+      __$$invalidEmailFormatImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$invalidEmailFormatImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$invalidEmailFormatImpl>
+    implements _$$invalidEmailFormatImplCopyWith<$Res> {
+  __$$invalidEmailFormatImplCopyWithImpl(_$invalidEmailFormatImpl _value,
+      $Res Function(_$invalidEmailFormatImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$invalidEmailFormatImpl implements _invalidEmailFormat {
+  const _$invalidEmailFormatImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidEmailFormat()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$invalidEmailFormatImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() userNotFound,
+    required TResult Function() invalidOtp,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
+  }) {
+    return invalidEmailFormat();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidOtp,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
+  }) {
+    return invalidEmailFormat?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidOtp,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
+    required TResult orElse(),
+  }) {
+    if (invalidEmailFormat != null) {
+      return invalidEmailFormat();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(InvalidOtp value) invalidOtp,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
+  }) {
+    return invalidEmailFormat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidOtp value)? invalidOtp,
+    TResult? Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
+  }) {
+    return invalidEmailFormat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidOtp value)? invalidOtp,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
+    required TResult orElse(),
+  }) {
+    if (invalidEmailFormat != null) {
+      return invalidEmailFormat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _invalidEmailFormat implements AuthFailure {
+  const factory _invalidEmailFormat() = _$invalidEmailFormatImpl;
+}
+
+/// @nodoc
+abstract class _$$otpExpiredImplCopyWith<$Res> {
+  factory _$$otpExpiredImplCopyWith(
+          _$otpExpiredImpl value, $Res Function(_$otpExpiredImpl) then) =
+      __$$otpExpiredImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$otpExpiredImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$otpExpiredImpl>
+    implements _$$otpExpiredImplCopyWith<$Res> {
+  __$$otpExpiredImplCopyWithImpl(
+      _$otpExpiredImpl _value, $Res Function(_$otpExpiredImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$otpExpiredImpl implements _otpExpired {
+  const _$otpExpiredImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.otpExpired()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$otpExpiredImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() userNotFound,
+    required TResult Function() invalidOtp,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
+  }) {
+    return otpExpired();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidOtp,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
+  }) {
+    return otpExpired?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidOtp,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
+    required TResult orElse(),
+  }) {
+    if (otpExpired != null) {
+      return otpExpired();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(InvalidOtp value) invalidOtp,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
+  }) {
+    return otpExpired(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidOtp value)? invalidOtp,
+    TResult? Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
+  }) {
+    return otpExpired?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidOtp value)? invalidOtp,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
+    required TResult orElse(),
+  }) {
+    if (otpExpired != null) {
+      return otpExpired(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _otpExpired implements AuthFailure {
+  const factory _otpExpired() = _$otpExpiredImpl;
+}
+
+/// @nodoc
+abstract class _$$passwordNotMatchImplCopyWith<$Res> {
+  factory _$$passwordNotMatchImplCopyWith(_$passwordNotMatchImpl value,
+          $Res Function(_$passwordNotMatchImpl) then) =
+      __$$passwordNotMatchImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$passwordNotMatchImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$passwordNotMatchImpl>
+    implements _$$passwordNotMatchImplCopyWith<$Res> {
+  __$$passwordNotMatchImplCopyWithImpl(_$passwordNotMatchImpl _value,
+      $Res Function(_$passwordNotMatchImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$passwordNotMatchImpl implements _passwordNotMatch {
+  const _$passwordNotMatchImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.passwordNotMatch()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$passwordNotMatchImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() userNotFound,
+    required TResult Function() invalidOtp,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidEmailFormat,
+    required TResult Function() otpExpired,
+    required TResult Function() passwordNotMatch,
+  }) {
+    return passwordNotMatch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidOtp,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? invalidEmailFormat,
+    TResult? Function()? otpExpired,
+    TResult? Function()? passwordNotMatch,
+  }) {
+    return passwordNotMatch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidOtp,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidEmailFormat,
+    TResult Function()? otpExpired,
+    TResult Function()? passwordNotMatch,
+    required TResult orElse(),
+  }) {
+    if (passwordNotMatch != null) {
+      return passwordNotMatch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(InvalidOtp value) invalidOtp,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(_invalidEmailFormat value) invalidEmailFormat,
+    required TResult Function(_otpExpired value) otpExpired,
+    required TResult Function(_passwordNotMatch value) passwordNotMatch,
+  }) {
+    return passwordNotMatch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidOtp value)? invalidOtp,
+    TResult? Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult? Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult? Function(_otpExpired value)? otpExpired,
+    TResult? Function(_passwordNotMatch value)? passwordNotMatch,
+  }) {
+    return passwordNotMatch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidOtp value)? invalidOtp,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(_invalidEmailFormat value)? invalidEmailFormat,
+    TResult Function(_otpExpired value)? otpExpired,
+    TResult Function(_passwordNotMatch value)? passwordNotMatch,
+    required TResult orElse(),
+  }) {
+    if (passwordNotMatch != null) {
+      return passwordNotMatch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _passwordNotMatch implements AuthFailure {
+  const factory _passwordNotMatch() = _$passwordNotMatchImpl;
 }

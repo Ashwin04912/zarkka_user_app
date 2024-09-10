@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/application/auth/login/login_bloc.dart';
 import 'package:tailme/domain/auth/Login/model/user_login_model.dart';
 import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
+import 'package:tailme/presentation/auth/forgetpassword/screen_forget_pass.dart';
 
 // Importing bottom navigation screen
 
 class ScreenLogin extends StatefulWidget {
-   ScreenLogin({Key? key}) : super(key: key);
+  const ScreenLogin({super.key});
 
   @override
   State<ScreenLogin> createState() => _ScreenLoginState();
@@ -25,11 +27,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
 
   final TextEditingController _passwordController = TextEditingController();
 
- bool _submitted = false;
+  bool _submitted = false;
 
   @override
   Widget build(BuildContext context) {
-    
     debugPrint("build print");
     // Initialize ScreenUtil for width and height adaptation
 
@@ -71,7 +72,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     },
                     builder: (context, state) {
                       return Form(
-                        autovalidateMode: _submitted? AutovalidateMode.always : AutovalidateMode.disabled,
+                        autovalidateMode: _submitted
+                            ? AutovalidateMode.always
+                            : AutovalidateMode.disabled,
                         key: _formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,19 +214,25 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             SizedBox(
                               height: ScreenUtil().setHeight(5),
                             ),
-                            const Row(
+                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(
-                                  'Forgot Password?',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontFamily: 'Urbanist',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
+                                TextButton(
+                                  onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenForgetPass()));
+                                  },
+                                  child: const Text(
+                                    
+                                    'Forgot Password?',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontFamily: 'Urbanist',
+                                      fontWeight: FontWeight.w600,
+                                      height: 0,
+                                    ),
                                   ),
-                                ),
+                                )
                               ],
                             ),
                             SizedBox(
@@ -233,7 +242,12 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             BlocBuilder<LoginBloc, LoginState>(
                               builder: (context, state) {
                                 if (state.isSubmitting) {
-                                  return const LinearProgressIndicator();
+                                   return Center(
+                                    child: LoadingAnimationWidget.stretchedDots(
+                                      size: 50,
+                                      color: Colors.blue,
+                                    ),
+                                  );
                                 }
                                 return SizedBox(
                                   width: double.infinity,
@@ -242,7 +256,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                     builder: (context, state) {
                                       return ElevatedButton(
                                         onPressed: () {
-                                         _submitted = true;
+                                          _submitted = true;
                                           if (_formKey.currentState!
                                               .validate()) {
                                             final user = UserLogin(
@@ -439,7 +453,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                         ScreenUserRegistration()),
+                                        const ScreenUserRegistration()),
                               );
                             },
                         ),

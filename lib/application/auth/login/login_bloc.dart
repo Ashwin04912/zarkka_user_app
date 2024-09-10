@@ -3,14 +3,13 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tailme/domain/auth/Login/auth_failure.dart';
-import 'package:tailme/infrastructure/auth/repository/auth_repository.dart';
+import 'package:tailme/core/failures/auth/auth_failure.dart';
+import 'package:tailme/infrastructure/auth/auth_repository.dart';
 import '../../../domain/auth/Login/model/user_login_model.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 part 'login_bloc.freezed.dart';
-
 
 @injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
@@ -52,13 +51,47 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           );
         },
         eyeButtonPressed: (_EyeButtonPressed value) {
-         emit( state.copyWith(
-            isEyePressed: !state.isEyePressed,
-            isSubmitting: false,
-            showErrorMessages: false,
-            successOrfailure: const None()
-          ));
+          emit(state.copyWith(
+              isEyePressed: !state.isEyePressed,
+              isSubmitting: false,
+              showErrorMessages: false,
+              successOrfailure: const None()));
         },
+        sendCodePressesEvent: (_sendCodePressesEvent value) async {
+          emit(
+            state.copyWith(
+              isSubmitting: true,
+              showErrorMessages: false,
+              successOrfailure: const None(),
+              forgetPassEmailRespSuccessOrFailure:none()
+            ),
+          );
+          final resp = await _authFacde.forgetPassword(email: value.email);
+
+          resp.fold(
+            (l) {
+              emit(
+                state.copyWith(
+                  isSubmitting: false,
+                  showErrorMessages: true,
+                  successOrfailure:none(),
+                  forgetPassEmailRespSuccessOrFailure: some(left(l))
+                ),
+              );
+            },
+            (r) {
+              emit(
+                state.copyWith(
+                  isSubmitting: false,
+                  showErrorMessages: false,
+                  successOrfailure: none(),
+                  forgetPassEmailRespSuccessOrFailure: some(right(r))
+                ),
+              );
+            },
+          );
+        },
+        
       );
     });
   }

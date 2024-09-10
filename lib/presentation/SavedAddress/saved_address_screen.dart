@@ -192,14 +192,17 @@ class ScreenSavedAddress extends StatelessWidget {
                       return SizedBox(
                         // width: double.infinity,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Icon(Icons.push_pin_outlined,
                                     color: Colors.white),
-                                
+                                    SizedBox(width: 10,),
                                 Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Text(
@@ -211,131 +214,124 @@ class ScreenSavedAddress extends StatelessWidget {
                                         fontWeight: FontWeight.w800,
                                       ),
                                     ),
-
-                                    
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 18),
-                                      child: Text(
-                                        '${address.flat}, ${address.area}\n${address.pincode}',
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontFamily: 'Raleway',
-                                          fontWeight: FontWeight.w400,
-                                        ),
+                                    Text(
+                                      '${address.flat}, ${address.area}\n${address.pincode}',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontFamily: 'Raleway',
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ),
                                   ],
                                 ),
                               ],
                             ),
-                            
                             SizedBox(height: 8.h),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 13),
-                              child: Row(
-                                children: [
-                                  const SizedBox(width: 28),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const ScreenEditAddress()));
-                                    },
-                                    child: Container(
-                                      width: 74,
-                                      height: 25,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFFDEBC9),
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          SvgPicture.asset(
-                                              'assets/images/edit.svg'),
-                                          const Text(
-                                            'Edit',
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 13,
-                                              fontFamily: 'Raleway',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                            Row(
+                              children: [
+                                const SizedBox(width: 28),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const ScreenEditAddress()));
+                                  },
+                                  child: Container(
+                                    width: 74,
+                                    height: 25,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFFFDEBC9),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
-                                  ),
-                                  SizedBox(width: 15.w),
-                                  BlocConsumer<AddAddressBloc, AddAddressState>(
-                                    listener: (context, state) {
-                                      // Check for error messages
-                                      state.successOrfailure.fold(() {}, (some) {
-                                        some.fold((f) {
-                                          final message = f.maybeWhen(
-                                            validationFailure: () =>
-                                                "Enter correct data, please recheck",
-                                            userNotFound: () =>
-                                                "Credentials.. Login again and check",
-                                            networkFailure: () =>
-                                                "Network Issue!! Try Again",
-                                            orElse: () => "Some error occurred",
-                                          );
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                                content: Text(message,
-                                                    style: const TextStyle(
-                                                        color: Colors.red))),
-                                          );
-                                        }, (s) {
-                                          BlocProvider.of<AddAddressBloc>(context)
-                                              .add(const AddAddressEvent
-                                                  .getAllAddress());
-                                        });
-                                      });
-                                    },
-                                    builder: (context, state) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          showDeleteConfirmationDialog(context,
-                                              addressId: address.addressId);
-                                        },
-                                        child: Container(
-                                          width: 74,
-                                          height: 25,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xFFFDEBC9),
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              SvgPicture.asset(
-                                                  'assets/images/delete.svg'),
-                                              const Text(
-                                                'Delete',
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 13,
-                                                  fontFamily: 'Raleway',
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                              ),
-                                            ],
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        SvgPicture.asset(
+                                            'assets/images/edit.svg'),
+                                        const Text(
+                                          'Edit',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 13,
+                                            fontFamily: 'Raleway',
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                      );
-                                    },
+                                      ],
+                                    ),
                                   ),
-                                ],
-                              ),
+                                ),
+                                SizedBox(width: 15.w),
+                                BlocConsumer<AddAddressBloc, AddAddressState>(
+                                  listener: (context, state) {
+                                    // Check for error messages
+                                    state.successOrfailure.fold(() {},
+                                        (some) {
+                                      some.fold((f) {
+                                        final message = f.maybeWhen(
+                                          validationFailure: () =>
+                                              "Enter correct data, please recheck",
+                                          userNotFound: () =>
+                                              "Credentials.. Login again and check",
+                                          networkFailure: () =>
+                                              "Network Issue!! Try Again",
+                                          orElse: () => "Some error occurred",
+                                        );
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                              content: Text(message,
+                                                  style: const TextStyle(
+                                                      color: Colors.red))),
+                                        );
+                                      }, (s) {
+                                        BlocProvider.of<AddAddressBloc>(
+                                                context)
+                                            .add(const AddAddressEvent
+                                                .getAllAddress());
+                                      });
+                                    });
+                                  },
+                                  builder: (context, state) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        showDeleteConfirmationDialog(context,
+                                            addressId: address.addressId);
+                                      },
+                                      child: Container(
+                                        width: 74,
+                                        height: 25,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFFDEBC9),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/images/delete.svg'),
+                                            const Text(
+                                              'Delete',
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 13,
+                                                fontFamily: 'Raleway',
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                             const SizedBox(
                               height: 15,

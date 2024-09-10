@@ -50,7 +50,7 @@ mixin _$FormFailure {
     required TResult Function(ValidationFailure value) validationFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
-    required TResult Function(_cancelledByUser value) cancelledByUser,
+    required TResult Function(CancelledByUser value) cancelledByUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +59,7 @@ mixin _$FormFailure {
     TResult? Function(ValidationFailure value)? validationFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
-    TResult? Function(_cancelledByUser value)? cancelledByUser,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +68,7 @@ mixin _$FormFailure {
     TResult Function(ValidationFailure value)? validationFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(_cancelledByUser value)? cancelledByUser,
+    TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -180,7 +180,7 @@ class _$NetworkFailureImpl implements NetworkFailure {
     required TResult Function(ValidationFailure value) validationFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
-    required TResult Function(_cancelledByUser value) cancelledByUser,
+    required TResult Function(CancelledByUser value) cancelledByUser,
   }) {
     return networkFailure(this);
   }
@@ -192,7 +192,7 @@ class _$NetworkFailureImpl implements NetworkFailure {
     TResult? Function(ValidationFailure value)? validationFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
-    TResult? Function(_cancelledByUser value)? cancelledByUser,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
   }) {
     return networkFailure?.call(this);
   }
@@ -204,7 +204,7 @@ class _$NetworkFailureImpl implements NetworkFailure {
     TResult Function(ValidationFailure value)? validationFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(_cancelledByUser value)? cancelledByUser,
+    TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
   }) {
     if (networkFailure != null) {
@@ -303,7 +303,7 @@ class _$ValidationFailureImpl implements ValidationFailure {
     required TResult Function(ValidationFailure value) validationFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
-    required TResult Function(_cancelledByUser value) cancelledByUser,
+    required TResult Function(CancelledByUser value) cancelledByUser,
   }) {
     return validationFailure(this);
   }
@@ -315,7 +315,7 @@ class _$ValidationFailureImpl implements ValidationFailure {
     TResult? Function(ValidationFailure value)? validationFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
-    TResult? Function(_cancelledByUser value)? cancelledByUser,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
   }) {
     return validationFailure?.call(this);
   }
@@ -327,7 +327,7 @@ class _$ValidationFailureImpl implements ValidationFailure {
     TResult Function(ValidationFailure value)? validationFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(_cancelledByUser value)? cancelledByUser,
+    TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
   }) {
     if (validationFailure != null) {
@@ -426,7 +426,7 @@ class _$ServerFailureImpl implements ServerFailure {
     required TResult Function(ValidationFailure value) validationFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
-    required TResult Function(_cancelledByUser value) cancelledByUser,
+    required TResult Function(CancelledByUser value) cancelledByUser,
   }) {
     return serverFailure(this);
   }
@@ -438,7 +438,7 @@ class _$ServerFailureImpl implements ServerFailure {
     TResult? Function(ValidationFailure value)? validationFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
-    TResult? Function(_cancelledByUser value)? cancelledByUser,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
   }) {
     return serverFailure?.call(this);
   }
@@ -450,7 +450,7 @@ class _$ServerFailureImpl implements ServerFailure {
     TResult Function(ValidationFailure value)? validationFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(_cancelledByUser value)? cancelledByUser,
+    TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -549,7 +549,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function(ValidationFailure value) validationFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
-    required TResult Function(_cancelledByUser value) cancelledByUser,
+    required TResult Function(CancelledByUser value) cancelledByUser,
   }) {
     return userNotFound(this);
   }
@@ -561,7 +561,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function(ValidationFailure value)? validationFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
-    TResult? Function(_cancelledByUser value)? cancelledByUser,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
   }) {
     return userNotFound?.call(this);
   }
@@ -573,7 +573,7 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function(ValidationFailure value)? validationFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(_cancelledByUser value)? cancelledByUser,
+    TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -588,18 +588,18 @@ abstract class UserNotFound implements FormFailure {
 }
 
 /// @nodoc
-abstract class _$$cancelledByUserImplCopyWith<$Res> {
-  factory _$$cancelledByUserImplCopyWith(_$cancelledByUserImpl value,
-          $Res Function(_$cancelledByUserImpl) then) =
-      __$$cancelledByUserImplCopyWithImpl<$Res>;
+abstract class _$$CancelledByUserImplCopyWith<$Res> {
+  factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl value,
+          $Res Function(_$CancelledByUserImpl) then) =
+      __$$CancelledByUserImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$cancelledByUserImplCopyWithImpl<$Res>
-    extends _$FormFailureCopyWithImpl<$Res, _$cancelledByUserImpl>
-    implements _$$cancelledByUserImplCopyWith<$Res> {
-  __$$cancelledByUserImplCopyWithImpl(
-      _$cancelledByUserImpl _value, $Res Function(_$cancelledByUserImpl) _then)
+class __$$CancelledByUserImplCopyWithImpl<$Res>
+    extends _$FormFailureCopyWithImpl<$Res, _$CancelledByUserImpl>
+    implements _$$CancelledByUserImplCopyWith<$Res> {
+  __$$CancelledByUserImplCopyWithImpl(
+      _$CancelledByUserImpl _value, $Res Function(_$CancelledByUserImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of FormFailure
@@ -608,8 +608,8 @@ class __$$cancelledByUserImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$cancelledByUserImpl implements _cancelledByUser {
-  const _$cancelledByUserImpl();
+class _$CancelledByUserImpl implements CancelledByUser {
+  const _$CancelledByUserImpl();
 
   @override
   String toString() {
@@ -619,7 +619,7 @@ class _$cancelledByUserImpl implements _cancelledByUser {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$cancelledByUserImpl);
+        (other.runtimeType == runtimeType && other is _$CancelledByUserImpl);
   }
 
   @override
@@ -672,7 +672,7 @@ class _$cancelledByUserImpl implements _cancelledByUser {
     required TResult Function(ValidationFailure value) validationFailure,
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
-    required TResult Function(_cancelledByUser value) cancelledByUser,
+    required TResult Function(CancelledByUser value) cancelledByUser,
   }) {
     return cancelledByUser(this);
   }
@@ -684,7 +684,7 @@ class _$cancelledByUserImpl implements _cancelledByUser {
     TResult? Function(ValidationFailure value)? validationFailure,
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
-    TResult? Function(_cancelledByUser value)? cancelledByUser,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -696,7 +696,7 @@ class _$cancelledByUserImpl implements _cancelledByUser {
     TResult Function(ValidationFailure value)? validationFailure,
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(_cancelledByUser value)? cancelledByUser,
+    TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -706,6 +706,6 @@ class _$cancelledByUserImpl implements _cancelledByUser {
   }
 }
 
-abstract class _cancelledByUser implements FormFailure {
-  const factory _cancelledByUser() = _$cancelledByUserImpl;
+abstract class CancelledByUser implements FormFailure {
+  const factory CancelledByUser() = _$CancelledByUserImpl;
 }

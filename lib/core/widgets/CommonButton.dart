@@ -7,10 +7,10 @@ class CommonButton extends StatelessWidget {
     String buttonText;
 
   CommonButton({
-    Key? key,
+    super.key,
     required this.ontap,
     required this.buttonText,
-  }) : super(key: key);
+  });
 
     @override
     Widget build(BuildContext context) {
@@ -22,10 +22,10 @@ class CommonButton extends StatelessWidget {
             ontap();
           },
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
+            backgroundColor: WidgetStateProperty.all<Color>(
               const Color(0xFFFFAC4B), // Set background color here
             ),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
@@ -34,7 +34,7 @@ class CommonButton extends StatelessWidget {
           child: Text(
             buttonText,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 15,
               fontFamily: 'Urbanist',

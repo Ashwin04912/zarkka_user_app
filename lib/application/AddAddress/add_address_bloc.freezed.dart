@@ -21,16 +21,11 @@ mixin _$AddAddressEvent {
     required TResult Function() homePressed,
     required TResult Function() workPressed,
     required TResult Function() othersPressed,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String token,
-            String type)
+    required TResult Function(String name, String contact, String pinCode,
+            String flat, String area, String landmark, String type)
         submitPressed,
+    required TResult Function() getAllAddress,
+    required TResult Function(String addressId) deleteButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,8 +34,10 @@ mixin _$AddAddressEvent {
     TResult? Function()? workPressed,
     TResult? Function()? othersPressed,
     TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult? Function()? getAllAddress,
+    TResult? Function(String addressId)? deleteButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -49,8 +46,10 @@ mixin _$AddAddressEvent {
     TResult Function()? workPressed,
     TResult Function()? othersPressed,
     TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult Function()? getAllAddress,
+    TResult Function(String addressId)? deleteButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +59,8 @@ mixin _$AddAddressEvent {
     required TResult Function(_WorkPressed value) workPressed,
     required TResult Function(_OthersPressed value) othersPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_getAllAddress value) getAllAddress,
+    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +69,8 @@ mixin _$AddAddressEvent {
     TResult? Function(_WorkPressed value)? workPressed,
     TResult? Function(_OthersPressed value)? othersPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_getAllAddress value)? getAllAddress,
+    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +79,8 @@ mixin _$AddAddressEvent {
     TResult Function(_WorkPressed value)? workPressed,
     TResult Function(_OthersPressed value)? othersPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_getAllAddress value)? getAllAddress,
+    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,16 +151,11 @@ class _$HomePressedImpl implements _HomePressed {
     required TResult Function() homePressed,
     required TResult Function() workPressed,
     required TResult Function() othersPressed,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String token,
-            String type)
+    required TResult Function(String name, String contact, String pinCode,
+            String flat, String area, String landmark, String type)
         submitPressed,
+    required TResult Function() getAllAddress,
+    required TResult Function(String addressId) deleteButtonPressed,
   }) {
     return homePressed();
   }
@@ -167,8 +167,10 @@ class _$HomePressedImpl implements _HomePressed {
     TResult? Function()? workPressed,
     TResult? Function()? othersPressed,
     TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult? Function()? getAllAddress,
+    TResult? Function(String addressId)? deleteButtonPressed,
   }) {
     return homePressed?.call();
   }
@@ -180,8 +182,10 @@ class _$HomePressedImpl implements _HomePressed {
     TResult Function()? workPressed,
     TResult Function()? othersPressed,
     TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult Function()? getAllAddress,
+    TResult Function(String addressId)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (homePressed != null) {
@@ -197,6 +201,8 @@ class _$HomePressedImpl implements _HomePressed {
     required TResult Function(_WorkPressed value) workPressed,
     required TResult Function(_OthersPressed value) othersPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_getAllAddress value) getAllAddress,
+    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
   }) {
     return homePressed(this);
   }
@@ -208,6 +214,8 @@ class _$HomePressedImpl implements _HomePressed {
     TResult? Function(_WorkPressed value)? workPressed,
     TResult? Function(_OthersPressed value)? othersPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_getAllAddress value)? getAllAddress,
+    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
   }) {
     return homePressed?.call(this);
   }
@@ -219,6 +227,8 @@ class _$HomePressedImpl implements _HomePressed {
     TResult Function(_WorkPressed value)? workPressed,
     TResult Function(_OthersPressed value)? othersPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_getAllAddress value)? getAllAddress,
+    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (homePressed != null) {
@@ -276,16 +286,11 @@ class _$WorkPressedImpl implements _WorkPressed {
     required TResult Function() homePressed,
     required TResult Function() workPressed,
     required TResult Function() othersPressed,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String token,
-            String type)
+    required TResult Function(String name, String contact, String pinCode,
+            String flat, String area, String landmark, String type)
         submitPressed,
+    required TResult Function() getAllAddress,
+    required TResult Function(String addressId) deleteButtonPressed,
   }) {
     return workPressed();
   }
@@ -297,8 +302,10 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult? Function()? workPressed,
     TResult? Function()? othersPressed,
     TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult? Function()? getAllAddress,
+    TResult? Function(String addressId)? deleteButtonPressed,
   }) {
     return workPressed?.call();
   }
@@ -310,8 +317,10 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult Function()? workPressed,
     TResult Function()? othersPressed,
     TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult Function()? getAllAddress,
+    TResult Function(String addressId)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (workPressed != null) {
@@ -327,6 +336,8 @@ class _$WorkPressedImpl implements _WorkPressed {
     required TResult Function(_WorkPressed value) workPressed,
     required TResult Function(_OthersPressed value) othersPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_getAllAddress value) getAllAddress,
+    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
   }) {
     return workPressed(this);
   }
@@ -338,6 +349,8 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult? Function(_WorkPressed value)? workPressed,
     TResult? Function(_OthersPressed value)? othersPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_getAllAddress value)? getAllAddress,
+    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
   }) {
     return workPressed?.call(this);
   }
@@ -349,6 +362,8 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult Function(_WorkPressed value)? workPressed,
     TResult Function(_OthersPressed value)? othersPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_getAllAddress value)? getAllAddress,
+    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (workPressed != null) {
@@ -406,16 +421,11 @@ class _$OthersPressedImpl implements _OthersPressed {
     required TResult Function() homePressed,
     required TResult Function() workPressed,
     required TResult Function() othersPressed,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String token,
-            String type)
+    required TResult Function(String name, String contact, String pinCode,
+            String flat, String area, String landmark, String type)
         submitPressed,
+    required TResult Function() getAllAddress,
+    required TResult Function(String addressId) deleteButtonPressed,
   }) {
     return othersPressed();
   }
@@ -427,8 +437,10 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult? Function()? workPressed,
     TResult? Function()? othersPressed,
     TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult? Function()? getAllAddress,
+    TResult? Function(String addressId)? deleteButtonPressed,
   }) {
     return othersPressed?.call();
   }
@@ -440,8 +452,10 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult Function()? workPressed,
     TResult Function()? othersPressed,
     TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult Function()? getAllAddress,
+    TResult Function(String addressId)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (othersPressed != null) {
@@ -457,6 +471,8 @@ class _$OthersPressedImpl implements _OthersPressed {
     required TResult Function(_WorkPressed value) workPressed,
     required TResult Function(_OthersPressed value) othersPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_getAllAddress value) getAllAddress,
+    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
   }) {
     return othersPressed(this);
   }
@@ -468,6 +484,8 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult? Function(_WorkPressed value)? workPressed,
     TResult? Function(_OthersPressed value)? othersPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_getAllAddress value)? getAllAddress,
+    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
   }) {
     return othersPressed?.call(this);
   }
@@ -479,6 +497,8 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult Function(_WorkPressed value)? workPressed,
     TResult Function(_OthersPressed value)? othersPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_getAllAddress value)? getAllAddress,
+    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (othersPressed != null) {
@@ -505,7 +525,6 @@ abstract class _$$SubmitPressedImplCopyWith<$Res> {
       String flat,
       String area,
       String landmark,
-      String token,
       String type});
 }
 
@@ -528,7 +547,6 @@ class __$$SubmitPressedImplCopyWithImpl<$Res>
     Object? flat = null,
     Object? area = null,
     Object? landmark = null,
-    Object? token = null,
     Object? type = null,
   }) {
     return _then(_$SubmitPressedImpl(
@@ -556,10 +574,6 @@ class __$$SubmitPressedImplCopyWithImpl<$Res>
           ? _value.landmark
           : landmark // ignore: cast_nullable_to_non_nullable
               as String,
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -578,7 +592,6 @@ class _$SubmitPressedImpl implements _SubmitPressed {
       required this.flat,
       required this.area,
       required this.landmark,
-      required this.token,
       required this.type});
 
   @override
@@ -594,13 +607,11 @@ class _$SubmitPressedImpl implements _SubmitPressed {
   @override
   final String landmark;
   @override
-  final String token;
-  @override
   final String type;
 
   @override
   String toString() {
-    return 'AddAddressEvent.submitPressed(name: $name, contact: $contact, pinCode: $pinCode, flat: $flat, area: $area, landmark: $landmark, token: $token, type: $type)';
+    return 'AddAddressEvent.submitPressed(name: $name, contact: $contact, pinCode: $pinCode, flat: $flat, area: $area, landmark: $landmark, type: $type)';
   }
 
   @override
@@ -615,13 +626,12 @@ class _$SubmitPressedImpl implements _SubmitPressed {
             (identical(other.area, area) || other.area == area) &&
             (identical(other.landmark, landmark) ||
                 other.landmark == landmark) &&
-            (identical(other.token, token) || other.token == token) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, name, contact, pinCode, flat, area, landmark, token, type);
+      runtimeType, name, contact, pinCode, flat, area, landmark, type);
 
   /// Create a copy of AddAddressEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -637,19 +647,13 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     required TResult Function() homePressed,
     required TResult Function() workPressed,
     required TResult Function() othersPressed,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String token,
-            String type)
+    required TResult Function(String name, String contact, String pinCode,
+            String flat, String area, String landmark, String type)
         submitPressed,
+    required TResult Function() getAllAddress,
+    required TResult Function(String addressId) deleteButtonPressed,
   }) {
-    return submitPressed(
-        name, contact, pinCode, flat, area, landmark, token, type);
+    return submitPressed(name, contact, pinCode, flat, area, landmark, type);
   }
 
   @override
@@ -659,11 +663,13 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult? Function()? workPressed,
     TResult? Function()? othersPressed,
     TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult? Function()? getAllAddress,
+    TResult? Function(String addressId)? deleteButtonPressed,
   }) {
     return submitPressed?.call(
-        name, contact, pinCode, flat, area, landmark, token, type);
+        name, contact, pinCode, flat, area, landmark, type);
   }
 
   @override
@@ -673,13 +679,14 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult Function()? workPressed,
     TResult Function()? othersPressed,
     TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String token, String type)?
+            String area, String landmark, String type)?
         submitPressed,
+    TResult Function()? getAllAddress,
+    TResult Function(String addressId)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
-      return submitPressed(
-          name, contact, pinCode, flat, area, landmark, token, type);
+      return submitPressed(name, contact, pinCode, flat, area, landmark, type);
     }
     return orElse();
   }
@@ -691,6 +698,8 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     required TResult Function(_WorkPressed value) workPressed,
     required TResult Function(_OthersPressed value) othersPressed,
     required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_getAllAddress value) getAllAddress,
+    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
   }) {
     return submitPressed(this);
   }
@@ -702,6 +711,8 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult? Function(_WorkPressed value)? workPressed,
     TResult? Function(_OthersPressed value)? othersPressed,
     TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_getAllAddress value)? getAllAddress,
+    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
   }) {
     return submitPressed?.call(this);
   }
@@ -713,6 +724,8 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult Function(_WorkPressed value)? workPressed,
     TResult Function(_OthersPressed value)? othersPressed,
     TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_getAllAddress value)? getAllAddress,
+    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -730,7 +743,6 @@ abstract class _SubmitPressed implements AddAddressEvent {
       required final String flat,
       required final String area,
       required final String landmark,
-      required final String token,
       required final String type}) = _$SubmitPressedImpl;
 
   String get name;
@@ -739,7 +751,6 @@ abstract class _SubmitPressed implements AddAddressEvent {
   String get flat;
   String get area;
   String get landmark;
-  String get token;
   String get type;
 
   /// Create a copy of AddAddressEvent
@@ -750,13 +761,328 @@ abstract class _SubmitPressed implements AddAddressEvent {
 }
 
 /// @nodoc
+abstract class _$$getAllAddressImplCopyWith<$Res> {
+  factory _$$getAllAddressImplCopyWith(
+          _$getAllAddressImpl value, $Res Function(_$getAllAddressImpl) then) =
+      __$$getAllAddressImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$getAllAddressImplCopyWithImpl<$Res>
+    extends _$AddAddressEventCopyWithImpl<$Res, _$getAllAddressImpl>
+    implements _$$getAllAddressImplCopyWith<$Res> {
+  __$$getAllAddressImplCopyWithImpl(
+      _$getAllAddressImpl _value, $Res Function(_$getAllAddressImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddAddressEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$getAllAddressImpl implements _getAllAddress {
+  const _$getAllAddressImpl();
+
+  @override
+  String toString() {
+    return 'AddAddressEvent.getAllAddress()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$getAllAddressImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() homePressed,
+    required TResult Function() workPressed,
+    required TResult Function() othersPressed,
+    required TResult Function(String name, String contact, String pinCode,
+            String flat, String area, String landmark, String type)
+        submitPressed,
+    required TResult Function() getAllAddress,
+    required TResult Function(String addressId) deleteButtonPressed,
+  }) {
+    return getAllAddress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? homePressed,
+    TResult? Function()? workPressed,
+    TResult? Function()? othersPressed,
+    TResult? Function(String name, String contact, String pinCode, String flat,
+            String area, String landmark, String type)?
+        submitPressed,
+    TResult? Function()? getAllAddress,
+    TResult? Function(String addressId)? deleteButtonPressed,
+  }) {
+    return getAllAddress?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? homePressed,
+    TResult Function()? workPressed,
+    TResult Function()? othersPressed,
+    TResult Function(String name, String contact, String pinCode, String flat,
+            String area, String landmark, String type)?
+        submitPressed,
+    TResult Function()? getAllAddress,
+    TResult Function(String addressId)? deleteButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (getAllAddress != null) {
+      return getAllAddress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HomePressed value) homePressed,
+    required TResult Function(_WorkPressed value) workPressed,
+    required TResult Function(_OthersPressed value) othersPressed,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_getAllAddress value) getAllAddress,
+    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
+  }) {
+    return getAllAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HomePressed value)? homePressed,
+    TResult? Function(_WorkPressed value)? workPressed,
+    TResult? Function(_OthersPressed value)? othersPressed,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_getAllAddress value)? getAllAddress,
+    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
+  }) {
+    return getAllAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HomePressed value)? homePressed,
+    TResult Function(_WorkPressed value)? workPressed,
+    TResult Function(_OthersPressed value)? othersPressed,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_getAllAddress value)? getAllAddress,
+    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (getAllAddress != null) {
+      return getAllAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getAllAddress implements AddAddressEvent {
+  const factory _getAllAddress() = _$getAllAddressImpl;
+}
+
+/// @nodoc
+abstract class _$$deleteButtonPressedImplCopyWith<$Res> {
+  factory _$$deleteButtonPressedImplCopyWith(_$deleteButtonPressedImpl value,
+          $Res Function(_$deleteButtonPressedImpl) then) =
+      __$$deleteButtonPressedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String addressId});
+}
+
+/// @nodoc
+class __$$deleteButtonPressedImplCopyWithImpl<$Res>
+    extends _$AddAddressEventCopyWithImpl<$Res, _$deleteButtonPressedImpl>
+    implements _$$deleteButtonPressedImplCopyWith<$Res> {
+  __$$deleteButtonPressedImplCopyWithImpl(_$deleteButtonPressedImpl _value,
+      $Res Function(_$deleteButtonPressedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddAddressEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? addressId = null,
+  }) {
+    return _then(_$deleteButtonPressedImpl(
+      addressId: null == addressId
+          ? _value.addressId
+          : addressId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$deleteButtonPressedImpl implements _deleteButtonPressed {
+  const _$deleteButtonPressedImpl({required this.addressId});
+
+  @override
+  final String addressId;
+
+  @override
+  String toString() {
+    return 'AddAddressEvent.deleteButtonPressed(addressId: $addressId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$deleteButtonPressedImpl &&
+            (identical(other.addressId, addressId) ||
+                other.addressId == addressId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, addressId);
+
+  /// Create a copy of AddAddressEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$deleteButtonPressedImplCopyWith<_$deleteButtonPressedImpl> get copyWith =>
+      __$$deleteButtonPressedImplCopyWithImpl<_$deleteButtonPressedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() homePressed,
+    required TResult Function() workPressed,
+    required TResult Function() othersPressed,
+    required TResult Function(String name, String contact, String pinCode,
+            String flat, String area, String landmark, String type)
+        submitPressed,
+    required TResult Function() getAllAddress,
+    required TResult Function(String addressId) deleteButtonPressed,
+  }) {
+    return deleteButtonPressed(addressId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? homePressed,
+    TResult? Function()? workPressed,
+    TResult? Function()? othersPressed,
+    TResult? Function(String name, String contact, String pinCode, String flat,
+            String area, String landmark, String type)?
+        submitPressed,
+    TResult? Function()? getAllAddress,
+    TResult? Function(String addressId)? deleteButtonPressed,
+  }) {
+    return deleteButtonPressed?.call(addressId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? homePressed,
+    TResult Function()? workPressed,
+    TResult Function()? othersPressed,
+    TResult Function(String name, String contact, String pinCode, String flat,
+            String area, String landmark, String type)?
+        submitPressed,
+    TResult Function()? getAllAddress,
+    TResult Function(String addressId)? deleteButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (deleteButtonPressed != null) {
+      return deleteButtonPressed(addressId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HomePressed value) homePressed,
+    required TResult Function(_WorkPressed value) workPressed,
+    required TResult Function(_OthersPressed value) othersPressed,
+    required TResult Function(_SubmitPressed value) submitPressed,
+    required TResult Function(_getAllAddress value) getAllAddress,
+    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
+  }) {
+    return deleteButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HomePressed value)? homePressed,
+    TResult? Function(_WorkPressed value)? workPressed,
+    TResult? Function(_OthersPressed value)? othersPressed,
+    TResult? Function(_SubmitPressed value)? submitPressed,
+    TResult? Function(_getAllAddress value)? getAllAddress,
+    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
+  }) {
+    return deleteButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HomePressed value)? homePressed,
+    TResult Function(_WorkPressed value)? workPressed,
+    TResult Function(_OthersPressed value)? othersPressed,
+    TResult Function(_SubmitPressed value)? submitPressed,
+    TResult Function(_getAllAddress value)? getAllAddress,
+    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (deleteButtonPressed != null) {
+      return deleteButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _deleteButtonPressed implements AddAddressEvent {
+  const factory _deleteButtonPressed({required final String addressId}) =
+      _$deleteButtonPressedImpl;
+
+  String get addressId;
+
+  /// Create a copy of AddAddressEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$deleteButtonPressedImplCopyWith<_$deleteButtonPressedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AddAddressState {
   bool get isHome => throw _privateConstructorUsedError;
   bool get isWork => throw _privateConstructorUsedError;
   bool get isOthers => throw _privateConstructorUsedError;
   bool get isSubmiting => throw _privateConstructorUsedError;
+  bool get isGettingAddress => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
+  AddressModel get addressess => throw _privateConstructorUsedError;
+  Option<Either<FormFailure, Unit>> get isDataGot =>
+      throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   Option<Either<FormFailure, Unit>> get successOrfailure =>
+      throw _privateConstructorUsedError;
+  Option<Either<FormFailure, Unit>> get addAddressSuccessOrFailureResponse =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of AddAddressState
@@ -777,8 +1103,13 @@ abstract class $AddAddressStateCopyWith<$Res> {
       bool isWork,
       bool isOthers,
       bool isSubmiting,
+      bool isGettingAddress,
       bool showErrorMessages,
-      Option<Either<FormFailure, Unit>> successOrfailure});
+      AddressModel addressess,
+      Option<Either<FormFailure, Unit>> isDataGot,
+      String type,
+      Option<Either<FormFailure, Unit>> successOrfailure,
+      Option<Either<FormFailure, Unit>> addAddressSuccessOrFailureResponse});
 }
 
 /// @nodoc
@@ -800,8 +1131,13 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
     Object? isWork = null,
     Object? isOthers = null,
     Object? isSubmiting = null,
+    Object? isGettingAddress = null,
     Object? showErrorMessages = null,
+    Object? addressess = null,
+    Object? isDataGot = null,
+    Object? type = null,
     Object? successOrfailure = null,
+    Object? addAddressSuccessOrFailureResponse = null,
   }) {
     return _then(_value.copyWith(
       isHome: null == isHome
@@ -820,13 +1156,34 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
           ? _value.isSubmiting
           : isSubmiting // ignore: cast_nullable_to_non_nullable
               as bool,
+      isGettingAddress: null == isGettingAddress
+          ? _value.isGettingAddress
+          : isGettingAddress // ignore: cast_nullable_to_non_nullable
+              as bool,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
+      addressess: null == addressess
+          ? _value.addressess
+          : addressess // ignore: cast_nullable_to_non_nullable
+              as AddressModel,
+      isDataGot: null == isDataGot
+          ? _value.isDataGot
+          : isDataGot // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, Unit>>,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       successOrfailure: null == successOrfailure
           ? _value.successOrfailure
           : successOrfailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, Unit>>,
+      addAddressSuccessOrFailureResponse: null ==
+              addAddressSuccessOrFailureResponse
+          ? _value.addAddressSuccessOrFailureResponse
+          : addAddressSuccessOrFailureResponse // ignore: cast_nullable_to_non_nullable
               as Option<Either<FormFailure, Unit>>,
     ) as $Val);
   }
@@ -845,8 +1202,13 @@ abstract class _$$AddAddressStateImplCopyWith<$Res>
       bool isWork,
       bool isOthers,
       bool isSubmiting,
+      bool isGettingAddress,
       bool showErrorMessages,
-      Option<Either<FormFailure, Unit>> successOrfailure});
+      AddressModel addressess,
+      Option<Either<FormFailure, Unit>> isDataGot,
+      String type,
+      Option<Either<FormFailure, Unit>> successOrfailure,
+      Option<Either<FormFailure, Unit>> addAddressSuccessOrFailureResponse});
 }
 
 /// @nodoc
@@ -866,8 +1228,13 @@ class __$$AddAddressStateImplCopyWithImpl<$Res>
     Object? isWork = null,
     Object? isOthers = null,
     Object? isSubmiting = null,
+    Object? isGettingAddress = null,
     Object? showErrorMessages = null,
+    Object? addressess = null,
+    Object? isDataGot = null,
+    Object? type = null,
     Object? successOrfailure = null,
+    Object? addAddressSuccessOrFailureResponse = null,
   }) {
     return _then(_$AddAddressStateImpl(
       isHome: null == isHome
@@ -886,13 +1253,34 @@ class __$$AddAddressStateImplCopyWithImpl<$Res>
           ? _value.isSubmiting
           : isSubmiting // ignore: cast_nullable_to_non_nullable
               as bool,
+      isGettingAddress: null == isGettingAddress
+          ? _value.isGettingAddress
+          : isGettingAddress // ignore: cast_nullable_to_non_nullable
+              as bool,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
+      addressess: null == addressess
+          ? _value.addressess
+          : addressess // ignore: cast_nullable_to_non_nullable
+              as AddressModel,
+      isDataGot: null == isDataGot
+          ? _value.isDataGot
+          : isDataGot // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, Unit>>,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       successOrfailure: null == successOrfailure
           ? _value.successOrfailure
           : successOrfailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, Unit>>,
+      addAddressSuccessOrFailureResponse: null ==
+              addAddressSuccessOrFailureResponse
+          ? _value.addAddressSuccessOrFailureResponse
+          : addAddressSuccessOrFailureResponse // ignore: cast_nullable_to_non_nullable
               as Option<Either<FormFailure, Unit>>,
     ));
   }
@@ -906,8 +1294,13 @@ class _$AddAddressStateImpl implements _AddAddressState {
       required this.isWork,
       required this.isOthers,
       required this.isSubmiting,
+      required this.isGettingAddress,
       required this.showErrorMessages,
-      required this.successOrfailure});
+      required this.addressess,
+      required this.isDataGot,
+      required this.type,
+      required this.successOrfailure,
+      required this.addAddressSuccessOrFailureResponse});
 
   @override
   final bool isHome;
@@ -918,13 +1311,23 @@ class _$AddAddressStateImpl implements _AddAddressState {
   @override
   final bool isSubmiting;
   @override
+  final bool isGettingAddress;
+  @override
   final bool showErrorMessages;
   @override
+  final AddressModel addressess;
+  @override
+  final Option<Either<FormFailure, Unit>> isDataGot;
+  @override
+  final String type;
+  @override
   final Option<Either<FormFailure, Unit>> successOrfailure;
+  @override
+  final Option<Either<FormFailure, Unit>> addAddressSuccessOrFailureResponse;
 
   @override
   String toString() {
-    return 'AddAddressState(isHome: $isHome, isWork: $isWork, isOthers: $isOthers, isSubmiting: $isSubmiting, showErrorMessages: $showErrorMessages, successOrfailure: $successOrfailure)';
+    return 'AddAddressState(isHome: $isHome, isWork: $isWork, isOthers: $isOthers, isSubmiting: $isSubmiting, isGettingAddress: $isGettingAddress, showErrorMessages: $showErrorMessages, addressess: $addressess, isDataGot: $isDataGot, type: $type, successOrfailure: $successOrfailure, addAddressSuccessOrFailureResponse: $addAddressSuccessOrFailureResponse)';
   }
 
   @override
@@ -938,15 +1341,37 @@ class _$AddAddressStateImpl implements _AddAddressState {
                 other.isOthers == isOthers) &&
             (identical(other.isSubmiting, isSubmiting) ||
                 other.isSubmiting == isSubmiting) &&
+            (identical(other.isGettingAddress, isGettingAddress) ||
+                other.isGettingAddress == isGettingAddress) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 other.showErrorMessages == showErrorMessages) &&
+            (identical(other.addressess, addressess) ||
+                other.addressess == addressess) &&
+            (identical(other.isDataGot, isDataGot) ||
+                other.isDataGot == isDataGot) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.successOrfailure, successOrfailure) ||
-                other.successOrfailure == successOrfailure));
+                other.successOrfailure == successOrfailure) &&
+            (identical(other.addAddressSuccessOrFailureResponse,
+                    addAddressSuccessOrFailureResponse) ||
+                other.addAddressSuccessOrFailureResponse ==
+                    addAddressSuccessOrFailureResponse));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isHome, isWork, isOthers,
-      isSubmiting, showErrorMessages, successOrfailure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isHome,
+      isWork,
+      isOthers,
+      isSubmiting,
+      isGettingAddress,
+      showErrorMessages,
+      addressess,
+      isDataGot,
+      type,
+      successOrfailure,
+      addAddressSuccessOrFailureResponse);
 
   /// Create a copy of AddAddressState
   /// with the given fields replaced by the non-null parameter values.
@@ -960,13 +1385,18 @@ class _$AddAddressStateImpl implements _AddAddressState {
 
 abstract class _AddAddressState implements AddAddressState {
   const factory _AddAddressState(
-          {required final bool isHome,
-          required final bool isWork,
-          required final bool isOthers,
-          required final bool isSubmiting,
-          required final bool showErrorMessages,
-          required final Option<Either<FormFailure, Unit>> successOrfailure}) =
-      _$AddAddressStateImpl;
+      {required final bool isHome,
+      required final bool isWork,
+      required final bool isOthers,
+      required final bool isSubmiting,
+      required final bool isGettingAddress,
+      required final bool showErrorMessages,
+      required final AddressModel addressess,
+      required final Option<Either<FormFailure, Unit>> isDataGot,
+      required final String type,
+      required final Option<Either<FormFailure, Unit>> successOrfailure,
+      required final Option<Either<FormFailure, Unit>>
+          addAddressSuccessOrFailureResponse}) = _$AddAddressStateImpl;
 
   @override
   bool get isHome;
@@ -977,9 +1407,19 @@ abstract class _AddAddressState implements AddAddressState {
   @override
   bool get isSubmiting;
   @override
+  bool get isGettingAddress;
+  @override
   bool get showErrorMessages;
   @override
+  AddressModel get addressess;
+  @override
+  Option<Either<FormFailure, Unit>> get isDataGot;
+  @override
+  String get type;
+  @override
   Option<Either<FormFailure, Unit>> get successOrfailure;
+  @override
+  Option<Either<FormFailure, Unit>> get addAddressSuccessOrFailureResponse;
 
   /// Create a copy of AddAddressState
   /// with the given fields replaced by the non-null parameter values.

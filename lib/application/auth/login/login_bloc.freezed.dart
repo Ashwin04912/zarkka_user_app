@@ -20,18 +20,21 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(UserLogin user) loginButtonPressedEvent,
     required TResult Function() eyeButtonPressed,
+    required TResult Function(String email) sendCodePressesEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(UserLogin user)? loginButtonPressedEvent,
     TResult? Function()? eyeButtonPressed,
+    TResult? Function(String email)? sendCodePressesEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserLogin user)? loginButtonPressedEvent,
     TResult Function()? eyeButtonPressed,
+    TResult Function(String email)? sendCodePressesEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$LoginEvent {
     required TResult Function(_LoginButtonPressedEvent value)
         loginButtonPressedEvent,
     required TResult Function(_EyeButtonPressed value) eyeButtonPressed,
+    required TResult Function(_sendCodePressesEvent value) sendCodePressesEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
     TResult? Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult? Function(_sendCodePressesEvent value)? sendCodePressesEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
     TResult Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult Function(_sendCodePressesEvent value)? sendCodePressesEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +169,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(UserLogin user) loginButtonPressedEvent,
     required TResult Function() eyeButtonPressed,
+    required TResult Function(String email) sendCodePressesEvent,
   }) {
     return loginButtonPressedEvent(user);
   }
@@ -172,6 +179,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(UserLogin user)? loginButtonPressedEvent,
     TResult? Function()? eyeButtonPressed,
+    TResult? Function(String email)? sendCodePressesEvent,
   }) {
     return loginButtonPressedEvent?.call(user);
   }
@@ -181,6 +189,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserLogin user)? loginButtonPressedEvent,
     TResult Function()? eyeButtonPressed,
+    TResult Function(String email)? sendCodePressesEvent,
     required TResult orElse(),
   }) {
     if (loginButtonPressedEvent != null) {
@@ -195,6 +204,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
     required TResult Function(_LoginButtonPressedEvent value)
         loginButtonPressedEvent,
     required TResult Function(_EyeButtonPressed value) eyeButtonPressed,
+    required TResult Function(_sendCodePressesEvent value) sendCodePressesEvent,
   }) {
     return loginButtonPressedEvent(this);
   }
@@ -204,6 +214,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
     TResult? Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult? Function(_sendCodePressesEvent value)? sendCodePressesEvent,
   }) {
     return loginButtonPressedEvent?.call(this);
   }
@@ -213,6 +224,7 @@ class _$LoginButtonPressedEventImpl implements _LoginButtonPressedEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
     TResult Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult Function(_sendCodePressesEvent value)? sendCodePressesEvent,
     required TResult orElse(),
   }) {
     if (loginButtonPressedEvent != null) {
@@ -278,6 +290,7 @@ class _$EyeButtonPressedImpl implements _EyeButtonPressed {
   TResult when<TResult extends Object?>({
     required TResult Function(UserLogin user) loginButtonPressedEvent,
     required TResult Function() eyeButtonPressed,
+    required TResult Function(String email) sendCodePressesEvent,
   }) {
     return eyeButtonPressed();
   }
@@ -287,6 +300,7 @@ class _$EyeButtonPressedImpl implements _EyeButtonPressed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(UserLogin user)? loginButtonPressedEvent,
     TResult? Function()? eyeButtonPressed,
+    TResult? Function(String email)? sendCodePressesEvent,
   }) {
     return eyeButtonPressed?.call();
   }
@@ -296,6 +310,7 @@ class _$EyeButtonPressedImpl implements _EyeButtonPressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserLogin user)? loginButtonPressedEvent,
     TResult Function()? eyeButtonPressed,
+    TResult Function(String email)? sendCodePressesEvent,
     required TResult orElse(),
   }) {
     if (eyeButtonPressed != null) {
@@ -310,6 +325,7 @@ class _$EyeButtonPressedImpl implements _EyeButtonPressed {
     required TResult Function(_LoginButtonPressedEvent value)
         loginButtonPressedEvent,
     required TResult Function(_EyeButtonPressed value) eyeButtonPressed,
+    required TResult Function(_sendCodePressesEvent value) sendCodePressesEvent,
   }) {
     return eyeButtonPressed(this);
   }
@@ -319,6 +335,7 @@ class _$EyeButtonPressedImpl implements _EyeButtonPressed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
     TResult? Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult? Function(_sendCodePressesEvent value)? sendCodePressesEvent,
   }) {
     return eyeButtonPressed?.call(this);
   }
@@ -328,6 +345,7 @@ class _$EyeButtonPressedImpl implements _EyeButtonPressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
     TResult Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult Function(_sendCodePressesEvent value)? sendCodePressesEvent,
     required TResult orElse(),
   }) {
     if (eyeButtonPressed != null) {
@@ -342,13 +360,163 @@ abstract class _EyeButtonPressed implements LoginEvent {
 }
 
 /// @nodoc
+abstract class _$$sendCodePressesEventImplCopyWith<$Res> {
+  factory _$$sendCodePressesEventImplCopyWith(_$sendCodePressesEventImpl value,
+          $Res Function(_$sendCodePressesEventImpl) then) =
+      __$$sendCodePressesEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email});
+}
+
+/// @nodoc
+class __$$sendCodePressesEventImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$sendCodePressesEventImpl>
+    implements _$$sendCodePressesEventImplCopyWith<$Res> {
+  __$$sendCodePressesEventImplCopyWithImpl(_$sendCodePressesEventImpl _value,
+      $Res Function(_$sendCodePressesEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+  }) {
+    return _then(_$sendCodePressesEventImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$sendCodePressesEventImpl implements _sendCodePressesEvent {
+  const _$sendCodePressesEventImpl({required this.email});
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'LoginEvent.sendCodePressesEvent(email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$sendCodePressesEventImpl &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$sendCodePressesEventImplCopyWith<_$sendCodePressesEventImpl>
+      get copyWith =>
+          __$$sendCodePressesEventImplCopyWithImpl<_$sendCodePressesEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(UserLogin user) loginButtonPressedEvent,
+    required TResult Function() eyeButtonPressed,
+    required TResult Function(String email) sendCodePressesEvent,
+  }) {
+    return sendCodePressesEvent(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(UserLogin user)? loginButtonPressedEvent,
+    TResult? Function()? eyeButtonPressed,
+    TResult? Function(String email)? sendCodePressesEvent,
+  }) {
+    return sendCodePressesEvent?.call(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(UserLogin user)? loginButtonPressedEvent,
+    TResult Function()? eyeButtonPressed,
+    TResult Function(String email)? sendCodePressesEvent,
+    required TResult orElse(),
+  }) {
+    if (sendCodePressesEvent != null) {
+      return sendCodePressesEvent(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoginButtonPressedEvent value)
+        loginButtonPressedEvent,
+    required TResult Function(_EyeButtonPressed value) eyeButtonPressed,
+    required TResult Function(_sendCodePressesEvent value) sendCodePressesEvent,
+  }) {
+    return sendCodePressesEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult? Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult? Function(_sendCodePressesEvent value)? sendCodePressesEvent,
+  }) {
+    return sendCodePressesEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoginButtonPressedEvent value)? loginButtonPressedEvent,
+    TResult Function(_EyeButtonPressed value)? eyeButtonPressed,
+    TResult Function(_sendCodePressesEvent value)? sendCodePressesEvent,
+    required TResult orElse(),
+  }) {
+    if (sendCodePressesEvent != null) {
+      return sendCodePressesEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _sendCodePressesEvent implements LoginEvent {
+  const factory _sendCodePressesEvent({required final String email}) =
+      _$sendCodePressesEventImpl;
+
+  String get email;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$sendCodePressesEventImplCopyWith<_$sendCodePressesEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LoginState {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isEyePressed => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get successOrfailure =>
+      throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get forgetPassEmailRespSuccessOrFailure =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
@@ -365,12 +533,11 @@ abstract class $LoginStateCopyWith<$Res> {
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
   $Res call(
-      {String email,
-      String password,
-      bool showErrorMessages,
+      {bool showErrorMessages,
       bool isSubmitting,
       bool isEyePressed,
-      Option<Either<AuthFailure, Unit>> successOrfailure});
+      Option<Either<AuthFailure, Unit>> successOrfailure,
+      Option<Either<AuthFailure, Unit>> forgetPassEmailRespSuccessOrFailure});
 }
 
 /// @nodoc
@@ -388,22 +555,13 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? password = null,
     Object? showErrorMessages = null,
     Object? isSubmitting = null,
     Object? isEyePressed = null,
     Object? successOrfailure = null,
+    Object? forgetPassEmailRespSuccessOrFailure = null,
   }) {
     return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -420,6 +578,11 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.successOrfailure
           : successOrfailure // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      forgetPassEmailRespSuccessOrFailure: null ==
+              forgetPassEmailRespSuccessOrFailure
+          ? _value.forgetPassEmailRespSuccessOrFailure
+          : forgetPassEmailRespSuccessOrFailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
     ) as $Val);
   }
 }
@@ -433,12 +596,11 @@ abstract class _$$LoginStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String email,
-      String password,
-      bool showErrorMessages,
+      {bool showErrorMessages,
       bool isSubmitting,
       bool isEyePressed,
-      Option<Either<AuthFailure, Unit>> successOrfailure});
+      Option<Either<AuthFailure, Unit>> successOrfailure,
+      Option<Either<AuthFailure, Unit>> forgetPassEmailRespSuccessOrFailure});
 }
 
 /// @nodoc
@@ -454,22 +616,13 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? password = null,
     Object? showErrorMessages = null,
     Object? isSubmitting = null,
     Object? isEyePressed = null,
     Object? successOrfailure = null,
+    Object? forgetPassEmailRespSuccessOrFailure = null,
   }) {
     return _then(_$LoginStateImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -486,6 +639,11 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.successOrfailure
           : successOrfailure // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      forgetPassEmailRespSuccessOrFailure: null ==
+              forgetPassEmailRespSuccessOrFailure
+          ? _value.forgetPassEmailRespSuccessOrFailure
+          : forgetPassEmailRespSuccessOrFailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
     ));
   }
 }
@@ -494,17 +652,12 @@ class __$$LoginStateImplCopyWithImpl<$Res>
 
 class _$LoginStateImpl implements _LoginState {
   const _$LoginStateImpl(
-      {required this.email,
-      required this.password,
-      required this.showErrorMessages,
+      {required this.showErrorMessages,
       required this.isSubmitting,
       required this.isEyePressed,
-      required this.successOrfailure});
+      required this.successOrfailure,
+      required this.forgetPassEmailRespSuccessOrFailure});
 
-  @override
-  final String email;
-  @override
-  final String password;
   @override
   final bool showErrorMessages;
   @override
@@ -513,10 +666,12 @@ class _$LoginStateImpl implements _LoginState {
   final bool isEyePressed;
   @override
   final Option<Either<AuthFailure, Unit>> successOrfailure;
+  @override
+  final Option<Either<AuthFailure, Unit>> forgetPassEmailRespSuccessOrFailure;
 
   @override
   String toString() {
-    return 'LoginState(email: $email, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, isEyePressed: $isEyePressed, successOrfailure: $successOrfailure)';
+    return 'LoginState(showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, isEyePressed: $isEyePressed, successOrfailure: $successOrfailure, forgetPassEmailRespSuccessOrFailure: $forgetPassEmailRespSuccessOrFailure)';
   }
 
   @override
@@ -524,9 +679,6 @@ class _$LoginStateImpl implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginStateImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 other.showErrorMessages == showErrorMessages) &&
             (identical(other.isSubmitting, isSubmitting) ||
@@ -534,12 +686,16 @@ class _$LoginStateImpl implements _LoginState {
             (identical(other.isEyePressed, isEyePressed) ||
                 other.isEyePressed == isEyePressed) &&
             (identical(other.successOrfailure, successOrfailure) ||
-                other.successOrfailure == successOrfailure));
+                other.successOrfailure == successOrfailure) &&
+            (identical(other.forgetPassEmailRespSuccessOrFailure,
+                    forgetPassEmailRespSuccessOrFailure) ||
+                other.forgetPassEmailRespSuccessOrFailure ==
+                    forgetPassEmailRespSuccessOrFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password,
-      showErrorMessages, isSubmitting, isEyePressed, successOrfailure);
+  int get hashCode => Object.hash(runtimeType, showErrorMessages, isSubmitting,
+      isEyePressed, successOrfailure, forgetPassEmailRespSuccessOrFailure);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -552,18 +708,13 @@ class _$LoginStateImpl implements _LoginState {
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
-          {required final String email,
-          required final String password,
-          required final bool showErrorMessages,
-          required final bool isSubmitting,
-          required final bool isEyePressed,
-          required final Option<Either<AuthFailure, Unit>> successOrfailure}) =
-      _$LoginStateImpl;
+      {required final bool showErrorMessages,
+      required final bool isSubmitting,
+      required final bool isEyePressed,
+      required final Option<Either<AuthFailure, Unit>> successOrfailure,
+      required final Option<Either<AuthFailure, Unit>>
+          forgetPassEmailRespSuccessOrFailure}) = _$LoginStateImpl;
 
-  @override
-  String get email;
-  @override
-  String get password;
   @override
   bool get showErrorMessages;
   @override
@@ -572,6 +723,8 @@ abstract class _LoginState implements LoginState {
   bool get isEyePressed;
   @override
   Option<Either<AuthFailure, Unit>> get successOrfailure;
+  @override
+  Option<Either<AuthFailure, Unit>> get forgetPassEmailRespSuccessOrFailure;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

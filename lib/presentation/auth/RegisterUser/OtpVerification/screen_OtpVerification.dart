@@ -6,12 +6,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
+import 'package:tailme/presentation/PaymentSuccess/ScreenPaymentSuccess.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/verification_completed.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:tailme/presentation/auth/forgetpassword/new_password_screen.dart';
 
 class ScreenOtpVerfication extends StatefulWidget {
   final String email;
-  const ScreenOtpVerfication({super.key, required this.email});
+  final bool isForget;
+  const ScreenOtpVerfication(
+      {super.key, required this.email, required this.isForget});
 
   @override
   State<ScreenOtpVerfication> createState() => _ScreenOtpVerficationState();
@@ -36,83 +40,63 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
           child: BlocConsumer<OtpVerificationBloc, OtpVerificationState>(
-           listener: (context, state) {
-            if(state.isSubmit){
-              state.successOrfailure.fold(() {}, (some) {
-                      some.fold((f) {
-                        final message = f.maybeWhen(
-                          invalidOtp: () => 'Invalid Otp',
-                          
-                          serverError: () => 'Server error',
-                          userNotFound: () => 'User not found',
-                          orElse: () => 'Some error occurred',
-                        );
+            listener: (context, state) {
+              if (state.isSubmit) {
+                state.successOrfailure.fold(() {}, (some) {
+                  some.fold((f) {
+                    final message = f.maybeWhen(
+                      invalidOtp: () => 'Invalid Otp',
+                      otpExpired: () => 'Otp Expired',
+                      serverError: () => 'Server error',
+                      userNotFound: () => 'User not found',
+                      orElse: () => 'Some error occurred',
+                    );
 
-                        
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(message)),
-                        );
-                      }, (s) {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const OtpVerificationCompleted()));
-                      });
-                    });
-            }
-            else if(state.isResendOtp){
-              state.successOrfailure.fold(() {}, (some) {
-                      some.fold((f) {
-                        final message = f.maybeWhen(
-                          invalidOtp: () => 'Invalid Otp',
-                          
-                          serverError: () => 'Server error',
-                          userNotFound: () => 'User not found',
-                          orElse: () => 'Some error occurred',
-                        );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(message)),
+                    );
+                  }, (s) {
+                    if (widget.isForget) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ScreenNewPassword(
+                          email: widget.email,
+                        ),
+                      ));
+                    } else {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const OtpVerificationCompleted(isResetPass: false,),
+                      ));
+                    }
+                  });
+                });
+              } else if (state.isResendOtp) {
+                state.successOrfailure.fold(() {}, (some) {
+                  some.fold((f) {
+                    final message = f.maybeWhen(
+                      invalidOtp: () => 'Invalid Otp',
+                      serverError: () => 'Server error',
+                      userNotFound: () => 'User not found',
+                      emailAlreadyInUse: () => 'Email Already verified',
+                      orElse: () => 'Some error occurred',
+                    );
 
-                        
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(message)),
-                        );
-                      }, (s) {
-                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Otp sent')));
-                      });
-                    });
-            }
-                    
-                  },
-            builder: (context, state) {
-              if (state.isSubmitting) {
-                return Center(
-                  child: LoadingAnimationWidget.staggeredDotsWave(
-                    color: Colors.white,
-                    size: 200,
-                  ),
-                );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(message)),
+                    );
+                  }, (s) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Otp sent')),
+                    );
+                  });
+                });
               }
+            },
+            builder: (context, state) {
               return SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Container(
-                        height: 40.h,
-                        width: 40.w,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                        child: Center(
-                            child: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: SvgPicture.asset(
-                              'assets/images/back_arrow.svg',
-                              color: Colors.black),
-                        )),
-                      ),
-                    ),
+                    
                     SizedBox(height: 55.h),
                     const Text(
                       'OTP Verification',
@@ -146,37 +130,59 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                       ),
                     ),
                     SizedBox(height: 30.h),
-                    SizedBox(
-                      height: 55.h,
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStateProperty.all<Color>(
-                            const Color(0xFFFFAC4B),
-                          ),
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.r),
+                    state.isSubmitting
+                        ? Center(
+                            child: LoadingAnimationWidget.stretchedDots(
+                              size: 50,
+                              color: Colors.blue,
+                            ),
+                          )
+                        : SizedBox(
+                            height: 55.h,
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: WidgetStateProperty.all<Color>(
+                                  const Color(0xFFFFAC4B),
+                                ),
+                                shape: WidgetStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.r),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                otp = otp1.text +
+                                    otp2.text +
+                                    otp3.text +
+                                    otp4.text;
+                                print(otp);
+                                print(widget.email);
+                                print(widget.isForget);
+                                if (widget.isForget) {
+                                  BlocProvider.of<OtpVerificationBloc>(context)
+                                      .add(OtpVerificationEvent
+                                          .otpVerificationForResetEvent(
+                                              otp: otp, email: widget.email));
+                                } else {
+                                  BlocProvider.of<OtpVerificationBloc>(context)
+                                      .add(OtpVerificationEvent
+                                          .verifyButtonClicked(
+                                              otp: otp,
+                                              email: widget.email,
+                                              isForget: widget.isForget));
+                                }
+                              },
+                              child: const Text(
+                                'Verify',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Urbanist',
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        onPressed: () {
-                          otp = otp1.text + otp2.text + otp3.text + otp4.text;
-                          print(otp);
-                          BlocProvider.of<OtpVerificationBloc>(context).add(
-                              OtpVerificationEvent.verifyButtonClicked(
-                                  otp: otp, email: widget.email));
-                        },
-                        child: const Text(
-                          'Verify',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Urbanist',
-                          ),
-                        ),
-                      ),
-                    ),
                     SizedBox(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -193,8 +199,12 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
+                              SizedBox(
+                                height: 60,
+                              ),
                               TextButton(
                                 onPressed: () {
+                                  debugPrint("resend button clicked");
                                   BlocProvider.of<OtpVerificationBloc>(context)
                                       .add(OtpVerificationEvent
                                           .resendButtonClicked(

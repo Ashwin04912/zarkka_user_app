@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/application/auth/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
 
@@ -58,7 +59,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (context) =>
-                                       ScreenOtpVerfication(email: emailController.text,)),
+                                       ScreenOtpVerfication(email: emailController.text, isForget: false,)),
                               
                             );
                           });
@@ -283,7 +284,12 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 RegisterUserState>(
                               builder: (context, state) {
                                 if (state.isSubmitting) {
-                                  return const LinearProgressIndicator(color: Colors.blue,);
+                                  return  Center(
+                                    child: LoadingAnimationWidget.stretchedDots(
+                                      size: 50,
+                                      color: Colors.blue,
+                                    ),
+                                  );
                                 }
                                 return SizedBox(
                                    width: double.infinity,

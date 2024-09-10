@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/application/auth/login/login_bloc.dart';
 import 'package:tailme/domain/auth/Login/model/user_login_model.dart';
 import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
+import 'package:tailme/presentation/auth/forgetpassword/screen_forget_pass.dart';
 
 // Importing bottom navigation screen
 
 class ScreenLogin extends StatefulWidget {
-  const ScreenLogin({Key? key}) : super(key: key);
+  const ScreenLogin({super.key});
 
   @override
   State<ScreenLogin> createState() => _ScreenLoginState();
@@ -217,7 +219,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                               children: [
                                 TextButton(
                                   onPressed: (){
-                                    print('hellp');
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenForgetPass()));
                                   },
                                   child: const Text(
                                     
@@ -240,7 +242,12 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             BlocBuilder<LoginBloc, LoginState>(
                               builder: (context, state) {
                                 if (state.isSubmitting) {
-                                  return const LinearProgressIndicator();
+                                   return Center(
+                                    child: LoadingAnimationWidget.stretchedDots(
+                                      size: 50,
+                                      color: Colors.blue,
+                                    ),
+                                  );
                                 }
                                 return SizedBox(
                                   width: double.infinity,

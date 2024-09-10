@@ -1,18 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tailme/presentation/AddAddress/add_address.dart';
 import 'package:tailme/presentation/EditAddress/edit_address.dart';
 import 'package:tailme/presentation/SavedAddress/popup_function/popup_dialog.dart';
 
+import '../../application/AddAddress/add_address_bloc.dart';
+import '../../domain/AddAddress/model/address_model.dart';
+
 class ScreenSavedAddress extends StatelessWidget {
   const ScreenSavedAddress({super.key});
 
   @override
   Widget build(BuildContext context) {
-    int a = 673546;
+    BlocProvider.of<AddAddressBloc>(context)
+        .add(const AddAddressEvent.getAllAddress());
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -83,7 +86,8 @@ class ScreenSavedAddress extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ScreenEnterCompleteAddress(),
+                            builder: (context) =>
+                                const ScreenEnterCompleteAddress(),
                           ),
                         );
                       },
@@ -97,7 +101,7 @@ class ScreenSavedAddress extends StatelessWidget {
                             width: 10.w,
                           ),
                           const Text(
-                            'Add addres',
+                            'Add address',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -140,125 +144,209 @@ class ScreenSavedAddress extends StatelessWidget {
             SizedBox(
               height: 40.h,
             ),
-            Expanded(
-              child: ListView.separated(
-                shrinkWrap: true,
-                separatorBuilder: (context, index) => Column(
-                  children: [
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    const Divider(color: Colors.white),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                  ],
-                ), // Separator
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    width: double.infinity,
-                    child: Column(
+            BlocConsumer<AddAddressBloc, AddAddressState>(
+              listener: (context, state) {
+                state.isDataGot.fold(() {}, (some) {
+                  some.fold((f) {
+                    final message = f.maybeWhen(
+                      validationFailure: () =>
+                          "Enter correct datas, please recheck",
+                      userNotFound: () => "Credentials..Login again and check",
+                      networkFailure: () => "Network Issue!! Try Again",
+                      orElse: () => "some error occured",
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                      message,
+                      style: const TextStyle(color: Colors.red),
+                    )));
+                  }, (s) {});
+                });
+              },
+              builder: (context, state) {
+                if (state.isGettingAddress) {
+                  return const Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ));
+                }
+                final addressModel = state.addressess;
+                return Expanded(
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    separatorBuilder: (context, index) => Column(
                       children: [
-                        Row(
-                          children: [
-                            const Icon(Icons.push_pin_outlined, color: Colors.white),
-                            SizedBox(width: 10.w),
-                            const Text(
-                              'Work',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontFamily: 'Raleway',
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
+                        SizedBox(
+                          height: 8.h,
                         ),
-                        Row(
-                          children: [
-                            SizedBox(width: 28.w),
-                             Text(
-                              '414 example, kakkanad, Kochi\n$a',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontFamily: 'Raleway',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 8.h),
-                        Row(
-                          children: [
-                            const SizedBox(width: 28),
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ScreenEditAddress()));
-                              },
-                              child: Container(
-                                width: 74,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFFDEBC9),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    SvgPicture.asset('assets/images/edit.svg'),
-                                    const Text(
-                                      'Edit',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 13,
-                                        fontFamily: 'Raleway',
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 15.w),
-                            GestureDetector(
-                              onTap: (){
-                                showDeleteConfirmationDialog(context);
-                              },
-                              child: Container(
-                                width: 74,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFFDEBC9),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    SvgPicture.asset('assets/images/delete.svg'),
-                                    const Text(
-                                      'Delete',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 13,
-                                        fontFamily: 'Raleway',
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+                        const Divider(color: Colors.white),
+                        SizedBox(
+                          height: 8.h,
                         ),
                       ],
-                    ),
-                  );
-                },
-              ),
+                    ), // Separator
+                    itemCount: addressModel.addresses.length,
+                    itemBuilder: (context, index) {
+                      final address = addressModel.addresses[index];
+                      final addressType = typeValues.reverse[address.type];
+                      return SizedBox(
+                        // width: double.infinity,
+                        child: Column(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Icon(Icons.push_pin_outlined,
+                                    color: Colors.white),
+                                
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      addressType.toString().toUpperCase(),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontFamily: 'Raleway',
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+
+                                    
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 18),
+                                      child: Text(
+                                        '${address.flat}, ${address.area}\n${address.pincode}',
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontFamily: 'Raleway',
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            
+                            SizedBox(height: 8.h),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 13),
+                              child: Row(
+                                children: [
+                                  const SizedBox(width: 28),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const ScreenEditAddress()));
+                                    },
+                                    child: Container(
+                                      width: 74,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFFDEBC9),
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          SvgPicture.asset(
+                                              'assets/images/edit.svg'),
+                                          const Text(
+                                            'Edit',
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 13,
+                                              fontFamily: 'Raleway',
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 15.w),
+                                  BlocConsumer<AddAddressBloc, AddAddressState>(
+                                    listener: (context, state) {
+                                      // Check for error messages
+                                      state.successOrfailure.fold(() {}, (some) {
+                                        some.fold((f) {
+                                          final message = f.maybeWhen(
+                                            validationFailure: () =>
+                                                "Enter correct data, please recheck",
+                                            userNotFound: () =>
+                                                "Credentials.. Login again and check",
+                                            networkFailure: () =>
+                                                "Network Issue!! Try Again",
+                                            orElse: () => "Some error occurred",
+                                          );
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                                content: Text(message,
+                                                    style: const TextStyle(
+                                                        color: Colors.red))),
+                                          );
+                                        }, (s) {
+                                          BlocProvider.of<AddAddressBloc>(context)
+                                              .add(const AddAddressEvent
+                                                  .getAllAddress());
+                                        });
+                                      });
+                                    },
+                                    builder: (context, state) {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          showDeleteConfirmationDialog(context,
+                                              addressId: address.addressId);
+                                        },
+                                        child: Container(
+                                          width: 74,
+                                          height: 25,
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFFFDEBC9),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/images/delete.svg'),
+                                              const Text(
+                                                'Delete',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 13,
+                                                  fontFamily: 'Raleway',
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
             )
           ],
         ),

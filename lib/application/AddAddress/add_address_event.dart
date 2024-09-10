@@ -12,9 +12,14 @@ class AddAddressEvent with _$AddAddressEvent {
     required String flat,
     required String area,
     required String landmark,
-    required String token,
     required String type,
     
   }) = _SubmitPressed;
+  const factory AddAddressEvent.getAllAddress() = _getAllAddress;
+  const factory AddAddressEvent.deleteButtonPressed({
+    required String addressId,
+  }) = _deleteButtonPressed;
+  
+  
   
 }

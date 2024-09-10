@@ -24,8 +24,6 @@ class _ScreenShopState extends State<ScreenShop> {
   List<bool> options = [
     false,
     false,
-    false,
-    false
   ]; // State list for checkboxes
 
   @override
@@ -83,7 +81,7 @@ class _ScreenShopState extends State<ScreenShop> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Add on',
+                    'Choose one',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFFA2A2A2),
@@ -133,8 +131,61 @@ class _ScreenShopState extends State<ScreenShop> {
                   ),
                 ),
               ),
+SizedBox(height: 10,),
+Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Add on',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFFA2A2A2),
+                      fontSize: 12,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),]),
+Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[700],
+                  ),
+                  width: double.infinity,
+                  child: ListView.builder(
+                    itemCount: options.length,
+                    shrinkWrap: true, // Important to prevent infinite height
+                    physics:
+                        const NeverScrollableScrollPhysics(), // Prevent independent scrolling
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        height: 50.h,
+                        child: CheckboxListTile(
+                          title: const Text(
+                            "Embroidery", // Use the title relevant to each option
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          value: options[index],
+                          onChanged: (newValue) {
+                            setState(() {
+                              options[index] = newValue!;
+                            });
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+
               const Text(
-                'Add Comments (Optional)',
+                'Describe additional design',
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.white,
@@ -204,7 +255,7 @@ class _ScreenShopState extends State<ScreenShop> {
                   children: [
                     SvgPicture.asset('assets/images/home/upload.svg'),
                     const Text(
-                      'Upload',
+                      '  Upload',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 13,
@@ -216,6 +267,19 @@ class _ScreenShopState extends State<ScreenShop> {
                   ],
                 ),
               ),
+              SizedBox(height: 15,),
+
+               const Text(
+                'Select from below',
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w400,
+                  height: 2,
+                ),
+              ),
               Container(
                 width: double.infinity,
                 height: 89,
@@ -225,6 +289,7 @@ class _ScreenShopState extends State<ScreenShop> {
                     borderRadius: BorderRadius.circular(14),
                   ),
                 ),
+
                 child: Padding(
                   padding: const EdgeInsets.all(15),
                   child: Column(

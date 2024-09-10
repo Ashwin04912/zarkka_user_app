@@ -6,7 +6,7 @@ import 'package:tailme/core/widgets/imagewithtext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScreenHome extends StatefulWidget {
-  const ScreenHome({Key? key}) : super(key: key);
+  const ScreenHome({super.key});
 
   @override
   State<ScreenHome> createState() => _ScreenHomeState();
@@ -151,7 +151,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                     crossAxisCount: 2, // Number of columns
                     crossAxisSpacing: 8.0, // Horizontal spacing
                     mainAxisSpacing: 8.0, // Vertical spacing
-                    childAspectRatio: (230 / 248), // Aspect ratio of each item
+                  
                   ),
                   itemCount: 8, // Number of items
                   shrinkWrap: true, // Makes GridView take only the necessary space
@@ -160,12 +160,12 @@ class _ScreenHomeState extends State<ScreenHome> {
                     return GestureDetector(
                       onTap: (){
                         Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                          return ScreenShop(shopname: "hello", location: "Ernakulam", image: "https://suta.in/cdn/shop/products/crimson-cranberry-248511.jpg?v=1681121009&width=900");
+                          return const ScreenShop(shopname: "hello", location: "Ernakulam", image: "https://suta.in/cdn/shop/products/crimson-cranberry-248511.jpg?v=1681121009&width=900");
                         }));
                       },
                       child: SizedBox(
-                        width: ScreenUtil().setWidth(185),
-                        height: ScreenUtil().setHeight(248),
+                        width: 300,
+                        height: 200,
                         child: Stack(
                           children: [
                             ClipRRect(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:tailme/presentation/AddAddress/add_address.dart';
 import 'package:tailme/presentation/EditAddress/edit_address.dart';
 import 'package:tailme/presentation/SavedAddress/popup_function/popup_dialog.dart';
@@ -14,6 +16,7 @@ class ScreenSavedAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Position location;
     BlocProvider.of<AddAddressBloc>(context)
         .add(const AddAddressEvent.getAllAddress());
     return Scaffold(
@@ -51,32 +54,40 @@ class ScreenSavedAddress extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Row(
-                      children: [
-                        SvgPicture.asset(
-                          'assets/images/current_location.svg',
-                          height: 20.h,
-                          width: 20.h,
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        const Text(
-                          'Use current location',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w700,
+                    InkWell(
+                      onTap: ()async{
+                       location = await getCurrentLocation();
+                      print("latitude : ${location.latitude}");print("longitude is: ${location.longitude}");
+                   List<Placemark>   placemark = await placemarkFromCoordinates(location.latitude, location.longitude);
+                   print(placemark);
+                      },
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/images/current_location.svg',
+                            height: 20.h,
+                            width: 20.h,
                           ),
-                        ),
-                        const Spacer(),
-                        SvgPicture.asset(
-                          'assets/images/arrow_left.svg',
-                          height: 17.h,
-                          width: 17.h,
-                        ),
-                      ],
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          const Text(
+                            'Use current location',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const Spacer(),
+                          SvgPicture.asset(
+                            'assets/images/arrow_left.svg',
+                            height: 17.h,
+                            width: 17.h,
+                          ),
+                        ],
+                      ),
                     ),
                     Divider(
                       color: Colors.black.withOpacity(0.36000001430511475),
@@ -349,4 +360,25 @@ class ScreenSavedAddress extends StatelessWidget {
       ),
     );
   }
+}
+
+
+Future<Position> getCurrentLocation() async{
+  debugPrint("reached getCurrentLocation function..");
+
+ bool servicePermission= await Geolocator.isLocationServiceEnabled();
+
+ if(!servicePermission){
+  print("service disabled");
+ }
+
+LocationPermission permission =await Geolocator.checkPermission();
+
+if(permission==LocationPermission.denied){
+  permission = await Geolocator.requestPermission();
+}
+
+
+ 
+  return await Geolocator.getCurrentPosition();
 }

@@ -37,26 +37,23 @@ class ScreenChangePassword extends StatelessWidget {
             SizedBox(
               height: 15.h,
             ),
-            SizedBox(
-              height: 40.h,
-              child: TextFormField(
-                textAlignVertical: TextAlignVertical.top,
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  hintStyle: const TextStyle(
-                    color: Color(0xFF707070),
-                    fontSize: 15,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w400,
-                    height: 0.25,
-                  ),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Set background color to grey
-                  border: OutlineInputBorder(
-                    borderRadius:
-                        BorderRadius.circular(3), // Set border radius to 10
-                    borderSide: BorderSide.none, // Hide the border side
-                  ),
+            TextFormField(
+              textAlignVertical: TextAlignVertical.top,
+              decoration: InputDecoration(
+                hintText: "Password",
+                hintStyle: const TextStyle(
+                  color: Color(0xFF707070),
+                  fontSize: 15,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w400,
+                  height: 0.25,
+                ),
+                filled: true,
+                fillColor: Colors.grey[200], // Set background color to grey
+                border: OutlineInputBorder(
+                  borderRadius:
+                      BorderRadius.circular(10), // Set border radius to 10
+                  borderSide: BorderSide.none, // Hide the border side
                 ),
               ),
             ),
@@ -76,52 +73,46 @@ class ScreenChangePassword extends StatelessWidget {
             SizedBox(
               height: 15.h,
             ),
-            SizedBox(
-              height: 40.h,
-              child: TextFormField(
-                textAlignVertical: TextAlignVertical.top,
-                decoration: InputDecoration(
-                  hintText: "Enter New Password",
-                  hintStyle: const TextStyle(
-                    color: Color(0xFF707070),
-                    fontSize: 15,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w400,
-                    height: 0.25,
-                  ),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Set background color to grey
-                  border: OutlineInputBorder(
-                    borderRadius:
-                        BorderRadius.circular(3), // Set border radius to 10
-                    borderSide: BorderSide.none, // Hide the border side
-                  ),
+            TextFormField(
+              textAlignVertical: TextAlignVertical.top,
+              decoration: InputDecoration(
+                hintText: "Enter New Password",
+                hintStyle: const TextStyle(
+                  color: Color(0xFF707070),
+                  fontSize: 15,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w400,
+                  height: 0.25,
+                ),
+                filled: true,
+                fillColor: Colors.grey[200], // Set background color to grey
+                border: OutlineInputBorder(
+                  borderRadius:
+                      BorderRadius.circular(10), // Set border radius to 10
+                  borderSide: BorderSide.none, // Hide the border side
                 ),
               ),
             ),
             SizedBox(
               height: 15.h,
             ),
-            SizedBox(
-              height: 40.h,
-              child: TextFormField(
-                textAlignVertical: TextAlignVertical.top,
-                decoration: InputDecoration(
-                  hintText: "Re-Enter New Password",
-                  hintStyle: const TextStyle(
-                    color: Color(0xFF707070),
-                    fontSize: 15,
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.w400,
-                    height: 0.25,
-                  ),
-                  filled: true,
-                  fillColor: Colors.grey[200], // Set background color to grey
-                  border: OutlineInputBorder(
-                    borderRadius:
-                        BorderRadius.circular(3), // Set border radius to 10
-                    borderSide: BorderSide.none, // Hide the border side
-                  ),
+            TextFormField(
+              textAlignVertical: TextAlignVertical.top,
+              decoration: InputDecoration(
+                hintText: "Re-Enter New Password",
+                hintStyle: const TextStyle(
+                  color: Color(0xFF707070),
+                  fontSize: 15,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w400,
+                  height: 0.25,
+                ),
+                filled: true,
+                fillColor: Colors.grey[200], // Set background color to grey
+                border: OutlineInputBorder(
+                  borderRadius:
+                      BorderRadius.circular(10), // Set border radius to 10
+                  borderSide: BorderSide.none, // Hide the border side
                 ),
               ),
             ),

@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:tailme/core/failures/form/form_failures.dart';
 import 'package:tailme/domain/AddAddress/model/address_model.dart';
 
@@ -30,4 +32,9 @@ abstract class IAddAddressFacade {
       required String token,
       required String type,
       required String addressId});
+
+
+
+ Future<Placemark> getCurrentLocation();
 }
+

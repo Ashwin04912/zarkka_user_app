@@ -21,50 +21,53 @@ class ProfileRepeatingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              iconasset,
-              color: Colors.white,
-            ),
-            Padding(
-              padding:  EdgeInsets.only(left: 10.w, bottom: 10.h,top: 10.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (title != null)
+        SizedBox(
+          height: 60,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                iconasset,
+                color: Colors.white,
+              ),
+              Padding(
+                padding:  EdgeInsets.only(left: 10.w, bottom: 10.h,top: 10.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (title != null)
+                      Text(
+                        title!,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    if (subtitle != null)
                     Text(
-                      title!,
+                      subtitle!,
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 12,
                         fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w400,
+                        
                       ),
                     ),
-                  if (subtitle != null)
-                  Text(
-                    subtitle!,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w400,
-                      
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const Spacer(),
-            if(rightarrow==null)
-            SvgPicture.asset(
-              "assets/images/leftarrow.svg",
-              color: Colors.white,
-            ),
-            
-          ],
+              const Spacer(),
+              if(rightarrow==null)
+              SvgPicture.asset(
+                "assets/images/leftarrow.svg",
+                color: Colors.white,
+              ),
+              
+            ],
+          ),
         ),
          SizedBox(height: 20.h,),
               Container(
@@ -79,7 +82,7 @@ class ProfileRepeatingWidget extends StatelessWidget {
                   ),
                 ),
               ),
-               SizedBox(height: 20.h,),
+              //  SizedBox(height: 20.h,),
       ],
     );
   }

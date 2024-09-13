@@ -66,6 +66,7 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
+                        
                           onTap: () async {
                             BlocProvider.of<AddAddressBloc>(context).add(
                                 const AddAddressEvent.getCurrentLocation());
@@ -262,20 +263,20 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                                         width: 74,
                                         height: 25,
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFFFDEBC9),
+                                          color: const  Color(0xFF0075BE),
                                           borderRadius:
                                               BorderRadius.circular(8),
                                         ),
-                                        child: Row(
+                                        child: const Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            SvgPicture.asset(
-                                                'assets/images/edit.svg'),
-                                            const Text(
+                                            Icon( Icons.edit_note,color: Colors.white,),
+                                          
+                                            Text(
                                               'Edit',
                                               style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 fontSize: 13,
                                                 fontFamily: 'Raleway',
                                                 fontWeight: FontWeight.w600,
@@ -328,7 +329,7 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                                             width: 74,
                                             height: 25,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFFDEBC9),
+                                              color: const Color(0xFFFF0000),
                                               borderRadius:
                                                   BorderRadius.circular(8),
                                             ),
@@ -337,11 +338,11 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 SvgPicture.asset(
-                                                    'assets/images/delete.svg'),
+                                                    'assets/images/delete.svg',color: Colors.white,),
                                                 const Text(
                                                   'Delete',
                                                   style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.white,
                                                     fontSize: 13,
                                                     fontFamily: 'Raleway',
                                                     fontWeight: FontWeight.w600,

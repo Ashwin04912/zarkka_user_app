@@ -24,7 +24,9 @@ class _ScreenProfileState extends State<ScreenProfile> {
         padding: EdgeInsets.only(top: 101.h, left: 22.w, right: 22.w), // Using .h and .w
         child: Column(
           children: [
-            GestureDetector(
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: () {
                 Navigator.push(
                   context,
@@ -36,8 +38,11 @@ class _ScreenProfileState extends State<ScreenProfile> {
                 subtitle: "Name, Email, Mobile...",
                 iconasset: "assets/images/profile_ic.svg",
               ),
-            ),
-            GestureDetector(
+            ), SizedBox(height: 20.h,),
+          
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: (){
                  Navigator.push(
                   context,
@@ -48,8 +53,10 @@ class _ScreenProfileState extends State<ScreenProfile> {
                 title: "Change Password",
                 iconasset: "assets/images/Login_Key.svg",
               ),
-            ),
-            GestureDetector(
+            ), SizedBox(height: 20.h,),
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: () {
               //  BlocProvider.of<AddAddressBloc>(context).add(const AddAddressEvent.getAllAddress());
                 Navigator.push(
@@ -61,9 +68,11 @@ class _ScreenProfileState extends State<ScreenProfile> {
                 iconasset: 'assets/images/Paper_Write.svg',
                 title: "Saved Addresses",
               ),
-            ),
+            ), SizedBox(height: 20.h,),
             
-            GestureDetector(
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: () {
                 Navigator.push(
                   context,

@@ -8,7 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tailme/core/failures/form/form_failures.dart';
 import 'package:tailme/domain/AddAddress/model/address_model.dart';
-import 'package:tailme/infrastructure/facades/i_address_facade.dart';
+import 'package:tailme/infrastructure/FACADES/i_address_facade.dart';
 
 import '../string.dart';
 

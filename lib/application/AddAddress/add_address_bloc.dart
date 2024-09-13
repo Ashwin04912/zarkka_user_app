@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/core/failures/form/form_failures.dart';
 import 'package:tailme/domain/AddAddress/model/address_model.dart';
-import 'package:tailme/infrastructure/AddAddress/add_address_impl.dart';
+import 'package:tailme/infrastructure/AddAddress/addressApi_impl.dart';
 
 part 'add_address_event.dart';
 part 'add_address_state.dart';

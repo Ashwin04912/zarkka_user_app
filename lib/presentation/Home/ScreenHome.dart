@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:tailme/presentation/Shop/ScreenShop.dart';
 import 'package:tailme/presentation/getHttp.dart';
@@ -151,6 +153,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                     crossAxisCount: 2, // Number of columns
                     crossAxisSpacing: 8.0, // Horizontal spacing
                     mainAxisSpacing: 8.0, // Vertical spacing
+                    childAspectRatio: 1
                   
                   ),
                   itemCount: 8, // Number of items
@@ -163,49 +166,53 @@ class _ScreenHomeState extends State<ScreenHome> {
                           return const ScreenShop(shopname: "hello", location: "Ernakulam", image: "https://suta.in/cdn/shop/products/crimson-cranberry-248511.jpg?v=1681121009&width=900");
                         }));
                       },
-                      child: SizedBox(
-                        width: 300,
-                        height: 200,
-                        child: Stack(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-                              child: Image.asset(
-                                'assets/images/home/blouse.jpg',
-                                fit: BoxFit.cover, // Ensure the image covers the container
-                              ),
-                            ),
-                            Positioned(
-                              top: 80,
-                              child: Container(
-                                width: 171.w,
-                                height:91.h,
-                                decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    begin: Alignment(0.00, -1.00),
-                                    end: Alignment(0, 1),
-                                    colors: [Color(0x00D9D9D9), Color(0xFF080808)],
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: SizedBox(                 
+                          width: 100, //okeyy.x`x````
+                          height: 200,
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                width: double.infinity,
+                                child: Image.asset(
+                                  'assets/images/home/blouse.jpg',
+                                  fit: BoxFit.cover, // Ensure the image covers the container
                                 ),
-                                child: const Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      'Blouse',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontFamily: 'Urbanist',
-                                        fontWeight: FontWeight.w600,
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height:91.h,
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    gradient: const LinearGradient(
+                                      begin: Alignment(0.00, -1.00),
+                                      end: Alignment(0, 1),
+                                      colors: [Color(0x00D9D9D9), Color(0xFF080808)],
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: const Align(
+                                    alignment: Alignment.bottomLeft,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'Blouse',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontFamily: 'Urbanist',
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     );

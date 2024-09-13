@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/core/failures/form/form_failures.dart';
@@ -32,6 +33,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             addAddressSuccessOrFailureResponse: none(),
             isDataGot: none(),
             isSubmiting: false,
+             isNavigate: false,
             addressess: AddressModel(status: '', addresses: []),
           ));
           
@@ -48,6 +50,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isDataGot: none(),
             isSubmiting: false,
             addressess: AddressModel(status: '', addresses: []),
+             isNavigate: false,
           ));
           
         },
@@ -63,6 +66,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isDataGot: none(),
             isSubmiting: false,
             addressess: AddressModel(status: '', addresses: []),
+             isNavigate: false,
           ));
           
         },
@@ -74,6 +78,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isDataGot: none(),
             showErrorMessages: false,
             addressess: AddressModel(status: '', addresses: []),
+             isNavigate: false,
           ));
 
           final resp = await addressApi.saveAddress(
@@ -93,6 +98,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 showErrorMessages: true,
                 addAddressSuccessOrFailureResponse: some(left(failure)),
                 isSubmiting: false,
+                 isNavigate: false,
               ));
             },
             (success) {
@@ -100,6 +106,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 showErrorMessages: false,
                 addAddressSuccessOrFailureResponse: some(right(success)),
                 isSubmiting: false,
+                 isNavigate: false,
               ));
               // After adding address, trigger fetching all addresses
               add(const AddAddressEvent.getAllAddress());
@@ -113,6 +120,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             successOrfailure: none(),
             showErrorMessages: false,
             addressess: AddressModel(status: '', addresses: []),
+             isNavigate: false,
           ));
 
           final address = await addressApi.getAllAddress(token: token);
@@ -124,16 +132,19 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isDataGot: some(left(failure)),
                 showErrorMessages: true,
                 addressess: AddressModel(status: '', addresses: []),
+                 isNavigate: false,
               ));
             },
             (success) {
               emit(state.copyWith(
                 isGettingAddress: false,
+                 isNavigate: false,
                 isDataGot: some(right(unit)),
                 showErrorMessages: false,
                 addressess: AddressModel(
                   status: success.status,
                   addresses: success.addresses,
+
                 ),
               ));
             },
@@ -148,16 +159,19 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
           emit(state.copyWith(
             addressess: AddressModel(
               status: state.addressess.status,
+              
               addresses: updatedAddresses,
             ),
             isGettingAddress: false,
             successOrfailure: none(),
             showErrorMessages: false,
+             isNavigate: false,
           ));
 
           final resp = await addressApi.deleteAddress(
             token: token,
             addressId: value.addressId,
+            
           );
 
           resp.fold(
@@ -171,6 +185,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isGettingAddress: false,
                 successOrfailure: some(left(failure)),
                 showErrorMessages: true,
+                 isNavigate: false,
               ));
             },
             (success) {
@@ -178,10 +193,30 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isGettingAddress: false,
                 successOrfailure: some(right(unit)),
                 showErrorMessages: false,
+                 isNavigate: false,
               ));
             },
           );
-        },
+        }, getCurrentLocation: (_getCurrentLocation value) async{ 
+          emit(state.copyWith(
+            isLocationLoading: true,
+            pinCode: '',
+            landmark: '',
+            isNavigate: false,
+            locality: '',
+          ));
+
+        Placemark  placemark = await addressApi.getCurrentLocation();
+
+        emit(state.copyWith(
+          isLocationLoading: false,
+          pinCode: placemark.postalCode.toString(),
+          landmark: placemark.subLocality.toString(),
+          locality: placemark.locality.toString(),
+          isNavigate:true
+        ));
+          
+         },
       );
     });
   }

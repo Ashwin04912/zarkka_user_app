@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tailme/core/failures/form/form_failures.dart';
 import 'package:tailme/domain/AddAddress/model/address_model.dart';
@@ -111,14 +113,12 @@ class AddAddressRepo implements IAddAddressFacade {
         debugPrint(
             'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
         return left(const FormFailure.serverFailure());
-      } 
-      else if (e.type == DioExceptionType.connectionTimeout ||
-               e.type == DioExceptionType.receiveTimeout ||
-               e.message!.contains('Failed host lookup')){
+      } else if (e.type == DioExceptionType.connectionTimeout ||
+          e.type == DioExceptionType.receiveTimeout ||
+          e.message!.contains('Failed host lookup')) {
         debugPrint('network error');
         return left(const FormFailure.networkFailure());
-      }
-      else {
+      } else {
         // Dio error without a response
         debugPrint('Dio error! Message: ${e.message}');
         return left(const FormFailure.serverFailure());
@@ -171,17 +171,16 @@ class AddAddressRepo implements IAddAddressFacade {
   }
 
   @override
-  Future<Either<FormFailure, Unit>> editAddress({
-    required String name,
-    required String contact,
-    required String pincode,
-    required String flat,
-    required String area,
-    required String landmark,
-    required String token,
-    required String type,
-    required String addressId
-  }) async {
+  Future<Either<FormFailure, Unit>> editAddress(
+      {required String name,
+      required String contact,
+      required String pincode,
+      required String flat,
+      required String area,
+      required String landmark,
+      required String token,
+      required String type,
+      required String addressId}) async {
     try {
       debugPrint("$token ${'$baseUrl$editAddres'}");
 
@@ -195,7 +194,7 @@ class AddAddressRepo implements IAddAddressFacade {
         "area": area,
         "landmark": landmark,
         "token": token,
-        "addressid" :addressId,
+        "addressid": addressId,
       });
 
       var dio = Dio();
@@ -231,5 +230,31 @@ class AddAddressRepo implements IAddAddressFacade {
         return left(const FormFailure.serverFailure());
       }
     }
+  }
+
+  @override
+  Future<Placemark> getCurrentLocation() async {
+    debugPrint("Reached getCurrentLocation function..");
+
+    bool servicePermission = await Geolocator.isLocationServiceEnabled();
+
+    if (!servicePermission) {
+      print("Service disabled");
+    }
+
+    LocationPermission permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+    }
+
+    Position location = await Geolocator.getCurrentPosition();
+
+    List<Placemark> placemark =
+        await placemarkFromCoordinates(location.latitude, location.longitude);
+
+    debugPrint(placemark.take(1).toString());
+
+    return placemark[0];
   }
 }

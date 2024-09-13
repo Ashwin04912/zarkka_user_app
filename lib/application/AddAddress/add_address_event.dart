@@ -19,6 +19,9 @@ class AddAddressEvent with _$AddAddressEvent {
   const factory AddAddressEvent.deleteButtonPressed({
     required String addressId,
   }) = _deleteButtonPressed;
+
+  const factory AddAddressEvent.getCurrentLocation() = _getCurrentLocation;
+  
   
   
   

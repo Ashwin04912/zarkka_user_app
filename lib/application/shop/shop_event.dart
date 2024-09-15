@@ -12,3 +12,4 @@ class ShopEvent with _$ShopEvent {
     required bool isChecked
   }) = _handWorkClickedEvent;
 }
+///

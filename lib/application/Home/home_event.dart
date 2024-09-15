@@ -6,4 +6,4 @@ class HomeEvent with _$HomeEvent {
     required String category,
   }) = _getItems;
   
-}
+}///

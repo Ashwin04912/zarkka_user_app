@@ -14,6 +14,8 @@ import '../string.dart';
 
 @LazySingleton(as: IAddAddressFacade)
 class AddAddressRepo implements IAddAddressFacade {
+  final Dio _dio = Dio();
+
   @override
   Future<Either<FormFailure, Unit>> saveAddress({
     required String name,
@@ -25,14 +27,12 @@ class AddAddressRepo implements IAddAddressFacade {
     required String token,
     required String type,
   }) async {
-    //Api integration
-
     try {
       debugPrint(
-          "$name $contact $pincode  $flat $area , $landmark ,$token ,$type ${'$baseUrl$addAddressUrl'}");
+          "$name $contact $pincode $flat $area, $landmark, $token, $type ${'$baseUrl$addAddressUrl'}");
 
-      var headers = {'Content-Type': 'application/json'};
-      var data = json.encode({
+      final headers = {'Content-Type': 'application/json'};
+      final data = json.encode({
         "type": type,
         "name": name,
         "contactNumber": contact,
@@ -43,8 +43,7 @@ class AddAddressRepo implements IAddAddressFacade {
         "token": token
       });
 
-      var dio = Dio();
-      var response = await dio.request(
+      final response = await _dio.post(
         '$baseUrl$addAddressUrl',
         options: Options(
           method: 'POST',
@@ -54,23 +53,19 @@ class AddAddressRepo implements IAddAddressFacade {
       );
 
       if (response.statusCode == 200) {
-        debugPrint("i added address ");
+        debugPrint("Address added successfully.");
         return right(unit);
       } else {
-        // debugPrint(response.data?.toJson().toString());
+        debugPrint("Failed to add address: ${response.statusMessage}");
         return left(const FormFailure.serverFailure());
       }
     } on DioException catch (e) {
       if (e.type == DioExceptionType.cancel) {
         return left(const FormFailure.cancelledByUser());
       } else if (e.response != null) {
-        // Dio error with a response
-
-        debugPrint(
-            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        debugPrint('Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
         return left(const FormFailure.serverFailure());
       } else {
-        // Dio error without a response
         debugPrint('Dio error! Message: ${e.message}');
         return left(const FormFailure.serverFailure());
       }
@@ -78,16 +73,14 @@ class AddAddressRepo implements IAddAddressFacade {
   }
 
   @override
-  Future<Either<FormFailure, AddressModel>> getAllAddress(
-      {required String token}) async {
+  Future<Either<FormFailure, AddressModel>> getAllAddress({required String token}) async {
     try {
       debugPrint("$token ${'$baseUrl$getAddress'}");
 
-      var headers = {'Content-Type': 'application/json'};
-      var data = json.encode({"token": token});
+      final headers = {'Content-Type': 'application/json'};
+      final data = json.encode({"token": token});
 
-      var dio = Dio();
-      var response = await dio.request(
+      final response = await _dio.get(
         '$baseUrl$getAddress',
         options: Options(
           method: 'GET',
@@ -97,29 +90,25 @@ class AddAddressRepo implements IAddAddressFacade {
       );
 
       if (response.statusCode == 200) {
-        debugPrint("i got response");
+        debugPrint("Address list retrieved successfully.");
         final addressModel = AddressModel.fromJson(response.data);
         return right(addressModel);
       } else {
-        debugPrint(response.data);
+        debugPrint("Failed to get addresses: ${response.statusMessage}");
         return left(const FormFailure.serverFailure());
       }
     } on DioException catch (e) {
       if (e.type == DioExceptionType.cancel) {
         return left(const FormFailure.cancelledByUser());
       } else if (e.response != null) {
-        // Dio error with a response
-
-        debugPrint(
-            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        debugPrint('Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
         return left(const FormFailure.serverFailure());
       } else if (e.type == DioExceptionType.connectionTimeout ||
-          e.type == DioExceptionType.receiveTimeout ||
-          e.message!.contains('Failed host lookup')) {
-        debugPrint('network error');
+                 e.type == DioExceptionType.receiveTimeout ||
+                 e.message?.contains('Failed host lookup') == true) {
+        debugPrint('Network error');
         return left(const FormFailure.networkFailure());
       } else {
-        // Dio error without a response
         debugPrint('Dio error! Message: ${e.message}');
         return left(const FormFailure.serverFailure());
       }
@@ -127,16 +116,14 @@ class AddAddressRepo implements IAddAddressFacade {
   }
 
   @override
-  Future<Either<FormFailure, Unit>> deleteAddress(
-      {required String token, required String addressId}) async {
+  Future<Either<FormFailure, Unit>> deleteAddress({required String token, required String addressId}) async {
     try {
       debugPrint("$token ${'$baseUrl$delAddress'}");
 
-      var headers = {'Content-Type': 'application/json'};
-      var data = json.encode({"token": token, "addressId": addressId});
+      final headers = {'Content-Type': 'application/json'};
+      final data = json.encode({"token": token, "addressId": addressId});
 
-      var dio = Dio();
-      var response = await dio.request(
+      final response = await _dio.delete(
         '$baseUrl$delAddress',
         options: Options(
           method: 'DELETE',
@@ -146,24 +133,19 @@ class AddAddressRepo implements IAddAddressFacade {
       );
 
       if (response.statusCode == 200) {
-        debugPrint("Address Deleted");
-
+        debugPrint("Address deleted successfully.");
         return right(unit);
       } else {
-        debugPrint(response.data);
+        debugPrint("Failed to delete address: ${response.statusMessage}");
         return left(const FormFailure.serverFailure());
       }
     } on DioException catch (e) {
       if (e.type == DioExceptionType.cancel) {
         return left(const FormFailure.cancelledByUser());
       } else if (e.response != null) {
-        // Dio error with a response
-
-        debugPrint(
-            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        debugPrint('Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
         return left(const FormFailure.serverFailure());
       } else {
-        // Dio error without a response
         debugPrint('Dio error! Message: ${e.message}');
         return left(const FormFailure.serverFailure());
       }
@@ -171,21 +153,22 @@ class AddAddressRepo implements IAddAddressFacade {
   }
 
   @override
-  Future<Either<FormFailure, Unit>> editAddress(
-      {required String name,
-      required String contact,
-      required String pincode,
-      required String flat,
-      required String area,
-      required String landmark,
-      required String token,
-      required String type,
-      required String addressId}) async {
+  Future<Either<FormFailure, Unit>> editAddress({
+    required String name,
+    required String contact,
+    required String pincode,
+    required String flat,
+    required String area,
+    required String landmark,
+    required String token,
+    required String type,
+    required String addressId,
+  }) async {
     try {
-      debugPrint("$token ${'$baseUrl$editAddres'}");
+      debugPrint("$token ${'$baseUrl$editAddress'}");
 
-      var headers = {'Content-Type': 'application/json'};
-      var data = json.encode({
+      final headers = {'Content-Type': 'application/json'};
+      final data = json.encode({
         "type": type,
         "name": name,
         "contactNumber": contact,
@@ -194,12 +177,11 @@ class AddAddressRepo implements IAddAddressFacade {
         "area": area,
         "landmark": landmark,
         "token": token,
-        "addressid": addressId,
+        "addressId": addressId,
       });
 
-      var dio = Dio();
-      var response = await dio.request(
-        '$baseUrl$editAddres',
+      final response = await _dio.put(
+        '$baseUrl$editAddress',
         options: Options(
           method: 'PUT',
           headers: headers,
@@ -208,24 +190,19 @@ class AddAddressRepo implements IAddAddressFacade {
       );
 
       if (response.statusCode == 200) {
-        debugPrint("Address edited");
-
+        debugPrint("Address edited successfully.");
         return right(unit);
       } else {
-        debugPrint(response.data);
+        debugPrint("Failed to edit address: ${response.statusMessage}");
         return left(const FormFailure.serverFailure());
       }
     } on DioException catch (e) {
       if (e.type == DioExceptionType.cancel) {
         return left(const FormFailure.cancelledByUser());
       } else if (e.response != null) {
-        // Dio error with a response
-
-        debugPrint(
-            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        debugPrint('Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
         return left(const FormFailure.serverFailure());
       } else {
-        // Dio error without a response
         debugPrint('Dio error! Message: ${e.message}');
         return left(const FormFailure.serverFailure());
       }
@@ -234,27 +211,36 @@ class AddAddressRepo implements IAddAddressFacade {
 
   @override
   Future<Placemark> getCurrentLocation() async {
-    debugPrint("Reached getCurrentLocation function..");
+  
+      debugPrint("Reached getCurrentLocation function.");
 
-    bool servicePermission = await Geolocator.isLocationServiceEnabled();
+      bool servicePermission = await Geolocator.isLocationServiceEnabled();
 
-    if (!servicePermission) {
-      print("Service disabled");
-    }
+      if (!servicePermission) {
+        debugPrint("Location service is disabled.");
+        // return Future.error(FormFailure.locationServiceDisabled());
+      }
 
-    LocationPermission permission = await Geolocator.checkPermission();
+      LocationPermission permission = await Geolocator.checkPermission();
 
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-    }
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
 
-    Position location = await Geolocator.getCurrentPosition();
+      if (permission != LocationPermission.whileInUse && permission != LocationPermission.always) {
+        // return Future.error(FormFailure.locationPermissionDenied());
+      }
 
-    List<Placemark> placemark =
-        await placemarkFromCoordinates(location.latitude, location.longitude);
+      Position location = await Geolocator.getCurrentPosition();
 
-    debugPrint(placemark.take(1).toString());
+      List<Placemark> placemarks = await placemarkFromCoordinates(location.latitude, location.longitude);
 
-    return placemark[0];
+      debugPrint("Current location: ${placemarks.take(1).toString()}");
+
+      return placemarks[0];
+    
+      // debugPrint("Error getting current location: $e");
+      // return Future.error(FormFailure.locationError());
+    
   }
 }

@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/core/failures/form/form_failures.dart';
 import 'package:tailme/domain/AddAddress/model/address_model.dart';
-import 'package:tailme/infrastructure/AddAddress/add_address_impl.dart';
+import 'package:tailme/infrastructure/AddAddress/addressApi_impl.dart';
 
 part 'add_address_event.dart';
 part 'add_address_state.dart';
@@ -14,34 +14,35 @@ part 'add_address_bloc.freezed.dart';
 
 @injectable
 class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
-  final  addressApi=AddAddressRepo();
+  final addressApi = AddAddressRepo();
 
   AddAddressBloc() : super(AddAddressState.initial()) {
     on<AddAddressEvent>((event, emit) async {
       final SharedPreferences pref = await SharedPreferences.getInstance();
       final token = pref.getString('token') ?? '';
+      AddressModel recoveryAddress = AddressModel(status: '', addresses: []);
 
       await event.map(
-        homePressed: (_) async{
+        homePressed: (_) async {
           emit(state.copyWith(
             isHome: true,
             type: "home",
             isWork: false,
             isOthers: false,
+            isEditDataGot: none(),
             showErrorMessages: false,
             successOrfailure: none(),
             addAddressSuccessOrFailureResponse: none(),
             isDataGot: none(),
             isSubmiting: false,
-             isNavigate: false,
-            addressess: AddressModel(status: '', addresses: []),
+            isNavigate: false,
           ));
-          
         },
-        workPressed: (_) async{
+        workPressed: (_) async {
           emit(state.copyWith(
             isHome: false,
             isWork: true,
+            isEditDataGot: none(),
             type: "work",
             isOthers: false,
             showErrorMessages: false,
@@ -49,15 +50,14 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             addAddressSuccessOrFailureResponse: none(),
             isDataGot: none(),
             isSubmiting: false,
-            addressess: AddressModel(status: '', addresses: []),
-             isNavigate: false,
+            isNavigate: false,
           ));
-          
         },
-        othersPressed: (_) async{
+        othersPressed: (_) async {
           emit(state.copyWith(
             isHome: false,
             isWork: false,
+            isEditDataGot: none(),
             isOthers: true,
             type: 'other',
             showErrorMessages: false,
@@ -65,20 +65,19 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             addAddressSuccessOrFailureResponse: none(),
             isDataGot: none(),
             isSubmiting: false,
-            addressess: AddressModel(status: '', addresses: []),
-             isNavigate: false,
+            isNavigate: false,
           ));
-          
         },
         submitPressed: (value) async {
           emit(state.copyWith(
             isSubmiting: true,
             successOrfailure: none(),
+            isEditDataGot: none(),
             addAddressSuccessOrFailureResponse: none(),
             isDataGot: none(),
             showErrorMessages: false,
             addressess: AddressModel(status: '', addresses: []),
-             isNavigate: false,
+            isNavigate: false,
           ));
 
           final resp = await addressApi.saveAddress(
@@ -95,21 +94,24 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
           resp.fold(
             (failure) {
               emit(state.copyWith(
-                showErrorMessages: true,
-                addAddressSuccessOrFailureResponse: some(left(failure)),
-                isSubmiting: false,
-                 isNavigate: false,
-              ));
+                  showErrorMessages: true,
+                  isDataGot: none(),
+                  addAddressSuccessOrFailureResponse: some(left(failure)),
+                  isSubmiting: false,
+                  isNavigate: false,
+                  addressess: AddressModel(status: '', addresses: [])));
             },
             (success) {
               emit(state.copyWith(
-                showErrorMessages: false,
-                addAddressSuccessOrFailureResponse: some(right(success)),
-                isSubmiting: false,
-                 isNavigate: false,
-              ));
+                  showErrorMessages: false,
+                  addAddressSuccessOrFailureResponse: some(right(unit)),
+                  isSubmiting: false,
+                  isEditDataGot: none(),
+                  isNavigate: false,
+                  addressess: AddressModel(
+                      status: success.status, addresses: success.addresses)));
               // After adding address, trigger fetching all addresses
-              add(const AddAddressEvent.getAllAddress());
+              // add(const AddAddressEvent.getAllAddress());
             },
           );
         },
@@ -118,9 +120,10 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isGettingAddress: true,
             isDataGot: none(),
             successOrfailure: none(),
+            isEditDataGot: none(),
             showErrorMessages: false,
             addressess: AddressModel(status: '', addresses: []),
-             isNavigate: false,
+            isNavigate: false,
           ));
 
           final address = await addressApi.getAllAddress(token: token);
@@ -130,21 +133,22 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
               emit(state.copyWith(
                 isGettingAddress: false,
                 isDataGot: some(left(failure)),
+                isEditDataGot: none(),
                 showErrorMessages: true,
                 addressess: AddressModel(status: '', addresses: []),
-                 isNavigate: false,
+                isNavigate: false,
               ));
             },
             (success) {
               emit(state.copyWith(
                 isGettingAddress: false,
-                 isNavigate: false,
+                isNavigate: false,
                 isDataGot: some(right(unit)),
+                isEditDataGot: none(),
                 showErrorMessages: false,
                 addressess: AddressModel(
                   status: success.status,
                   addresses: success.addresses,
-
                 ),
               ));
             },
@@ -152,26 +156,27 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
         },
         deleteButtonPressed: (value) async {
           // Optimistic update: Remove address immediately
-          final updatedAddresses = state.addressess.addresses.where(
-            (address) => address.addressId != value.addressId,
-          ).toList();
+          final updatedAddresses = state.addressess.addresses
+              .where(
+                (address) => address.addressId != value.addressId,
+              )
+              .toList();
 
           emit(state.copyWith(
             addressess: AddressModel(
               status: state.addressess.status,
-              
               addresses: updatedAddresses,
             ),
             isGettingAddress: false,
             successOrfailure: none(),
+            isEditDataGot: none(),
             showErrorMessages: false,
-             isNavigate: false,
+            isNavigate: false,
           ));
 
           final resp = await addressApi.deleteAddress(
             token: token,
             addressId: value.addressId,
-            
           );
 
           resp.fold(
@@ -185,38 +190,145 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isGettingAddress: false,
                 successOrfailure: some(left(failure)),
                 showErrorMessages: true,
-                 isNavigate: false,
+                isEditDataGot: none(),
+                isNavigate: false,
               ));
             },
             (success) {
               emit(state.copyWith(
-                isGettingAddress: false,
-                successOrfailure: some(right(unit)),
-                showErrorMessages: false,
-                 isNavigate: false,
-              ));
+                  isGettingAddress: false,
+                  successOrfailure: some(right(unit)),
+                  showErrorMessages: false,
+                  isNavigate: false,
+                  isEditDataGot: none()));
             },
           );
-        }, getCurrentLocation: (_getCurrentLocation value) async{ 
+        },
+        getCurrentLocation: (_getCurrentLocation value) async {
           emit(state.copyWith(
-            isLocationLoading: true,
-            pinCode: '',
-            landmark: '',
+              isLocationLoading: true,
+              pinCode: '',
+              landmark: '',
+              isNavigate: false,
+              locality: '',
+              isEditDataGot: none()));
+
+          Placemark placemark = await addressApi.getCurrentLocation();
+
+          emit(state.copyWith(
+              isLocationLoading: false,
+              pinCode: placemark.postalCode.toString(),
+              landmark: placemark.subLocality.toString(),
+              locality: placemark.locality.toString(),
+              isEditDataGot: none(),
+              isNavigate: true));
+        },
+        editButtonPressedEvent: (_editButtonPressedEvent value) async {
+          recoveryAddress= value.address;
+          
+          emit(state.copyWith(
+            isGettingAddress: true,
+            isDataGot: none(),
+            successOrfailure: none(),
+            showErrorMessages: false,
+            isEditDataGot: none(),
+            addressess: AddressModel(status: '', addresses: []),
             isNavigate: false,
-            locality: '',
           ));
 
-        Placemark  placemark = await addressApi.getCurrentLocation();
+          final address = await addressApi.getAddressById(
+              token: token, addressId: value.adddressId);
 
-        emit(state.copyWith(
-          isLocationLoading: false,
-          pinCode: placemark.postalCode.toString(),
-          landmark: placemark.subLocality.toString(),
-          locality: placemark.locality.toString(),
-          isNavigate:true
-        ));
-          
-         },
+          address.fold(
+            (failure) {
+              emit(state.copyWith(
+                isGettingAddress: false,
+                isDataGot: none(),
+                showErrorMessages: true,
+                addressess: AddressModel(status: '', addresses:[]),
+                isNavigate: false,
+                isEditDataGot: some(left(failure)),
+
+              ));
+              add(const AddAddressEvent.getAllAddress());
+            },
+            (success) {
+              // Check address type and set the appropriate flags
+              bool isHome =
+                  success.addresses[0].type == Type.HOME ? true : false;
+              bool isWork =
+                  success.addresses[0].type == Type.WORK ? true : false;
+              bool isOthers =
+                  success.addresses[0].type == Type.OTHER ? true : false;
+
+              emit(state.copyWith(
+                isGettingAddress: false,
+                isNavigate: false,
+                isDataGot: none(),
+                showErrorMessages: false,
+                isEditDataGot: some(right(unit)),
+                addressess: AddressModel(
+                  status: success.status,
+                  addresses: success.addresses,
+                ),
+                isHome: isHome,
+                isWork: isWork,
+                isOthers: isOthers,
+              ));
+              add(const AddAddressEvent.getAllAddress());
+            },
+            
+          );
+        },
+        editSubmitButtonPressedEvent:
+            (_editSubmitButtonPressedEvent value) async {
+          emit(state.copyWith(
+            isSubmiting: true,
+            successOrfailure: none(),
+            isEditDataGot: none(),
+            editAddressSuccessOrFailureResponse: none(),
+            isDataGot: none(),
+            showErrorMessages: false,
+            addressess: AddressModel(status: '', addresses: []),
+            isNavigate: false,
+          ));
+
+          final resp = await addressApi.updateAddress(
+            name: value.name,
+            contact: value.contact,
+            pincode: value.pinCode,
+            flat: value.flat,
+            area: value.area,
+            landmark: value.landmark,
+            token: token,
+            type: value.type,
+            addressId: value.addressId,
+          );
+
+          resp.fold(
+            (failure) {
+              emit(state.copyWith(
+                  showErrorMessages: true,
+                  isDataGot: none(),
+                  editAddressSuccessOrFailureResponse: some(left(failure)),
+                  isSubmiting: false,
+                  isNavigate: false,
+                  addressess: AddressModel(status: '', addresses: [])));
+            },
+            (success) {
+              emit(state.copyWith(
+                  showErrorMessages: false,
+                  editAddressSuccessOrFailureResponse: some(right(unit)),
+                  isSubmiting: false,
+                  isEditDataGot: none(),
+                  isNavigate: false,
+                  addressess: AddressModel(
+                      status: success.status, addresses: success.addresses)));
+              // After adding address, trigger fetching all addresses
+              add(const AddAddressEvent.getAllAddress());
+            },
+          );
+        },
       );
     });
   }

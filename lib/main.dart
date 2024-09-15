@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tailme/application/Home/home_bloc.dart';
 import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
 import 'package:tailme/application/auth/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/application/auth/login/login_bloc.dart';
+import 'package:tailme/application/shop/shop_bloc.dart';
 import 'package:tailme/injection.dart';
 import 'package:tailme/presentation/SplashScreen/splash_screen.dart';
 
@@ -30,10 +32,12 @@ class MainApp extends StatelessWidget {
       designSize: const Size(393, 812),
       builder: (context, child) => MultiBlocProvider(
         providers: [
+          BlocProvider<HomeBloc>(create: (context)=>getIt<HomeBloc>()),
            BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
           BlocProvider<RegisterUserBloc>(create: (context) => getIt<RegisterUserBloc> ()),
           BlocProvider<OtpVerificationBloc>(create: (context) => getIt<OtpVerificationBloc> ()),
           BlocProvider<AddAddressBloc>(create : (context)=> getIt<AddAddressBloc>()),
+          BlocProvider<ShopBloc>(create : (context)=> getIt<ShopBloc>()),
         ],
         child: MaterialApp(
           theme: ThemeData(

@@ -5,7 +5,7 @@ import 'package:tailme/core/failures/form/form_failures.dart';
 import 'package:tailme/domain/AddAddress/model/address_model.dart';
 
 abstract class IAddAddressFacade {
-  Future<Either<FormFailure, Unit>> saveAddress(
+  Future<Either<FormFailure, AddressModel>> saveAddress(
       {required String name,
       required String contact,
       required String pincode,
@@ -22,7 +22,7 @@ abstract class IAddAddressFacade {
   Future<Either<FormFailure, Unit>> deleteAddress(
       {required String token, required String addressId});
 
-  Future<Either<FormFailure, Unit>> editAddress(
+  Future<Either<FormFailure, AddressModel>> updateAddress(
       {required String name,
       required String contact,
       required String pincode,
@@ -33,6 +33,10 @@ abstract class IAddAddressFacade {
       required String type,
       required String addressId});
 
+Future<Either<FormFailure,AddressModel>> getAddressById({
+  required String token,
+  required String addressId
+});
 
 
  Future<Placemark> getCurrentLocation();

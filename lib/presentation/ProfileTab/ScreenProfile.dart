@@ -21,14 +21,18 @@ class _ScreenProfileState extends State<ScreenProfile> {
     return Scaffold(
       backgroundColor: const Color(0xFF343333),
       body: Padding(
-        padding: EdgeInsets.only(top: 101.h, left: 22.w, right: 22.w), // Using .h and .w
+        padding: EdgeInsets.only(
+            top: 101.h, left: 22.w, right: 22.w), // Using .h and .w
         child: Column(
           children: [
-            GestureDetector(
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ScreenMyProfiles()),
+                  MaterialPageRoute(
+                      builder: (context) => const ScreenMyProfiles()),
                 );
               },
               child: ProfileRepeatingWidget(
@@ -37,11 +41,17 @@ class _ScreenProfileState extends State<ScreenProfile> {
                 iconasset: "assets/images/profile_ic.svg",
               ),
             ),
-            GestureDetector(
-              onTap: (){
-                 Navigator.push(
+            SizedBox(
+              height: 20.h,
+            ),
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onTap: () {
+                Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ScreenChangePassword()),
+                  MaterialPageRoute(
+                      builder: (context) => const ScreenChangePassword()),
                 );
               },
               child: ProfileRepeatingWidget(
@@ -49,12 +59,17 @@ class _ScreenProfileState extends State<ScreenProfile> {
                 iconasset: "assets/images/Login_Key.svg",
               ),
             ),
-            GestureDetector(
+            SizedBox(
+              height: 20.h,
+            ),
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: () {
-              //  BlocProvider.of<AddAddressBloc>(context).add(const AddAddressEvent.getAllAddress());
+                //  BlocProvider.of<AddAddressBloc>(context).add(const AddAddressEvent.getAllAddress());
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ScreenSavedAddress()),
+                  MaterialPageRoute(builder: (context) => ScreenSavedAddress()),
                 );
               },
               child: ProfileRepeatingWidget(
@@ -62,12 +77,17 @@ class _ScreenProfileState extends State<ScreenProfile> {
                 title: "Saved Addresses",
               ),
             ),
-            
-            GestureDetector(
+            SizedBox(
+              height: 20.h,
+            ),
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ScreenContactUs()),
+                  MaterialPageRoute(
+                      builder: (context) => const ScreenContactUs()),
                 );
               },
               child: ProfileRepeatingWidget(

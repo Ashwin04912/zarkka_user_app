@@ -14,18 +14,18 @@ class AddAddressEvent with _$AddAddressEvent {
     required String landmark,
     required String type,
     
-  }) = _SubmitPressed;
+  ashwin) = _SubmitPressed;
   const factory AddAddressEvent.getAllAddress() = _getAllAddress;
   const factory AddAddressEvent.deleteButtonPressed({
     required String addressId,
-  }) = _deleteButtonPressed;
+  ashwin) = _deleteButtonPressed;
 
   const factory AddAddressEvent.getCurrentLocation() = _getCurrentLocation;
 
   const factory AddAddressEvent.editButtonPressedEvent({
     required String adddressId,
     required AddressModel address
-  }) = _editButtonPressedEvent;
+  ashwin) = _editButtonPressedEvent;
 
   const factory AddAddressEvent.editSubmitButtonPressedEvent({
       required String name,
@@ -36,11 +36,11 @@ class AddAddressEvent with _$AddAddressEvent {
     required String landmark,
     required String addressId,
     required String type,
-  }) = _editSubmitButtonPressedEvent;
+  ashwin) = _editSubmitButtonPressedEvent;
   
   
   
   
   
   
-}
+ashwin

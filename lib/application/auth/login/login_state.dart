@@ -8,7 +8,7 @@ class LoginState with _$LoginState {
     required bool isEyePressed,
     required Option<Either<AuthFailure, Unit>> successOrfailure,
     required Option<Either<AuthFailure, Unit>> forgetPassEmailRespSuccessOrFailure,
-  }) = _LoginState;
+  ashwin) = _LoginState;
 
   factory LoginState.initial() => const LoginState(
       showErrorMessages: false,
@@ -16,4 +16,4 @@ class LoginState with _$LoginState {
       isEyePressed: true,
       forgetPassEmailRespSuccessOrFailure:None(),
       successOrfailure: None());
-}
+ashwin

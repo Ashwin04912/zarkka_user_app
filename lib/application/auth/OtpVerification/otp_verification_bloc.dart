@@ -32,15 +32,15 @@ class OtpVerificationBloc
             successOrfailure: some(left(f)),
             isSubmitting: false,
           ));
-        }, (s) {
+        ashwin, (s) {
           emit(state.copyWith(
             successOrfailure: some(right(unit)),
             isResendOtp: false,
             isSubmitting: false,
             isSubmit: true,
           ));
-        });
-      }, resendButtonClicked: (_resendButtonClicked value) async {
+        ashwin);
+      ashwin, resendButtonClicked: (_resendButtonClicked value) async {
         emit(state.copyWith(
           isSubmitting: true,
           isSubmit: false,
@@ -56,15 +56,15 @@ class OtpVerificationBloc
             isResendOtp: true,
             successOrfailure: some(left(f)),
           ));
-        }, (s) {
+        ashwin, (s) {
           emit(state.copyWith(
             isSubmitting: false,
             successOrfailure: some(right(unit)),
             isSubmit: false,
             isResendOtp: false,
           ));
-        });
-      }, otpVerificationForResetEvent:
+        ashwin);
+      ashwin, otpVerificationForResetEvent:
           (_otpVerificationForResetEvent value) async {
         emit(state.copyWith(
           isSubmitting: true,
@@ -82,7 +82,7 @@ class OtpVerificationBloc
             successOrfailure: some(left(f)),
             isSubmitting: false,
           ));
-        }, (resetToken) {
+        ashwin, (resetToken) {
           emit(state.copyWith(
             resetPassToken: resetToken,
             successOrfailure: some(right(unit)),
@@ -90,8 +90,8 @@ class OtpVerificationBloc
             isSubmitting: false,
             isSubmit: true, // Set this to true, not false
           ));
-        });
-      }, resetPasswordPressedEvent: (_resetPasswordPressedEvent value) async{ 
+        ashwin);
+      ashwin, resetPasswordPressedEvent: (_resetPasswordPressedEvent value) async{ 
          emit(
             state.copyWith(
               isSubmitting: true,
@@ -116,7 +116,7 @@ class OtpVerificationBloc
                   newPasswordCreateSuccessOrFailure: some(left(l))
                 ),
               );
-            },
+            ashwin,
             (r) {
               emit(
                 state.copyWith(
@@ -126,9 +126,9 @@ class OtpVerificationBloc
                   newPasswordCreateSuccessOrFailure: some(right(r)),
                 ),
               );
-            },
+            ashwin,
           );
-       });
-    });
-  }
-}
+       ashwin);
+    ashwin);
+  ashwin
+ashwin

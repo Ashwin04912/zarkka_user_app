@@ -7,26 +7,26 @@ class OtpVerificationEvent with _$OtpVerificationEvent {
     required String email,
     required bool isForget
     
-  }) = _VerifyButtonClicked;
+  ashwin) = _VerifyButtonClicked;
 
   const factory OtpVerificationEvent.resendButtonClicked({
     required String email
-  }) = _resendButtonClicked;
+  ashwin) = _resendButtonClicked;
 
   const factory OtpVerificationEvent.otpVerificationForResetEvent({
     required String otp,
     required String email,
-  }) = _otpVerificationForResetEvent;
+  ashwin) = _otpVerificationForResetEvent;
 
    const factory OtpVerificationEvent.resetPasswordPressedEvent({
     required String email,
     required String password,
     required String cPassword,
 required String resetToken,
-  }) = _resetPasswordPressedEvent;
+  ashwin) = _resetPasswordPressedEvent;
   
     
-  }
+  ashwin
   
 
  

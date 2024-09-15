@@ -46,7 +46,7 @@ class ReusableWidgets {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const ScreenWishlist()));
-          },
+          ashwin,
           icon: SvgPicture.asset('assets/images/home/heart_ic.svg'),
         ),
         IconButton(
@@ -55,7 +55,7 @@ class ReusableWidgets {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const ScreenWishlist()));
-          },
+          ashwin,
           icon: SvgPicture.asset('assets/images/home/cart.svg'),
         ),
         IconButton(
@@ -64,10 +64,10 @@ class ReusableWidgets {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const ScreenNotification()));
-          },
+          ashwin,
           icon: SvgPicture.asset('assets/images/home/Alert_Bell.svg'),
         ),
       ],
     );
-  }
-}
+  ashwin
+ashwin

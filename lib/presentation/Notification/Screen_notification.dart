@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScreenNotification extends StatelessWidget {
-  const ScreenNotification({super.key});
+  const ScreenNotification({super.keyashwin);
 
   @override
   Widget build(BuildContext context) {
@@ -80,10 +80,10 @@ class ScreenNotification extends StatelessWidget {
                       const SizedBox(height: 10), // SizedBox with height 10
                     ],
                   );
-                },
+                ashwin,
               ))
             ],
           ),
         ));
-  }
-}
+  ashwin
+ashwin

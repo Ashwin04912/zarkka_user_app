@@ -38,7 +38,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                   successOrfailure: some(left(l)),
                 ),
               );
-            },
+            ashwin,
             (r) {
               emit(
                 state.copyWith(
@@ -47,16 +47,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                   successOrfailure: some(right(r)),
                 ),
               );
-            },
+            ashwin,
           );
-        },
+        ashwin,
         eyeButtonPressed: (_EyeButtonPressed value) {
           emit(state.copyWith(
               isEyePressed: !state.isEyePressed,
               isSubmitting: false,
               showErrorMessages: false,
               successOrfailure: const None()));
-        },
+        ashwin,
         sendCodePressesEvent: (_sendCodePressesEvent value) async {
           emit(
             state.copyWith(
@@ -78,7 +78,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                   forgetPassEmailRespSuccessOrFailure: some(left(l))
                 ),
               );
-            },
+            ashwin,
             (r) {
               emit(
                 state.copyWith(
@@ -88,11 +88,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                   forgetPassEmailRespSuccessOrFailure: some(right(r))
                 ),
               );
-            },
+            ashwin,
           );
-        },
+        ashwin,
         
       );
-    });
-  }
-}
+    ashwin);
+  ashwin
+ashwin

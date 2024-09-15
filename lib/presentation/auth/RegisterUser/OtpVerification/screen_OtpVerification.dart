@@ -15,11 +15,11 @@ class ScreenOtpVerfication extends StatefulWidget {
   final String email;
   final bool isForget;
   const ScreenOtpVerfication(
-      {super.key, required this.email, required this.isForget});
+      {super.key, required this.email, required this.isForgetashwin);
 
   @override
   State<ScreenOtpVerfication> createState() => _ScreenOtpVerficationState();
-}
+ashwin
 
 class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
   TextEditingController otp1 = TextEditingController();
@@ -42,7 +42,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
           child: BlocConsumer<OtpVerificationBloc, OtpVerificationState>(
             listener: (context, state) {
               if (state.isSubmit) {
-                state.successOrfailure.fold(() {}, (some) {
+                state.successOrfailure.fold(() {ashwin, (some) {
                   some.fold((f) {
                     final message = f.maybeWhen(
                       invalidOtp: () => 'Invalid Otp',
@@ -55,22 +55,22 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(message)),
                     );
-                  }, (s) {
+                  ashwin, (s) {
                     if (widget.isForget) {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ScreenNewPassword(
                           email: widget.email,
                         ),
                       ));
-                    } else {
+                    ashwin else {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const OtpVerificationCompleted(isResetPass: false,),
                       ));
-                    }
-                  });
-                });
-              } else if (state.isResendOtp) {
-                state.successOrfailure.fold(() {}, (some) {
+                    ashwin
+                  ashwin);
+                ashwin);
+              ashwin else if (state.isResendOtp) {
+                state.successOrfailure.fold(() {ashwin, (some) {
                   some.fold((f) {
                     final message = f.maybeWhen(
                       invalidOtp: () => 'Invalid Otp',
@@ -83,14 +83,14 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(message)),
                     );
-                  }, (s) {
+                  ashwin, (s) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Otp sent')),
                     );
-                  });
-                });
-              }
-            },
+                  ashwin);
+                ashwin);
+              ashwin
+            ashwin,
             builder: (context, state) {
               return SingleChildScrollView(
                 child: Column(
@@ -165,15 +165,15 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                                       .add(OtpVerificationEvent
                                           .otpVerificationForResetEvent(
                                               otp: otp, email: widget.email));
-                                } else {
+                                ashwin else {
                                   BlocProvider.of<OtpVerificationBloc>(context)
                                       .add(OtpVerificationEvent
                                           .verifyButtonClicked(
                                               otp: otp,
                                               email: widget.email,
                                               isForget: widget.isForget));
-                                }
-                              },
+                                ashwin
+                              ashwin,
                               child: const Text(
                                 'Verify',
                                 style: TextStyle(
@@ -209,7 +209,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                                       .add(OtpVerificationEvent
                                           .resendButtonClicked(
                                               email: widget.email));
-                                },
+                                ashwin,
                                 child: const Text(
                                   'Resend',
                                   style: TextStyle(
@@ -228,12 +228,12 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                   ],
                 ),
               );
-            },
+            ashwin,
           ),
         ),
       ),
     );
-  }
+  ashwin
 
   Widget buildOtpField(BuildContext context, TextEditingController controller) {
     return Container(
@@ -248,10 +248,10 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
           onChanged: (value) {
             if (value.length == 1) {
               FocusScope.of(context).nextFocus();
-            } else {
+            ashwin else {
               FocusScope.of(context).previousFocus();
-            }
-          },
+            ashwin
+          ashwin,
           decoration: const InputDecoration.collapsed(
             hintText: "",
             fillColor: Colors.white,
@@ -267,5 +267,5 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

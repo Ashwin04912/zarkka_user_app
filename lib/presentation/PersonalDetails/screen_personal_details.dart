@@ -5,11 +5,11 @@ import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 class ScreenPersonalDetails extends StatefulWidget {
   const ScreenPersonalDetails({
     Key? key,
-  }) : super(key: key);
+  ashwin) : super(key: key);
 
   @override
   _ScreenDetailsState createState() => _ScreenDetailsState();
-}
+ashwin
 
 class _ScreenDetailsState extends State<ScreenPersonalDetails> {
   String? _selectedGender;
@@ -32,7 +32,7 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
   //   _emailController.dispose();
   //   _addressController.dispose();
   //   super.dispose();
-  // }
+  // ashwin
 
   @override
   Widget build(BuildContext context) {
@@ -93,9 +93,9 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your name';
-                      }
+                      ashwin
                       return null;
-                    },
+                    ashwin,
                   ),
                   const SizedBox(height: 15),
                   TextFormField(
@@ -123,9 +123,9 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your phone number';
-                      }
+                      ashwin
                       return null;
-                    },
+                    ashwin,
                   ),
                   const SizedBox(height: 15),
 
@@ -152,9 +152,9 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your address';
-                      }
+                      ashwin
                       return null;
-                    },
+                    ashwin,
                   ),
                   const SizedBox(height: 15),
                   // Adding Row of Radio Buttons
@@ -169,8 +169,8 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                         onChanged: (value) {
                           setState(() {
                             _selectedGender = value;
-                          });
-                        },
+                          ashwin);
+                        ashwin,
                       ),
                       const Text(
                         'Male',
@@ -189,8 +189,8 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                         onChanged: (value) {
                           setState(() {
                             _selectedGender = value;
-                          });
-                        },
+                          ashwin);
+                        ashwin,
                       ),
                       const Text(
                         'Female',
@@ -275,10 +275,10 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                             //     'uid': currentUid,
                             //     'gender': _selectedGender,
                             //     'Tailor': true,
-                            //   });
+                            //   ashwin);
                             //   // Perform your action
-                            // }
-                          },
+                            // ashwin
+                          ashwin,
                           child: const Text(
                             'Tailor',
                             style: TextStyle(
@@ -318,15 +318,15 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                             //     'address': _addressController.text,
                             //     'gender': _selectedGender,
                             //     'customer': true,
-                            //   });
+                            //   ashwin);
                             //   Navigator.pushAndRemoveUntil(
                             //       context,
                             //       MaterialPageRoute(
                             //           builder: (context) =>
                             //               const BottomNavigation()),
                             //       (route) => false);
-                            // }
-                          },
+                            // ashwin
+                          ashwin,
                           child: const Text(
                             'Customer',
                             style: TextStyle(
@@ -345,5 +345,5 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

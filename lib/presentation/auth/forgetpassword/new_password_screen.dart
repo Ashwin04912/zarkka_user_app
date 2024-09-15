@@ -11,11 +11,11 @@ import '../RegisterUser/OtpVerification/verification_completed.dart';
 
 class ScreenNewPassword extends StatefulWidget {
   final String email;
-  const ScreenNewPassword({super.key, required this.email});
+  const ScreenNewPassword({super.key, required this.emailashwin);
 
   @override
   State<ScreenNewPassword> createState() => _ScreenNewPasswordState();
-}
+ashwin
 
 class _ScreenNewPasswordState extends State<ScreenNewPassword> {
   final _formKey = GlobalKey<FormState>();
@@ -28,7 +28,7 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
-  }
+  ashwin
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
           child: BlocConsumer<OtpVerificationBloc, OtpVerificationState>(
             listener: (context, state) {
-              state.newPasswordCreateSuccessOrFailure.fold(() {}, (some) {
+              state.newPasswordCreateSuccessOrFailure.fold(() {ashwin, (some) {
                 some.fold((f) {
                   final message = f.maybeWhen(
                     passwordNotMatch: () => 'Passwords do not match',
@@ -51,14 +51,14 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(message)),
                     );
-                  }
-                }, (s) {
+                  ashwin
+                ashwin, (s) {
                   print("successfully changed password");
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                       builder: (context) => const OtpVerificationCompleted(isResetPass: true,)));
-                });
-              });
-            },
+                ashwin);
+              ashwin);
+            ashwin,
             builder: (context, state) {
               return SingleChildScrollView(
                 child: Column(
@@ -112,12 +112,12 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter your new password';
-                              } else if (value.length < 6) {
+                              ashwin else if (value.length < 6) {
                                 return 'password should be minimum of 6 digit';
-                              }
+                              ashwin
                               // Add more validation if necessary
                               return null;
-                            },
+                            ashwin,
                           ),
                           SizedBox(height: 10.h),
                           TextFormField(
@@ -142,14 +142,14 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please confirm your password';
-                              } else if (value.length < 6) {
+                              ashwin else if (value.length < 6) {
                                 return 'password should be minimum of 6 digit';
-                              }
+                              ashwin
                               if (value != _passwordController.text) {
                                 return 'Passwords do not match';
-                              }
+                              ashwin
                               return null;
-                            },
+                            ashwin,
                           ),
                         ],
                       ),
@@ -191,9 +191,9 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                                       email: widget.email,
                                     ),
                                   );
-                                }
+                                ashwin
                                 debugPrint(
-                                    "this is in ui${_passwordController.text}, ${_confirmPasswordController.text}, ${state.resetPassToken} ,${widget.email}");
+                                    "this is in ui${_passwordController.textashwin, ${_confirmPasswordController.textashwin, ${state.resetPassTokenashwin ,${widget.emailashwin");
 
                                 // BlocProvider.of<OtpVerificationBloc>(context)
                                 //     .add(
@@ -205,7 +205,7 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                                 //     email: widget.email,
                                 //   ),
                                 // );
-                              },
+                              ashwin,
                               child: const Text(
                                 'Reset Password',
                                 style: TextStyle(
@@ -220,10 +220,10 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                   ],
                 ),
               );
-            },
+            ashwin,
           ),
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

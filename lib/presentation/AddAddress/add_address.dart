@@ -6,7 +6,7 @@
   import '../../application/AddAddress/add_address_bloc.dart';
 
   class ScreenEnterCompleteAddress extends StatelessWidget {
-    ScreenEnterCompleteAddress({super.key,  this.locality, this.pinCode, this.landMark});
+    ScreenEnterCompleteAddress({super.key,  this.locality, this.pinCode, this.landMarkashwin);
     final String? locality;
     final String? pinCode;
     final String? landMark;
@@ -41,7 +41,7 @@
             child: BlocConsumer<AddAddressBloc, AddAddressState>(
               listener: (context, state) {
                 state.addAddressSuccessOrFailureResponse.fold(
-                  () {},
+                  () {ashwin,
                   (either) {
                     either.fold(
                       (failure) {
@@ -52,7 +52,7 @@
                           orElse: () => "Some error occurred",
                         );
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-                      },
+                      ashwin,
                       (success) {
                         if (!_navigated) {
                           _navigated = true;
@@ -65,13 +65,13 @@
                             MaterialPageRoute(builder: (context) =>  ScreenSavedAddress()),
                           );
                           
-                        }
+                        ashwin
 
-                      },
+                      ashwin,
                     );
-                  },
+                  ashwin,
                 );
-              },
+              ashwin,
               builder: (context, state) {
                 if (state.isSubmiting) {
                   return Center(
@@ -80,7 +80,7 @@
                       size: 200,
                     ),
                   );
-                }
+                ashwin
 
                 return Form(
                   key: formKey,
@@ -106,7 +106,7 @@
                               BlocProvider.of<AddAddressBloc>(context).add(
                                 const AddAddressEvent.homePressed(),
                               );
-                            },
+                            ashwin,
                             child: Container(
                               width: 65.w,
                               height: 26.h,
@@ -138,7 +138,7 @@
                               BlocProvider.of<AddAddressBloc>(context).add(
                                 const AddAddressEvent.workPressed(),
                               );
-                            },
+                            ashwin,
                             child: Container(
                               width: 65.w,
                               height: 26.h,
@@ -170,7 +170,7 @@
                               BlocProvider.of<AddAddressBloc>(context).add(
                                 const AddAddressEvent.othersPressed(),
                               );
-                            },
+                            ashwin,
                             child: Container(
                               width: 65.w,
                               height: 26.h,
@@ -221,9 +221,9 @@
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your name';
-                            }
+                            ashwin
                             return null;
-                          },
+                          ashwin,
                         ),
                       ),
                       Padding(
@@ -246,12 +246,12 @@
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your contact number';
-                            }
+                            ashwin
                             if (value.length != 10) {
                               return 'Contact number must be 10 digits';
-                            }
+                            ashwin
                             return null;
-                          },
+                          ashwin,
                         ),
                       ),
                       Padding(
@@ -275,12 +275,12 @@
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your pincode';
-                            }
+                            ashwin
                             if (value.length != 6) {
                               return 'Pincode must be 6 digits';
-                            }
+                            ashwin
                             return null;
-                          },
+                          ashwin,
                         ),
                       ),
                       Padding(
@@ -303,9 +303,9 @@
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter flat/house number';
-                            }
+                            ashwin
                             return null;
-                          },
+                          ashwin,
                         ),
                       ),
                       Padding(
@@ -329,9 +329,9 @@
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter area/sector/locality';
-                            }
+                            ashwin
                             return null;
-                          },
+                          ashwin,
                         ),
                       ),
                       Padding(
@@ -372,8 +372,8 @@
                                   type: state.type,
                                 ),
                               );
-                            }
-                          },
+                            ashwin
+                          ashwin,
                           style: ButtonStyle(
                             backgroundColor: WidgetStateProperty.all<Color>(Colors.white),
                             shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -398,10 +398,10 @@
                     ],
                   ),
                 );
-              },
+              ashwin,
             ),
           ),
         ),
       );
-    }
-  }
+    ashwin
+  ashwin

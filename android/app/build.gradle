@@ -2,25 +2,25 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
-}
+ashwin
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
     localPropertiesFile.withReader('UTF-8') { reader ->
         localProperties.load(reader)
-    }
-}
+    ashwin
+ashwin
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
-}
+ashwin
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
-}
+ashwin
 
 android {
     namespace "com.example.tailme"
@@ -30,15 +30,15 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-    }
+    ashwin
 
     kotlinOptions {
         jvmTarget = '1.8'
-    }
+    ashwin
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
-    }
+    ashwin
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
@@ -51,21 +51,21 @@ android {
         versionName flutterVersionName
         multiDexEnabled true
 
-    }
+    ashwin
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
-        }
-    }
-}
+        ashwin
+    ashwin
+ashwin
 
 flutter {
     source '../..'
-}
+ashwin
 
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
-}
+ashwin

@@ -22,20 +22,20 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
             await picker.pickImage(source: ImageSource.gallery);
 
         emit(state.copyWith(fileName: image!.name, isLoaded: true));
-      }, alterationClickedEvent: (_alterationClickedEvent value) {
+      ashwin, alterationClickedEvent: (_alterationClickedEvent value) {
         emit(state.copyWith(
           alteration: "Alteration",
           stitching: '',
           isAlteration: true,
           isStitching: false,
         ));
-      }, stitchingClickedEvent: (_stitchingClickedEvent value) {
+      ashwin, stitchingClickedEvent: (_stitchingClickedEvent value) {
         emit(state.copyWith(
             stitching: "Stitching",
             alteration: '',
             isStitching: true,
             isAlteration: false));
-      }, embroidaryClickedEvent: (_embroidaryClickedEvent value) {
+      ashwin, embroidaryClickedEvent: (_embroidaryClickedEvent value) {
         emit(state.copyWith(
           stitching: '',
           alteration: '',
@@ -44,7 +44,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
           isEmbroidary: value.isChecked,
           embroidary: value.isChecked ? 'Embroidery' : ''
         ));
-      }, handWorkClickedEvent: (_handWorkClickedEvent value) {
+      ashwin, handWorkClickedEvent: (_handWorkClickedEvent value) {
         emit(state.copyWith(
           stitching: '',
           alteration: '',
@@ -53,9 +53,9 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
           isHandWork: value.isChecked,
           handWork:value.isChecked? "Handwork": '',
         ));
-      });
-    });
-  }
-}
+      ashwin);
+    ashwin);
+  ashwin
+ashwin
 
 ///

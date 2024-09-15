@@ -5,7 +5,7 @@ import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
 
 
 class ScreenLogo extends StatelessWidget {
-  const ScreenLogo({Key? key}) : super(key: key);
+  const ScreenLogo({Key? keyashwin) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class ScreenLogo extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> ScreenLogin()));
-                },
+                ashwin,
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(
                     const Color(0xFFFFAC4B), // Set background color here
@@ -84,7 +84,7 @@ class ScreenLogo extends StatelessWidget {
                     context,
                     MaterialPageRoute(builder: (context) =>  ScreenUserRegistration()),
                   );
-                },
+                ashwin,
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(
                     Colors.white, // Set background color here
@@ -124,5 +124,5 @@ class ScreenLogo extends StatelessWidget {
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

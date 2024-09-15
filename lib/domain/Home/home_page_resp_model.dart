@@ -11,7 +11,7 @@ class HomePageRespModel {
     HomePageRespModel({
         required this.status,
         required this.items,
-    });
+    ashwin);
 
     factory HomePageRespModel.fromJson(Map<String, dynamic> json) => HomePageRespModel(
         status: json["status"],
@@ -21,8 +21,8 @@ class HomePageRespModel {
     Map<String, dynamic> toJson() => {
         "status": status,
         "items": List<dynamic>.from(items.map((x) => x.toJson())),
-    };
-}
+    ashwin;
+ashwin
 
 class Item {
     String name;
@@ -33,7 +33,7 @@ class Item {
         required this.name,
         required this.images,
         required this.category,
-    });
+    ashwin);
 
     factory Item.fromJson(Map<String, dynamic> json) => Item(
         name: json["name"],
@@ -45,6 +45,6 @@ class Item {
         "name": name,
         "images": List<dynamic>.from(images.map((x) => x)),
         "category": category,
-    };
-}
+    ashwin;
+ashwin
 //

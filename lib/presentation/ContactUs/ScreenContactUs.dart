@@ -4,7 +4,7 @@ import 'package:tailme/core/widgets/ProfileRepeating.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ScreenContactUs extends StatelessWidget {
-  const ScreenContactUs({super.key});
+  const ScreenContactUs({super.keyashwin);
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class ScreenContactUs extends StatelessWidget {
                 final Uri phoneUri = Uri(scheme: 'tel', path: '+919544494164');
                 if (await canLaunchUrl(phoneUri)) {
                   await launchUrl(phoneUri);
-                } else {
+                ashwin else {
                   print("Could not launch dialer");
-                }
+                ashwin
                 print("call open ended");
-              },
+              ashwin,
               child: ProfileRepeatingWidget(
                 iconasset: "assets/images/phone.svg",
                 title: "Phone",
@@ -57,16 +57,16 @@ class ScreenContactUs extends StatelessWidget {
                 final Uri mailUri = Uri(
                   scheme: 'mailto',
                   path: 'zarkkaonlinetailor@gmail.com',
-                  query: 'subject=${Uri.encodeComponent("Subject Here")}&body=${Uri.encodeComponent("Message Here")}',
+                  query: 'subject=${Uri.encodeComponent("Subject Here")ashwin&body=${Uri.encodeComponent("Message Here")ashwin',
                 );
 
                 if (await canLaunchUrl(mailUri)) {
                   await launchUrl(mailUri);
-                } else {
+                ashwin else {
                   print("Could not launch mail");
-                }
+                ashwin
                 print("mail open ended");
-              },
+              ashwin,
               child: ProfileRepeatingWidget(
                 iconasset: "assets/images/mail.svg",
                 title: "Email",
@@ -78,5 +78,5 @@ class ScreenContactUs extends StatelessWidget {
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

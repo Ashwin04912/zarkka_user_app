@@ -11,7 +11,7 @@ class ScreenEditAddress extends StatelessWidget {
   ScreenEditAddress({
     super.key,
     required this.address,
-  });
+  ashwin);
 
   bool _navigated = false;
 
@@ -37,14 +37,14 @@ class ScreenEditAddress extends StatelessWidget {
       areaController = TextEditingController(text: address.addresses[0].area);
       landmarkController =
           TextEditingController(text: address.addresses[0].landmark);
-    } else {
+    ashwin else {
       nameController = TextEditingController();
       contactController = TextEditingController();
       pincodeController = TextEditingController();
       flatController = TextEditingController();
       areaController = TextEditingController();
       landmarkController = TextEditingController();
-    }
+    ashwin
 
     return Scaffold(
       appBar: AppBar(
@@ -64,7 +64,7 @@ class ScreenEditAddress extends StatelessWidget {
           child: BlocConsumer<AddAddressBloc, AddAddressState>(
             listener: (context, state) {
               state.editAddressSuccessOrFailureResponse.fold(
-                () {},
+                () {ashwin,
                 (either) {
                   either.fold(
                     (failure) {
@@ -78,7 +78,7 @@ class ScreenEditAddress extends StatelessWidget {
                       );
                       ScaffoldMessenger.of(context)
                           .showSnackBar(SnackBar(content: Text(message)));
-                    },
+                    ashwin,
                     (success) {
                       if (!_navigated) {
                         _navigated = true;
@@ -92,12 +92,12 @@ class ScreenEditAddress extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => ScreenSavedAddress()),
                         );
-                      }
-                    },
+                      ashwin
+                    ashwin,
                   );
-                },
+                ashwin,
               );
-            },
+            ashwin,
             builder: (context, state) {
               if (state.isSubmiting) {
                 return Center(
@@ -106,7 +106,7 @@ class ScreenEditAddress extends StatelessWidget {
                     size: 200,
                   ),
                 );
-              }
+              ashwin
 
               return Form(
                 key: formKey,
@@ -132,7 +132,7 @@ class ScreenEditAddress extends StatelessWidget {
                             BlocProvider.of<AddAddressBloc>(context).add(
                               const AddAddressEvent.homePressed(),
                             );
-                          },
+                          ashwin,
                           child: Container(
                             width: 65.w,
                             height: 26.h,
@@ -167,7 +167,7 @@ class ScreenEditAddress extends StatelessWidget {
                             BlocProvider.of<AddAddressBloc>(context).add(
                               const AddAddressEvent.workPressed(),
                             );
-                          },
+                          ashwin,
                           child: Container(
                             width: 65.w,
                             height: 26.h,
@@ -202,7 +202,7 @@ class ScreenEditAddress extends StatelessWidget {
                             BlocProvider.of<AddAddressBloc>(context).add(
                               const AddAddressEvent.othersPressed(),
                             );
-                          },
+                          ashwin,
                           child: Container(
                             width: 65.w,
                             height: 26.h,
@@ -258,9 +258,9 @@ class ScreenEditAddress extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your name';
-                          }
+                          ashwin
                           return null;
-                        },
+                        ashwin,
                       ),
                     ),
                     Padding(
@@ -285,12 +285,12 @@ class ScreenEditAddress extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your contact number';
-                          }
+                          ashwin
                           if (value.length != 10) {
                             return 'Contact number must be 10 digits';
-                          }
+                          ashwin
                           return null;
-                        },
+                        ashwin,
                       ),
                     ),
                     Padding(
@@ -315,12 +315,12 @@ class ScreenEditAddress extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your pincode';
-                          }
+                          ashwin
                           if (value.length != 6) {
                             return 'Pincode must be 6 digits';
-                          }
+                          ashwin
                           return null;
-                        },
+                        ashwin,
                       ),
                     ),
                     Padding(
@@ -345,9 +345,9 @@ class ScreenEditAddress extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter flat/house number';
-                          }
+                          ashwin
                           return null;
-                        },
+                        ashwin,
                       ),
                     ),
                     Padding(
@@ -372,9 +372,9 @@ class ScreenEditAddress extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter area/sector/locality';
-                          }
+                          ashwin
                           return null;
-                        },
+                        ashwin,
                       ),
                     ),
                     Padding(
@@ -415,7 +415,7 @@ class ScreenEditAddress extends StatelessWidget {
                             landmark: landmarkController.text,
                             type: state.type,
                           ));
-                        },
+                        ashwin,
                         style: ButtonStyle(
                           backgroundColor:
                               WidgetStateProperty.all<Color>(Colors.white),
@@ -442,10 +442,10 @@ class ScreenEditAddress extends StatelessWidget {
                   ],
                 ),
               );
-            },
+            ashwin,
           ),
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

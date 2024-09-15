@@ -7,9 +7,9 @@ class ShopEvent with _$ShopEvent {
   const factory ShopEvent.stitchingClickedEvent() = _stitchingClickedEvent;
   const factory ShopEvent.embroidaryClickedEvent({
     required bool isChecked
-  }) = _embroidaryClickedEvent;
+  ashwin) = _embroidaryClickedEvent;
   const factory ShopEvent.handWorkClickedEvent({
     required bool isChecked
-  }) = _handWorkClickedEvent;
-}
+  ashwin) = _handWorkClickedEvent;
+ashwin
 ///

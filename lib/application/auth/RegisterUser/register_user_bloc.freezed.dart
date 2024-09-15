@@ -21,14 +21,14 @@ mixin _$RegisterUserEvent {
     required TResult Function(RegisterUserModel user) signUpButtonPressed,
     required TResult Function() eyePassButtonPressed,
     required TResult Function() eyeCPassButtonPressed,
-  }) =>
+  ashwin) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(RegisterUserModel user)? signUpButtonPressed,
     TResult? Function()? eyePassButtonPressed,
     TResult? Function()? eyeCPassButtonPressed,
-  }) =>
+  ashwin) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -36,7 +36,7 @@ mixin _$RegisterUserEvent {
     TResult Function()? eyePassButtonPressed,
     TResult Function()? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) =>
+  ashwin) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
@@ -44,14 +44,14 @@ mixin _$RegisterUserEvent {
     required TResult Function(_eyeButtonPressed value) eyePassButtonPressed,
     required TResult Function(_eyeCPassButtonPressed value)
         eyeCPassButtonPressed,
-  }) =>
+  ashwin) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SignUpButtonPressed value)? signUpButtonPressed,
     TResult? Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult? Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
-  }) =>
+  ashwin) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -59,16 +59,16 @@ mixin _$RegisterUserEvent {
     TResult Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) =>
+  ashwin) =>
       throw _privateConstructorUsedError;
-}
+ashwin
 
 /// @nodoc
 abstract class $RegisterUserEventCopyWith<$Res> {
   factory $RegisterUserEventCopyWith(
           RegisterUserEvent value, $Res Function(RegisterUserEvent) then) =
       _$RegisterUserEventCopyWithImpl<$Res, RegisterUserEvent>;
-}
+ashwin
 
 /// @nodoc
 class _$RegisterUserEventCopyWithImpl<$Res, $Val extends RegisterUserEvent>
@@ -82,7 +82,7 @@ class _$RegisterUserEventCopyWithImpl<$Res, $Val extends RegisterUserEvent>
 
   /// Create a copy of RegisterUserEvent
   /// with the given fields replaced by the non-null parameter values.
-}
+ashwin
 
 /// @nodoc
 abstract class _$$SignUpButtonPressedImplCopyWith<$Res> {
@@ -90,8 +90,8 @@ abstract class _$$SignUpButtonPressedImplCopyWith<$Res> {
           $Res Function(_$SignUpButtonPressedImpl) then) =
       __$$SignUpButtonPressedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RegisterUserModel user});
-}
+  $Res call({RegisterUserModel userashwin);
+ashwin
 
 /// @nodoc
 class __$$SignUpButtonPressedImplCopyWithImpl<$Res>
@@ -107,20 +107,20 @@ class __$$SignUpButtonPressedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = null,
-  }) {
+  ashwin) {
     return _then(_$SignUpButtonPressedImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as RegisterUserModel,
     ));
-  }
-}
+  ashwin
+ashwin
 
 /// @nodoc
 
 class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
-  const _$SignUpButtonPressedImpl({required this.user});
+  const _$SignUpButtonPressedImpl({required this.userashwin);
 
   @override
   final RegisterUserModel user;
@@ -128,7 +128,7 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
   @override
   String toString() {
     return 'RegisterUserEvent.signUpButtonPressed(user: $user)';
-  }
+  ashwin
 
   @override
   bool operator ==(Object other) {
@@ -136,7 +136,7 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
         (other.runtimeType == runtimeType &&
             other is _$SignUpButtonPressedImpl &&
             (identical(other.user, user) || other.user == user));
-  }
+  ashwin
 
   @override
   int get hashCode => Object.hash(runtimeType, user);
@@ -156,9 +156,9 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
     required TResult Function(RegisterUserModel user) signUpButtonPressed,
     required TResult Function() eyePassButtonPressed,
     required TResult Function() eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return signUpButtonPressed(user);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -166,9 +166,9 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
     TResult? Function(RegisterUserModel user)? signUpButtonPressed,
     TResult? Function()? eyePassButtonPressed,
     TResult? Function()? eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return signUpButtonPressed?.call(user);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -177,12 +177,12 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
     TResult Function()? eyePassButtonPressed,
     TResult Function()? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) {
+  ashwin) {
     if (signUpButtonPressed != null) {
       return signUpButtonPressed(user);
-    }
+    ashwin
     return orElse();
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -191,9 +191,9 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
     required TResult Function(_eyeButtonPressed value) eyePassButtonPressed,
     required TResult Function(_eyeCPassButtonPressed value)
         eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return signUpButtonPressed(this);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -201,9 +201,9 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
     TResult? Function(_SignUpButtonPressed value)? signUpButtonPressed,
     TResult? Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult? Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return signUpButtonPressed?.call(this);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -212,16 +212,16 @@ class _$SignUpButtonPressedImpl implements _SignUpButtonPressed {
     TResult Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) {
+  ashwin) {
     if (signUpButtonPressed != null) {
       return signUpButtonPressed(this);
-    }
+    ashwin
     return orElse();
-  }
-}
+  ashwin
+ashwin
 
 abstract class _SignUpButtonPressed implements RegisterUserEvent {
-  const factory _SignUpButtonPressed({required final RegisterUserModel user}) =
+  const factory _SignUpButtonPressed({required final RegisterUserModel userashwin) =
       _$SignUpButtonPressedImpl;
 
   RegisterUserModel get user;
@@ -231,14 +231,14 @@ abstract class _SignUpButtonPressed implements RegisterUserEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignUpButtonPressedImplCopyWith<_$SignUpButtonPressedImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
+ashwin
 
 /// @nodoc
 abstract class _$$eyeButtonPressedImplCopyWith<$Res> {
   factory _$$eyeButtonPressedImplCopyWith(_$eyeButtonPressedImpl value,
           $Res Function(_$eyeButtonPressedImpl) then) =
       __$$eyeButtonPressedImplCopyWithImpl<$Res>;
-}
+ashwin
 
 /// @nodoc
 class __$$eyeButtonPressedImplCopyWithImpl<$Res>
@@ -250,7 +250,7 @@ class __$$eyeButtonPressedImplCopyWithImpl<$Res>
 
   /// Create a copy of RegisterUserEvent
   /// with the given fields replaced by the non-null parameter values.
-}
+ashwin
 
 /// @nodoc
 
@@ -260,13 +260,13 @@ class _$eyeButtonPressedImpl implements _eyeButtonPressed {
   @override
   String toString() {
     return 'RegisterUserEvent.eyePassButtonPressed()';
-  }
+  ashwin
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$eyeButtonPressedImpl);
-  }
+  ashwin
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -277,9 +277,9 @@ class _$eyeButtonPressedImpl implements _eyeButtonPressed {
     required TResult Function(RegisterUserModel user) signUpButtonPressed,
     required TResult Function() eyePassButtonPressed,
     required TResult Function() eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyePassButtonPressed();
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -287,9 +287,9 @@ class _$eyeButtonPressedImpl implements _eyeButtonPressed {
     TResult? Function(RegisterUserModel user)? signUpButtonPressed,
     TResult? Function()? eyePassButtonPressed,
     TResult? Function()? eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyePassButtonPressed?.call();
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -298,12 +298,12 @@ class _$eyeButtonPressedImpl implements _eyeButtonPressed {
     TResult Function()? eyePassButtonPressed,
     TResult Function()? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) {
+  ashwin) {
     if (eyePassButtonPressed != null) {
       return eyePassButtonPressed();
-    }
+    ashwin
     return orElse();
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -312,9 +312,9 @@ class _$eyeButtonPressedImpl implements _eyeButtonPressed {
     required TResult Function(_eyeButtonPressed value) eyePassButtonPressed,
     required TResult Function(_eyeCPassButtonPressed value)
         eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyePassButtonPressed(this);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -322,9 +322,9 @@ class _$eyeButtonPressedImpl implements _eyeButtonPressed {
     TResult? Function(_SignUpButtonPressed value)? signUpButtonPressed,
     TResult? Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult? Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyePassButtonPressed?.call(this);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -333,17 +333,17 @@ class _$eyeButtonPressedImpl implements _eyeButtonPressed {
     TResult Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) {
+  ashwin) {
     if (eyePassButtonPressed != null) {
       return eyePassButtonPressed(this);
-    }
+    ashwin
     return orElse();
-  }
-}
+  ashwin
+ashwin
 
 abstract class _eyeButtonPressed implements RegisterUserEvent {
   const factory _eyeButtonPressed() = _$eyeButtonPressedImpl;
-}
+ashwin
 
 /// @nodoc
 abstract class _$$eyeCPassButtonPressedImplCopyWith<$Res> {
@@ -351,7 +351,7 @@ abstract class _$$eyeCPassButtonPressedImplCopyWith<$Res> {
           _$eyeCPassButtonPressedImpl value,
           $Res Function(_$eyeCPassButtonPressedImpl) then) =
       __$$eyeCPassButtonPressedImplCopyWithImpl<$Res>;
-}
+ashwin
 
 /// @nodoc
 class __$$eyeCPassButtonPressedImplCopyWithImpl<$Res>
@@ -363,7 +363,7 @@ class __$$eyeCPassButtonPressedImplCopyWithImpl<$Res>
 
   /// Create a copy of RegisterUserEvent
   /// with the given fields replaced by the non-null parameter values.
-}
+ashwin
 
 /// @nodoc
 
@@ -373,14 +373,14 @@ class _$eyeCPassButtonPressedImpl implements _eyeCPassButtonPressed {
   @override
   String toString() {
     return 'RegisterUserEvent.eyeCPassButtonPressed()';
-  }
+  ashwin
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$eyeCPassButtonPressedImpl);
-  }
+  ashwin
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -391,9 +391,9 @@ class _$eyeCPassButtonPressedImpl implements _eyeCPassButtonPressed {
     required TResult Function(RegisterUserModel user) signUpButtonPressed,
     required TResult Function() eyePassButtonPressed,
     required TResult Function() eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyeCPassButtonPressed();
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -401,9 +401,9 @@ class _$eyeCPassButtonPressedImpl implements _eyeCPassButtonPressed {
     TResult? Function(RegisterUserModel user)? signUpButtonPressed,
     TResult? Function()? eyePassButtonPressed,
     TResult? Function()? eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyeCPassButtonPressed?.call();
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -412,12 +412,12 @@ class _$eyeCPassButtonPressedImpl implements _eyeCPassButtonPressed {
     TResult Function()? eyePassButtonPressed,
     TResult Function()? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) {
+  ashwin) {
     if (eyeCPassButtonPressed != null) {
       return eyeCPassButtonPressed();
-    }
+    ashwin
     return orElse();
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -426,9 +426,9 @@ class _$eyeCPassButtonPressedImpl implements _eyeCPassButtonPressed {
     required TResult Function(_eyeButtonPressed value) eyePassButtonPressed,
     required TResult Function(_eyeCPassButtonPressed value)
         eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyeCPassButtonPressed(this);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -436,9 +436,9 @@ class _$eyeCPassButtonPressedImpl implements _eyeCPassButtonPressed {
     TResult? Function(_SignUpButtonPressed value)? signUpButtonPressed,
     TResult? Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult? Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
-  }) {
+  ashwin) {
     return eyeCPassButtonPressed?.call(this);
-  }
+  ashwin
 
   @override
   @optionalTypeArgs
@@ -447,17 +447,17 @@ class _$eyeCPassButtonPressedImpl implements _eyeCPassButtonPressed {
     TResult Function(_eyeButtonPressed value)? eyePassButtonPressed,
     TResult Function(_eyeCPassButtonPressed value)? eyeCPassButtonPressed,
     required TResult orElse(),
-  }) {
+  ashwin) {
     if (eyeCPassButtonPressed != null) {
       return eyeCPassButtonPressed(this);
-    }
+    ashwin
     return orElse();
-  }
-}
+  ashwin
+ashwin
 
 abstract class _eyeCPassButtonPressed implements RegisterUserEvent {
   const factory _eyeCPassButtonPressed() = _$eyeCPassButtonPressedImpl;
-}
+ashwin
 
 /// @nodoc
 mixin _$RegisterUserState {
@@ -477,7 +477,7 @@ mixin _$RegisterUserState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   $RegisterUserStateCopyWith<RegisterUserState> get copyWith =>
       throw _privateConstructorUsedError;
-}
+ashwin
 
 /// @nodoc
 abstract class $RegisterUserStateCopyWith<$Res> {
@@ -494,8 +494,8 @@ abstract class $RegisterUserStateCopyWith<$Res> {
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> successOrfailure,
       bool isPassEyePressed,
-      bool isCpassEyePressed});
-}
+      bool isCpassEyePressedashwin);
+ashwin
 
 /// @nodoc
 class _$RegisterUserStateCopyWithImpl<$Res, $Val extends RegisterUserState>
@@ -521,7 +521,7 @@ class _$RegisterUserStateCopyWithImpl<$Res, $Val extends RegisterUserState>
     Object? successOrfailure = null,
     Object? isPassEyePressed = null,
     Object? isCpassEyePressed = null,
-  }) {
+  ashwin) {
     return _then(_value.copyWith(
       userName: null == userName
           ? _value.userName
@@ -560,8 +560,8 @@ class _$RegisterUserStateCopyWithImpl<$Res, $Val extends RegisterUserState>
           : isCpassEyePressed // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
-  }
-}
+  ashwin
+ashwin
 
 /// @nodoc
 abstract class _$$RegisterUserStateImplCopyWith<$Res>
@@ -580,8 +580,8 @@ abstract class _$$RegisterUserStateImplCopyWith<$Res>
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> successOrfailure,
       bool isPassEyePressed,
-      bool isCpassEyePressed});
-}
+      bool isCpassEyePressedashwin);
+ashwin
 
 /// @nodoc
 class __$$RegisterUserStateImplCopyWithImpl<$Res>
@@ -605,7 +605,7 @@ class __$$RegisterUserStateImplCopyWithImpl<$Res>
     Object? successOrfailure = null,
     Object? isPassEyePressed = null,
     Object? isCpassEyePressed = null,
-  }) {
+  ashwin) {
     return _then(_$RegisterUserStateImpl(
       userName: null == userName
           ? _value.userName
@@ -644,8 +644,8 @@ class __$$RegisterUserStateImplCopyWithImpl<$Res>
           : isCpassEyePressed // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  }
-}
+  ashwin
+ashwin
 
 /// @nodoc
 
@@ -659,7 +659,7 @@ class _$RegisterUserStateImpl implements _RegisterUserState {
       required this.isSubmitting,
       required this.successOrfailure,
       required this.isPassEyePressed,
-      required this.isCpassEyePressed});
+      required this.isCpassEyePressedashwin);
 
   @override
   final String userName;
@@ -683,7 +683,7 @@ class _$RegisterUserStateImpl implements _RegisterUserState {
   @override
   String toString() {
     return 'RegisterUserState(userName: $userName, email: $email, password: $password, cpassword: $cpassword, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, successOrfailure: $successOrfailure, isPassEyePressed: $isPassEyePressed, isCpassEyePressed: $isCpassEyePressed)';
-  }
+  ashwin
 
   @override
   bool operator ==(Object other) {
@@ -707,7 +707,7 @@ class _$RegisterUserStateImpl implements _RegisterUserState {
                 other.isPassEyePressed == isPassEyePressed) &&
             (identical(other.isCpassEyePressed, isCpassEyePressed) ||
                 other.isCpassEyePressed == isCpassEyePressed));
-  }
+  ashwin
 
   @override
   int get hashCode => Object.hash(
@@ -730,7 +730,7 @@ class _$RegisterUserStateImpl implements _RegisterUserState {
   _$$RegisterUserStateImplCopyWith<_$RegisterUserStateImpl> get copyWith =>
       __$$RegisterUserStateImplCopyWithImpl<_$RegisterUserStateImpl>(
           this, _$identity);
-}
+ashwin
 
 abstract class _RegisterUserState implements RegisterUserState {
   const factory _RegisterUserState(
@@ -742,7 +742,7 @@ abstract class _RegisterUserState implements RegisterUserState {
       required final bool isSubmitting,
       required final Option<Either<AuthFailure, Unit>> successOrfailure,
       required final bool isPassEyePressed,
-      required final bool isCpassEyePressed}) = _$RegisterUserStateImpl;
+      required final bool isCpassEyePressedashwin) = _$RegisterUserStateImpl;
 
   @override
   String get userName;
@@ -769,4 +769,4 @@ abstract class _RegisterUserState implements RegisterUserState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RegisterUserStateImplCopyWith<_$RegisterUserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
+ashwin

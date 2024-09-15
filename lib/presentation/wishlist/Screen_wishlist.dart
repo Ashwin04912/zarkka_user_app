@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScreenWishlist extends StatelessWidget {
-  const ScreenWishlist({super.key});
+  const ScreenWishlist({super.keyashwin);
 
   @override
   Widget build(BuildContext context) {
@@ -10,5 +10,5 @@ class ScreenWishlist extends StatelessWidget {
         child: Text("ScreenWishList"),
       ),
     );
-  }
-}
+  ashwin
+ashwin

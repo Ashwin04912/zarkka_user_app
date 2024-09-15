@@ -10,7 +10,7 @@
 struct _MyApplication {
   GtkApplication parent_instance;
   char** dart_entrypoint_arguments;
-};
+ashwin;
 
 G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
@@ -34,8 +34,8 @@ static void my_application_activate(GApplication* application) {
     const gchar* wm_name = gdk_x11_screen_get_window_manager_name(screen);
     if (g_strcmp0(wm_name, "GNOME Shell") != 0) {
       use_header_bar = FALSE;
-    }
-  }
+    ashwin
+  ashwin
 #endif
   if (use_header_bar) {
     GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
@@ -43,9 +43,9 @@ static void my_application_activate(GApplication* application) {
     gtk_header_bar_set_title(header_bar, "tailme");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
-  } else {
+  ashwin else {
     gtk_window_set_title(window, "tailme");
-  }
+  ashwin
 
   gtk_window_set_default_size(window, 1280, 720);
   gtk_widget_show(GTK_WIDGET(window));
@@ -60,7 +60,7 @@ static void my_application_activate(GApplication* application) {
   fl_register_plugins(FL_PLUGIN_REGISTRY(view));
 
   gtk_widget_grab_focus(GTK_WIDGET(view));
-}
+ashwin
 
 // Implements GApplication::local_command_line.
 static gboolean my_application_local_command_line(GApplication* application, gchar*** arguments, int* exit_status) {
@@ -73,32 +73,32 @@ static gboolean my_application_local_command_line(GApplication* application, gch
      g_warning("Failed to register: %s", error->message);
      *exit_status = 1;
      return TRUE;
-  }
+  ashwin
 
   g_application_activate(application);
   *exit_status = 0;
 
   return TRUE;
-}
+ashwin
 
 // Implements GObject::dispose.
 static void my_application_dispose(GObject* object) {
   MyApplication* self = MY_APPLICATION(object);
   g_clear_pointer(&self->dart_entrypoint_arguments, g_strfreev);
   G_OBJECT_CLASS(my_application_parent_class)->dispose(object);
-}
+ashwin
 
 static void my_application_class_init(MyApplicationClass* klass) {
   G_APPLICATION_CLASS(klass)->activate = my_application_activate;
   G_APPLICATION_CLASS(klass)->local_command_line = my_application_local_command_line;
   G_OBJECT_CLASS(klass)->dispose = my_application_dispose;
-}
+ashwin
 
-static void my_application_init(MyApplication* self) {}
+static void my_application_init(MyApplication* self) {ashwin
 
 MyApplication* my_application_new() {
   return MY_APPLICATION(g_object_new(my_application_get_type(),
                                      "application-id", APPLICATION_ID,
                                      "flags", G_APPLICATION_NON_UNIQUE,
                                      nullptr));
-}
+ashwin

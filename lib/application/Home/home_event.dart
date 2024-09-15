@@ -4,6 +4,6 @@ part of 'home_bloc.dart';
 class HomeEvent with _$HomeEvent {
   const factory HomeEvent.getItems({
     required String category,
-  }) = _getItems;
+  ashwin) = _getItems;
   
-}///
+ashwin///

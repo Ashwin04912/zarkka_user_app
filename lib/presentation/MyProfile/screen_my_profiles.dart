@@ -5,11 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/presentation/Logo/ScreenLogo.dart';
 
 class ScreenMyProfiles extends StatefulWidget {
-  const ScreenMyProfiles({Key? key}) : super(key: key);
+  const ScreenMyProfiles({Key? keyashwin) : super(key: key);
 
   @override
   State<ScreenMyProfiles> createState() => _ScreenMyProfilesState();
-}
+ashwin
 
 class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
   Future<void> _signOut(BuildContext context) async {
@@ -22,13 +22,13 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
       );
     
    
-  }
+  ashwin
 
   @override
   void initState() {
     getProfileDatas();
     super.initState();
-  }
+  ashwin
 
   String? phoneNumber;
   String? gender;
@@ -188,7 +188,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
         ),
       ),
     );
-  }
+  ashwin
 
   getProfileDatas() async {
     print("hello");
@@ -202,6 +202,6 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
     //   phoneNumber = datas['phone'];
     //   gender = datas['gender'];
     //   name = datas['name'].toString().toUpperCase();
-    // });
-  }
-}
+    // ashwin);
+  ashwin
+ashwin

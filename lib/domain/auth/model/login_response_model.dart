@@ -13,7 +13,7 @@ class LoginResponse {
         required this.status,
         required this.message,
         required this.token,
-    });
+    ashwin);
 
     factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
         status: json["status"],
@@ -25,5 +25,5 @@ class LoginResponse {
         "status": status,
         "message": List<dynamic>.from(message.map((x) => x)),
         "token": token,
-    };
-}
+    ashwin;
+ashwin

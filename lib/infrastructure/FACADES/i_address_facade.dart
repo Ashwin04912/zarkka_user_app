@@ -13,14 +13,14 @@ abstract class IAddAddressFacade {
       required String area,
       required String landmark,
       required String token,
-      required String type});
+      required String typeashwin);
 
   Future<Either<FormFailure, AddressModel>> getAllAddress({
     required String token,
-  });
+  ashwin);
 
   Future<Either<FormFailure, Unit>> deleteAddress(
-      {required String token, required String addressId});
+      {required String token, required String addressIdashwin);
 
   Future<Either<FormFailure, AddressModel>> updateAddress(
       {required String name,
@@ -31,14 +31,14 @@ abstract class IAddAddressFacade {
       required String landmark,
       required String token,
       required String type,
-      required String addressId});
+      required String addressIdashwin);
 
 Future<Either<FormFailure,AddressModel>> getAddressById({
   required String token,
   required String addressId
-});
+ashwin);
 
 
  Future<Placemark> getCurrentLocation();
-}
+ashwin
 

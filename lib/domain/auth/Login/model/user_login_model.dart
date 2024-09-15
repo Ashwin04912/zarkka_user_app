@@ -17,7 +17,7 @@ class UserLogin with _$UserLogin {
     const factory UserLogin({
         required String email,
         required String password,
-    }) = _UserLogin;
+    ashwin) = _UserLogin;
 
     factory UserLogin.fromJson(Map<String, dynamic> json) => _$UserLoginFromJson(json);
-}
+ashwin

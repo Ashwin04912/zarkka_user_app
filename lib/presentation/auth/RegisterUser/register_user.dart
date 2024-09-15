@@ -10,11 +10,11 @@ import '../../../domain/auth/RegisterUser/model/user_register_model.dart';
 
 // ignore: must_be_immutable
 class ScreenUserRegistration extends StatefulWidget {
-  const ScreenUserRegistration({super.key});
+  const ScreenUserRegistration({super.keyashwin);
 
   @override
   State<ScreenUserRegistration> createState() => _ScreenUserRegistrationState();
-}
+ashwin
 
 class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -44,7 +44,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                   child: BlocConsumer<RegisterUserBloc, RegisterUserState>(
                     listener: (context, state) {
                       state.successOrfailure.fold(
-                        () {},
+                        () {ashwin,
                         (a) {
                           a.fold((l) {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -54,7 +54,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 orElse: () => const Text("unknown error"),
                               ),
                             ));
-                          }, (r) {
+                          ashwin, (r) {
                             debugPrint("navigate work");
                             Navigator.of(context).push(
                               MaterialPageRoute(
@@ -62,10 +62,10 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                        ScreenOtpVerfication(email: emailController.text, isForget: false,)),
                               
                             );
-                          });
-                        },
+                          ashwin);
+                        ashwin,
                       );
-                    },
+                    ashwin,
                     builder: (context, state) {
                       return Form(
                         autovalidateMode: _isButtonClicked
@@ -78,7 +78,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             GestureDetector(
                               onTap: () {
                                 Navigator.pop(context);
-                              },
+                              ashwin,
                               child: Container(
                                 height: 30,
                                 width: 30,
@@ -119,11 +119,11 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter your username';
-                                } else if (value.length < 7) {
+                                ashwin else if (value.length < 7) {
                                   return 'Username should be atleast 6 characters';
-                                }
+                                ashwin
                                 return null;
-                              },
+                              ashwin,
                               keyboardType: TextInputType.name,
                               decoration: InputDecoration(
                                 hintText: "Username",
@@ -153,13 +153,13 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Please enter an email address';
-                                } else if (!RegExp(
+                                ashwin else if (!RegExp(
                                         r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
                                     .hasMatch(value)) {
                                   return 'Please enter a valid email address';
-                                }
+                                ashwin
                                 return null;
-                              },
+                              ashwin,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 hintText: "Email",
@@ -190,11 +190,11 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter a password';
-                                } else if (value.length < 6) {
+                                ashwin else if (value.length < 6) {
                                   return 'Password must be at least 6 characters long';
-                                }
+                                ashwin
                                 return null;
-                              },
+                              ashwin,
                               keyboardType: TextInputType.visiblePassword,
                               decoration: InputDecoration(
                                 hintText: "Password",
@@ -216,7 +216,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                       BlocProvider.of<RegisterUserBloc>(context)
                                           .add(const RegisterUserEvent
                                               .eyePassButtonPressed());
-                                    },
+                                    ashwin,
                                     child: state.isPassEyePressed
                                         ? const Icon(Icons.visibility_off)
                                         : const Icon(Icons.visibility),
@@ -238,11 +238,11 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please confirm your password';
-                                } else if (value != passwordController.text) {
+                                ashwin else if (value != passwordController.text) {
                                   return 'Passwords do not match';
-                                }
+                                ashwin
                                 return null;
-                              },
+                              ashwin,
                               keyboardType: TextInputType.visiblePassword,
                               decoration: InputDecoration(
                                 hintText: "Confirm Password",
@@ -264,7 +264,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                       BlocProvider.of<RegisterUserBloc>(context)
                                           .add(const RegisterUserEvent
                                               .eyeCPassButtonPressed());
-                                    },
+                                    ashwin,
                                     child: state.isCpassEyePressed
                                         ? const Icon(Icons.visibility_off)
                                         : const Icon(Icons.visibility),
@@ -290,7 +290,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                       color: Colors.blue,
                                     ),
                                   );
-                                }
+                                ashwin
                                 return SizedBox(
                                    width: double.infinity,
                                 height: ScreenUtil().setHeight(50),
@@ -312,8 +312,8 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                             user: user,
                                           ),
                                         );
-                                      }
-                                    },
+                                      ashwin
+                                    ashwin,
                                     style: ButtonStyle(
                                       backgroundColor:
                                           WidgetStateProperty.all<Color>(
@@ -341,7 +341,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                     ),
                                   ),
                                 );
-                              },
+                              ashwin,
                             ),
                             const SizedBox(
                               height: 36,
@@ -416,7 +416,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 InkWell(
                                   onTap: () {
                                     //  signInWithGoogle(context);
-                                  },
+                                  ashwin,
                                   child: Container(
                                     width: 109.5,
                                     height: 56,
@@ -462,7 +462,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                           ],
                         ),
                       );
-                    },
+                    ashwin,
                   ),
                 ),
               ),
@@ -471,5 +471,5 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

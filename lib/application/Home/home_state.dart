@@ -6,12 +6,12 @@ class HomeState with _$HomeState {
     required bool isLoading,
     required Option<Either<FormFailure, Unit>> listIfSuccess,
     required HomePageRespModel data
-  }) = _Initial;
+  ashwin) = _Initial;
 
   factory HomeState.initial() =>  HomeState(
         isLoading: false,
         listIfSuccess: const None(),
         data: HomePageRespModel(status:'', items: [])
       );
-}
+ashwin
 ///

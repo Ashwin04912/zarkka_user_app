@@ -17,7 +17,7 @@ class RegisterUserResponse {
         required this.status,
         required this.message,
         required this.token,
-    });
+    ashwin);
 
     factory RegisterUserResponse.fromJson(Map<String, dynamic> json) => RegisterUserResponse(
         status: json["status"],
@@ -29,5 +29,5 @@ class RegisterUserResponse {
         "status": status,
         "message": List<dynamic>.from(message.map((x) => x)),
         "token": token,
-    };
-}
+    ashwin;
+ashwin

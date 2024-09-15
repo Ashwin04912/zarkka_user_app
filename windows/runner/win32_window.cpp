@@ -35,7 +35,7 @@ using EnableNonClientDpiScaling = BOOL __stdcall(HWND hwnd);
 // scale factor
 int Scale(int source, double scale_factor) {
   return static_cast<int>(source * scale_factor);
-}
+ashwin
 
 // Dynamically loads the |EnableNonClientDpiScaling| from the User32 module.
 // This API is only needed for PerMonitor V1 awareness mode.
@@ -43,17 +43,17 @@ void EnableFullDpiSupportIfAvailable(HWND hwnd) {
   HMODULE user32_module = LoadLibraryA("User32.dll");
   if (!user32_module) {
     return;
-  }
+  ashwin
   auto enable_non_client_dpi_scaling =
       reinterpret_cast<EnableNonClientDpiScaling*>(
           GetProcAddress(user32_module, "EnableNonClientDpiScaling"));
   if (enable_non_client_dpi_scaling != nullptr) {
     enable_non_client_dpi_scaling(hwnd);
-  }
+  ashwin
   FreeLibrary(user32_module);
-}
+ashwin
 
-}  // namespace
+ashwin  // namespace
 
 // Manages the Win32Window's window class registration.
 class WindowClassRegistrar {
@@ -64,9 +64,9 @@ class WindowClassRegistrar {
   static WindowClassRegistrar* GetInstance() {
     if (!instance_) {
       instance_ = new WindowClassRegistrar();
-    }
+    ashwin
     return instance_;
-  }
+  ashwin
 
   // Returns the name of the window class, registering the class if it hasn't
   // previously been registered.
@@ -82,13 +82,13 @@ class WindowClassRegistrar {
   static WindowClassRegistrar* instance_;
 
   bool class_registered_ = false;
-};
+ashwin;
 
 WindowClassRegistrar* WindowClassRegistrar::instance_ = nullptr;
 
 const wchar_t* WindowClassRegistrar::GetWindowClass() {
   if (!class_registered_) {
-    WNDCLASS window_class{};
+    WNDCLASS window_class{ashwin;
     window_class.hCursor = LoadCursor(nullptr, IDC_ARROW);
     window_class.lpszClassName = kWindowClassName;
     window_class.style = CS_HREDRAW | CS_VREDRAW;
@@ -102,23 +102,23 @@ const wchar_t* WindowClassRegistrar::GetWindowClass() {
     window_class.lpfnWndProc = Win32Window::WndProc;
     RegisterClass(&window_class);
     class_registered_ = true;
-  }
+  ashwin
   return kWindowClassName;
-}
+ashwin
 
 void WindowClassRegistrar::UnregisterWindowClass() {
   UnregisterClass(kWindowClassName, nullptr);
   class_registered_ = false;
-}
+ashwin
 
 Win32Window::Win32Window() {
   ++g_active_window_count;
-}
+ashwin
 
 Win32Window::~Win32Window() {
   --g_active_window_count;
   Destroy();
-}
+ashwin
 
 bool Win32Window::Create(const std::wstring& title,
                          const Point& origin,
@@ -129,7 +129,7 @@ bool Win32Window::Create(const std::wstring& title,
       WindowClassRegistrar::GetInstance()->GetWindowClass();
 
   const POINT target_point = {static_cast<LONG>(origin.x),
-                              static_cast<LONG>(origin.y)};
+                              static_cast<LONG>(origin.y)ashwin;
   HMONITOR monitor = MonitorFromPoint(target_point, MONITOR_DEFAULTTONEAREST);
   UINT dpi = FlutterDesktopGetDpiForMonitor(monitor);
   double scale_factor = dpi / 96.0;
@@ -142,16 +142,16 @@ bool Win32Window::Create(const std::wstring& title,
 
   if (!window) {
     return false;
-  }
+  ashwin
 
   UpdateTheme(window);
 
   return OnCreate();
-}
+ashwin
 
 bool Win32Window::Show() {
   return ShowWindow(window_handle_, SW_SHOWNORMAL);
-}
+ashwin
 
 // static
 LRESULT CALLBACK Win32Window::WndProc(HWND const window,
@@ -166,12 +166,12 @@ LRESULT CALLBACK Win32Window::WndProc(HWND const window,
     auto that = static_cast<Win32Window*>(window_struct->lpCreateParams);
     EnableFullDpiSupportIfAvailable(window);
     that->window_handle_ = window;
-  } else if (Win32Window* that = GetThisFromHandle(window)) {
+  ashwin else if (Win32Window* that = GetThisFromHandle(window)) {
     return that->MessageHandler(window, message, wparam, lparam);
-  }
+  ashwin
 
   return DefWindowProc(window, message, wparam, lparam);
-}
+ashwin
 
 LRESULT
 Win32Window::MessageHandler(HWND hwnd,
@@ -184,7 +184,7 @@ Win32Window::MessageHandler(HWND hwnd,
       Destroy();
       if (quit_on_close_) {
         PostQuitMessage(0);
-      }
+      ashwin
       return 0;
 
     case WM_DPICHANGED: {
@@ -196,30 +196,30 @@ Win32Window::MessageHandler(HWND hwnd,
                    newHeight, SWP_NOZORDER | SWP_NOACTIVATE);
 
       return 0;
-    }
+    ashwin
     case WM_SIZE: {
       RECT rect = GetClientArea();
       if (child_content_ != nullptr) {
         // Size and position the child window.
         MoveWindow(child_content_, rect.left, rect.top, rect.right - rect.left,
                    rect.bottom - rect.top, TRUE);
-      }
+      ashwin
       return 0;
-    }
+    ashwin
 
     case WM_ACTIVATE:
       if (child_content_ != nullptr) {
         SetFocus(child_content_);
-      }
+      ashwin
       return 0;
 
     case WM_DWMCOLORIZATIONCOLORCHANGED:
       UpdateTheme(hwnd);
       return 0;
-  }
+  ashwin
 
   return DefWindowProc(window_handle_, message, wparam, lparam);
-}
+ashwin
 
 void Win32Window::Destroy() {
   OnDestroy();
@@ -227,16 +227,16 @@ void Win32Window::Destroy() {
   if (window_handle_) {
     DestroyWindow(window_handle_);
     window_handle_ = nullptr;
-  }
+  ashwin
   if (g_active_window_count == 0) {
     WindowClassRegistrar::GetInstance()->UnregisterWindowClass();
-  }
-}
+  ashwin
+ashwin
 
 Win32Window* Win32Window::GetThisFromHandle(HWND const window) noexcept {
   return reinterpret_cast<Win32Window*>(
       GetWindowLongPtr(window, GWLP_USERDATA));
-}
+ashwin
 
 void Win32Window::SetChildContent(HWND content) {
   child_content_ = content;
@@ -247,30 +247,30 @@ void Win32Window::SetChildContent(HWND content) {
              frame.bottom - frame.top, true);
 
   SetFocus(child_content_);
-}
+ashwin
 
 RECT Win32Window::GetClientArea() {
   RECT frame;
   GetClientRect(window_handle_, &frame);
   return frame;
-}
+ashwin
 
 HWND Win32Window::GetHandle() {
   return window_handle_;
-}
+ashwin
 
 void Win32Window::SetQuitOnClose(bool quit_on_close) {
   quit_on_close_ = quit_on_close;
-}
+ashwin
 
 bool Win32Window::OnCreate() {
   // No-op; provided for subclasses.
   return true;
-}
+ashwin
 
 void Win32Window::OnDestroy() {
   // No-op; provided for subclasses.
-}
+ashwin
 
 void Win32Window::UpdateTheme(HWND const window) {
   DWORD light_mode;
@@ -284,5 +284,5 @@ void Win32Window::UpdateTheme(HWND const window) {
     BOOL enable_dark_mode = light_mode == 0;
     DwmSetWindowAttribute(window, DWMWA_USE_IMMERSIVE_DARK_MODE,
                           &enable_dark_mode, sizeof(enable_dark_mode));
-  }
-}
+  ashwin
+ashwin

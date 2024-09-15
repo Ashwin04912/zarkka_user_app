@@ -6,7 +6,7 @@
 
   <application
     android:label="tailme"
-    android:name="${applicationName}"
+    android:name="${applicationNameashwin"
     android:icon="@mipmap/ic_launcher">
 
     <activity

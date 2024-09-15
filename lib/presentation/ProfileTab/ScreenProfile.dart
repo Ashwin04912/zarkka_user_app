@@ -9,11 +9,11 @@ import 'package:tailme/core/widgets/ProfileRepeating.dart';
 import 'package:tailme/presentation/SavedAddress/saved_address_screen.dart';
 
 class ScreenProfile extends StatefulWidget {
-  const ScreenProfile({super.key});
+  const ScreenProfile({super.keyashwin);
 
   @override
   State<ScreenProfile> createState() => _ScreenProfileState();
-}
+ashwin
 
 class _ScreenProfileState extends State<ScreenProfile> {
   @override
@@ -34,7 +34,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
                   MaterialPageRoute(
                       builder: (context) => const ScreenMyProfiles()),
                 );
-              },
+              ashwin,
               child: ProfileRepeatingWidget(
                 title: "My Profile",
                 subtitle: "Name, Email, Mobile...",
@@ -53,7 +53,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
                   MaterialPageRoute(
                       builder: (context) => const ScreenChangePassword()),
                 );
-              },
+              ashwin,
               child: ProfileRepeatingWidget(
                 title: "Change Password",
                 iconasset: "assets/images/Login_Key.svg",
@@ -71,7 +71,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
                   context,
                   MaterialPageRoute(builder: (context) => ScreenSavedAddress()),
                 );
-              },
+              ashwin,
               child: ProfileRepeatingWidget(
                 iconasset: 'assets/images/Paper_Write.svg',
                 title: "Saved Addresses",
@@ -89,7 +89,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
                   MaterialPageRoute(
                       builder: (context) => const ScreenContactUs()),
                 );
-              },
+              ashwin,
               child: ProfileRepeatingWidget(
                 iconasset: "assets/images/Conversation_Chat_2.svg",
                 title: "Contact Us",
@@ -99,5 +99,5 @@ class _ScreenProfileState extends State<ScreenProfile> {
         ),
       ),
     );
-  }
-}
+  ashwin
+ashwin

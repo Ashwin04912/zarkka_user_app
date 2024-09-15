@@ -199,7 +199,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 60,
                               ),
                               TextButton(

@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,6 +16,8 @@ class MyApp extends StatelessWidget {
 }
 
 class BottomNavigationExample extends StatefulWidget {
+  const BottomNavigationExample({super.key});
+
   @override
   _BottomNavigationExampleState createState() =>
       _BottomNavigationExampleState();
@@ -22,7 +26,7 @@ class BottomNavigationExample extends StatefulWidget {
 class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   int _selectedIndex = 0;
 
-  List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> _widgetOptions = <Widget>[
     FirstScreen(),
     SecondScreen(),
     ThirdScreen(),
@@ -38,7 +42,7 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom Navigation Example'),
+        title: const Text('Bottom Navigation Example'),
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
@@ -65,9 +69,11 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
 }
 
 class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Home Screen',
         style: TextStyle(fontSize: 24),
@@ -77,9 +83,11 @@ class FirstScreen extends StatelessWidget {
 }
 
 class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Search Screen',
         style: TextStyle(fontSize: 24),
@@ -89,9 +97,11 @@ class SecondScreen extends StatelessWidget {
 }
 
 class ThirdScreen extends StatelessWidget {
+  const ThirdScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Profile Screen',
         style: TextStyle(fontSize: 24),

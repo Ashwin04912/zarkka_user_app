@@ -37,7 +37,7 @@ class AddAddressState with _$AddAddressState {
         landmark: '',
         isNavigate:false,
         isDataGot: none(),
-        successOrfailure: None(),
+        successOrfailure: const None(),
         addressess: AddressModel(
           status: '', 
           addresses: [], 

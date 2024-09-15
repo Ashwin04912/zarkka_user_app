@@ -7,12 +7,12 @@ class ImageWithText extends StatelessWidget {
   final double height;
 
   const ImageWithText({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.text,
     required this.width,
     required this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

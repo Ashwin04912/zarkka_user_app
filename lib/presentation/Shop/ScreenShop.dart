@@ -10,11 +10,11 @@ class ScreenShop extends StatefulWidget {
   final String image;
 
   const ScreenShop({
-    Key? key,
+    super.key,
     required this.shopname,
     required this.location,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   State<ScreenShop> createState() => _ScreenShopState();
@@ -131,8 +131,8 @@ class _ScreenShopState extends State<ScreenShop> {
                   ),
                 ),
               ),
-SizedBox(height: 10,),
-Row(
+const SizedBox(height: 10,),
+const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
@@ -267,7 +267,7 @@ Padding(
                   ],
                 ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
 
                const Text(
                 'Select from below',

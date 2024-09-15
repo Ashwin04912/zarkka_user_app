@@ -1,10 +1,14 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/presentation/my_orders/screen_my_orders.dart';
+
+import '../../application/shop/shop_bloc.dart';
 
 class ScreenShop extends StatefulWidget {
   final String shopname;
@@ -29,11 +33,10 @@ class _ScreenShopState extends State<ScreenShop> {
     "Tailor Cunsultancy (₹100)",
     "Upload Measurements"
   ];
-  List<bool> options = [
+  List<bool> serviceType = [
     false,
     false,
-  ]; // State list for checkboxes
-
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,31 +112,62 @@ class _ScreenShopState extends State<ScreenShop> {
                     color: Colors.grey[700],
                   ),
                   width: double.infinity,
-                  child: ListView.builder(
-                    itemCount: options.length,
-                    shrinkWrap: true, // Important to prevent infinite height
-                    physics:
-                        const NeverScrollableScrollPhysics(), // Prevent independent scrolling
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        height: 50.h,
-                        child: CheckboxListTile(
-                          title: const Text(
-                            "Alteration", // Use the title relevant to each option
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontFamily: 'Raleway',
-                              fontWeight: FontWeight.w400,
+                  child: BlocBuilder<ShopBloc, ShopState>(
+                    builder: (context, state) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            height: 50.h,
+                            child: CheckboxListTile(
+                              activeColor: Colors.black,
+                              side: WidgetStateBorderSide.resolveWith(
+                                  (states) => const BorderSide(
+                                      width: 1, color: Colors.white)),
+                              checkColor: Colors.white,
+                              title: const Text(
+                                "Alteration", // Use the title relevant to each option
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              value: state.isAlteration,
+                              onChanged: (newValue) {
+                                BlocProvider.of<ShopBloc>(context).add(
+                                    const ShopEvent.alterationClickedEvent());
+                              },
                             ),
                           ),
-                          value: options[index],
-                          onChanged: (newValue) {
-                            setState(() {
-                              options[index] = newValue!;
-                            });
-                          },
-                        ),
+                          SizedBox(
+                            height: 50.h,
+                            child: CheckboxListTile(
+                              activeColor: Colors.black,
+                              side: WidgetStateBorderSide.resolveWith(
+                                  (states) => const BorderSide(
+                                      width: 1, color: Colors.white)),
+                              checkColor: Colors.white,
+                              title: const Text(
+                                "Stitching", // Use the title relevant to each option
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              controlAffinity: ListTileControlAffinity
+                                  .trailing, // Ensures the checkbox stays in front
+
+                              value: state.isStitching,
+                              onChanged: (newValue) {
+                                BlocProvider.of<ShopBloc>(context).add(
+                                    const ShopEvent.stitchingClickedEvent());
+                              },
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),
@@ -162,31 +196,60 @@ class _ScreenShopState extends State<ScreenShop> {
                     color: Colors.grey[700],
                   ),
                   width: double.infinity,
-                  child: ListView.builder(
-                    itemCount: options.length,
-                    shrinkWrap: true, // Important to prevent infinite height
-                    physics:
-                        const NeverScrollableScrollPhysics(), // Prevent independent scrolling
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        height: 50.h,
-                        child: CheckboxListTile(
-                          title: const Text(
-                            "Embroidery", // Use the title relevant to each option
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontFamily: 'Raleway',
-                              fontWeight: FontWeight.w400,
+                  child: BlocBuilder<ShopBloc, ShopState>(
+                    builder: (context, state) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            height: 50.h,
+                            child: CheckboxListTile(
+                              activeColor: Colors.black,
+                              side: WidgetStateBorderSide.resolveWith(
+                                  (states) => const BorderSide(
+                                      width: 1, color: Colors.white)),
+                              checkColor: Colors.white,
+                              title: const Text(
+                                "Embroidery", // Use the title relevant to each option
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              value: state.isEmbroidary,
+                              onChanged: (value) {
+                               BlocProvider.of<ShopBloc>(context).add( ShopEvent.embroidaryClickedEvent(isChecked: value!));
+                              },
                             ),
                           ),
-                          value: options[index],
-                          onChanged: (newValue) {
-                            setState(() {
-                              options[index] = newValue!;
-                            });
-                          },
-                        ),
+                          SizedBox(
+                            height: 50.h,
+                            child: CheckboxListTile(
+                              activeColor: Colors.black,
+                              side: WidgetStateBorderSide.resolveWith(
+                                  (states) => const BorderSide(
+                                      width: 1, color: Colors.white)),
+                              checkColor: Colors.white,
+                              title: const Text(
+                                "Handwork", // Use the title relevant to each option
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              controlAffinity: ListTileControlAffinity
+                                  .trailing, // Ensures the checkbox stays in front
+
+                              value: state.isHandWork,
+                              onChanged: (value) {
+                                BlocProvider.of<ShopBloc>(context).add( ShopEvent.handWorkClickedEvent(isChecked: value!));
+                              },
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),
@@ -248,30 +311,62 @@ class _ScreenShopState extends State<ScreenShop> {
                 ),
               ),
               const SizedBox(height: 20),
-              Container(
-                width: double.infinity,
-                height: 85,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFF616161),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset('assets/images/home/upload.svg'),
-                    const Text(
-                      '  Upload',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontFamily: 'Urbanist',
-                        fontWeight: FontWeight.w500,
-                        height: 0,
-                      ),
+              InkWell(
+                onTap: () async {
+                  BlocProvider.of<ShopBloc>(context)
+                      .add(const ShopEvent.uploadButtonClickedEvent());
+                  // final ImagePicker picker = ImagePicker();
+                  // final XFile? image =
+                  //     await picker.pickImage(source: ImageSource.gallery);
+                  //     print(image!.name);
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 85,
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFF616161),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                  ],
+                  ),
+                  child: BlocBuilder<ShopBloc, ShopState>(
+                    builder: (context, state) {
+                      if (state.isLoaded) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // SvgPicture.asset('assets/images/home/upload.svg'),
+                            Text(
+                              state.fileName,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                                fontFamily: 'Urbanist',
+                                fontWeight: FontWeight.w500,
+                                height: 0,
+                              ),
+                            ),
+                          ],
+                        );
+                      }
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset('assets/images/home/upload.svg'),
+                          const Text(
+                            '  Upload',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontFamily: 'Urbanist',
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
               const SizedBox(
@@ -293,7 +388,6 @@ class _ScreenShopState extends State<ScreenShop> {
                 isExpanded: true,
                 hint: const Row(
                   children: [
-                    
                     SizedBox(
                       width: 4,
                     ),
@@ -331,11 +425,10 @@ class _ScreenShopState extends State<ScreenShop> {
                   });
                 },
                 iconStyleData: const IconStyleData(
-                  
-              iconSize: 14,
-              iconEnabledColor: Colors.white,
-              iconDisabledColor: Colors.white,
-            ),
+                  iconSize: 14,
+                  iconEnabledColor: Colors.white,
+                  iconDisabledColor: Colors.white,
+                ),
                 buttonStyleData: ButtonStyleData(
                   height: 50,
                   width: 260,
@@ -438,7 +531,10 @@ class _ScreenShopState extends State<ScreenShop> {
               CommonButton(
                 buttonText: "\$69 Proceed to checkout",
                 ontap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenMyOrders()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ScreenMyOrders()));
                 },
               ),
               const SizedBox(height: 15),

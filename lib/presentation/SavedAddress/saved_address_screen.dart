@@ -12,20 +12,18 @@ import 'package:tailme/presentation/SavedAddress/popup_function/popup_dialog.dar
 import '../../application/AddAddress/add_address_bloc.dart';
 import '../../domain/AddAddress/model/address_model.dart';
 
-class ScreenSavedAddress extends StatefulWidget {
-  const ScreenSavedAddress({super.key});
+class ScreenSavedAddress extends StatelessWidget {
+  ScreenSavedAddress({super.key});
 
-  @override
-  State<ScreenSavedAddress> createState() => _ScreenSavedAddressState();
-}
-
-class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
   Position? location;
-  List<Placemark>? placemark;
-  bool isLoading = true; // Loading state to show progress indicator
 
+  List<Placemark>? placemark;
+
+  bool isLoading = true;
+  // Loading state to show progress indicator
   @override
   Widget build(BuildContext context) {
+    debugPrint("i came again");
     BlocProvider.of<AddAddressBloc>(context)
         .add(const AddAddressEvent.getAllAddress());
     return Scaffold(
@@ -66,7 +64,6 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
-                        
                           onTap: () async {
                             BlocProvider.of<AddAddressBloc>(context).add(
                                 const AddAddressEvent.getCurrentLocation());
@@ -184,6 +181,25 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                         )));
                       }, (s) {});
                     });
+
+                    state.isEditDataGot.fold(() {}, (some) {
+                      some.fold((f) {
+                        final message = f.maybeWhen(
+                         
+                          userNotFound: () =>
+                              "Credentials..Login again and check",
+                          networkFailure: () => "Network Issue!! Try Again",
+                          orElse: () => "Some error occurred",
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                          message,
+                          style: const TextStyle(color: Colors.red),
+                        )));
+                      }, (s) {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ScreenEditAddress(address: state.addressess,)));
+                      });
+                    });
                   },
                   builder: (context, state) {
                     if (state.isGettingAddress) {
@@ -253,17 +269,23 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                                     const SizedBox(width: 28),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const ScreenEditAddress()));
+                                        print("recovery address is: ${state.addressess.toJson()}");
+                                        BlocProvider.of<AddAddressBloc>(context)
+                                            .add(AddAddressEvent
+                                                .editButtonPressedEvent(
+                                                    adddressId:
+                                                        address.addressId, address: state.addressess));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             const ScreenEditAddress()));
                                       },
                                       child: Container(
                                         width: 74,
                                         height: 25,
                                         decoration: BoxDecoration(
-                                          color: const  Color(0xFF0075BE),
+                                          color: const Color(0xFF0075BE),
                                           borderRadius:
                                               BorderRadius.circular(8),
                                         ),
@@ -271,8 +293,10 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Icon( Icons.edit_note,color: Colors.white,),
-                                          
+                                            Icon(
+                                              Icons.edit_note,
+                                              color: Colors.white,
+                                            ),
                                             Text(
                                               'Edit',
                                               style: TextStyle(
@@ -338,7 +362,9 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 SvgPicture.asset(
-                                                    'assets/images/delete.svg',color: Colors.white,),
+                                                  'assets/images/delete.svg',
+                                                  color: Colors.white,
+                                                ),
                                                 const Text(
                                                   'Delete',
                                                   style: TextStyle(
@@ -386,11 +412,11 @@ class _ScreenSavedAddressState extends State<ScreenSavedAddress> {
             builder: (context, state) {
               if (state.isLocationLoading) {
                 print(state.landmark);
-                return  Center(
+                return Center(
                   child: LoadingAnimationWidget.stretchedDots(
-                      color: Colors.blue,
-                      size: 100,
-                    ),
+                    color: Colors.blue,
+                    size: 100,
+                  ),
                 );
               } else {
                 return const Center();

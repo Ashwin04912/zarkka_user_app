@@ -11,11 +11,16 @@ class ScreenMyOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(17.0),
-          child: SvgPicture.asset(
-            'assets/images/back_arrow.svg',
-            color: Colors.white,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(17.0),
+            child: SvgPicture.asset(
+              'assets/images/back_arrow.svg',
+              color: Colors.white,
+            ),
           ),
         ),
         centerTitle: true,
@@ -35,7 +40,7 @@ class ScreenMyOrders extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: 330,
+              width:double.infinity,
               decoration: ShapeDecoration(
                 color: const Color(0x47D9D9D9),
                 shape: RoundedRectangleBorder(
@@ -168,12 +173,13 @@ class ScreenMyOrders extends StatelessWidget {
                 color: const Color(0xFFDFDFDF),
               ),
               child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
                     Icons.add_circle,
                     size: 15,
                   ),
+                  SizedBox(width: 5,),
                   Text(
                     'Add items',
                     textAlign: TextAlign.center,
@@ -192,7 +198,7 @@ class ScreenMyOrders extends StatelessWidget {
               height: 54.h,
             ),
             Container(
-              width: 352.w,
+              width: double.infinity,
               height: 163.h,
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
@@ -321,6 +327,79 @@ class ScreenMyOrders extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 20,),
+             Container(
+                width: double.infinity,
+                height: 89.h,
+                decoration: ShapeDecoration(
+                  
+                  color: const Color(0x3FD9D9D9),
+                  shape: RoundedRectangleBorder(
+                    
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  
+                ),
+              
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/images/arrow.svg',
+                            color: Colors.white,
+                          ),
+                          const SizedBox(width: 15),
+                          const SizedBox(
+                            width: 187,
+                            height: 50,
+                            child: Text.rich(
+                              
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Home\n',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontFamily: 'Raleway',
+                                      fontWeight: FontWeight.w700,
+                                      height: 0,
+                                    ),
+                                  ),
+                                  
+                                  TextSpan(
+                                    text:
+                                        '4140 Parker Rd Kadavanthra\nKochi 682020',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 13,
+                                      fontFamily: 'Raleway',
+                                      fontWeight: FontWeight.w400,
+                                      height: 0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.edit_note,color: Color(0xFF4BBB38),)
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
             Spacer(),
             CommonButton(ontap: (){}, buttonText: "Place Order")
           ],

@@ -10,7 +10,7 @@ class HomeState with _$HomeState {
 
   factory HomeState.initial() =>  HomeState(
         isLoading: false,
-        listIfSuccess: None(),
+        listIfSuccess: const None(),
         data: HomePageRespModel(status:'', items: [])
       );
 }

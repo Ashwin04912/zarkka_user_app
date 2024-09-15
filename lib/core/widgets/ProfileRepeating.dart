@@ -22,7 +22,7 @@ class ProfileRepeatingWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 60,
+          height: 60.h,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -48,7 +48,7 @@ class ProfileRepeatingWidget extends StatelessWidget {
                     if (subtitle != null)
                     Text(
                       subtitle!,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         color: Colors.white,
                         fontSize: 12,
                         fontFamily: 'Raleway',

@@ -6,6 +6,7 @@ import 'package:tailme/application/Home/home_bloc.dart';
 import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
 import 'package:tailme/application/auth/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/application/auth/login/login_bloc.dart';
+import 'package:tailme/application/shop/shop_bloc.dart';
 import 'package:tailme/injection.dart';
 import 'package:tailme/presentation/SplashScreen/splash_screen.dart';
 
@@ -36,6 +37,7 @@ class MainApp extends StatelessWidget {
           BlocProvider<RegisterUserBloc>(create: (context) => getIt<RegisterUserBloc> ()),
           BlocProvider<OtpVerificationBloc>(create: (context) => getIt<OtpVerificationBloc> ()),
           BlocProvider<AddAddressBloc>(create : (context)=> getIt<AddAddressBloc>()),
+          BlocProvider<ShopBloc>(create : (context)=> getIt<ShopBloc>()),
         ],
         child: MaterialApp(
           theme: ThemeData(

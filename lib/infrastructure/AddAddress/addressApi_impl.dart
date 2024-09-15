@@ -15,7 +15,7 @@ import '../string.dart';
 @LazySingleton(as: IAddAddressFacade)
 class AddAddressRepo implements IAddAddressFacade {
   @override
-  Future<Either<FormFailure, Unit>> saveAddress({
+  Future<Either<FormFailure, AddressModel>> saveAddress({
     required String name,
     required String contact,
     required String pincode,
@@ -54,8 +54,9 @@ class AddAddressRepo implements IAddAddressFacade {
       );
 
       if (response.statusCode == 200) {
+        var addressModel = AddressModel.fromJson(response.data);
         debugPrint("i added address ");
-        return right(unit);
+        return right(addressModel);
       } else {
         // debugPrint(response.data?.toJson().toString());
         return left(const FormFailure.serverFailure());
@@ -171,7 +172,7 @@ class AddAddressRepo implements IAddAddressFacade {
   }
 
   @override
-  Future<Either<FormFailure, Unit>> editAddress(
+  Future<Either<FormFailure, AddressModel>> updateAddress(
       {required String name,
       required String contact,
       required String pincode,
@@ -182,7 +183,7 @@ class AddAddressRepo implements IAddAddressFacade {
       required String type,
       required String addressId}) async {
     try {
-      debugPrint("$token ${'$baseUrl$editAddres'}");
+      debugPrint("$token, $addressId ${'$baseUrl$editAddres'}");
 
       var headers = {'Content-Type': 'application/json'};
       var data = json.encode({
@@ -194,7 +195,7 @@ class AddAddressRepo implements IAddAddressFacade {
         "area": area,
         "landmark": landmark,
         "token": token,
-        "addressid": addressId,
+        "addressId": addressId,
       });
 
       var dio = Dio();
@@ -209,8 +210,8 @@ class AddAddressRepo implements IAddAddressFacade {
 
       if (response.statusCode == 200) {
         debugPrint("Address edited");
-
-        return right(unit);
+        var addressModel = AddressModel.fromJson(response.data);
+        return right(addressModel);
       } else {
         debugPrint(response.data);
         return left(const FormFailure.serverFailure());
@@ -256,5 +257,52 @@ class AddAddressRepo implements IAddAddressFacade {
     debugPrint(placemark.take(1).toString());
 
     return placemark[0];
+  }
+
+  @override
+  Future<Either<FormFailure, AddressModel>> getAddressById(
+      {required String token, required String addressId}) async {
+    try {
+      debugPrint("$token, $addressId ${'$baseUrl$getAddressByIdUrl'}");
+
+      var headers = {'Content-Type': 'application/json'};
+      var data = json.encode({
+        "token": token,
+        "addressId": addressId,
+      });
+
+      var dio = Dio();
+      var response = await dio.request(
+        '$baseUrl$getAddressByIdUrl',
+        options: Options(
+          method: 'GET',
+          headers: headers,
+        ),
+        data: data,
+      );
+
+      if (response.statusCode == 200) {
+        debugPrint("Address got by id");
+        var addressModel = AddressModel.fromJson(response.data);
+        return right(addressModel);
+      } else {
+        debugPrint(response.data);
+        return left(const FormFailure.serverFailure());
+      }
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.cancel) {
+        return left(const FormFailure.cancelledByUser());
+      } else if (e.response != null) {
+        // Dio error with a response
+
+        debugPrint(
+            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        return left(const FormFailure.serverFailure());
+      } else {
+        // Dio error without a response
+        debugPrint('Dio error! Message: ${e.message}');
+        return left(const FormFailure.serverFailure());
+      }
+    }
   }
 }

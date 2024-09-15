@@ -27,18 +27,6 @@ mixin _$AddAddressEvent {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,11 +40,6 @@ mixin _$AddAddressEvent {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,11 +53,6 @@ mixin _$AddAddressEvent {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,10 +65,6 @@ mixin _$AddAddressEvent {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,9 +76,6 @@ mixin _$AddAddressEvent {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -116,9 +87,6 @@ mixin _$AddAddressEvent {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -195,18 +163,6 @@ class _$HomePressedImpl implements _HomePressed {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) {
     return homePressed();
   }
@@ -223,11 +179,6 @@ class _$HomePressedImpl implements _HomePressed {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) {
     return homePressed?.call();
   }
@@ -244,11 +195,6 @@ class _$HomePressedImpl implements _HomePressed {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (homePressed != null) {
@@ -267,10 +213,6 @@ class _$HomePressedImpl implements _HomePressed {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) {
     return homePressed(this);
   }
@@ -285,9 +227,6 @@ class _$HomePressedImpl implements _HomePressed {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) {
     return homePressed?.call(this);
   }
@@ -302,9 +241,6 @@ class _$HomePressedImpl implements _HomePressed {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (homePressed != null) {
@@ -368,18 +304,6 @@ class _$WorkPressedImpl implements _WorkPressed {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) {
     return workPressed();
   }
@@ -396,11 +320,6 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) {
     return workPressed?.call();
   }
@@ -417,11 +336,6 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (workPressed != null) {
@@ -440,10 +354,6 @@ class _$WorkPressedImpl implements _WorkPressed {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) {
     return workPressed(this);
   }
@@ -458,9 +368,6 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) {
     return workPressed?.call(this);
   }
@@ -475,9 +382,6 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (workPressed != null) {
@@ -541,18 +445,6 @@ class _$OthersPressedImpl implements _OthersPressed {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) {
     return othersPressed();
   }
@@ -569,11 +461,6 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) {
     return othersPressed?.call();
   }
@@ -590,11 +477,6 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (othersPressed != null) {
@@ -613,10 +495,6 @@ class _$OthersPressedImpl implements _OthersPressed {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) {
     return othersPressed(this);
   }
@@ -631,9 +509,6 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) {
     return othersPressed?.call(this);
   }
@@ -648,9 +523,6 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (othersPressed != null) {
@@ -805,18 +677,6 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) {
     return submitPressed(name, contact, pinCode, flat, area, landmark, type);
   }
@@ -833,11 +693,6 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) {
     return submitPressed?.call(
         name, contact, pinCode, flat, area, landmark, type);
@@ -855,11 +710,6 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -878,10 +728,6 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) {
     return submitPressed(this);
   }
@@ -896,9 +742,6 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) {
     return submitPressed?.call(this);
   }
@@ -913,9 +756,6 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -1000,18 +840,6 @@ class _$getAllAddressImpl implements _getAllAddress {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) {
     return getAllAddress();
   }
@@ -1028,11 +856,6 @@ class _$getAllAddressImpl implements _getAllAddress {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) {
     return getAllAddress?.call();
   }
@@ -1049,11 +872,6 @@ class _$getAllAddressImpl implements _getAllAddress {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (getAllAddress != null) {
@@ -1072,10 +890,6 @@ class _$getAllAddressImpl implements _getAllAddress {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) {
     return getAllAddress(this);
   }
@@ -1090,9 +904,6 @@ class _$getAllAddressImpl implements _getAllAddress {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) {
     return getAllAddress?.call(this);
   }
@@ -1107,9 +918,6 @@ class _$getAllAddressImpl implements _getAllAddress {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (getAllAddress != null) {
@@ -1202,18 +1010,6 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) {
     return deleteButtonPressed(addressId);
   }
@@ -1230,11 +1026,6 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) {
     return deleteButtonPressed?.call(addressId);
   }
@@ -1251,11 +1042,6 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (deleteButtonPressed != null) {
@@ -1274,10 +1060,6 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) {
     return deleteButtonPressed(this);
   }
@@ -1292,9 +1074,6 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) {
     return deleteButtonPressed?.call(this);
   }
@@ -1309,9 +1088,6 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (deleteButtonPressed != null) {
@@ -1384,18 +1160,6 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     required TResult Function() getAllAddress,
     required TResult Function(String addressId) deleteButtonPressed,
     required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
   }) {
     return getCurrentLocation();
   }
@@ -1412,11 +1176,6 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     TResult? Function()? getAllAddress,
     TResult? Function(String addressId)? deleteButtonPressed,
     TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
   }) {
     return getCurrentLocation?.call();
   }
@@ -1433,11 +1192,6 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     TResult Function()? getAllAddress,
     TResult Function(String addressId)? deleteButtonPressed,
     TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (getCurrentLocation != null) {
@@ -1456,10 +1210,6 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     required TResult Function(_getAllAddress value) getAllAddress,
     required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
     required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
   }) {
     return getCurrentLocation(this);
   }
@@ -1474,9 +1224,6 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     TResult? Function(_getAllAddress value)? getAllAddress,
     TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
   }) {
     return getCurrentLocation?.call(this);
   }
@@ -1491,9 +1238,6 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     TResult Function(_getAllAddress value)? getAllAddress,
     TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
     TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
     required TResult orElse(),
   }) {
     if (getCurrentLocation != null) {
@@ -1505,538 +1249,6 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
 
 abstract class _getCurrentLocation implements AddAddressEvent {
   const factory _getCurrentLocation() = _$getCurrentLocationImpl;
-}
-
-/// @nodoc
-abstract class _$$editButtonPressedEventImplCopyWith<$Res> {
-  factory _$$editButtonPressedEventImplCopyWith(
-          _$editButtonPressedEventImpl value,
-          $Res Function(_$editButtonPressedEventImpl) then) =
-      __$$editButtonPressedEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String adddressId, AddressModel address});
-}
-
-/// @nodoc
-class __$$editButtonPressedEventImplCopyWithImpl<$Res>
-    extends _$AddAddressEventCopyWithImpl<$Res, _$editButtonPressedEventImpl>
-    implements _$$editButtonPressedEventImplCopyWith<$Res> {
-  __$$editButtonPressedEventImplCopyWithImpl(
-      _$editButtonPressedEventImpl _value,
-      $Res Function(_$editButtonPressedEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AddAddressEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? adddressId = null,
-    Object? address = null,
-  }) {
-    return _then(_$editButtonPressedEventImpl(
-      adddressId: null == adddressId
-          ? _value.adddressId
-          : adddressId // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as AddressModel,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
-  const _$editButtonPressedEventImpl(
-      {required this.adddressId, required this.address});
-
-  @override
-  final String adddressId;
-  @override
-  final AddressModel address;
-
-  @override
-  String toString() {
-    return 'AddAddressEvent.editButtonPressedEvent(adddressId: $adddressId, address: $address)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$editButtonPressedEventImpl &&
-            (identical(other.adddressId, adddressId) ||
-                other.adddressId == adddressId) &&
-            (identical(other.address, address) || other.address == address));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, adddressId, address);
-
-  /// Create a copy of AddAddressEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$editButtonPressedEventImplCopyWith<_$editButtonPressedEventImpl>
-      get copyWith => __$$editButtonPressedEventImplCopyWithImpl<
-          _$editButtonPressedEventImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() homePressed,
-    required TResult Function() workPressed,
-    required TResult Function() othersPressed,
-    required TResult Function(String name, String contact, String pinCode,
-            String flat, String area, String landmark, String type)
-        submitPressed,
-    required TResult Function() getAllAddress,
-    required TResult Function(String addressId) deleteButtonPressed,
-    required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
-  }) {
-    return editButtonPressedEvent(adddressId, address);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? homePressed,
-    TResult? Function()? workPressed,
-    TResult? Function()? othersPressed,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String type)?
-        submitPressed,
-    TResult? Function()? getAllAddress,
-    TResult? Function(String addressId)? deleteButtonPressed,
-    TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
-  }) {
-    return editButtonPressedEvent?.call(adddressId, address);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? homePressed,
-    TResult Function()? workPressed,
-    TResult Function()? othersPressed,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String type)?
-        submitPressed,
-    TResult Function()? getAllAddress,
-    TResult Function(String addressId)? deleteButtonPressed,
-    TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
-    required TResult orElse(),
-  }) {
-    if (editButtonPressedEvent != null) {
-      return editButtonPressedEvent(adddressId, address);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_HomePressed value) homePressed,
-    required TResult Function(_WorkPressed value) workPressed,
-    required TResult Function(_OthersPressed value) othersPressed,
-    required TResult Function(_SubmitPressed value) submitPressed,
-    required TResult Function(_getAllAddress value) getAllAddress,
-    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
-    required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
-  }) {
-    return editButtonPressedEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_HomePressed value)? homePressed,
-    TResult? Function(_WorkPressed value)? workPressed,
-    TResult? Function(_OthersPressed value)? othersPressed,
-    TResult? Function(_SubmitPressed value)? submitPressed,
-    TResult? Function(_getAllAddress value)? getAllAddress,
-    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
-    TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
-  }) {
-    return editButtonPressedEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_HomePressed value)? homePressed,
-    TResult Function(_WorkPressed value)? workPressed,
-    TResult Function(_OthersPressed value)? othersPressed,
-    TResult Function(_SubmitPressed value)? submitPressed,
-    TResult Function(_getAllAddress value)? getAllAddress,
-    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
-    TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
-    required TResult orElse(),
-  }) {
-    if (editButtonPressedEvent != null) {
-      return editButtonPressedEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _editButtonPressedEvent implements AddAddressEvent {
-  const factory _editButtonPressedEvent(
-      {required final String adddressId,
-      required final AddressModel address}) = _$editButtonPressedEventImpl;
-
-  String get adddressId;
-  AddressModel get address;
-
-  /// Create a copy of AddAddressEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$editButtonPressedEventImplCopyWith<_$editButtonPressedEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$editSubmitButtonPressedEventImplCopyWith<$Res> {
-  factory _$$editSubmitButtonPressedEventImplCopyWith(
-          _$editSubmitButtonPressedEventImpl value,
-          $Res Function(_$editSubmitButtonPressedEventImpl) then) =
-      __$$editSubmitButtonPressedEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call(
-      {String name,
-      String contact,
-      String pinCode,
-      String flat,
-      String area,
-      String landmark,
-      String addressId,
-      String type});
-}
-
-/// @nodoc
-class __$$editSubmitButtonPressedEventImplCopyWithImpl<$Res>
-    extends _$AddAddressEventCopyWithImpl<$Res,
-        _$editSubmitButtonPressedEventImpl>
-    implements _$$editSubmitButtonPressedEventImplCopyWith<$Res> {
-  __$$editSubmitButtonPressedEventImplCopyWithImpl(
-      _$editSubmitButtonPressedEventImpl _value,
-      $Res Function(_$editSubmitButtonPressedEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AddAddressEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? contact = null,
-    Object? pinCode = null,
-    Object? flat = null,
-    Object? area = null,
-    Object? landmark = null,
-    Object? addressId = null,
-    Object? type = null,
-  }) {
-    return _then(_$editSubmitButtonPressedEventImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as String,
-      pinCode: null == pinCode
-          ? _value.pinCode
-          : pinCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      flat: null == flat
-          ? _value.flat
-          : flat // ignore: cast_nullable_to_non_nullable
-              as String,
-      area: null == area
-          ? _value.area
-          : area // ignore: cast_nullable_to_non_nullable
-              as String,
-      landmark: null == landmark
-          ? _value.landmark
-          : landmark // ignore: cast_nullable_to_non_nullable
-              as String,
-      addressId: null == addressId
-          ? _value.addressId
-          : addressId // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$editSubmitButtonPressedEventImpl
-    implements _editSubmitButtonPressedEvent {
-  const _$editSubmitButtonPressedEventImpl(
-      {required this.name,
-      required this.contact,
-      required this.pinCode,
-      required this.flat,
-      required this.area,
-      required this.landmark,
-      required this.addressId,
-      required this.type});
-
-  @override
-  final String name;
-  @override
-  final String contact;
-  @override
-  final String pinCode;
-  @override
-  final String flat;
-  @override
-  final String area;
-  @override
-  final String landmark;
-  @override
-  final String addressId;
-  @override
-  final String type;
-
-  @override
-  String toString() {
-    return 'AddAddressEvent.editSubmitButtonPressedEvent(name: $name, contact: $contact, pinCode: $pinCode, flat: $flat, area: $area, landmark: $landmark, addressId: $addressId, type: $type)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$editSubmitButtonPressedEventImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.contact, contact) || other.contact == contact) &&
-            (identical(other.pinCode, pinCode) || other.pinCode == pinCode) &&
-            (identical(other.flat, flat) || other.flat == flat) &&
-            (identical(other.area, area) || other.area == area) &&
-            (identical(other.landmark, landmark) ||
-                other.landmark == landmark) &&
-            (identical(other.addressId, addressId) ||
-                other.addressId == addressId) &&
-            (identical(other.type, type) || other.type == type));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, contact, pinCode, flat,
-      area, landmark, addressId, type);
-
-  /// Create a copy of AddAddressEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$editSubmitButtonPressedEventImplCopyWith<
-          _$editSubmitButtonPressedEventImpl>
-      get copyWith => __$$editSubmitButtonPressedEventImplCopyWithImpl<
-          _$editSubmitButtonPressedEventImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() homePressed,
-    required TResult Function() workPressed,
-    required TResult Function() othersPressed,
-    required TResult Function(String name, String contact, String pinCode,
-            String flat, String area, String landmark, String type)
-        submitPressed,
-    required TResult Function() getAllAddress,
-    required TResult Function(String addressId) deleteButtonPressed,
-    required TResult Function() getCurrentLocation,
-    required TResult Function(String adddressId, AddressModel address)
-        editButtonPressedEvent,
-    required TResult Function(
-            String name,
-            String contact,
-            String pinCode,
-            String flat,
-            String area,
-            String landmark,
-            String addressId,
-            String type)
-        editSubmitButtonPressedEvent,
-  }) {
-    return editSubmitButtonPressedEvent(
-        name, contact, pinCode, flat, area, landmark, addressId, type);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? homePressed,
-    TResult? Function()? workPressed,
-    TResult? Function()? othersPressed,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String type)?
-        submitPressed,
-    TResult? Function()? getAllAddress,
-    TResult? Function(String addressId)? deleteButtonPressed,
-    TResult? Function()? getCurrentLocation,
-    TResult? Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult? Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
-  }) {
-    return editSubmitButtonPressedEvent?.call(
-        name, contact, pinCode, flat, area, landmark, addressId, type);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? homePressed,
-    TResult Function()? workPressed,
-    TResult Function()? othersPressed,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String type)?
-        submitPressed,
-    TResult Function()? getAllAddress,
-    TResult Function(String addressId)? deleteButtonPressed,
-    TResult Function()? getCurrentLocation,
-    TResult Function(String adddressId, AddressModel address)?
-        editButtonPressedEvent,
-    TResult Function(String name, String contact, String pinCode, String flat,
-            String area, String landmark, String addressId, String type)?
-        editSubmitButtonPressedEvent,
-    required TResult orElse(),
-  }) {
-    if (editSubmitButtonPressedEvent != null) {
-      return editSubmitButtonPressedEvent(
-          name, contact, pinCode, flat, area, landmark, addressId, type);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_HomePressed value) homePressed,
-    required TResult Function(_WorkPressed value) workPressed,
-    required TResult Function(_OthersPressed value) othersPressed,
-    required TResult Function(_SubmitPressed value) submitPressed,
-    required TResult Function(_getAllAddress value) getAllAddress,
-    required TResult Function(_deleteButtonPressed value) deleteButtonPressed,
-    required TResult Function(_getCurrentLocation value) getCurrentLocation,
-    required TResult Function(_editButtonPressedEvent value)
-        editButtonPressedEvent,
-    required TResult Function(_editSubmitButtonPressedEvent value)
-        editSubmitButtonPressedEvent,
-  }) {
-    return editSubmitButtonPressedEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_HomePressed value)? homePressed,
-    TResult? Function(_WorkPressed value)? workPressed,
-    TResult? Function(_OthersPressed value)? othersPressed,
-    TResult? Function(_SubmitPressed value)? submitPressed,
-    TResult? Function(_getAllAddress value)? getAllAddress,
-    TResult? Function(_deleteButtonPressed value)? deleteButtonPressed,
-    TResult? Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult? Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
-  }) {
-    return editSubmitButtonPressedEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_HomePressed value)? homePressed,
-    TResult Function(_WorkPressed value)? workPressed,
-    TResult Function(_OthersPressed value)? othersPressed,
-    TResult Function(_SubmitPressed value)? submitPressed,
-    TResult Function(_getAllAddress value)? getAllAddress,
-    TResult Function(_deleteButtonPressed value)? deleteButtonPressed,
-    TResult Function(_getCurrentLocation value)? getCurrentLocation,
-    TResult Function(_editButtonPressedEvent value)? editButtonPressedEvent,
-    TResult Function(_editSubmitButtonPressedEvent value)?
-        editSubmitButtonPressedEvent,
-    required TResult orElse(),
-  }) {
-    if (editSubmitButtonPressedEvent != null) {
-      return editSubmitButtonPressedEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _editSubmitButtonPressedEvent implements AddAddressEvent {
-  const factory _editSubmitButtonPressedEvent(
-      {required final String name,
-      required final String contact,
-      required final String pinCode,
-      required final String flat,
-      required final String area,
-      required final String landmark,
-      required final String addressId,
-      required final String type}) = _$editSubmitButtonPressedEventImpl;
-
-  String get name;
-  String get contact;
-  String get pinCode;
-  String get flat;
-  String get area;
-  String get landmark;
-  String get addressId;
-  String get type;
-
-  /// Create a copy of AddAddressEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$editSubmitButtonPressedEventImplCopyWith<
-          _$editSubmitButtonPressedEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2056,12 +1268,8 @@ mixin _$AddAddressState {
       throw _privateConstructorUsedError;
   Option<Either<FormFailure, Unit>> get addAddressSuccessOrFailureResponse =>
       throw _privateConstructorUsedError;
-  Option<Either<FormFailure, Unit>> get editAddressSuccessOrFailureResponse =>
-      throw _privateConstructorUsedError;
   String get pinCode => throw _privateConstructorUsedError;
   String get locality => throw _privateConstructorUsedError;
-  Option<Either<FormFailure, Unit>> get isEditDataGot =>
-      throw _privateConstructorUsedError;
   String get landmark => throw _privateConstructorUsedError;
   bool get isNavigate => throw _privateConstructorUsedError;
 
@@ -2091,10 +1299,8 @@ abstract class $AddAddressStateCopyWith<$Res> {
       bool isLocationLoading,
       Option<Either<FormFailure, Unit>> successOrfailure,
       Option<Either<FormFailure, Unit>> addAddressSuccessOrFailureResponse,
-      Option<Either<FormFailure, Unit>> editAddressSuccessOrFailureResponse,
       String pinCode,
       String locality,
-      Option<Either<FormFailure, Unit>> isEditDataGot,
       String landmark,
       bool isNavigate});
 }
@@ -2126,10 +1332,8 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
     Object? isLocationLoading = null,
     Object? successOrfailure = null,
     Object? addAddressSuccessOrFailureResponse = null,
-    Object? editAddressSuccessOrFailureResponse = null,
     Object? pinCode = null,
     Object? locality = null,
-    Object? isEditDataGot = null,
     Object? landmark = null,
     Object? isNavigate = null,
   }) {
@@ -2183,11 +1387,6 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
           ? _value.addAddressSuccessOrFailureResponse
           : addAddressSuccessOrFailureResponse // ignore: cast_nullable_to_non_nullable
               as Option<Either<FormFailure, Unit>>,
-      editAddressSuccessOrFailureResponse: null ==
-              editAddressSuccessOrFailureResponse
-          ? _value.editAddressSuccessOrFailureResponse
-          : editAddressSuccessOrFailureResponse // ignore: cast_nullable_to_non_nullable
-              as Option<Either<FormFailure, Unit>>,
       pinCode: null == pinCode
           ? _value.pinCode
           : pinCode // ignore: cast_nullable_to_non_nullable
@@ -2196,10 +1395,6 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
           ? _value.locality
           : locality // ignore: cast_nullable_to_non_nullable
               as String,
-      isEditDataGot: null == isEditDataGot
-          ? _value.isEditDataGot
-          : isEditDataGot // ignore: cast_nullable_to_non_nullable
-              as Option<Either<FormFailure, Unit>>,
       landmark: null == landmark
           ? _value.landmark
           : landmark // ignore: cast_nullable_to_non_nullable
@@ -2233,10 +1428,8 @@ abstract class _$$AddAddressStateImplCopyWith<$Res>
       bool isLocationLoading,
       Option<Either<FormFailure, Unit>> successOrfailure,
       Option<Either<FormFailure, Unit>> addAddressSuccessOrFailureResponse,
-      Option<Either<FormFailure, Unit>> editAddressSuccessOrFailureResponse,
       String pinCode,
       String locality,
-      Option<Either<FormFailure, Unit>> isEditDataGot,
       String landmark,
       bool isNavigate});
 }
@@ -2266,10 +1459,8 @@ class __$$AddAddressStateImplCopyWithImpl<$Res>
     Object? isLocationLoading = null,
     Object? successOrfailure = null,
     Object? addAddressSuccessOrFailureResponse = null,
-    Object? editAddressSuccessOrFailureResponse = null,
     Object? pinCode = null,
     Object? locality = null,
-    Object? isEditDataGot = null,
     Object? landmark = null,
     Object? isNavigate = null,
   }) {
@@ -2323,11 +1514,6 @@ class __$$AddAddressStateImplCopyWithImpl<$Res>
           ? _value.addAddressSuccessOrFailureResponse
           : addAddressSuccessOrFailureResponse // ignore: cast_nullable_to_non_nullable
               as Option<Either<FormFailure, Unit>>,
-      editAddressSuccessOrFailureResponse: null ==
-              editAddressSuccessOrFailureResponse
-          ? _value.editAddressSuccessOrFailureResponse
-          : editAddressSuccessOrFailureResponse // ignore: cast_nullable_to_non_nullable
-              as Option<Either<FormFailure, Unit>>,
       pinCode: null == pinCode
           ? _value.pinCode
           : pinCode // ignore: cast_nullable_to_non_nullable
@@ -2336,10 +1522,6 @@ class __$$AddAddressStateImplCopyWithImpl<$Res>
           ? _value.locality
           : locality // ignore: cast_nullable_to_non_nullable
               as String,
-      isEditDataGot: null == isEditDataGot
-          ? _value.isEditDataGot
-          : isEditDataGot // ignore: cast_nullable_to_non_nullable
-              as Option<Either<FormFailure, Unit>>,
       landmark: null == landmark
           ? _value.landmark
           : landmark // ignore: cast_nullable_to_non_nullable
@@ -2368,10 +1550,8 @@ class _$AddAddressStateImpl implements _AddAddressState {
       required this.isLocationLoading,
       required this.successOrfailure,
       required this.addAddressSuccessOrFailureResponse,
-      required this.editAddressSuccessOrFailureResponse,
       required this.pinCode,
       required this.locality,
-      required this.isEditDataGot,
       required this.landmark,
       required this.isNavigate});
 
@@ -2400,13 +1580,9 @@ class _$AddAddressStateImpl implements _AddAddressState {
   @override
   final Option<Either<FormFailure, Unit>> addAddressSuccessOrFailureResponse;
   @override
-  final Option<Either<FormFailure, Unit>> editAddressSuccessOrFailureResponse;
-  @override
   final String pinCode;
   @override
   final String locality;
-  @override
-  final Option<Either<FormFailure, Unit>> isEditDataGot;
   @override
   final String landmark;
   @override
@@ -2414,7 +1590,7 @@ class _$AddAddressStateImpl implements _AddAddressState {
 
   @override
   String toString() {
-    return 'AddAddressState(isHome: $isHome, isWork: $isWork, isOthers: $isOthers, isSubmiting: $isSubmiting, isGettingAddress: $isGettingAddress, showErrorMessages: $showErrorMessages, addressess: $addressess, isDataGot: $isDataGot, type: $type, isLocationLoading: $isLocationLoading, successOrfailure: $successOrfailure, addAddressSuccessOrFailureResponse: $addAddressSuccessOrFailureResponse, editAddressSuccessOrFailureResponse: $editAddressSuccessOrFailureResponse, pinCode: $pinCode, locality: $locality, isEditDataGot: $isEditDataGot, landmark: $landmark, isNavigate: $isNavigate)';
+    return 'AddAddressState(isHome: $isHome, isWork: $isWork, isOthers: $isOthers, isSubmiting: $isSubmiting, isGettingAddress: $isGettingAddress, showErrorMessages: $showErrorMessages, addressess: $addressess, isDataGot: $isDataGot, type: $type, isLocationLoading: $isLocationLoading, successOrfailure: $successOrfailure, addAddressSuccessOrFailureResponse: $addAddressSuccessOrFailureResponse, pinCode: $pinCode, locality: $locality, landmark: $landmark, isNavigate: $isNavigate)';
   }
 
   @override
@@ -2445,15 +1621,9 @@ class _$AddAddressStateImpl implements _AddAddressState {
                     addAddressSuccessOrFailureResponse) ||
                 other.addAddressSuccessOrFailureResponse ==
                     addAddressSuccessOrFailureResponse) &&
-            (identical(other.editAddressSuccessOrFailureResponse,
-                    editAddressSuccessOrFailureResponse) ||
-                other.editAddressSuccessOrFailureResponse ==
-                    editAddressSuccessOrFailureResponse) &&
             (identical(other.pinCode, pinCode) || other.pinCode == pinCode) &&
             (identical(other.locality, locality) ||
                 other.locality == locality) &&
-            (identical(other.isEditDataGot, isEditDataGot) ||
-                other.isEditDataGot == isEditDataGot) &&
             (identical(other.landmark, landmark) ||
                 other.landmark == landmark) &&
             (identical(other.isNavigate, isNavigate) ||
@@ -2475,10 +1645,8 @@ class _$AddAddressStateImpl implements _AddAddressState {
       isLocationLoading,
       successOrfailure,
       addAddressSuccessOrFailureResponse,
-      editAddressSuccessOrFailureResponse,
       pinCode,
       locality,
-      isEditDataGot,
       landmark,
       isNavigate);
 
@@ -2507,11 +1675,8 @@ abstract class _AddAddressState implements AddAddressState {
       required final Option<Either<FormFailure, Unit>> successOrfailure,
       required final Option<Either<FormFailure, Unit>>
           addAddressSuccessOrFailureResponse,
-      required final Option<Either<FormFailure, Unit>>
-          editAddressSuccessOrFailureResponse,
       required final String pinCode,
       required final String locality,
-      required final Option<Either<FormFailure, Unit>> isEditDataGot,
       required final String landmark,
       required final bool isNavigate}) = _$AddAddressStateImpl;
 
@@ -2540,13 +1705,9 @@ abstract class _AddAddressState implements AddAddressState {
   @override
   Option<Either<FormFailure, Unit>> get addAddressSuccessOrFailureResponse;
   @override
-  Option<Either<FormFailure, Unit>> get editAddressSuccessOrFailureResponse;
-  @override
   String get pinCode;
   @override
   String get locality;
-  @override
-  Option<Either<FormFailure, Unit>> get isEditDataGot;
   @override
   String get landmark;
   @override

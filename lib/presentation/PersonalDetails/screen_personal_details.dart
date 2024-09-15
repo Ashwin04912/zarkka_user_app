@@ -4,8 +4,8 @@ import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 
 class ScreenPersonalDetails extends StatefulWidget {
   const ScreenPersonalDetails({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _ScreenDetailsState createState() => _ScreenDetailsState();
@@ -253,11 +253,11 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                         width: 155,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
+                            backgroundColor: WidgetStateProperty.all<Color>(
                               const Color(
                                   0xFFFFAC4B), // Set background color here
                             ),
-                            shape: MaterialStateProperty.all<
+                            shape: WidgetStateProperty.all<
                                 RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -294,11 +294,11 @@ class _ScreenDetailsState extends State<ScreenPersonalDetails> {
                         width: 155,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
+                            backgroundColor: WidgetStateProperty.all<Color>(
                               const Color(
                                   0xFFFFAC4B), // Set background color here
                             ),
-                            shape: MaterialStateProperty.all<
+                            shape: WidgetStateProperty.all<
                                 RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),

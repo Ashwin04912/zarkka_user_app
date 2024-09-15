@@ -1,51 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:tailme/domain/AddAddress/model/address_model.dart';
-import 'package:tailme/presentation/SavedAddress/saved_address_screen.dart';
-import '../../application/AddAddress/add_address_bloc.dart';
 
 class ScreenEditAddress extends StatelessWidget {
-  final AddressModel address;
-  ScreenEditAddress({
-    super.key,
-    required this.address,
-  });
-
-  bool _navigated = false;
+  const ScreenEditAddress({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
-    // Declare controllers first
-    final TextEditingController nameController;
-    final TextEditingController contactController;
-    final TextEditingController pincodeController;
-    final TextEditingController flatController;
-    final TextEditingController areaController;
-    final TextEditingController landmarkController;
-
-    // Initialize controllers based on the address data
-    if (address.addresses.isNotEmpty) {
-      nameController = TextEditingController(text: address.addresses[0].name);
-      contactController =
-          TextEditingController(text: address.addresses[0].contactNumber);
-      pincodeController =
-          TextEditingController(text: address.addresses[0].pincode);
-      flatController = TextEditingController(text: address.addresses[0].flat);
-      areaController = TextEditingController(text: address.addresses[0].area);
-      landmarkController =
-          TextEditingController(text: address.addresses[0].landmark);
-    } else {
-      nameController = TextEditingController();
-      contactController = TextEditingController();
-      pincodeController = TextEditingController();
-      flatController = TextEditingController();
-      areaController = TextEditingController();
-      landmarkController = TextEditingController();
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -60,389 +20,253 @@ class ScreenEditAddress extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 26.w, right: 26.w, top: 15.h),
-          child: BlocConsumer<AddAddressBloc, AddAddressState>(
-            listener: (context, state) {
-              state.editAddressSuccessOrFailureResponse.fold(
-                () {},
-                (either) {
-                  either.fold(
-                    (failure) {
-                      final message = failure.maybeWhen(
-                        validationFailure: () =>
-                            "Enter correct data, please recheck",
-                        userNotFound: () =>
-                            "Credentials.. Login again and check",
-                        networkFailure: () => "Network Issue!! Try Again",
-                        orElse: () => "Some error occurred",
-                      );
-                      ScaffoldMessenger.of(context)
-                          .showSnackBar(SnackBar(content: Text(message)));
-                    },
-                    (success) {
-                      if (!_navigated) {
-                        _navigated = true;
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                              content: Text('Address Added successfully...')),
-                        );
-                        Navigator.pop(context);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ScreenSavedAddress()),
-                        );
-                      }
-                    },
-                  );
-                },
-              );
-            },
-            builder: (context, state) {
-              if (state.isSubmiting) {
-                return Center(
-                  child: LoadingAnimationWidget.staggeredDotsWave(
-                    color: Colors.white,
-                    size: 200,
-                  ),
-                );
-              }
-
-              return Form(
-                key: formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Divider(),
-                    const Text(
-                      'Save address as *',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w500,
-                        height: 3,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            BlocProvider.of<AddAddressBloc>(context).add(
-                              const AddAddressEvent.homePressed(),
-                            );
-                          },
-                          child: Container(
-                            width: 65.w,
-                            height: 26.h,
-                            decoration: ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  width: 0.80,
-                                  color: state.isHome
-                                      ? Colors.blue
-                                      : Colors.white, // Use state.isHome
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Home',
-                                style: TextStyle(
-                                  color:
-                                      state.isHome ? Colors.blue : Colors.white,
-                                  fontSize: 13,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.09,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            BlocProvider.of<AddAddressBloc>(context).add(
-                              const AddAddressEvent.workPressed(),
-                            );
-                          },
-                          child: Container(
-                            width: 65.w,
-                            height: 26.h,
-                            decoration: ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  width: 0.80,
-                                  color: state.isWork
-                                      ? Colors.blue
-                                      : Colors.white, // Use state.isWork
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Work',
-                                style: TextStyle(
-                                  color:
-                                      state.isWork ? Colors.blue : Colors.white,
-                                  fontSize: 13,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.09,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            BlocProvider.of<AddAddressBloc>(context).add(
-                              const AddAddressEvent.othersPressed(),
-                            );
-                          },
-                          child: Container(
-                            width: 65.w,
-                            height: 26.h,
-                            decoration: ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  width: 0.80,
-                                  color: state.isOthers
-                                      ? Colors.blue
-                                      : Colors.white, // Use state.isOthers
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Other',
-                                style: TextStyle(
-                                  color: state.isOthers
-                                      ? Colors.blue
-                                      : Colors.white,
-                                  fontSize: 13,
-                                  fontFamily: 'Raleway',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.09,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 25),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: TextFormField(
-                        controller: nameController,
-                        maxLength: null,
-                        keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
-                        textAlign: TextAlign.start,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          labelText: 'Name',
-                          labelStyle:
-                              const TextStyle(color: Colors.grey, fontSize: 10),
-                          border: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your name';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: TextFormField(
-                        controller: contactController,
-                        maxLength: 10,
-                        keyboardType: TextInputType.phone,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
-                        textAlign: TextAlign.start,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          labelText: 'Contact Number',
-                          labelStyle:
-                              const TextStyle(color: Colors.grey, fontSize: 10),
-                          border: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your contact number';
-                          }
-                          if (value.length != 10) {
-                            return 'Contact number must be 10 digits';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: TextFormField(
-                        controller: pincodeController,
-                        maxLength: 6,
-                        keyboardType: TextInputType.number,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
-                        textAlign: TextAlign.start,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          labelText: 'Pincode',
-                          labelStyle:
-                              const TextStyle(color: Colors.grey, fontSize: 10),
-                          border: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your pincode';
-                          }
-                          if (value.length != 6) {
-                            return 'Pincode must be 6 digits';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: TextFormField(
-                        controller: flatController,
-                        maxLength: null,
-                        keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
-                        textAlign: TextAlign.start,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          labelText: 'Flat/House no/Floor/Building',
-                          labelStyle:
-                              const TextStyle(color: Colors.grey, fontSize: 10),
-                          border: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter flat/house number';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: TextFormField(
-                        controller: areaController,
-                        maxLength: null,
-                        keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
-                        textAlign: TextAlign.start,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          labelText: 'Area/Sector/Locality',
-                          labelStyle:
-                              const TextStyle(color: Colors.grey, fontSize: 10),
-                          border: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter area/sector/locality';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: TextFormField(
-                        controller: landmarkController,
-                        maxLength: null,
-                        keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
-                        textAlign: TextAlign.start,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          labelText: 'Nearby landmark (optional)',
-                          labelStyle:
-                              const TextStyle(color: Colors.grey, fontSize: 10),
-                          border: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 40),
-                    SizedBox(
-                      height: 32.h,
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          BlocProvider.of<AddAddressBloc>(context)
-                              .add(AddAddressEvent.editSubmitButtonPressedEvent(
-                            addressId: address.addresses[0].addressId,
-                            name: nameController.text,
-                            contact: contactController.text,
-                            pinCode: pincodeController.text,
-                            flat: flatController.text,
-                            area: areaController.text,
-                            landmark: landmarkController.text,
-                            type: state.type,
-                          ));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.all<Color>(Colors.white),
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                        child: const Text(
-                          'Save Address',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 17,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                  ],
+          padding:  EdgeInsets.only(left: 26.w, right: 26.w, top: 15.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Divider(),
+              const Text(
+                'Save address as *',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w500,
+                  height: 3,
                 ),
-              );
-            },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: 65.w,
+                    height: 26.h,
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side:
+                            const BorderSide(width: 0.80, color: Colors.white),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Home',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w500,
+                          height: 0.09,
+                        ),
+                      ),
+                    ),
+                  ),
+                 
+                  Container(
+                    width: 65.w,
+                    height: 26.h,
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side:
+                            const BorderSide(width: 0.80, color: Colors.white),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Work',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w500,
+                          height: 0.09,
+                        ),
+                      ),
+                    ),
+                  ),
+                 
+                  Container(
+                    width: 65.w,
+                    height: 26.h,
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side:
+                            const BorderSide(width: 0.80, color: Colors.white),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Others',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w500,
+                          height: 0.09,
+                        ),
+                      ),
+                    ),
+                  ),
+                
+                ],
+              ),
+               SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 50.h, // Set your desired height here
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  textAlign: TextAlign.start,
+                  decoration: InputDecoration(
+                    labelText: "Name",
+                    labelStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 10),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 50.h, // Set your desired height here
+                child: TextFormField(
+                  maxLength: 10,
+                  keyboardType: TextInputType.phone,
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  textAlign: TextAlign.start,
+                  decoration: InputDecoration(
+                    counterText: '',
+                    labelText: "Contact Number",
+                    labelStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 10),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 50.h, // Set your desired height here
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  textAlign: TextAlign.start,
+                  decoration: InputDecoration(
+                    labelText: "Pincode",
+                    labelStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 10),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 50, // Set your desired height here
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  textAlign: TextAlign.start,
+                  decoration: InputDecoration(
+                    labelText: "Flat/House no/Floor/Building",
+                    labelStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 10),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 50.h, // Set your desired height here
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  textAlign: TextAlign.start,
+                  decoration: InputDecoration(
+                    labelText: "Area/Sector/Locality",
+                    labelStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 10),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 50.h, // Set your desired height here
+                child: TextFormField(
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  textAlign: TextAlign.start,
+                  decoration: InputDecoration(
+                    labelText: "Nearby landmark (optional)",
+                    labelStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 10),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: 20.h,
+              ),
+               SizedBox(
+                height: 40.h,
+              ),
+              SizedBox(
+                height: 32.h,
+                width: double
+                    .infinity, // Set the width of the SizedBox to double.infinity
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenLogo()));
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all<Color>(
+                      Colors.white, // Set background color here
+                    ),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                  child: const Text(
+                    'Save Address',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),

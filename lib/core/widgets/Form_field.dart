@@ -6,9 +6,9 @@ class AddressField extends StatelessWidget {
   String labeltext;
 
   AddressField({
-    Key? key,
+    super.key,
     required this.labeltext,
-  }) : super(key: key);
+  });
 
 
 
@@ -19,7 +19,7 @@ class AddressField extends StatelessWidget {
         SizedBox(
                   height: 50, // Set your desired height here
                   child: TextFormField(
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontFamily: 'Raleway'
                     ),

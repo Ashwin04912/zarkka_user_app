@@ -120,7 +120,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter your username';
                                 } else if (value.length < 7) {
-                                  return 'Username should be atleast 6 characters';
+                                  return 'Email should be atleast 6 characters';
                                 }
                                 return null;
                               },

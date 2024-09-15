@@ -31,13 +31,13 @@ class ScreenPaymentSuccessful extends StatelessWidget {
                 height: 0,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
-            SizedBox(
+            const SizedBox(
               width: 226,
               height: 43,
-              child: const Text(
+              child: Text(
                 'Your transaction completed successfully.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -49,7 +49,7 @@ class ScreenPaymentSuccessful extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
            SizedBox(
             height: 56,
   width: double.infinity, // Set the width of the SizedBox to double.infinity
@@ -58,10 +58,10 @@ class ScreenPaymentSuccessful extends StatelessWidget {
       // Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenLogo()));
     },
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(
+      backgroundColor: WidgetStateProperty.all<Color>(
         const Color(0xFFFFAC4B), // Set background color here
       ),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

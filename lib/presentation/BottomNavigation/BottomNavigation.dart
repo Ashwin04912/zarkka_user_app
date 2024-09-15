@@ -5,7 +5,7 @@ import 'package:tailme/presentation/Orders/ScreenOrders.dart';
 import 'package:tailme/presentation/ProfileTab/ScreenProfile.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({Key? key}) : super(key: key);
+  const BottomNavigation({super.key});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();

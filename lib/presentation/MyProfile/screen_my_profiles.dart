@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/presentation/Logo/ScreenLogo.dart';
 
 class ScreenMyProfiles extends StatefulWidget {
-  const ScreenMyProfiles({Key? key}) : super(key: key);
+  const ScreenMyProfiles({super.key});
 
   @override
   State<ScreenMyProfiles> createState() => _ScreenMyProfilesState();

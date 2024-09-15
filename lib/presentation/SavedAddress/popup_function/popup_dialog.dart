@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tailme/application/AddAddress/add_address_bloc.dart';
-import 'package:tailme/presentation/Home/ScreenHome.dart';
-import 'package:tailme/presentation/SavedAddress/saved_address_screen.dart';
 
 void showDeleteConfirmationDialog(BuildContext context,
     {required String addressId}) {

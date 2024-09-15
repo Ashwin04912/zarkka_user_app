@@ -15,7 +15,7 @@ import 'application/AddAddress/add_address_bloc.dart' as _i861;
 import 'application/auth/login/login_bloc.dart' as _i722;
 import 'application/auth/OtpVerification/otp_verification_bloc.dart' as _i171;
 import 'application/auth/RegisterUser/register_user_bloc.dart' as _i210;
-import 'infrastructure/AddAddress/add_address_impl.dart' as _i333;
+import 'infrastructure/AddAdddress/add_address_impl.dart' as _i333;
 import 'infrastructure/auth/auth_repository.dart' as _i886;
 import 'infrastructure/facades/i_address_facade.dart' as _i1026;
 import 'infrastructure/facades/i_auth_facade.dart' as _i517;

@@ -24,7 +24,7 @@ class ScreenEditAddress extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Divider(),
+              const Divider(),
               const Text(
                 'Save address as *',
                 style: TextStyle(
@@ -118,7 +118,7 @@ class ScreenEditAddress extends StatelessWidget {
               SizedBox(
                 height: 50.h, // Set your desired height here
                 child: TextFormField(
-                  style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
                   textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     labelText: "Name",
@@ -139,7 +139,7 @@ class ScreenEditAddress extends StatelessWidget {
                 child: TextFormField(
                   maxLength: 10,
                   keyboardType: TextInputType.phone,
-                  style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
                   textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     counterText: '',
@@ -160,7 +160,7 @@ class ScreenEditAddress extends StatelessWidget {
                 height: 50.h, // Set your desired height here
                 child: TextFormField(
                   keyboardType: TextInputType.number,
-                  style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
                   textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     labelText: "Pincode",
@@ -179,7 +179,7 @@ class ScreenEditAddress extends StatelessWidget {
               SizedBox(
                 height: 50, // Set your desired height here
                 child: TextFormField(
-                  style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
                   textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     labelText: "Flat/House no/Floor/Building",
@@ -198,7 +198,7 @@ class ScreenEditAddress extends StatelessWidget {
               SizedBox(
                 height: 50.h, // Set your desired height here
                 child: TextFormField(
-                  style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
                   textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     labelText: "Area/Sector/Locality",
@@ -217,7 +217,7 @@ class ScreenEditAddress extends StatelessWidget {
               SizedBox(
                 height: 50.h, // Set your desired height here
                 child: TextFormField(
-                  style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
+                  style: const TextStyle(color: Colors.white, fontFamily: 'Raleway'),
                   textAlign: TextAlign.start,
                   decoration: InputDecoration(
                     labelText: "Nearby landmark (optional)",
@@ -245,10 +245,10 @@ class ScreenEditAddress extends StatelessWidget {
                     // Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenLogo()));
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
+                    backgroundColor: WidgetStateProperty.all<Color>(
                       Colors.white, // Set background color here
                     ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),

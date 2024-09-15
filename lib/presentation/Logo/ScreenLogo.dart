@@ -5,7 +5,7 @@ import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
 
 
 class ScreenLogo extends StatelessWidget {
-  const ScreenLogo({Key? key}) : super(key: key);
+  const ScreenLogo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +47,13 @@ class ScreenLogo extends StatelessWidget {
               height: ScreenUtil().setHeight(50),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ScreenLogin()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const ScreenLogin()));
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     const Color(0xFFFFAC4B), // Set background color here
                   ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -82,14 +82,14 @@ class ScreenLogo extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>  ScreenUserRegistration()),
+                    MaterialPageRoute(builder: (context) =>  const ScreenUserRegistration()),
                   );
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
+                  backgroundColor: WidgetStateProperty.all<Color>(
                     Colors.white, // Set background color here
                   ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

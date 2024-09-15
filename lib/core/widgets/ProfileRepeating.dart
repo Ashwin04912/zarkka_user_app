@@ -10,12 +10,12 @@ class ProfileRepeatingWidget extends StatelessWidget {
   String? rightarrow;
 
   ProfileRepeatingWidget({
-    Key? key,
+    super.key,
     this.title,
     this.subtitle,
     required this.iconasset,
     this.rightarrow,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -14,7 +14,7 @@ part 'otp_verification_bloc.freezed.dart';
 class OtpVerificationBloc
     extends Bloc<OtpVerificationEvent, OtpVerificationState> {
   OtpVerificationBloc() : super(OtpVerificationState.initial()) {
-    final _authFacde = AuthRepository();
+    final authFacde = AuthRepository();
     on<OtpVerificationEvent>((event, emit) async {
       await event.map(verifyButtonClicked: (value) async {
         emit(state.copyWith(
@@ -22,7 +22,7 @@ class OtpVerificationBloc
           successOrfailure: none(),
         ));
 
-        final resp = await _authFacde.otpVerification(
+        final resp = await authFacde.otpVerification(
             otp: value.otp, email: value.email);
 
         resp.fold((f) {
@@ -47,7 +47,7 @@ class OtpVerificationBloc
           isResendOtp: true,
           successOrfailure: none(),
         ));
-        final resp = await _authFacde.resendOtp(email: value.email);
+        final resp = await authFacde.resendOtp(email: value.email);
 
         resp.fold((f) {
           emit(state.copyWith(
@@ -71,7 +71,7 @@ class OtpVerificationBloc
           successOrfailure: none(),
         ));
 
-        final resp = await _authFacde.otpVerificationForReset(
+        final resp = await authFacde.otpVerificationForReset(
             otp: value.otp, email: value.email);
 
         resp.fold((f) {
@@ -100,7 +100,7 @@ class OtpVerificationBloc
               newPasswordCreateSuccessOrFailure: none()
             ),
           );
-          final resp = await _authFacde.resetPassword(
+          final resp = await authFacde.resetPassword(
             email: value.email,
             passwordResetToken: value.resetToken,
             newPassword: value.password,

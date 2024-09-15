@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
-import 'package:tailme/application/auth/login/login_bloc.dart';
-import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
 
 import '../RegisterUser/OtpVerification/verification_completed.dart';
 

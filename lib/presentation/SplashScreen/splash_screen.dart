@@ -5,11 +5,11 @@ import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 import 'package:tailme/presentation/Logo/ScreenLogo.dart';
 
 class Splashscreen extends StatefulWidget {
-  const Splashscreen({super.keyashwin);
+  const Splashscreen({super.key});
 
   @override
   State<Splashscreen> createState() => _SplashscreenState();
-ashwin
+}
 
 class _SplashscreenState extends State<Splashscreen> {
   String? finaltoken;
@@ -27,10 +27,10 @@ class _SplashscreenState extends State<Splashscreen> {
                 : const BottomNavigation(),
           ),
         );
-      ashwin);
-    ashwin);
+      });
+    });
     // Start the timer for the splash screen
-  ashwin
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _SplashscreenState extends State<Splashscreen> {
         ),
       ),
     );
-  ashwin
+  }
 
   Future getValidationData() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
@@ -49,7 +49,7 @@ class _SplashscreenState extends State<Splashscreen> {
 
     setState(() {
       finaltoken = token;
-    ashwin);
+    });
     debugPrint(finaltoken);
-  ashwin
-ashwin
+  }
+}

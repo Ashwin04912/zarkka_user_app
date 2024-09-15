@@ -5,12 +5,12 @@ import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
 
 class OtpVerificationCompleted extends StatefulWidget {
   final bool isResetPass;
-  const OtpVerificationCompleted({super.key, required this.isResetPassashwin);
+  const OtpVerificationCompleted({super.key, required this.isResetPass});
 
   @override
   _OtpVerificationCompletedState createState() =>
       _OtpVerificationCompletedState();
-ashwin
+}
 
 class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
     with TickerProviderStateMixin {
@@ -29,17 +29,17 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
     scaleController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         checkController.forward();
-      ashwin
-    ashwin);
+      }
+    });
     scaleController.forward();
-  ashwin
+  }
 
   @override
   void dispose() {
     scaleController.dispose();
     checkController.dispose();
     super.dispose();
-  ashwin
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,12 +123,12 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
                     MaterialPageRoute(
                         builder: (context) => const ScreenLogin()),
                     (route) => false);
-              ashwin,
+              },
               buttonText: 'Back to Login',
             )
           ],
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}

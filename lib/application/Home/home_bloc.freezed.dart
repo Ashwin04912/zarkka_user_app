@@ -20,34 +20,34 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String category) getItems,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String category)? getItems,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String category)? getItems,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getItems value) getItems,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_getItems value)? getItems,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getItems value)? getItems,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of HomeEvent
@@ -55,15 +55,15 @@ mixin _$HomeEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   $HomeEventCopyWith<HomeEvent> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $HomeEventCopyWith<$Res> {
   factory $HomeEventCopyWith(HomeEvent value, $Res Function(HomeEvent) then) =
       _$HomeEventCopyWithImpl<$Res, HomeEvent>;
   @useResult
-  $Res call({String categoryashwin);
-ashwin
+  $Res call({String category});
+}
 
 /// @nodoc
 class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
@@ -81,15 +81,15 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
   @override
   $Res call({
     Object? category = null,
-  ashwin) {
+  }) {
     return _then(_value.copyWith(
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 abstract class _$$getItemsImplCopyWith<$Res>
@@ -99,8 +99,8 @@ abstract class _$$getItemsImplCopyWith<$Res>
       __$$getItemsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String categoryashwin);
-ashwin
+  $Res call({String category});
+}
 
 /// @nodoc
 class __$$getItemsImplCopyWithImpl<$Res>
@@ -116,20 +116,20 @@ class __$$getItemsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? category = null,
-  ashwin) {
+  }) {
     return _then(_$getItemsImpl(
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
 class _$getItemsImpl implements _getItems {
-  const _$getItemsImpl({required this.categoryashwin);
+  const _$getItemsImpl({required this.category});
 
   @override
   final String category;
@@ -137,7 +137,7 @@ class _$getItemsImpl implements _getItems {
   @override
   String toString() {
     return 'HomeEvent.getItems(category: $category)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -146,7 +146,7 @@ class _$getItemsImpl implements _getItems {
             other is _$getItemsImpl &&
             (identical(other.category, category) ||
                 other.category == category));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(runtimeType, category);
@@ -163,61 +163,61 @@ class _$getItemsImpl implements _getItems {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String category) getItems,
-  ashwin) {
+  }) {
     return getItems(category);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String category)? getItems,
-  ashwin) {
+  }) {
     return getItems?.call(category);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String category)? getItems,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (getItems != null) {
       return getItems(category);
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getItems value) getItems,
-  ashwin) {
+  }) {
     return getItems(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_getItems value)? getItems,
-  ashwin) {
+  }) {
     return getItems?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getItems value)? getItems,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (getItems != null) {
       return getItems(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _getItems implements HomeEvent {
-  const factory _getItems({required final String categoryashwin) = _$getItemsImpl;
+  const factory _getItems({required final String category}) = _$getItemsImpl;
 
   @override
   String get category;
@@ -228,7 +228,7 @@ abstract class _getItems implements HomeEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$getItemsImplCopyWith<_$getItemsImpl> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 mixin _$HomeState {
@@ -242,7 +242,7 @@ mixin _$HomeState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
@@ -252,8 +252,8 @@ abstract class $HomeStateCopyWith<$Res> {
   $Res call(
       {bool isLoading,
       Option<Either<FormFailure, Unit>> listIfSuccess,
-      HomePageRespModel dataashwin);
-ashwin
+      HomePageRespModel data});
+}
 
 /// @nodoc
 class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
@@ -273,7 +273,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? isLoading = null,
     Object? listIfSuccess = null,
     Object? data = null,
-  ashwin) {
+  }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
@@ -288,8 +288,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           : data // ignore: cast_nullable_to_non_nullable
               as HomePageRespModel,
     ) as $Val);
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res>
@@ -302,8 +302,8 @@ abstract class _$$InitialImplCopyWith<$Res>
   $Res call(
       {bool isLoading,
       Option<Either<FormFailure, Unit>> listIfSuccess,
-      HomePageRespModel dataashwin);
-ashwin
+      HomePageRespModel data});
+}
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
@@ -321,7 +321,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? listIfSuccess = null,
     Object? data = null,
-  ashwin) {
+  }) {
     return _then(_$InitialImpl(
       isLoading: null == isLoading
           ? _value.isLoading
@@ -336,8 +336,8 @@ class __$$InitialImplCopyWithImpl<$Res>
           : data // ignore: cast_nullable_to_non_nullable
               as HomePageRespModel,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
@@ -345,7 +345,7 @@ class _$InitialImpl implements _Initial {
   _$InitialImpl(
       {required this.isLoading,
       required this.listIfSuccess,
-      required this.dataashwin);
+      required this.data});
 
   @override
   final bool isLoading;
@@ -357,7 +357,7 @@ class _$InitialImpl implements _Initial {
   @override
   String toString() {
     return 'HomeState(isLoading: $isLoading, listIfSuccess: $listIfSuccess, data: $data)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -369,7 +369,7 @@ class _$InitialImpl implements _Initial {
             (identical(other.listIfSuccess, listIfSuccess) ||
                 other.listIfSuccess == listIfSuccess) &&
             (identical(other.data, data) || other.data == data));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(runtimeType, isLoading, listIfSuccess, data);
@@ -381,13 +381,13 @@ class _$InitialImpl implements _Initial {
   @pragma('vm:prefer-inline')
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
-ashwin
+}
 
 abstract class _Initial implements HomeState {
   factory _Initial(
       {required final bool isLoading,
       required final Option<Either<FormFailure, Unit>> listIfSuccess,
-      required final HomePageRespModel dataashwin) = _$InitialImpl;
+      required final HomePageRespModel data}) = _$InitialImpl;
 
   @override
   bool get isLoading;
@@ -402,4 +402,4 @@ abstract class _Initial implements HomeState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}

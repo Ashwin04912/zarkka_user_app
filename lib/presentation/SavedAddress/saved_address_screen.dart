@@ -13,7 +13,7 @@ import '../../application/AddAddress/add_address_bloc.dart';
 import '../../domain/AddAddress/model/address_model.dart';
 
 class ScreenSavedAddress extends StatelessWidget {
-  ScreenSavedAddress({super.keyashwin);
+  ScreenSavedAddress({super.key});
 
   Position? location;
 
@@ -67,7 +67,7 @@ class ScreenSavedAddress extends StatelessWidget {
                           onTap: () async {
                             BlocProvider.of<AddAddressBloc>(context).add(
                                 const AddAddressEvent.getCurrentLocation());
-                          ashwin,
+                          },
                           child: Row(
                             children: [
                               SvgPicture.asset(
@@ -108,7 +108,7 @@ class ScreenSavedAddress extends StatelessWidget {
                                     ScreenEnterCompleteAddress(),
                               ),
                             );
-                          ashwin,
+                          },
                           child: Row(
                             children: [
                               const Icon(
@@ -164,7 +164,7 @@ class ScreenSavedAddress extends StatelessWidget {
                 ),
                 BlocConsumer<AddAddressBloc, AddAddressState>(
                   listener: (context, state) {
-                    state.isDataGot.fold(() {ashwin, (some) {
+                    state.isDataGot.fold(() {}, (some) {
                       some.fold((f) {
                         final message = f.maybeWhen(
                           validationFailure: () =>
@@ -179,10 +179,10 @@ class ScreenSavedAddress extends StatelessWidget {
                           message,
                           style: const TextStyle(color: Colors.red),
                         )));
-                      ashwin, (s) {ashwin);
-                    ashwin);
+                      }, (s) {});
+                    });
 
-                    state.isEditDataGot.fold(() {ashwin, (some) {
+                    state.isEditDataGot.fold(() {}, (some) {
                       some.fold((f) {
                         final message = f.maybeWhen(
                          
@@ -196,18 +196,18 @@ class ScreenSavedAddress extends StatelessWidget {
                           message,
                           style: const TextStyle(color: Colors.red),
                         )));
-                      ashwin, (s) {
+                      }, (s) {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ScreenEditAddress(address: state.addressess,)));
-                      ashwin);
-                    ashwin);
-                  ashwin,
+                      });
+                    });
+                  },
                   builder: (context, state) {
                     if (state.isGettingAddress) {
                       return const Center(
                           child: CircularProgressIndicator(
                         color: Colors.blue,
                       ));
-                    ashwin
+                    }
                     final addressModel = state.addressess;
                     return Expanded(
                       child: ListView.separated(
@@ -251,7 +251,7 @@ class ScreenSavedAddress extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          '${address.flatashwin, ${address.areaashwin\n${address.pincodeashwin',
+                                          '${address.flat}, ${address.area}\n${address.pincode}',
                                           style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
@@ -269,7 +269,7 @@ class ScreenSavedAddress extends StatelessWidget {
                                     const SizedBox(width: 28),
                                     GestureDetector(
                                       onTap: () {
-                                        print("recovery address is: ${state.addressess.toJson()ashwin");
+                                        print("recovery address is: ${state.addressess.toJson()}");
                                         BlocProvider.of<AddAddressBloc>(context)
                                             .add(AddAddressEvent
                                                 .editButtonPressedEvent(
@@ -280,7 +280,7 @@ class ScreenSavedAddress extends StatelessWidget {
                                         //     MaterialPageRoute(
                                         //         builder: (context) =>
                                         //             const ScreenEditAddress()));
-                                      ashwin,
+                                      },
                                       child: Container(
                                         width: 74,
                                         height: 25,
@@ -314,7 +314,7 @@ class ScreenSavedAddress extends StatelessWidget {
                                     BlocConsumer<AddAddressBloc,
                                         AddAddressState>(
                                       listener: (context, state) {
-                                        state.successOrfailure.fold(() {ashwin,
+                                        state.successOrfailure.fold(() {},
                                             (some) {
                                           some.fold((f) {
                                             final message = f.maybeWhen(
@@ -334,21 +334,21 @@ class ScreenSavedAddress extends StatelessWidget {
                                                       style: const TextStyle(
                                                           color: Colors.red))),
                                             );
-                                          ashwin, (s) {
+                                          }, (s) {
                                             BlocProvider.of<AddAddressBloc>(
                                                     context)
                                                 .add(const AddAddressEvent
                                                     .getAllAddress());
-                                          ashwin);
-                                        ashwin);
-                                      ashwin,
+                                          });
+                                        });
+                                      },
                                       builder: (context, state) {
                                         return GestureDetector(
                                           onTap: () {
                                             showDeleteConfirmationDialog(
                                                 context,
                                                 addressId: address.addressId);
-                                          ashwin,
+                                          },
                                           child: Container(
                                             width: 74,
                                             height: 25,
@@ -378,7 +378,7 @@ class ScreenSavedAddress extends StatelessWidget {
                                             ),
                                           ),
                                         );
-                                      ashwin,
+                                      },
                                     ),
                                   ],
                                 ),
@@ -388,10 +388,10 @@ class ScreenSavedAddress extends StatelessWidget {
                               ],
                             ),
                           );
-                        ashwin,
+                        },
                       ),
                     );
-                  ashwin,
+                  },
                 )
               ],
             ),
@@ -408,7 +408,7 @@ class ScreenSavedAddress extends StatelessWidget {
                                 landMark: state.landmark,
                               )))
                   : print("hello");
-            ashwin,
+            },
             builder: (context, state) {
               if (state.isLocationLoading) {
                 print(state.landmark);
@@ -418,13 +418,13 @@ class ScreenSavedAddress extends StatelessWidget {
                     size: 100,
                   ),
                 );
-              ashwin else {
+              } else {
                 return const Center();
-              ashwin
-            ashwin,
+              }
+            },
           ),
         ],
       ),
     );
-  ashwin
-ashwin
+  }
+}

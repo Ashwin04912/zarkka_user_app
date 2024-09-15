@@ -29,7 +29,7 @@ extension GetItInjectableX on _i174.GetIt {
   _i174.GetIt init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
-  ashwin) {
+  }) {
     final gh = _i526.GetItHelper(
       this,
       environment,
@@ -45,5 +45,5 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1040.IAddAddressFacade>(() => _i272.AddAddressRepo());
     gh.lazySingleton<_i806.IHomePageFacade>(() => _i31.HomeApiImpl());
     return this;
-  ashwin
-ashwin
+  }
+}

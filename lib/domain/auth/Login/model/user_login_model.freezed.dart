@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 UserLogin _$UserLoginFromJson(Map<String, dynamic> json) {
   return _UserLogin.fromJson(json);
-ashwin
+}
 
 /// @nodoc
 mixin _$UserLogin {
@@ -31,15 +31,15 @@ mixin _$UserLogin {
   @JsonKey(includeFromJson: false, includeToJson: false)
   $UserLoginCopyWith<UserLogin> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $UserLoginCopyWith<$Res> {
   factory $UserLoginCopyWith(UserLogin value, $Res Function(UserLogin) then) =
       _$UserLoginCopyWithImpl<$Res, UserLogin>;
   @useResult
-  $Res call({String email, String passwordashwin);
-ashwin
+  $Res call({String email, String password});
+}
 
 /// @nodoc
 class _$UserLoginCopyWithImpl<$Res, $Val extends UserLogin>
@@ -58,7 +58,7 @@ class _$UserLoginCopyWithImpl<$Res, $Val extends UserLogin>
   $Res call({
     Object? email = null,
     Object? password = null,
-  ashwin) {
+  }) {
     return _then(_value.copyWith(
       email: null == email
           ? _value.email
@@ -69,8 +69,8 @@ class _$UserLoginCopyWithImpl<$Res, $Val extends UserLogin>
           : password // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 abstract class _$$UserLoginImplCopyWith<$Res>
@@ -80,8 +80,8 @@ abstract class _$$UserLoginImplCopyWith<$Res>
       __$$UserLoginImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String passwordashwin);
-ashwin
+  $Res call({String email, String password});
+}
 
 /// @nodoc
 class __$$UserLoginImplCopyWithImpl<$Res>
@@ -98,7 +98,7 @@ class __$$UserLoginImplCopyWithImpl<$Res>
   $Res call({
     Object? email = null,
     Object? password = null,
-  ashwin) {
+  }) {
     return _then(_$UserLoginImpl(
       email: null == email
           ? _value.email
@@ -109,13 +109,13 @@ class __$$UserLoginImplCopyWithImpl<$Res>
           : password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 @JsonSerializable()
 class _$UserLoginImpl implements _UserLogin {
-  const _$UserLoginImpl({required this.email, required this.passwordashwin);
+  const _$UserLoginImpl({required this.email, required this.password});
 
   factory _$UserLoginImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserLoginImplFromJson(json);
@@ -128,7 +128,7 @@ class _$UserLoginImpl implements _UserLogin {
   @override
   String toString() {
     return 'UserLogin(email: $email, password: $password)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -138,7 +138,7 @@ class _$UserLoginImpl implements _UserLogin {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
-  ashwin
+  }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -157,13 +157,13 @@ class _$UserLoginImpl implements _UserLogin {
     return _$$UserLoginImplToJson(
       this,
     );
-  ashwin
-ashwin
+  }
+}
 
 abstract class _UserLogin implements UserLogin {
   const factory _UserLogin(
       {required final String email,
-      required final String passwordashwin) = _$UserLoginImpl;
+      required final String password}) = _$UserLoginImpl;
 
   factory _UserLogin.fromJson(Map<String, dynamic> json) =
       _$UserLoginImpl.fromJson;
@@ -179,4 +179,4 @@ abstract class _UserLogin implements UserLogin {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserLoginImplCopyWith<_$UserLoginImpl> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}

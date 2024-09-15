@@ -9,4 +9,4 @@ class FormFailure with _$FormFailure {
   const factory FormFailure.serverFailure() = ServerFailure;
   const factory FormFailure.userNotFound() = UserNotFound;
   const factory FormFailure.cancelledByUser() = CancelledByUser;
-ashwin
+}

@@ -39,7 +39,7 @@ class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
                 ),
               ),
             );
-          ashwin,
+          },
           (s) {
             emit(
               state.copyWith(
@@ -48,21 +48,21 @@ class RegisterUserBloc extends Bloc<RegisterUserEvent, RegisterUserState> {
                   successOrfailure: some(right(unit))
                   ),
             );
-          ashwin,
+          },
         );
-      ashwin, eyePassButtonPressed: (_eyeButtonPressed value) {
+      }, eyePassButtonPressed: (_eyeButtonPressed value) {
         emit(state.copyWith(
             isPassEyePressed: !state.isPassEyePressed,
             isSubmitting: false,
             showErrorMessages: false,
             successOrfailure: const None()));
-      ashwin, eyeCPassButtonPressed: (_eyeCPassButtonPressed value) { 
+      }, eyeCPassButtonPressed: (_eyeCPassButtonPressed value) { 
         emit(state.copyWith(
             isCpassEyePressed: !state.isCpassEyePressed,
             isSubmitting: false,
             showErrorMessages: false,
             successOrfailure: const None()));
-       ashwin);
-    ashwin);
-  ashwin
-ashwin
+       });
+    });
+  }
+}

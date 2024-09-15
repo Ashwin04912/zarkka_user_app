@@ -15,7 +15,7 @@ class AddressModel {
     AddressModel({
         required this.status,
         required this.addresses,
-    ashwin);
+    });
 
     factory AddressModel.fromJson(Map<String, dynamic> json) => AddressModel(
         status: json["status"],
@@ -25,8 +25,8 @@ class AddressModel {
     Map<String, dynamic> toJson() => {
         "status": status,
         "addresses": List<dynamic>.from(addresses.map((x) => x.toJson())),
-    ashwin;
-ashwin
+    };
+}
 
 class Address {
     String addressId;
@@ -49,7 +49,7 @@ class Address {
         required this.area,
         required this.landmark,
         required this.id,
-    ashwin);
+    });
 
     factory Address.fromJson(Map<String, dynamic> json) => Address(
         addressId: json["addressId"],
@@ -73,20 +73,20 @@ class Address {
         "area": area,
         "landmark": landmark,
         "_id": id,
-    ashwin;
-ashwin
+    };
+}
 
 enum Type {
     HOME,
     WORK,
     OTHER
-ashwin
+}
 
 final typeValues = EnumValues({
     "home": Type.HOME,
     "work":Type.WORK,
     "other":Type.OTHER
-ashwin);
+});
 
 class EnumValues<T> {
     Map<String, T> map;
@@ -97,5 +97,5 @@ class EnumValues<T> {
     Map<T, String> get reverse {
             reverseMap = map.map((k, v) => MapEntry(v, k));
             return reverseMap;
-    ashwin
-ashwin
+    }
+}

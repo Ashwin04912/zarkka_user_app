@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
-ashwin
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -10,14 +10,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: BottomNavigationExample(),
     );
-  ashwin
-ashwin
+  }
+}
 
 class BottomNavigationExample extends StatefulWidget {
   @override
   _BottomNavigationExampleState createState() =>
       _BottomNavigationExampleState();
-ashwin
+}
 
 class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   int _selectedIndex = 0;
@@ -31,8 +31,8 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    ashwin);
-  ashwin
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +61,8 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
         onTap: _onItemTapped,
       ),
     );
-  ashwin
-ashwin
+  }
+}
 
 class FirstScreen extends StatelessWidget {
   @override
@@ -73,8 +73,8 @@ class FirstScreen extends StatelessWidget {
         style: TextStyle(fontSize: 24),
       ),
     );
-  ashwin
-ashwin
+  }
+}
 
 class SecondScreen extends StatelessWidget {
   @override
@@ -85,8 +85,8 @@ class SecondScreen extends StatelessWidget {
         style: TextStyle(fontSize: 24),
       ),
     );
-  ashwin
-ashwin
+  }
+}
 
 class ThirdScreen extends StatelessWidget {
   @override
@@ -97,5 +97,5 @@ class ThirdScreen extends StatelessWidget {
         style: TextStyle(fontSize: 24),
       ),
     );
-  ashwin
-ashwin
+  }
+}

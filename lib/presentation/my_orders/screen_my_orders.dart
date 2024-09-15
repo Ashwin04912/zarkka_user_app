@@ -5,7 +5,7 @@ import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 
 class ScreenMyOrders extends StatelessWidget {
-  const ScreenMyOrders({super.keyashwin);
+  const ScreenMyOrders({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ScreenMyOrders extends StatelessWidget {
         leading: GestureDetector(
           onTap: (){
             Navigator.pop(context);
-          ashwin,
+          },
           child: Padding(
             padding: const EdgeInsets.all(17.0),
             child: SvgPicture.asset(
@@ -390,7 +390,7 @@ class ScreenMyOrders extends StatelessWidget {
                           ),
                           const Spacer(),
                           IconButton(
-                            onPressed: () {ashwin,
+                            onPressed: () {},
                             icon: Icon(Icons.edit_note,color: Color(0xFF4BBB38),)
                           ),
                         ],
@@ -401,10 +401,10 @@ class ScreenMyOrders extends StatelessWidget {
               ),
 
             Spacer(),
-            CommonButton(ontap: (){ashwin, buttonText: "Place Order")
+            CommonButton(ontap: (){}, buttonText: "Place Order")
           ],
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}

@@ -10,7 +10,7 @@ class CommonButton extends StatelessWidget {
     super.key,
     required this.ontap,
     required this.buttonText,
-  ashwin);
+  });
 
     @override
     Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CommonButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             ontap();
-          ashwin,
+          },
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(
               const Color(0xFFFFAC4B), // Set background color here
@@ -44,5 +44,5 @@ class CommonButton extends StatelessWidget {
           ),
         ),
       );
-    ashwin
-  ashwin
+    }
+  }

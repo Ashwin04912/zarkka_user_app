@@ -23,7 +23,7 @@ mixin _$ShopEvent {
     required TResult Function() stitchingClickedEvent,
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -32,7 +32,7 @@ mixin _$ShopEvent {
     TResult? Function()? stitchingClickedEvent,
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -42,7 +42,7 @@ mixin _$ShopEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
@@ -55,7 +55,7 @@ mixin _$ShopEvent {
     required TResult Function(_embroidaryClickedEvent value)
         embroidaryClickedEvent,
     required TResult Function(_handWorkClickedEvent value) handWorkClickedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -65,7 +65,7 @@ mixin _$ShopEvent {
     TResult? Function(_stitchingClickedEvent value)? stitchingClickedEvent,
     TResult? Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult? Function(_handWorkClickedEvent value)? handWorkClickedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -75,15 +75,15 @@ mixin _$ShopEvent {
     TResult Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult Function(_handWorkClickedEvent value)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $ShopEventCopyWith<$Res> {
   factory $ShopEventCopyWith(ShopEvent value, $Res Function(ShopEvent) then) =
       _$ShopEventCopyWithImpl<$Res, ShopEvent>;
-ashwin
+}
 
 /// @nodoc
 class _$ShopEventCopyWithImpl<$Res, $Val extends ShopEvent>
@@ -97,7 +97,7 @@ class _$ShopEventCopyWithImpl<$Res, $Val extends ShopEvent>
 
   /// Create a copy of ShopEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 abstract class _$$uploadButtonClickedEventImplCopyWith<$Res> {
@@ -105,7 +105,7 @@ abstract class _$$uploadButtonClickedEventImplCopyWith<$Res> {
           _$uploadButtonClickedEventImpl value,
           $Res Function(_$uploadButtonClickedEventImpl) then) =
       __$$uploadButtonClickedEventImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$uploadButtonClickedEventImplCopyWithImpl<$Res>
@@ -118,7 +118,7 @@ class __$$uploadButtonClickedEventImplCopyWithImpl<$Res>
 
   /// Create a copy of ShopEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -128,14 +128,14 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
   @override
   String toString() {
     return 'ShopEvent.uploadButtonClickedEvent()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$uploadButtonClickedEventImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -148,9 +148,9 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     required TResult Function() stitchingClickedEvent,
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return uploadButtonClickedEvent();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -160,9 +160,9 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult? Function()? stitchingClickedEvent,
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return uploadButtonClickedEvent?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -173,12 +173,12 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (uploadButtonClickedEvent != null) {
       return uploadButtonClickedEvent();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -192,9 +192,9 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     required TResult Function(_embroidaryClickedEvent value)
         embroidaryClickedEvent,
     required TResult Function(_handWorkClickedEvent value) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return uploadButtonClickedEvent(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -205,9 +205,9 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult? Function(_stitchingClickedEvent value)? stitchingClickedEvent,
     TResult? Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult? Function(_handWorkClickedEvent value)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return uploadButtonClickedEvent?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -218,17 +218,17 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult Function(_handWorkClickedEvent value)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (uploadButtonClickedEvent != null) {
       return uploadButtonClickedEvent(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _uploadButtonClickedEvent implements ShopEvent {
   const factory _uploadButtonClickedEvent() = _$uploadButtonClickedEventImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$alterationClickedEventImplCopyWith<$Res> {
@@ -236,7 +236,7 @@ abstract class _$$alterationClickedEventImplCopyWith<$Res> {
           _$alterationClickedEventImpl value,
           $Res Function(_$alterationClickedEventImpl) then) =
       __$$alterationClickedEventImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$alterationClickedEventImplCopyWithImpl<$Res>
@@ -249,7 +249,7 @@ class __$$alterationClickedEventImplCopyWithImpl<$Res>
 
   /// Create a copy of ShopEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -259,14 +259,14 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
   @override
   String toString() {
     return 'ShopEvent.alterationClickedEvent()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$alterationClickedEventImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -279,9 +279,9 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     required TResult Function() stitchingClickedEvent,
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return alterationClickedEvent();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -291,9 +291,9 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult? Function()? stitchingClickedEvent,
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return alterationClickedEvent?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -304,12 +304,12 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (alterationClickedEvent != null) {
       return alterationClickedEvent();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -323,9 +323,9 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     required TResult Function(_embroidaryClickedEvent value)
         embroidaryClickedEvent,
     required TResult Function(_handWorkClickedEvent value) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return alterationClickedEvent(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -336,9 +336,9 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult? Function(_stitchingClickedEvent value)? stitchingClickedEvent,
     TResult? Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult? Function(_handWorkClickedEvent value)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return alterationClickedEvent?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -349,17 +349,17 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult Function(_handWorkClickedEvent value)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (alterationClickedEvent != null) {
       return alterationClickedEvent(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _alterationClickedEvent implements ShopEvent {
   const factory _alterationClickedEvent() = _$alterationClickedEventImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$stitchingClickedEventImplCopyWith<$Res> {
@@ -367,7 +367,7 @@ abstract class _$$stitchingClickedEventImplCopyWith<$Res> {
           _$stitchingClickedEventImpl value,
           $Res Function(_$stitchingClickedEventImpl) then) =
       __$$stitchingClickedEventImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$stitchingClickedEventImplCopyWithImpl<$Res>
@@ -379,7 +379,7 @@ class __$$stitchingClickedEventImplCopyWithImpl<$Res>
 
   /// Create a copy of ShopEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -389,14 +389,14 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
   @override
   String toString() {
     return 'ShopEvent.stitchingClickedEvent()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$stitchingClickedEventImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -409,9 +409,9 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     required TResult Function() stitchingClickedEvent,
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return stitchingClickedEvent();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -421,9 +421,9 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult? Function()? stitchingClickedEvent,
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return stitchingClickedEvent?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -434,12 +434,12 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (stitchingClickedEvent != null) {
       return stitchingClickedEvent();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -453,9 +453,9 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     required TResult Function(_embroidaryClickedEvent value)
         embroidaryClickedEvent,
     required TResult Function(_handWorkClickedEvent value) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return stitchingClickedEvent(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -466,9 +466,9 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult? Function(_stitchingClickedEvent value)? stitchingClickedEvent,
     TResult? Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult? Function(_handWorkClickedEvent value)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return stitchingClickedEvent?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -479,17 +479,17 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult Function(_handWorkClickedEvent value)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (stitchingClickedEvent != null) {
       return stitchingClickedEvent(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _stitchingClickedEvent implements ShopEvent {
   const factory _stitchingClickedEvent() = _$stitchingClickedEventImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$embroidaryClickedEventImplCopyWith<$Res> {
@@ -498,8 +498,8 @@ abstract class _$$embroidaryClickedEventImplCopyWith<$Res> {
           $Res Function(_$embroidaryClickedEventImpl) then) =
       __$$embroidaryClickedEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isCheckedashwin);
-ashwin
+  $Res call({bool isChecked});
+}
 
 /// @nodoc
 class __$$embroidaryClickedEventImplCopyWithImpl<$Res>
@@ -516,20 +516,20 @@ class __$$embroidaryClickedEventImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isChecked = null,
-  ashwin) {
+  }) {
     return _then(_$embroidaryClickedEventImpl(
       isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
 class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
-  const _$embroidaryClickedEventImpl({required this.isCheckedashwin);
+  const _$embroidaryClickedEventImpl({required this.isChecked});
 
   @override
   final bool isChecked;
@@ -537,7 +537,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
   @override
   String toString() {
     return 'ShopEvent.embroidaryClickedEvent(isChecked: $isChecked)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -546,7 +546,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
             other is _$embroidaryClickedEventImpl &&
             (identical(other.isChecked, isChecked) ||
                 other.isChecked == isChecked));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(runtimeType, isChecked);
@@ -568,9 +568,9 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     required TResult Function() stitchingClickedEvent,
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return embroidaryClickedEvent(isChecked);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -580,9 +580,9 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult? Function()? stitchingClickedEvent,
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return embroidaryClickedEvent?.call(isChecked);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -593,12 +593,12 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (embroidaryClickedEvent != null) {
       return embroidaryClickedEvent(isChecked);
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -612,9 +612,9 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     required TResult Function(_embroidaryClickedEvent value)
         embroidaryClickedEvent,
     required TResult Function(_handWorkClickedEvent value) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return embroidaryClickedEvent(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -625,9 +625,9 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult? Function(_stitchingClickedEvent value)? stitchingClickedEvent,
     TResult? Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult? Function(_handWorkClickedEvent value)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return embroidaryClickedEvent?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -638,16 +638,16 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult Function(_handWorkClickedEvent value)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (embroidaryClickedEvent != null) {
       return embroidaryClickedEvent(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _embroidaryClickedEvent implements ShopEvent {
-  const factory _embroidaryClickedEvent({required final bool isCheckedashwin) =
+  const factory _embroidaryClickedEvent({required final bool isChecked}) =
       _$embroidaryClickedEventImpl;
 
   bool get isChecked;
@@ -657,7 +657,7 @@ abstract class _embroidaryClickedEvent implements ShopEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$embroidaryClickedEventImplCopyWith<_$embroidaryClickedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$handWorkClickedEventImplCopyWith<$Res> {
@@ -665,8 +665,8 @@ abstract class _$$handWorkClickedEventImplCopyWith<$Res> {
           $Res Function(_$handWorkClickedEventImpl) then) =
       __$$handWorkClickedEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isCheckedashwin);
-ashwin
+  $Res call({bool isChecked});
+}
 
 /// @nodoc
 class __$$handWorkClickedEventImplCopyWithImpl<$Res>
@@ -682,20 +682,20 @@ class __$$handWorkClickedEventImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isChecked = null,
-  ashwin) {
+  }) {
     return _then(_$handWorkClickedEventImpl(
       isChecked: null == isChecked
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
 class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
-  const _$handWorkClickedEventImpl({required this.isCheckedashwin);
+  const _$handWorkClickedEventImpl({required this.isChecked});
 
   @override
   final bool isChecked;
@@ -703,7 +703,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
   @override
   String toString() {
     return 'ShopEvent.handWorkClickedEvent(isChecked: $isChecked)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -712,7 +712,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
             other is _$handWorkClickedEventImpl &&
             (identical(other.isChecked, isChecked) ||
                 other.isChecked == isChecked));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(runtimeType, isChecked);
@@ -735,9 +735,9 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     required TResult Function() stitchingClickedEvent,
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return handWorkClickedEvent(isChecked);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -747,9 +747,9 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult? Function()? stitchingClickedEvent,
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return handWorkClickedEvent?.call(isChecked);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -760,12 +760,12 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (handWorkClickedEvent != null) {
       return handWorkClickedEvent(isChecked);
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -779,9 +779,9 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     required TResult Function(_embroidaryClickedEvent value)
         embroidaryClickedEvent,
     required TResult Function(_handWorkClickedEvent value) handWorkClickedEvent,
-  ashwin) {
+  }) {
     return handWorkClickedEvent(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -792,9 +792,9 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult? Function(_stitchingClickedEvent value)? stitchingClickedEvent,
     TResult? Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult? Function(_handWorkClickedEvent value)? handWorkClickedEvent,
-  ashwin) {
+  }) {
     return handWorkClickedEvent?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -805,16 +805,16 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
     TResult Function(_handWorkClickedEvent value)? handWorkClickedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (handWorkClickedEvent != null) {
       return handWorkClickedEvent(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _handWorkClickedEvent implements ShopEvent {
-  const factory _handWorkClickedEvent({required final bool isCheckedashwin) =
+  const factory _handWorkClickedEvent({required final bool isChecked}) =
       _$handWorkClickedEventImpl;
 
   bool get isChecked;
@@ -824,7 +824,7 @@ abstract class _handWorkClickedEvent implements ShopEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$handWorkClickedEventImplCopyWith<_$handWorkClickedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 mixin _$ShopState {
@@ -844,7 +844,7 @@ mixin _$ShopState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   $ShopStateCopyWith<ShopState> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $ShopStateCopyWith<$Res> {
@@ -861,8 +861,8 @@ abstract class $ShopStateCopyWith<$Res> {
       String embroidary,
       bool isEmbroidary,
       String handWork,
-      bool isHandWorkashwin);
-ashwin
+      bool isHandWork});
+}
 
 /// @nodoc
 class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
@@ -889,7 +889,7 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
     Object? isEmbroidary = null,
     Object? handWork = null,
     Object? isHandWork = null,
-  ashwin) {
+  }) {
     return _then(_value.copyWith(
       fileName: null == fileName
           ? _value.fileName
@@ -932,8 +932,8 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
           : isHandWork // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 abstract class _$$ShopStateImplCopyWith<$Res>
@@ -953,8 +953,8 @@ abstract class _$$ShopStateImplCopyWith<$Res>
       String embroidary,
       bool isEmbroidary,
       String handWork,
-      bool isHandWorkashwin);
-ashwin
+      bool isHandWork});
+}
 
 /// @nodoc
 class __$$ShopStateImplCopyWithImpl<$Res>
@@ -979,7 +979,7 @@ class __$$ShopStateImplCopyWithImpl<$Res>
     Object? isEmbroidary = null,
     Object? handWork = null,
     Object? isHandWork = null,
-  ashwin) {
+  }) {
     return _then(_$ShopStateImpl(
       fileName: null == fileName
           ? _value.fileName
@@ -1022,8 +1022,8 @@ class __$$ShopStateImplCopyWithImpl<$Res>
           : isHandWork // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
@@ -1038,7 +1038,7 @@ class _$ShopStateImpl implements _ShopState {
       required this.embroidary,
       required this.isEmbroidary,
       required this.handWork,
-      required this.isHandWorkashwin);
+      required this.isHandWork});
 
   @override
   final String fileName;
@@ -1064,7 +1064,7 @@ class _$ShopStateImpl implements _ShopState {
   @override
   String toString() {
     return 'ShopState(fileName: $fileName, isLoaded: $isLoaded, alteration: $alteration, isAlteration: $isAlteration, stitching: $stitching, isStitching: $isStitching, embroidary: $embroidary, isEmbroidary: $isEmbroidary, handWork: $handWork, isHandWork: $isHandWork)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -1091,7 +1091,7 @@ class _$ShopStateImpl implements _ShopState {
                 other.handWork == handWork) &&
             (identical(other.isHandWork, isHandWork) ||
                 other.isHandWork == isHandWork));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(
@@ -1114,7 +1114,7 @@ class _$ShopStateImpl implements _ShopState {
   @pragma('vm:prefer-inline')
   _$$ShopStateImplCopyWith<_$ShopStateImpl> get copyWith =>
       __$$ShopStateImplCopyWithImpl<_$ShopStateImpl>(this, _$identity);
-ashwin
+}
 
 abstract class _ShopState implements ShopState {
   const factory _ShopState(
@@ -1127,7 +1127,7 @@ abstract class _ShopState implements ShopState {
       required final String embroidary,
       required final bool isEmbroidary,
       required final String handWork,
-      required final bool isHandWorkashwin) = _$ShopStateImpl;
+      required final bool isHandWork}) = _$ShopStateImpl;
 
   @override
   String get fileName;
@@ -1156,4 +1156,4 @@ abstract class _ShopState implements ShopState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ShopStateImplCopyWith<_$ShopStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}

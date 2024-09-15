@@ -7,11 +7,11 @@ import 'package:tailme/application/auth/login/login_bloc.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
 
 class ScreenForgetPass extends StatefulWidget {
-  const ScreenForgetPass({super.keyashwin);
+  const ScreenForgetPass({super.key});
 
   @override
   State<ScreenForgetPass> createState() => _ScreenForgetPassState();
-ashwin
+}
 
 class _ScreenForgetPassState extends State<ScreenForgetPass> {
   final TextEditingController emailController = TextEditingController();
@@ -21,7 +21,7 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
   void dispose() {
     emailController.dispose();
     super.dispose();
-  ashwin
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
               listener: (context, state) {
                 if (!state.isSubmitting) {
                   state.forgetPassEmailRespSuccessOrFailure.fold(
-                    () {ashwin,
+                    () {},
                     (some) {
                       some.fold(
                         (f) {
@@ -48,8 +48,8 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text(message,style: const TextStyle(color: Colors.red,fontFamily: 'Raleway'),)),
                             );
-                          ashwin
-                        ashwin,
+                          }
+                        },
                         (s) {
                           Navigator.push(
                             context,
@@ -60,12 +60,12 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                               ),
                             ),
                           );
-                        ashwin,
+                        },
                       );
-                    ashwin,
+                    },
                   );
-                ashwin
-              ashwin,
+                }
+              },
               builder: (context, state) {
                 return SingleChildScrollView(
                   child: Column(
@@ -117,15 +117,15 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your email';
-                            ashwin
+                            }
                             final emailRegex = RegExp(
                               r'^[^@]+@[^@]+\.[^@]+$',
                             );
                             if (!emailRegex.hasMatch(value)) {
                               return 'Please enter a valid email address';
-                            ashwin
+                            }
                             return null;
-                          ashwin,
+                          },
                         ),
                       ),
                       SizedBox(height: 30.h),
@@ -160,8 +160,8 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                                         email: emailController.text,
                                       ),
                                     );
-                                  ashwin
-                                ashwin,
+                                  }
+                                },
                                 child: const Text(
                                   'Send Code',
                                   style: TextStyle(
@@ -190,7 +190,7 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
-                            ashwin,
+                            },
                             child: const Text(
                               'Login',
                               style: TextStyle(
@@ -206,9 +206,9 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                     ],
                   ),
                 );
-              ashwin,
+              },
             ),
           ),
         ));
-  ashwin
-ashwin
+  }
+}

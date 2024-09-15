@@ -16,11 +16,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
   runApp(const MainApp());
-ashwin
+}
 
 // ignore: must_be_immutable
 class MainApp extends StatelessWidget {
-  const MainApp({Key? keyashwin) : super(key: key);
+  const MainApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {//
@@ -52,8 +52,8 @@ class MainApp extends StatelessWidget {
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}
 
 //////
 

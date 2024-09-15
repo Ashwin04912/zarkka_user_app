@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ScreenPaymentSuccessful extends StatelessWidget {
-  const ScreenPaymentSuccessful({super.keyashwin);
+  const ScreenPaymentSuccessful({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class ScreenPaymentSuccessful extends StatelessWidget {
   child: ElevatedButton(
     onPressed: () {
       // Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenLogo()));
-    ashwin,
+    },
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(
         const Color(0xFFFFAC4B), // Set background color here
@@ -85,5 +85,5 @@ class ScreenPaymentSuccessful extends StatelessWidget {
         ),
       )),
     );
-  ashwin
-ashwin
+  }
+}

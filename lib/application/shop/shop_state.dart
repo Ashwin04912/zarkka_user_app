@@ -13,7 +13,7 @@ class ShopState with _$ShopState {
     required bool isEmbroidary,
     required String handWork,
     required bool isHandWork
-  ashwin) = _ShopState;
+  }) = _ShopState;
 
   factory ShopState.initial() => const ShopState(
         fileName: '',
@@ -27,5 +27,5 @@ class ShopState with _$ShopState {
         isHandWork: false,
         handWork: '',
       );
-ashwin
+}
 ///

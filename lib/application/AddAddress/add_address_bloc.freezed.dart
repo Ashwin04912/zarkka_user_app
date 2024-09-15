@@ -39,7 +39,7 @@ mixin _$AddAddressEvent {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -57,7 +57,7 @@ mixin _$AddAddressEvent {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -76,7 +76,7 @@ mixin _$AddAddressEvent {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
@@ -91,7 +91,7 @@ mixin _$AddAddressEvent {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -105,7 +105,7 @@ mixin _$AddAddressEvent {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -120,16 +120,16 @@ mixin _$AddAddressEvent {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $AddAddressEventCopyWith<$Res> {
   factory $AddAddressEventCopyWith(
           AddAddressEvent value, $Res Function(AddAddressEvent) then) =
       _$AddAddressEventCopyWithImpl<$Res, AddAddressEvent>;
-ashwin
+}
 
 /// @nodoc
 class _$AddAddressEventCopyWithImpl<$Res, $Val extends AddAddressEvent>
@@ -143,14 +143,14 @@ class _$AddAddressEventCopyWithImpl<$Res, $Val extends AddAddressEvent>
 
   /// Create a copy of AddAddressEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 abstract class _$$HomePressedImplCopyWith<$Res> {
   factory _$$HomePressedImplCopyWith(
           _$HomePressedImpl value, $Res Function(_$HomePressedImpl) then) =
       __$$HomePressedImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$HomePressedImplCopyWithImpl<$Res>
@@ -162,7 +162,7 @@ class __$$HomePressedImplCopyWithImpl<$Res>
 
   /// Create a copy of AddAddressEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -172,13 +172,13 @@ class _$HomePressedImpl implements _HomePressed {
   @override
   String toString() {
     return 'AddAddressEvent.homePressed()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$HomePressedImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -207,9 +207,9 @@ class _$HomePressedImpl implements _HomePressed {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return homePressed();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -228,9 +228,9 @@ class _$HomePressedImpl implements _HomePressed {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return homePressed?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -250,12 +250,12 @@ class _$HomePressedImpl implements _HomePressed {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (homePressed != null) {
       return homePressed();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -271,9 +271,9 @@ class _$HomePressedImpl implements _HomePressed {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return homePressed(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -288,9 +288,9 @@ class _$HomePressedImpl implements _HomePressed {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return homePressed?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -306,24 +306,24 @@ class _$HomePressedImpl implements _HomePressed {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (homePressed != null) {
       return homePressed(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _HomePressed implements AddAddressEvent {
   const factory _HomePressed() = _$HomePressedImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$WorkPressedImplCopyWith<$Res> {
   factory _$$WorkPressedImplCopyWith(
           _$WorkPressedImpl value, $Res Function(_$WorkPressedImpl) then) =
       __$$WorkPressedImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$WorkPressedImplCopyWithImpl<$Res>
@@ -335,7 +335,7 @@ class __$$WorkPressedImplCopyWithImpl<$Res>
 
   /// Create a copy of AddAddressEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -345,13 +345,13 @@ class _$WorkPressedImpl implements _WorkPressed {
   @override
   String toString() {
     return 'AddAddressEvent.workPressed()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$WorkPressedImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -380,9 +380,9 @@ class _$WorkPressedImpl implements _WorkPressed {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return workPressed();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -401,9 +401,9 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return workPressed?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -423,12 +423,12 @@ class _$WorkPressedImpl implements _WorkPressed {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (workPressed != null) {
       return workPressed();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -444,9 +444,9 @@ class _$WorkPressedImpl implements _WorkPressed {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return workPressed(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -461,9 +461,9 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return workPressed?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -479,24 +479,24 @@ class _$WorkPressedImpl implements _WorkPressed {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (workPressed != null) {
       return workPressed(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _WorkPressed implements AddAddressEvent {
   const factory _WorkPressed() = _$WorkPressedImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$OthersPressedImplCopyWith<$Res> {
   factory _$$OthersPressedImplCopyWith(
           _$OthersPressedImpl value, $Res Function(_$OthersPressedImpl) then) =
       __$$OthersPressedImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$OthersPressedImplCopyWithImpl<$Res>
@@ -508,7 +508,7 @@ class __$$OthersPressedImplCopyWithImpl<$Res>
 
   /// Create a copy of AddAddressEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -518,13 +518,13 @@ class _$OthersPressedImpl implements _OthersPressed {
   @override
   String toString() {
     return 'AddAddressEvent.othersPressed()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$OthersPressedImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -553,9 +553,9 @@ class _$OthersPressedImpl implements _OthersPressed {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return othersPressed();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -574,9 +574,9 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return othersPressed?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -596,12 +596,12 @@ class _$OthersPressedImpl implements _OthersPressed {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (othersPressed != null) {
       return othersPressed();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -617,9 +617,9 @@ class _$OthersPressedImpl implements _OthersPressed {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return othersPressed(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -634,9 +634,9 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return othersPressed?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -652,17 +652,17 @@ class _$OthersPressedImpl implements _OthersPressed {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (othersPressed != null) {
       return othersPressed(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _OthersPressed implements AddAddressEvent {
   const factory _OthersPressed() = _$OthersPressedImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$SubmitPressedImplCopyWith<$Res> {
@@ -677,8 +677,8 @@ abstract class _$$SubmitPressedImplCopyWith<$Res> {
       String flat,
       String area,
       String landmark,
-      String typeashwin);
-ashwin
+      String type});
+}
 
 /// @nodoc
 class __$$SubmitPressedImplCopyWithImpl<$Res>
@@ -700,7 +700,7 @@ class __$$SubmitPressedImplCopyWithImpl<$Res>
     Object? area = null,
     Object? landmark = null,
     Object? type = null,
-  ashwin) {
+  }) {
     return _then(_$SubmitPressedImpl(
       name: null == name
           ? _value.name
@@ -731,8 +731,8 @@ class __$$SubmitPressedImplCopyWithImpl<$Res>
           : type // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
@@ -744,7 +744,7 @@ class _$SubmitPressedImpl implements _SubmitPressed {
       required this.flat,
       required this.area,
       required this.landmark,
-      required this.typeashwin);
+      required this.type});
 
   @override
   final String name;
@@ -764,7 +764,7 @@ class _$SubmitPressedImpl implements _SubmitPressed {
   @override
   String toString() {
     return 'AddAddressEvent.submitPressed(name: $name, contact: $contact, pinCode: $pinCode, flat: $flat, area: $area, landmark: $landmark, type: $type)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -779,7 +779,7 @@ class _$SubmitPressedImpl implements _SubmitPressed {
             (identical(other.landmark, landmark) ||
                 other.landmark == landmark) &&
             (identical(other.type, type) || other.type == type));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(
@@ -817,9 +817,9 @@ class _$SubmitPressedImpl implements _SubmitPressed {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return submitPressed(name, contact, pinCode, flat, area, landmark, type);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -838,10 +838,10 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return submitPressed?.call(
         name, contact, pinCode, flat, area, landmark, type);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -861,12 +861,12 @@ class _$SubmitPressedImpl implements _SubmitPressed {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (submitPressed != null) {
       return submitPressed(name, contact, pinCode, flat, area, landmark, type);
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -882,9 +882,9 @@ class _$SubmitPressedImpl implements _SubmitPressed {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return submitPressed(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -899,9 +899,9 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return submitPressed?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -917,13 +917,13 @@ class _$SubmitPressedImpl implements _SubmitPressed {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (submitPressed != null) {
       return submitPressed(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _SubmitPressed implements AddAddressEvent {
   const factory _SubmitPressed(
@@ -933,7 +933,7 @@ abstract class _SubmitPressed implements AddAddressEvent {
       required final String flat,
       required final String area,
       required final String landmark,
-      required final String typeashwin) = _$SubmitPressedImpl;
+      required final String type}) = _$SubmitPressedImpl;
 
   String get name;
   String get contact;
@@ -948,14 +948,14 @@ abstract class _SubmitPressed implements AddAddressEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubmitPressedImplCopyWith<_$SubmitPressedImpl> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$getAllAddressImplCopyWith<$Res> {
   factory _$$getAllAddressImplCopyWith(
           _$getAllAddressImpl value, $Res Function(_$getAllAddressImpl) then) =
       __$$getAllAddressImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$getAllAddressImplCopyWithImpl<$Res>
@@ -967,7 +967,7 @@ class __$$getAllAddressImplCopyWithImpl<$Res>
 
   /// Create a copy of AddAddressEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -977,13 +977,13 @@ class _$getAllAddressImpl implements _getAllAddress {
   @override
   String toString() {
     return 'AddAddressEvent.getAllAddress()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$getAllAddressImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -1012,9 +1012,9 @@ class _$getAllAddressImpl implements _getAllAddress {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getAllAddress();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1033,9 +1033,9 @@ class _$getAllAddressImpl implements _getAllAddress {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getAllAddress?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1055,12 +1055,12 @@ class _$getAllAddressImpl implements _getAllAddress {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (getAllAddress != null) {
       return getAllAddress();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1076,9 +1076,9 @@ class _$getAllAddressImpl implements _getAllAddress {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getAllAddress(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1093,9 +1093,9 @@ class _$getAllAddressImpl implements _getAllAddress {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getAllAddress?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1111,17 +1111,17 @@ class _$getAllAddressImpl implements _getAllAddress {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (getAllAddress != null) {
       return getAllAddress(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _getAllAddress implements AddAddressEvent {
   const factory _getAllAddress() = _$getAllAddressImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$deleteButtonPressedImplCopyWith<$Res> {
@@ -1129,8 +1129,8 @@ abstract class _$$deleteButtonPressedImplCopyWith<$Res> {
           $Res Function(_$deleteButtonPressedImpl) then) =
       __$$deleteButtonPressedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String addressIdashwin);
-ashwin
+  $Res call({String addressId});
+}
 
 /// @nodoc
 class __$$deleteButtonPressedImplCopyWithImpl<$Res>
@@ -1146,20 +1146,20 @@ class __$$deleteButtonPressedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? addressId = null,
-  ashwin) {
+  }) {
     return _then(_$deleteButtonPressedImpl(
       addressId: null == addressId
           ? _value.addressId
           : addressId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
 class _$deleteButtonPressedImpl implements _deleteButtonPressed {
-  const _$deleteButtonPressedImpl({required this.addressIdashwin);
+  const _$deleteButtonPressedImpl({required this.addressId});
 
   @override
   final String addressId;
@@ -1167,7 +1167,7 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
   @override
   String toString() {
     return 'AddAddressEvent.deleteButtonPressed(addressId: $addressId)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -1176,7 +1176,7 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
             other is _$deleteButtonPressedImpl &&
             (identical(other.addressId, addressId) ||
                 other.addressId == addressId));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(runtimeType, addressId);
@@ -1214,9 +1214,9 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return deleteButtonPressed(addressId);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1235,9 +1235,9 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return deleteButtonPressed?.call(addressId);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1257,12 +1257,12 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (deleteButtonPressed != null) {
       return deleteButtonPressed(addressId);
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1278,9 +1278,9 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return deleteButtonPressed(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1295,9 +1295,9 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return deleteButtonPressed?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1313,16 +1313,16 @@ class _$deleteButtonPressedImpl implements _deleteButtonPressed {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (deleteButtonPressed != null) {
       return deleteButtonPressed(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _deleteButtonPressed implements AddAddressEvent {
-  const factory _deleteButtonPressed({required final String addressIdashwin) =
+  const factory _deleteButtonPressed({required final String addressId}) =
       _$deleteButtonPressedImpl;
 
   String get addressId;
@@ -1332,14 +1332,14 @@ abstract class _deleteButtonPressed implements AddAddressEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$deleteButtonPressedImplCopyWith<_$deleteButtonPressedImpl> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$getCurrentLocationImplCopyWith<$Res> {
   factory _$$getCurrentLocationImplCopyWith(_$getCurrentLocationImpl value,
           $Res Function(_$getCurrentLocationImpl) then) =
       __$$getCurrentLocationImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$getCurrentLocationImplCopyWithImpl<$Res>
@@ -1351,7 +1351,7 @@ class __$$getCurrentLocationImplCopyWithImpl<$Res>
 
   /// Create a copy of AddAddressEvent
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -1361,13 +1361,13 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
   @override
   String toString() {
     return 'AddAddressEvent.getCurrentLocation()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$getCurrentLocationImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -1396,9 +1396,9 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getCurrentLocation();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1417,9 +1417,9 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getCurrentLocation?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1439,12 +1439,12 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (getCurrentLocation != null) {
       return getCurrentLocation();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1460,9 +1460,9 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getCurrentLocation(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1477,9 +1477,9 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return getCurrentLocation?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1495,17 +1495,17 @@ class _$getCurrentLocationImpl implements _getCurrentLocation {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (getCurrentLocation != null) {
       return getCurrentLocation(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _getCurrentLocation implements AddAddressEvent {
   const factory _getCurrentLocation() = _$getCurrentLocationImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$editButtonPressedEventImplCopyWith<$Res> {
@@ -1514,8 +1514,8 @@ abstract class _$$editButtonPressedEventImplCopyWith<$Res> {
           $Res Function(_$editButtonPressedEventImpl) then) =
       __$$editButtonPressedEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String adddressId, AddressModel addressashwin);
-ashwin
+  $Res call({String adddressId, AddressModel address});
+}
 
 /// @nodoc
 class __$$editButtonPressedEventImplCopyWithImpl<$Res>
@@ -1533,7 +1533,7 @@ class __$$editButtonPressedEventImplCopyWithImpl<$Res>
   $Res call({
     Object? adddressId = null,
     Object? address = null,
-  ashwin) {
+  }) {
     return _then(_$editButtonPressedEventImpl(
       adddressId: null == adddressId
           ? _value.adddressId
@@ -1544,14 +1544,14 @@ class __$$editButtonPressedEventImplCopyWithImpl<$Res>
           : address // ignore: cast_nullable_to_non_nullable
               as AddressModel,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
 class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
   const _$editButtonPressedEventImpl(
-      {required this.adddressId, required this.addressashwin);
+      {required this.adddressId, required this.address});
 
   @override
   final String adddressId;
@@ -1561,7 +1561,7 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
   @override
   String toString() {
     return 'AddAddressEvent.editButtonPressedEvent(adddressId: $adddressId, address: $address)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -1571,7 +1571,7 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
             (identical(other.adddressId, adddressId) ||
                 other.adddressId == adddressId) &&
             (identical(other.address, address) || other.address == address));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(runtimeType, adddressId, address);
@@ -1609,9 +1609,9 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editButtonPressedEvent(adddressId, address);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1630,9 +1630,9 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editButtonPressedEvent?.call(adddressId, address);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1652,12 +1652,12 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (editButtonPressedEvent != null) {
       return editButtonPressedEvent(adddressId, address);
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1673,9 +1673,9 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editButtonPressedEvent(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1690,9 +1690,9 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editButtonPressedEvent?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1708,18 +1708,18 @@ class _$editButtonPressedEventImpl implements _editButtonPressedEvent {
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (editButtonPressedEvent != null) {
       return editButtonPressedEvent(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _editButtonPressedEvent implements AddAddressEvent {
   const factory _editButtonPressedEvent(
       {required final String adddressId,
-      required final AddressModel addressashwin) = _$editButtonPressedEventImpl;
+      required final AddressModel address}) = _$editButtonPressedEventImpl;
 
   String get adddressId;
   AddressModel get address;
@@ -1729,7 +1729,7 @@ abstract class _editButtonPressedEvent implements AddAddressEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$editButtonPressedEventImplCopyWith<_$editButtonPressedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$editSubmitButtonPressedEventImplCopyWith<$Res> {
@@ -1746,8 +1746,8 @@ abstract class _$$editSubmitButtonPressedEventImplCopyWith<$Res> {
       String area,
       String landmark,
       String addressId,
-      String typeashwin);
-ashwin
+      String type});
+}
 
 /// @nodoc
 class __$$editSubmitButtonPressedEventImplCopyWithImpl<$Res>
@@ -1772,7 +1772,7 @@ class __$$editSubmitButtonPressedEventImplCopyWithImpl<$Res>
     Object? landmark = null,
     Object? addressId = null,
     Object? type = null,
-  ashwin) {
+  }) {
     return _then(_$editSubmitButtonPressedEventImpl(
       name: null == name
           ? _value.name
@@ -1807,8 +1807,8 @@ class __$$editSubmitButtonPressedEventImplCopyWithImpl<$Res>
           : type // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
@@ -1822,7 +1822,7 @@ class _$editSubmitButtonPressedEventImpl
       required this.area,
       required this.landmark,
       required this.addressId,
-      required this.typeashwin);
+      required this.type});
 
   @override
   final String name;
@@ -1844,7 +1844,7 @@ class _$editSubmitButtonPressedEventImpl
   @override
   String toString() {
     return 'AddAddressEvent.editSubmitButtonPressedEvent(name: $name, contact: $contact, pinCode: $pinCode, flat: $flat, area: $area, landmark: $landmark, addressId: $addressId, type: $type)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -1861,7 +1861,7 @@ class _$editSubmitButtonPressedEventImpl
             (identical(other.addressId, addressId) ||
                 other.addressId == addressId) &&
             (identical(other.type, type) || other.type == type));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(runtimeType, name, contact, pinCode, flat,
@@ -1901,10 +1901,10 @@ class _$editSubmitButtonPressedEventImpl
             String addressId,
             String type)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editSubmitButtonPressedEvent(
         name, contact, pinCode, flat, area, landmark, addressId, type);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1923,10 +1923,10 @@ class _$editSubmitButtonPressedEventImpl
     TResult? Function(String name, String contact, String pinCode, String flat,
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editSubmitButtonPressedEvent?.call(
         name, contact, pinCode, flat, area, landmark, addressId, type);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1946,13 +1946,13 @@ class _$editSubmitButtonPressedEventImpl
             String area, String landmark, String addressId, String type)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (editSubmitButtonPressedEvent != null) {
       return editSubmitButtonPressedEvent(
           name, contact, pinCode, flat, area, landmark, addressId, type);
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1968,9 +1968,9 @@ class _$editSubmitButtonPressedEventImpl
         editButtonPressedEvent,
     required TResult Function(_editSubmitButtonPressedEvent value)
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editSubmitButtonPressedEvent(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -1985,9 +1985,9 @@ class _$editSubmitButtonPressedEventImpl
     TResult? Function(_editButtonPressedEvent value)? editButtonPressedEvent,
     TResult? Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
-  ashwin) {
+  }) {
     return editSubmitButtonPressedEvent?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -2003,13 +2003,13 @@ class _$editSubmitButtonPressedEventImpl
     TResult Function(_editSubmitButtonPressedEvent value)?
         editSubmitButtonPressedEvent,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (editSubmitButtonPressedEvent != null) {
       return editSubmitButtonPressedEvent(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class _editSubmitButtonPressedEvent implements AddAddressEvent {
   const factory _editSubmitButtonPressedEvent(
@@ -2020,7 +2020,7 @@ abstract class _editSubmitButtonPressedEvent implements AddAddressEvent {
       required final String area,
       required final String landmark,
       required final String addressId,
-      required final String typeashwin) = _$editSubmitButtonPressedEventImpl;
+      required final String type}) = _$editSubmitButtonPressedEventImpl;
 
   String get name;
   String get contact;
@@ -2037,7 +2037,7 @@ abstract class _editSubmitButtonPressedEvent implements AddAddressEvent {
   _$$editSubmitButtonPressedEventImplCopyWith<
           _$editSubmitButtonPressedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 mixin _$AddAddressState {
@@ -2070,7 +2070,7 @@ mixin _$AddAddressState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   $AddAddressStateCopyWith<AddAddressState> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $AddAddressStateCopyWith<$Res> {
@@ -2096,8 +2096,8 @@ abstract class $AddAddressStateCopyWith<$Res> {
       String locality,
       Option<Either<FormFailure, Unit>> isEditDataGot,
       String landmark,
-      bool isNavigateashwin);
-ashwin
+      bool isNavigate});
+}
 
 /// @nodoc
 class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
@@ -2132,7 +2132,7 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
     Object? isEditDataGot = null,
     Object? landmark = null,
     Object? isNavigate = null,
-  ashwin) {
+  }) {
     return _then(_value.copyWith(
       isHome: null == isHome
           ? _value.isHome
@@ -2209,8 +2209,8 @@ class _$AddAddressStateCopyWithImpl<$Res, $Val extends AddAddressState>
           : isNavigate // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 abstract class _$$AddAddressStateImplCopyWith<$Res>
@@ -2238,8 +2238,8 @@ abstract class _$$AddAddressStateImplCopyWith<$Res>
       String locality,
       Option<Either<FormFailure, Unit>> isEditDataGot,
       String landmark,
-      bool isNavigateashwin);
-ashwin
+      bool isNavigate});
+}
 
 /// @nodoc
 class __$$AddAddressStateImplCopyWithImpl<$Res>
@@ -2272,7 +2272,7 @@ class __$$AddAddressStateImplCopyWithImpl<$Res>
     Object? isEditDataGot = null,
     Object? landmark = null,
     Object? isNavigate = null,
-  ashwin) {
+  }) {
     return _then(_$AddAddressStateImpl(
       isHome: null == isHome
           ? _value.isHome
@@ -2349,8 +2349,8 @@ class __$$AddAddressStateImplCopyWithImpl<$Res>
           : isNavigate // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
-  ashwin
-ashwin
+  }
+}
 
 /// @nodoc
 
@@ -2373,7 +2373,7 @@ class _$AddAddressStateImpl implements _AddAddressState {
       required this.locality,
       required this.isEditDataGot,
       required this.landmark,
-      required this.isNavigateashwin);
+      required this.isNavigate});
 
   @override
   final bool isHome;
@@ -2415,7 +2415,7 @@ class _$AddAddressStateImpl implements _AddAddressState {
   @override
   String toString() {
     return 'AddAddressState(isHome: $isHome, isWork: $isWork, isOthers: $isOthers, isSubmiting: $isSubmiting, isGettingAddress: $isGettingAddress, showErrorMessages: $showErrorMessages, addressess: $addressess, isDataGot: $isDataGot, type: $type, isLocationLoading: $isLocationLoading, successOrfailure: $successOrfailure, addAddressSuccessOrFailureResponse: $addAddressSuccessOrFailureResponse, editAddressSuccessOrFailureResponse: $editAddressSuccessOrFailureResponse, pinCode: $pinCode, locality: $locality, isEditDataGot: $isEditDataGot, landmark: $landmark, isNavigate: $isNavigate)';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
@@ -2458,7 +2458,7 @@ class _$AddAddressStateImpl implements _AddAddressState {
                 other.landmark == landmark) &&
             (identical(other.isNavigate, isNavigate) ||
                 other.isNavigate == isNavigate));
-  ashwin
+  }
 
   @override
   int get hashCode => Object.hash(
@@ -2490,7 +2490,7 @@ class _$AddAddressStateImpl implements _AddAddressState {
   _$$AddAddressStateImplCopyWith<_$AddAddressStateImpl> get copyWith =>
       __$$AddAddressStateImplCopyWithImpl<_$AddAddressStateImpl>(
           this, _$identity);
-ashwin
+}
 
 abstract class _AddAddressState implements AddAddressState {
   const factory _AddAddressState(
@@ -2513,7 +2513,7 @@ abstract class _AddAddressState implements AddAddressState {
       required final String locality,
       required final Option<Either<FormFailure, Unit>> isEditDataGot,
       required final String landmark,
-      required final bool isNavigateashwin) = _$AddAddressStateImpl;
+      required final bool isNavigate}) = _$AddAddressStateImpl;
 
   @override
   bool get isHome;
@@ -2558,4 +2558,4 @@ abstract class _AddAddressState implements AddAddressState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddAddressStateImplCopyWith<_$AddAddressStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-ashwin
+}

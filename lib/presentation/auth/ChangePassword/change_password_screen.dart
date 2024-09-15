@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 
 class ScreenChangePassword extends StatelessWidget {
-  const ScreenChangePassword({super.keyashwin);
+  const ScreenChangePassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -119,10 +119,10 @@ class ScreenChangePassword extends StatelessWidget {
             SizedBox(
               height: 50.h,
             ),
-            CommonButton(ontap: () {ashwin, buttonText: "Save changes")
+            CommonButton(ontap: () {}, buttonText: "Save changes")
           ],
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}

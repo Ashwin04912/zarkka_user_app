@@ -12,7 +12,7 @@ class ImageWithText extends StatelessWidget {
     required this.text,
     required this.width,
     required this.height,
-  ashwin) : super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,5 +52,5 @@ class ImageWithText extends StatelessWidget {
         ],
       ),
     );
-  ashwin
-ashwin
+  }
+}

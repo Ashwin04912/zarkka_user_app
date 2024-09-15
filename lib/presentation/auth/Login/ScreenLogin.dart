@@ -14,11 +14,11 @@ import 'package:tailme/presentation/auth/forgetpassword/screen_forget_pass.dart'
 // Importing bottom navigation screen
 
 class ScreenLogin extends StatefulWidget {
-  const ScreenLogin({super.keyashwin);
+  const ScreenLogin({super.key});
 
   @override
   State<ScreenLogin> createState() => _ScreenLoginState();
-ashwin
+}
 
 class _ScreenLoginState extends State<ScreenLogin> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -48,7 +48,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                       bottom: ScreenUtil().setHeight(20)),
                   child: BlocConsumer<LoginBloc, LoginState>(
                     listener: (context, state) {
-                      state.successOrfailure.fold(() {ashwin, (some) {
+                      state.successOrfailure.fold(() {}, (some) {
                         some.fold((f) {
                           final message = f.maybeWhen(
                             invalidEmailAndPasswordCombination: () =>
@@ -59,7 +59,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                           );
                           ScaffoldMessenger.of(context)
                               .showSnackBar(SnackBar(content: Text(message)));
-                        ashwin, (s) {
+                        }, (s) {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Login success')));
                           Navigator.of(context).pushAndRemoveUntil(
@@ -67,9 +67,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 builder: (context) => const BottomNavigation()),
                             (route) => false,
                           );
-                        ashwin);
-                      ashwin);
-                    ashwin,
+                        });
+                      });
+                    },
                     builder: (context, state) {
                       return Form(
                         autovalidateMode: _submitted
@@ -82,7 +82,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             GestureDetector(
                               onTap: () {
                                 Navigator.pop(context);
-                              ashwin,
+                              },
                               child: Container(
                                 height: ScreenUtil().setHeight(30),
                                 width: ScreenUtil().setWidth(30),
@@ -123,7 +123,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             //   child: EmailTextformField(
                             //     onEmailChanged: (value) {
                             //       email = value;
-                            //     ashwin,
+                            //     },
                             //   ),
                             // ),
                             SizedBox(
@@ -135,13 +135,13 @@ class _ScreenLoginState extends State<ScreenLogin> {
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Please enter an email address';
-                                ashwin else if (!RegExp(
+                                } else if (!RegExp(
                                         r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
                                     .hasMatch(value)) {
                                   return 'Please enter a valid email address';
-                                ashwin
+                                }
                                 return null;
-                              ashwin,
+                              },
                               decoration: InputDecoration(
                                 hintText: "Enter your email",
                                 hintStyle: const TextStyle(
@@ -174,9 +174,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                   validator: (value) {
                                     if (value!.length < 7 || value.isEmpty) {
                                       return 'Please enter your password';
-                                    ashwin
+                                    }
                                     return null;
-                                  ashwin,
+                                  },
                                   decoration: InputDecoration(
                                     hintText: "Enter Your password",
                                     hintStyle: const TextStyle(
@@ -195,7 +195,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                         context.read<LoginBloc>().add(
                                             const LoginEvent
                                                 .eyeButtonPressed());
-                                      ashwin,
+                                      },
                                       icon: Icon(
                                         state.isEyePressed
                                             ? Icons.visibility_off
@@ -209,7 +209,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                     ),
                                   ),
                                 );
-                              ashwin,
+                              },
                             ),
                             SizedBox(
                               height: ScreenUtil().setHeight(5),
@@ -220,7 +220,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 TextButton(
                                   onPressed: (){
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenForgetPass()));
-                                  ashwin,
+                                  },
                                   child: const Text(
                                     
                                     'Forgot Password?',
@@ -248,7 +248,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                       color: Colors.blue,
                                     ),
                                   );
-                                ashwin
+                                }
                                 return SizedBox(
                                   width: double.infinity,
                                   height: ScreenUtil().setHeight(50),
@@ -270,8 +270,8 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                                 user: user,
                                               ),
                                             );
-                                          ashwin
-                                        ashwin,
+                                          }
+                                        },
                                         style: ButtonStyle(
                                           backgroundColor:
                                               WidgetStateProperty.all<Color>(
@@ -298,10 +298,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                           ),
                                         ),
                                       );
-                                    ashwin,
+                                    },
                                   ),
                                 );
-                              ashwin,
+                              },
                             ),
 
                             SizedBox(
@@ -369,7 +369,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 InkWell(
                                   onTap: () {
                                     // signInWithGoogle(context);
-                                  ashwin,
+                                  },
                                   child: Container(
                                     width: ScreenUtil().setWidth(105),
                                     height: ScreenUtil().setHeight(56),
@@ -414,7 +414,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                           ],
                         ),
                       );
-                    ashwin,
+                    },
                   ),
                 ),
               ),
@@ -455,7 +455,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                     builder: (context) =>
                                         const ScreenUserRegistration()),
                               );
-                            ashwin,
+                            },
                         ),
                       ],
                     ),
@@ -468,5 +468,5 @@ class _ScreenLoginState extends State<ScreenLogin> {
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}

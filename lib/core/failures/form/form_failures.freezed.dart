@@ -23,7 +23,7 @@ mixin _$FormFailure {
     required TResult Function() serverFailure,
     required TResult Function() userNotFound,
     required TResult Function() cancelledByUser,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -32,7 +32,7 @@ mixin _$FormFailure {
     TResult? Function()? serverFailure,
     TResult? Function()? userNotFound,
     TResult? Function()? cancelledByUser,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -42,7 +42,7 @@ mixin _$FormFailure {
     TResult Function()? userNotFound,
     TResult Function()? cancelledByUser,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
@@ -51,7 +51,7 @@ mixin _$FormFailure {
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(CancelledByUser value) cancelledByUser,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -60,7 +60,7 @@ mixin _$FormFailure {
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(CancelledByUser value)? cancelledByUser,
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -70,16 +70,16 @@ mixin _$FormFailure {
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
-  ashwin) =>
+  }) =>
       throw _privateConstructorUsedError;
-ashwin
+}
 
 /// @nodoc
 abstract class $FormFailureCopyWith<$Res> {
   factory $FormFailureCopyWith(
           FormFailure value, $Res Function(FormFailure) then) =
       _$FormFailureCopyWithImpl<$Res, FormFailure>;
-ashwin
+}
 
 /// @nodoc
 class _$FormFailureCopyWithImpl<$Res, $Val extends FormFailure>
@@ -93,14 +93,14 @@ class _$FormFailureCopyWithImpl<$Res, $Val extends FormFailure>
 
   /// Create a copy of FormFailure
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 abstract class _$$NetworkFailureImplCopyWith<$Res> {
   factory _$$NetworkFailureImplCopyWith(_$NetworkFailureImpl value,
           $Res Function(_$NetworkFailureImpl) then) =
       __$$NetworkFailureImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$NetworkFailureImplCopyWithImpl<$Res>
@@ -112,7 +112,7 @@ class __$$NetworkFailureImplCopyWithImpl<$Res>
 
   /// Create a copy of FormFailure
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -122,13 +122,13 @@ class _$NetworkFailureImpl implements NetworkFailure {
   @override
   String toString() {
     return 'FormFailure.networkFailure()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$NetworkFailureImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -141,9 +141,9 @@ class _$NetworkFailureImpl implements NetworkFailure {
     required TResult Function() serverFailure,
     required TResult Function() userNotFound,
     required TResult Function() cancelledByUser,
-  ashwin) {
+  }) {
     return networkFailure();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -153,9 +153,9 @@ class _$NetworkFailureImpl implements NetworkFailure {
     TResult? Function()? serverFailure,
     TResult? Function()? userNotFound,
     TResult? Function()? cancelledByUser,
-  ashwin) {
+  }) {
     return networkFailure?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -166,12 +166,12 @@ class _$NetworkFailureImpl implements NetworkFailure {
     TResult Function()? userNotFound,
     TResult Function()? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (networkFailure != null) {
       return networkFailure();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -181,9 +181,9 @@ class _$NetworkFailureImpl implements NetworkFailure {
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(CancelledByUser value) cancelledByUser,
-  ashwin) {
+  }) {
     return networkFailure(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -193,9 +193,9 @@ class _$NetworkFailureImpl implements NetworkFailure {
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(CancelledByUser value)? cancelledByUser,
-  ashwin) {
+  }) {
     return networkFailure?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -206,24 +206,24 @@ class _$NetworkFailureImpl implements NetworkFailure {
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (networkFailure != null) {
       return networkFailure(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class NetworkFailure implements FormFailure {
   const factory NetworkFailure() = _$NetworkFailureImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$ValidationFailureImplCopyWith<$Res> {
   factory _$$ValidationFailureImplCopyWith(_$ValidationFailureImpl value,
           $Res Function(_$ValidationFailureImpl) then) =
       __$$ValidationFailureImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$ValidationFailureImplCopyWithImpl<$Res>
@@ -235,7 +235,7 @@ class __$$ValidationFailureImplCopyWithImpl<$Res>
 
   /// Create a copy of FormFailure
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -245,13 +245,13 @@ class _$ValidationFailureImpl implements ValidationFailure {
   @override
   String toString() {
     return 'FormFailure.validationFailure()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ValidationFailureImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -264,9 +264,9 @@ class _$ValidationFailureImpl implements ValidationFailure {
     required TResult Function() serverFailure,
     required TResult Function() userNotFound,
     required TResult Function() cancelledByUser,
-  ashwin) {
+  }) {
     return validationFailure();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -276,9 +276,9 @@ class _$ValidationFailureImpl implements ValidationFailure {
     TResult? Function()? serverFailure,
     TResult? Function()? userNotFound,
     TResult? Function()? cancelledByUser,
-  ashwin) {
+  }) {
     return validationFailure?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -289,12 +289,12 @@ class _$ValidationFailureImpl implements ValidationFailure {
     TResult Function()? userNotFound,
     TResult Function()? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (validationFailure != null) {
       return validationFailure();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -304,9 +304,9 @@ class _$ValidationFailureImpl implements ValidationFailure {
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(CancelledByUser value) cancelledByUser,
-  ashwin) {
+  }) {
     return validationFailure(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -316,9 +316,9 @@ class _$ValidationFailureImpl implements ValidationFailure {
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(CancelledByUser value)? cancelledByUser,
-  ashwin) {
+  }) {
     return validationFailure?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -329,24 +329,24 @@ class _$ValidationFailureImpl implements ValidationFailure {
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (validationFailure != null) {
       return validationFailure(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class ValidationFailure implements FormFailure {
   const factory ValidationFailure() = _$ValidationFailureImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$ServerFailureImplCopyWith<$Res> {
   factory _$$ServerFailureImplCopyWith(
           _$ServerFailureImpl value, $Res Function(_$ServerFailureImpl) then) =
       __$$ServerFailureImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$ServerFailureImplCopyWithImpl<$Res>
@@ -358,7 +358,7 @@ class __$$ServerFailureImplCopyWithImpl<$Res>
 
   /// Create a copy of FormFailure
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -368,13 +368,13 @@ class _$ServerFailureImpl implements ServerFailure {
   @override
   String toString() {
     return 'FormFailure.serverFailure()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ServerFailureImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -387,9 +387,9 @@ class _$ServerFailureImpl implements ServerFailure {
     required TResult Function() serverFailure,
     required TResult Function() userNotFound,
     required TResult Function() cancelledByUser,
-  ashwin) {
+  }) {
     return serverFailure();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -399,9 +399,9 @@ class _$ServerFailureImpl implements ServerFailure {
     TResult? Function()? serverFailure,
     TResult? Function()? userNotFound,
     TResult? Function()? cancelledByUser,
-  ashwin) {
+  }) {
     return serverFailure?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -412,12 +412,12 @@ class _$ServerFailureImpl implements ServerFailure {
     TResult Function()? userNotFound,
     TResult Function()? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (serverFailure != null) {
       return serverFailure();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -427,9 +427,9 @@ class _$ServerFailureImpl implements ServerFailure {
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(CancelledByUser value) cancelledByUser,
-  ashwin) {
+  }) {
     return serverFailure(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -439,9 +439,9 @@ class _$ServerFailureImpl implements ServerFailure {
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(CancelledByUser value)? cancelledByUser,
-  ashwin) {
+  }) {
     return serverFailure?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -452,24 +452,24 @@ class _$ServerFailureImpl implements ServerFailure {
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (serverFailure != null) {
       return serverFailure(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class ServerFailure implements FormFailure {
   const factory ServerFailure() = _$ServerFailureImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$UserNotFoundImplCopyWith<$Res> {
   factory _$$UserNotFoundImplCopyWith(
           _$UserNotFoundImpl value, $Res Function(_$UserNotFoundImpl) then) =
       __$$UserNotFoundImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$UserNotFoundImplCopyWithImpl<$Res>
@@ -481,7 +481,7 @@ class __$$UserNotFoundImplCopyWithImpl<$Res>
 
   /// Create a copy of FormFailure
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -491,13 +491,13 @@ class _$UserNotFoundImpl implements UserNotFound {
   @override
   String toString() {
     return 'FormFailure.userNotFound()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UserNotFoundImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -510,9 +510,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function() serverFailure,
     required TResult Function() userNotFound,
     required TResult Function() cancelledByUser,
-  ashwin) {
+  }) {
     return userNotFound();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -522,9 +522,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function()? serverFailure,
     TResult? Function()? userNotFound,
     TResult? Function()? cancelledByUser,
-  ashwin) {
+  }) {
     return userNotFound?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -535,12 +535,12 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function()? userNotFound,
     TResult Function()? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (userNotFound != null) {
       return userNotFound();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -550,9 +550,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(CancelledByUser value) cancelledByUser,
-  ashwin) {
+  }) {
     return userNotFound(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -562,9 +562,9 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(CancelledByUser value)? cancelledByUser,
-  ashwin) {
+  }) {
     return userNotFound?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -575,24 +575,24 @@ class _$UserNotFoundImpl implements UserNotFound {
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (userNotFound != null) {
       return userNotFound(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class UserNotFound implements FormFailure {
   const factory UserNotFound() = _$UserNotFoundImpl;
-ashwin
+}
 
 /// @nodoc
 abstract class _$$CancelledByUserImplCopyWith<$Res> {
   factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl value,
           $Res Function(_$CancelledByUserImpl) then) =
       __$$CancelledByUserImplCopyWithImpl<$Res>;
-ashwin
+}
 
 /// @nodoc
 class __$$CancelledByUserImplCopyWithImpl<$Res>
@@ -604,7 +604,7 @@ class __$$CancelledByUserImplCopyWithImpl<$Res>
 
   /// Create a copy of FormFailure
   /// with the given fields replaced by the non-null parameter values.
-ashwin
+}
 
 /// @nodoc
 
@@ -614,13 +614,13 @@ class _$CancelledByUserImpl implements CancelledByUser {
   @override
   String toString() {
     return 'FormFailure.cancelledByUser()';
-  ashwin
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$CancelledByUserImpl);
-  ashwin
+  }
 
   @override
   int get hashCode => runtimeType.hashCode;
@@ -633,9 +633,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function() serverFailure,
     required TResult Function() userNotFound,
     required TResult Function() cancelledByUser,
-  ashwin) {
+  }) {
     return cancelledByUser();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -645,9 +645,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function()? serverFailure,
     TResult? Function()? userNotFound,
     TResult? Function()? cancelledByUser,
-  ashwin) {
+  }) {
     return cancelledByUser?.call();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -658,12 +658,12 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function()? userNotFound,
     TResult Function()? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (cancelledByUser != null) {
       return cancelledByUser();
-    ashwin
+    }
     return orElse();
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -673,9 +673,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(CancelledByUser value) cancelledByUser,
-  ashwin) {
+  }) {
     return cancelledByUser(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -685,9 +685,9 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(UserNotFound value)? userNotFound,
     TResult? Function(CancelledByUser value)? cancelledByUser,
-  ashwin) {
+  }) {
     return cancelledByUser?.call(this);
-  ashwin
+  }
 
   @override
   @optionalTypeArgs
@@ -698,14 +698,14 @@ class _$CancelledByUserImpl implements CancelledByUser {
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(CancelledByUser value)? cancelledByUser,
     required TResult orElse(),
-  ashwin) {
+  }) {
     if (cancelledByUser != null) {
       return cancelledByUser(this);
-    ashwin
+    }
     return orElse();
-  ashwin
-ashwin
+  }
+}
 
 abstract class CancelledByUser implements FormFailure {
   const factory CancelledByUser() = _$CancelledByUserImpl;
-ashwin
+}

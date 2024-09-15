@@ -17,7 +17,7 @@ class RegisterUserModel {
       {required this.email,
       required this.password,
       required this.confirmPassword,
-      required this.userNameashwin);
+      required this.userName});
 
   factory RegisterUserModel.fromJson(Map<String, dynamic> json) =>
       RegisterUserModel(
@@ -31,5 +31,5 @@ class RegisterUserModel {
         "email": email,
         "password": password,
         "confirmPassword": confirmPassword,
-      ashwin;
-ashwin
+      };
+}

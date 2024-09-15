@@ -6,7 +6,7 @@ import 'package:tailme/presentation/Home/ScreenHome.dart';
 import 'package:tailme/presentation/SavedAddress/saved_address_screen.dart';
 
 void showDeleteConfirmationDialog(BuildContext context,
-    {required String addressIdashwin) {
+    {required String addressId}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -52,7 +52,7 @@ void showDeleteConfirmationDialog(BuildContext context,
 
                             Navigator.pop(context);
                           
-                  ashwin,
+                  },
                   child: const Text(
                     'Delete Address',
                     style: TextStyle(
@@ -67,7 +67,7 @@ void showDeleteConfirmationDialog(BuildContext context,
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(); // Close the dialog
-                ashwin,
+                },
                 child: Container(
                   alignment: Alignment.center,
                   width: double.infinity,
@@ -88,6 +88,6 @@ void showDeleteConfirmationDialog(BuildContext context,
           // Delete Button
         ],
       );
-    ashwin,
+    },
   );
-ashwin
+}

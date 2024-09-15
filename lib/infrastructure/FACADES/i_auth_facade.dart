@@ -6,29 +6,29 @@ abstract class IAuthFacade {
       {required String email,
       required String pass,
       required String cpass,
-      required String userNameashwin);
+      required String userName});
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
     required String emailAddress,
     required String password,
-  ashwin);
+  });
 
   Future<Either<AuthFailure, Unit>> otpVerification({
     required String otp,
     required String email,
-  ashwin);
+  });
 
-  Future<Either<AuthFailure, Unit>> resendOtp({required String emailashwin);
+  Future<Either<AuthFailure, Unit>> resendOtp({required String email});
 
-  Future<Either<AuthFailure, Unit>> forgetPassword({required String emailashwin);
+  Future<Either<AuthFailure, Unit>> forgetPassword({required String email});
 
   Future<Either<AuthFailure, String>> otpVerificationForReset({
     required String otp,
     required String email,
-  ashwin);
+  });
 
   Future<Either<AuthFailure, Unit>> resetPassword(
       {required String email,
       required String passwordResetToken,
       required String newPassword,
-      required String confirmPasswordashwin);
-ashwin
+      required String confirmPassword});
+}

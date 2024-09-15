@@ -12,7 +12,7 @@ class RegisterUserState with _$RegisterUserState {
     required Option<Either<AuthFailure, Unit>> successOrfailure,
     required bool isPassEyePressed,
     required bool isCpassEyePressed
-  ashwin) = _RegisterUserState;
+  }) = _RegisterUserState;
 
   factory RegisterUserState.intial() => const RegisterUserState(
         userName: '',
@@ -25,4 +25,4 @@ class RegisterUserState with _$RegisterUserState {
         isSubmitting: false,
         successOrfailure: None(),
       );
-ashwin
+}

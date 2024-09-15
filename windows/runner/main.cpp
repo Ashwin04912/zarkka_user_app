@@ -11,7 +11,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   // new console when running with a debugger.
   if (!::AttachConsole(ATTACH_PARENT_PROCESS) && ::IsDebuggerPresent()) {
     CreateAndAttachConsole();
-  ashwin
+  }
 
   // Initialize COM, so that it is available for use in the library and/or
   // plugins.
@@ -29,15 +29,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   Win32Window::Size size(1280, 720);
   if (!window.Create(L"tailme", origin, size)) {
     return EXIT_FAILURE;
-  ashwin
+  }
   window.SetQuitOnClose(true);
 
   ::MSG msg;
   while (::GetMessage(&msg, nullptr, 0, 0)) {
     ::TranslateMessage(&msg);
     ::DispatchMessage(&msg);
-  ashwin
+  }
 
   ::CoUninitialize();
   return EXIT_SUCCESS;
-ashwin
+}

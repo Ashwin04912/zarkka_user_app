@@ -20,11 +20,11 @@ class ScreenShop extends StatefulWidget {
     required this.shopname,
     required this.location,
     required this.image,
-  ashwin);
+  });
 
   @override
   State<ScreenShop> createState() => _ScreenShopState();
-ashwin
+}
 
 class _ScreenShopState extends State<ScreenShop> {
   String? dropdownValue;
@@ -50,7 +50,7 @@ class _ScreenShopState extends State<ScreenShop> {
               IconButton(
                 onPressed: () {
                   Navigator.pop(context);
-                ashwin,
+                },
                 icon: Row(
                   children: [
                     SvgPicture.asset(
@@ -137,7 +137,7 @@ class _ScreenShopState extends State<ScreenShop> {
                               onChanged: (newValue) {
                                 BlocProvider.of<ShopBloc>(context).add(
                                     const ShopEvent.alterationClickedEvent());
-                              ashwin,
+                              },
                             ),
                           ),
                           SizedBox(
@@ -164,12 +164,12 @@ class _ScreenShopState extends State<ScreenShop> {
                               onChanged: (newValue) {
                                 BlocProvider.of<ShopBloc>(context).add(
                                     const ShopEvent.stitchingClickedEvent());
-                              ashwin,
+                              },
                             ),
                           ),
                         ],
                       );
-                    ashwin,
+                    },
                   ),
                 ),
               ),
@@ -220,7 +220,7 @@ class _ScreenShopState extends State<ScreenShop> {
                               value: state.isEmbroidary,
                               onChanged: (value) {
                                BlocProvider.of<ShopBloc>(context).add( ShopEvent.embroidaryClickedEvent(isChecked: value!));
-                              ashwin,
+                              },
                             ),
                           ),
                           SizedBox(
@@ -246,12 +246,12 @@ class _ScreenShopState extends State<ScreenShop> {
                               value: state.isHandWork,
                               onChanged: (value) {
                                 BlocProvider.of<ShopBloc>(context).add( ShopEvent.handWorkClickedEvent(isChecked: value!));
-                              ashwin,
+                              },
                             ),
                           ),
                         ],
                       );
-                    ashwin,
+                    },
                   ),
                 ),
               ),
@@ -319,7 +319,7 @@ class _ScreenShopState extends State<ScreenShop> {
                   // final XFile? image =
                   //     await picker.pickImage(source: ImageSource.gallery);
                   //     print(image!.name);
-                ashwin,
+                },
                 child: Container(
                   width: double.infinity,
                   height: 85,
@@ -348,7 +348,7 @@ class _ScreenShopState extends State<ScreenShop> {
                             ),
                           ],
                         );
-                      ashwin
+                      }
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -365,7 +365,7 @@ class _ScreenShopState extends State<ScreenShop> {
                           ),
                         ],
                       );
-                    ashwin,
+                    },
                   ),
                 ),
               ),
@@ -422,8 +422,8 @@ class _ScreenShopState extends State<ScreenShop> {
                 onChanged: (String? newValue) {
                   setState(() {
                     dropdownValue = newValue;
-                  ashwin);
-                ashwin,
+                  });
+                },
                 iconStyleData: const IconStyleData(
                   iconSize: 14,
                   iconEnabledColor: Colors.white,
@@ -515,7 +515,7 @@ class _ScreenShopState extends State<ScreenShop> {
               //             ),
               //             const Spacer(),
               //             IconButton(
-              //               onPressed: () {ashwin,
+              //               onPressed: () {},
               //               icon: const Icon(
               //                 Icons.edit,
               //                 color: Colors.black,
@@ -535,7 +535,7 @@ class _ScreenShopState extends State<ScreenShop> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const ScreenMyOrders()));
-                ashwin,
+                },
               ),
               const SizedBox(height: 15),
             ],
@@ -543,5 +543,5 @@ class _ScreenShopState extends State<ScreenShop> {
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}

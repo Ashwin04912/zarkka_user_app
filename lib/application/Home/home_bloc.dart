@@ -29,15 +29,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             listIfSuccess: some(left(failure)),
             data : HomePageRespModel(status: failure.toString(), items: [])
           ));
-        ashwin, (list) {
+        }, (list) {
           emit(state.copyWith(
             isLoading: false,
             listIfSuccess: some(right(unit)),
             data: list
           ));
-        ashwin);
-      ashwin);
-    ashwin);
-  ashwin
-ashwin
+        });
+      });
+    });
+  }
+}
 ///

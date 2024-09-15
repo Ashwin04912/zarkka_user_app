@@ -4,14 +4,14 @@ part of 'login_bloc.dart';
 class LoginEvent with _$LoginEvent {
   const factory LoginEvent.loginButtonPressedEvent({
     required UserLogin user,
-  ashwin) = _LoginButtonPressedEvent;
+  }) = _LoginButtonPressedEvent;
 
  const factory LoginEvent.eyeButtonPressed() = _EyeButtonPressed;
   
   const factory LoginEvent.sendCodePressesEvent({
     required String email
-  ashwin) = _sendCodePressesEvent;
+  }) = _sendCodePressesEvent;
   
  
   
-ashwin
+}

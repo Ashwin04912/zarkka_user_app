@@ -10,7 +10,7 @@ class OtpVerificationState with _$OtpVerificationState {
     required Option<Either<AuthFailure, Unit>> successOrfailure,
     required Option<Either<AuthFailure, Unit>>
         newPasswordCreateSuccessOrFailure,
-  ashwin) = _OtpVerificationState;
+  }) = _OtpVerificationState;
 
   factory OtpVerificationState.initial() => const OtpVerificationState(
       isSubmitting: false,
@@ -19,4 +19,4 @@ class OtpVerificationState with _$OtpVerificationState {
       isResendOtp: false,
       resetPassToken: '',
       newPasswordCreateSuccessOrFailure: None());
-ashwin
+}

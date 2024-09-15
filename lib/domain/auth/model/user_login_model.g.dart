@@ -16,4 +16,4 @@ Map<String, dynamic> _$$UserLoginImplToJson(_$UserLoginImpl instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
-    ashwin;
+    };

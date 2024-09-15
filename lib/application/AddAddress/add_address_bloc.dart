@@ -37,7 +37,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isSubmiting: false,
             isNavigate: false,
           ));
-        ashwin,
+        },
         workPressed: (_) async {
           emit(state.copyWith(
             isHome: false,
@@ -52,7 +52,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isSubmiting: false,
             isNavigate: false,
           ));
-        ashwin,
+        },
         othersPressed: (_) async {
           emit(state.copyWith(
             isHome: false,
@@ -67,7 +67,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isSubmiting: false,
             isNavigate: false,
           ));
-        ashwin,
+        },
         submitPressed: (value) async {
           emit(state.copyWith(
             isSubmiting: true,
@@ -100,7 +100,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                   isSubmiting: false,
                   isNavigate: false,
                   addressess: AddressModel(status: '', addresses: [])));
-            ashwin,
+            },
             (success) {
               emit(state.copyWith(
                   showErrorMessages: false,
@@ -112,9 +112,9 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                       status: success.status, addresses: success.addresses)));
               // After adding address, trigger fetching all addresses
               // add(const AddAddressEvent.getAllAddress());
-            ashwin,
+            },
           );
-        ashwin,
+        },
         getAllAddress: (_) async {
           emit(state.copyWith(
             isGettingAddress: true,
@@ -138,7 +138,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 addressess: AddressModel(status: '', addresses: []),
                 isNavigate: false,
               ));
-            ashwin,
+            },
             (success) {
               emit(state.copyWith(
                 isGettingAddress: false,
@@ -151,9 +151,9 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                   addresses: success.addresses,
                 ),
               ));
-            ashwin,
+            },
           );
-        ashwin,
+        },
         deleteButtonPressed: (value) async {
           // Optimistic update: Remove address immediately
           final updatedAddresses = state.addressess.addresses
@@ -193,7 +193,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isEditDataGot: none(),
                 isNavigate: false,
               ));
-            ashwin,
+            },
             (success) {
               emit(state.copyWith(
                   isGettingAddress: false,
@@ -201,9 +201,9 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                   showErrorMessages: false,
                   isNavigate: false,
                   isEditDataGot: none()));
-            ashwin,
+            },
           );
-        ashwin,
+        },
         getCurrentLocation: (_getCurrentLocation value) async {
           emit(state.copyWith(
               isLocationLoading: true,
@@ -222,7 +222,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
               locality: placemark.locality.toString(),
               isEditDataGot: none(),
               isNavigate: true));
-        ashwin,
+        },
         editButtonPressedEvent: (_editButtonPressedEvent value) async {
           recoveryAddress= value.address;
           
@@ -251,7 +251,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
 
               ));
               add(const AddAddressEvent.getAllAddress());
-            ashwin,
+            },
             (success) {
               // Check address type and set the appropriate flags
               bool isHome =
@@ -276,10 +276,10 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isOthers: isOthers,
               ));
               add(const AddAddressEvent.getAllAddress());
-            ashwin,
+            },
             
           );
-        ashwin,
+        },
         editSubmitButtonPressedEvent:
             (_editSubmitButtonPressedEvent value) async {
           emit(state.copyWith(
@@ -314,7 +314,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                   isSubmiting: false,
                   isNavigate: false,
                   addressess: AddressModel(status: '', addresses: [])));
-            ashwin,
+            },
             (success) {
               emit(state.copyWith(
                   showErrorMessages: false,
@@ -326,10 +326,10 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                       status: success.status, addresses: success.addresses)));
               // After adding address, trigger fetching all addresses
               add(const AddAddressEvent.getAllAddress());
-            ashwin,
+            },
           );
-        ashwin,
+        },
       );
-    ashwin);
-  ashwin
-ashwin
+    });
+  }
+}

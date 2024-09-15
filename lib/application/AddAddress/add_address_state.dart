@@ -22,7 +22,7 @@ class AddAddressState with _$AddAddressState {
     required Option<Either<FormFailure,Unit>> isEditDataGot,
     required String landmark,
     required bool isNavigate,
-  ashwin) = _AddAddressState;
+  }) = _AddAddressState;
 
   factory AddAddressState.initial() => AddAddressState(
         isHome: true,
@@ -47,4 +47,4 @@ class AddAddressState with _$AddAddressState {
           addresses: [], 
         ),
       );
-ashwin
+}

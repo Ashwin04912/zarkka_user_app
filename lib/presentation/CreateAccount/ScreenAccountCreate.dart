@@ -4,11 +4,11 @@ import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/datePickerformfield.dart';
 
 class ScreenAccountCreate extends StatefulWidget {
-  const ScreenAccountCreate({super.keyashwin);
+  const ScreenAccountCreate({super.key});
 
   @override
   State<ScreenAccountCreate> createState() => _ScreenAccountCreateState();
-ashwin
+}
 
 class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
   TextEditingController shopNameController = TextEditingController();
@@ -35,7 +35,7 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
     _dateController = TextEditingController();
     _selectedDate = DateTime.now();
     _dateController.text = _selectedDate.toString().split(' ')[0];
-  ashwin
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -48,9 +48,9 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
       setState(() {
         _selectedDate = picked;
         _dateController.text = _selectedDate.toString().split(' ')[0];
-      ashwin);
-    ashwin
-  ashwin
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -203,8 +203,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       maleQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -222,8 +222,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       femaleQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -241,8 +241,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       bothQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                           ],
                         ),
@@ -285,8 +285,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       churidarQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -304,8 +304,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       nightyQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -323,8 +323,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       blouseQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -342,8 +342,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       topQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -361,8 +361,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       reShaping = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -380,8 +380,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       pantQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                             SizedBox(
                               height: 40,
@@ -399,8 +399,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       othersQn = newValue!;
-                                    ashwin);
-                                  ashwin),
+                                    });
+                                  }),
                             ),
                           ],
                         ),
@@ -483,8 +483,8 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
                           //   'services':services,
                           //   'Date of Establishing': _selectedDate,
 
-                          // ashwin).then((value) => print("shop added"));
-                        ashwin,
+                          // }).then((value) => print("shop added"));
+                        },
                       )
                     ],
                   ),
@@ -495,5 +495,5 @@ class _ScreenAccountCreateState extends State<ScreenAccountCreate> {
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}

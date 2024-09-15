@@ -10,7 +10,7 @@ import 'package:tailme/core/widgets/imagewithtext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({super.keyashwin);
+  const ScreenHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class ScreenHome extends StatelessWidget {
                         onTap: () {
                           BlocProvider.of<HomeBloc>(context)
                               .add(const HomeEvent.getItems(category: "Women"));
-                        ashwin,
+                        },
                         child: ImageWithText(
                           imagePath: 'assets/images/women.png',
                           text: 'Women',
@@ -67,7 +67,7 @@ class ScreenHome extends StatelessWidget {
                         onTap: () {
                           BlocProvider.of<HomeBloc>(context)
                               .add(const HomeEvent.getItems(category: "Men"));
-                        ashwin,
+                        },
                         child: ImageWithText(
                           imagePath: 'assets/images/men.jpg',
                           text: 'Men',
@@ -81,7 +81,7 @@ class ScreenHome extends StatelessWidget {
                       onTap: () {
                         BlocProvider.of<HomeBloc>(context)
                             .add(const HomeEvent.getItems(category: "Kids"));
-                      ashwin,
+                      },
                       child: Container(
                         width: ScreenUtil().setWidth(103.67),
                         height: ScreenUtil().setHeight(44),
@@ -142,7 +142,7 @@ class ScreenHome extends StatelessWidget {
                           ),
                         ),
                       );
-                    ashwin,
+                    },
                   ),
                 ),
                 Padding(
@@ -162,7 +162,7 @@ class ScreenHome extends StatelessWidget {
                 ),
                 BlocConsumer<HomeBloc, HomeState>(
                   listener: (context, state) {
-                    state.listIfSuccess.fold(() {ashwin, (some) {
+                    state.listIfSuccess.fold(() {}, (some) {
                       some.fold((failure) {
                         final message = failure.maybeWhen(
                           userNotFound: () =>
@@ -175,9 +175,9 @@ class ScreenHome extends StatelessWidget {
                           message,
                           style: const TextStyle(color: Colors.red),
                         )));
-                      ashwin, (success) {ashwin);
-                    ashwin);
-                  ashwin,
+                      }, (success) {});
+                    });
+                  },
                   builder: (context, state) {
                     if (state.isLoading) {
                       // Shimmer loading state
@@ -206,9 +206,9 @@ class ScreenHome extends StatelessWidget {
                               ),
                             ),
                           );
-                        ashwin,
+                        },
                       );
-                    ashwin else {
+                    } else {
                       // Actual data rendering
                       final homeListResp = state.data.items;
                       return GridView.builder(
@@ -235,8 +235,8 @@ class ScreenHome extends StatelessWidget {
                                   location: "Ernakulam",
                                   image: element.images[0],
                                 );
-                              ashwin));
-                            ashwin,
+                              }));
+                            },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
                               child: SizedBox(
@@ -295,10 +295,10 @@ class ScreenHome extends StatelessWidget {
                               ),
                             ),
                           );
-                        ashwin,
+                        },
                       );
-                    ashwin
-                  ashwin,
+                    }
+                  },
                 )
               ],
             ),
@@ -306,5 +306,5 @@ class ScreenHome extends StatelessWidget {
         ),
       ),
     );
-  ashwin
-ashwin
+  }
+}

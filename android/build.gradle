@@ -3,28 +3,28 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-    ashwin
+    }
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    ashwin
-ashwin
+    }
+}
 
 allprojects {
     repositories {
         google()
         mavenCentral()
-    ashwin
-ashwin
+    }
+}
 
 rootProject.buildDir = '../build'
 subprojects {
-    project.buildDir = "${rootProject.buildDirashwin/${project.nameashwin"
-ashwin
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
 subprojects {
     project.evaluationDependsOn(':app')
-ashwin
+}
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
-ashwin
+}

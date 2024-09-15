@@ -5,11 +5,11 @@ import 'package:tailme/presentation/Orders/ScreenOrders.dart';
 import 'package:tailme/presentation/ProfileTab/ScreenProfile.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({Key? keyashwin) : super(key: key);
+  const BottomNavigation({Key? key}) : super(key: key);
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
-ashwin
+}
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
@@ -23,8 +23,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    ashwin);
-  ashwin
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,5 +92,5 @@ class _BottomNavigationState extends State<BottomNavigation> {
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
     );
-  ashwin
-ashwin
+  }
+}

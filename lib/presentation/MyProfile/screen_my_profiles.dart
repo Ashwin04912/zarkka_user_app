@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/presentation/Logo/ScreenLogo.dart';
+import 'package:tailme/theme_util.dart';
 
 class ScreenMyProfiles extends StatefulWidget {
-  const ScreenMyProfiles({Key? key}) : super(key: key);
+   const ScreenMyProfiles({super.key});
 
   @override
   State<ScreenMyProfiles> createState() => _ScreenMyProfilesState();
@@ -36,14 +37,23 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     // FirebaseAuth auth = FirebaseAuth.instance;
     // User? user = auth.currentUser;
     // String? uid = user?.uid;
     return Scaffold(
-      backgroundColor: const Color(0xFF343333),
+      backgroundColor:isDarkMode? const Color(0xFF343333):Colors.white,
       appBar: AppBar(
-        foregroundColor: Colors.white,
-        backgroundColor: const Color(0xFF343333),
+        foregroundColor: Colors.transparent,
+        backgroundColor:Colors.transparent,
+        leading: InkWell(
+          onTap: ()=>Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SvgPicture.asset('assets/images/back_arrow.svg',color:isDarkMode? Colors.white:Colors.black,),
+          ),
+        ),
+        // leading: Icon(Icons.arrow_back,color:isDarkMode? Colors.white:Colors.black,),
       ),
       body: Padding(
         padding: EdgeInsets.only(left: 26.w, right: 26.w),
@@ -53,7 +63,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
             Center(
               child: SvgPicture.asset(
                 "assets/images/Face_Id41.svg",
-                color: Colors.white,
+                color:isDarkMode? Colors.white: Colors.black,
               ),
             ),
             SizedBox(
@@ -62,8 +72,8 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
             Center(
               child: Text(
                 "$name\n",
-                style: const TextStyle(
-                  color: Colors.white,
+                style:  TextStyle(
+                  color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                   fontSize: 16,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.w800,
@@ -81,10 +91,10 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                 Text(
                   "Mobile",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                     fontSize: 16,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w800,
@@ -92,38 +102,38 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                 ),
                 Text(
                   phoneNumber.toString(), // Access 'Phone' field here
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style:  TextStyle(
+                    color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                     fontSize: 16,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const Text(
+                 Text(
                   'Email Id',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                     fontSize: 16,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w800,
                     height: 5,
                   ),
                 ),
-                const Text(
+                 Text(
                   "Ashwin",
                   // FirebaseAuth.instance.currentUser!.email.toString(),
                   style: TextStyle(
-                    color: Colors.white,
+                    color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                     fontSize: 16,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w400,
                     height: -2,
                   ),
                 ),
-                const Text(
+                 Text(
                   'Gender',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                     fontSize: 16,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w800,
@@ -132,8 +142,8 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                 ),
                 Text(
                   gender.toString(),
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style:  TextStyle(
+                    color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                     fontSize: 16,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w400,
@@ -145,7 +155,7 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
             SizedBox(
               height: 30.h,
             ),
-            const Divider(),
+             const Divider(),
             SizedBox(
               height: 70.h,
             ),
@@ -165,13 +175,13 @@ class _ScreenMyProfilesState extends State<ScreenMyProfiles> {
                       children: [
                         SvgPicture.asset(
                           "assets/images/Sign_out_button.svg",
-                          color: Colors.white,
+                          color: isDarkMode? Colors.white:  const Color(0xFF1D1D1D),
                         ),
                         SizedBox(width: 8.w),
-                        const Text(
+                         Text(
                           'Signout',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: isDarkMode? Colors.white: const Color(0xFF1D1D1D),
                             fontSize: 15,
                             fontFamily: 'Raleway',
                             fontWeight: FontWeight.w800,

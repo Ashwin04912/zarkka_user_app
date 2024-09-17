@@ -10,6 +10,7 @@ import 'package:tailme/presentation/PaymentSuccess/ScreenPaymentSuccess.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/verification_completed.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/presentation/auth/forgetpassword/new_password_screen.dart';
+import 'package:tailme/theme_util.dart';
 
 class ScreenOtpVerfication extends StatefulWidget {
   final String email;
@@ -34,8 +35,9 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(111, 118, 130, 0.37),
+      // backgroundColor: const Color.fromRGBO(111, 118, 130, 0.37),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
@@ -98,20 +100,20 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                   children: [
                     
                     SizedBox(height: 55.h),
-                    const Text(
+                     Text(
                       'OTP Verification',
                       style: TextStyle(
-                        color: Colors.white,
+                        color:isDarkMode? Colors.white :Colors.black,
                         fontFamily: 'urbanist',
                         fontWeight: FontWeight.w700,
                         fontSize: 30,
                       ),
                     ),
                     SizedBox(height: 8.h),
-                    const Text(
+                     Text(
                       'Enter the verification code we just sent on your email address.',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 172, 166, 166),
+                        color:isDarkMode?  Color.fromARGB(255, 172, 166, 166):Color(0xFFCF7000),
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
                         fontFamily: 'urbanist',
@@ -143,7 +145,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                             child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all<Color>(
-                                  const Color(0xFFFFAC4B),
+                                  const  Color(0xFF0075BE),
                                 ),
                                 shape: WidgetStateProperty.all<
                                     RoundedRectangleBorder>(
@@ -161,6 +163,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                                 print(widget.email);
                                 print(widget.isForget);
                                 if (widget.isForget) {
+                                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>ScreenNewPassword(email: '')));
                                   BlocProvider.of<OtpVerificationBloc>(context)
                                       .add(OtpVerificationEvent
                                           .otpVerificationForResetEvent(
@@ -190,10 +193,10 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text(
+                               Text(
                                 'Didn’t receive the code?',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color:isDarkMode? Colors.white :Colors.black,
                                   fontFamily: 'urbanist',
                                   fontSize: 15,
                                   fontWeight: FontWeight.w700,
@@ -213,7 +216,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
                                 child: const Text(
                                   'Resend',
                                   style: TextStyle(
-                                    color: Colors.cyan,
+                                    color: Color(0xFFCF7000),
                                     fontFamily: 'urbanist',
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
@@ -238,6 +241,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
   Widget buildOtpField(BuildContext context, TextEditingController controller) {
     return Container(
       decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.r),
       ),

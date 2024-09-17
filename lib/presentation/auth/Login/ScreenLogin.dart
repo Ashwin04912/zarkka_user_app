@@ -10,6 +10,7 @@ import 'package:tailme/domain/auth/Login/model/user_login_model.dart';
 import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 import 'package:tailme/presentation/auth/RegisterUser/register_user.dart';
 import 'package:tailme/presentation/auth/forgetpassword/screen_forget_pass.dart';
+import 'package:tailme/theme_util.dart';
 
 // Importing bottom navigation screen
 
@@ -31,6 +32,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     debugPrint("build print");
     // Initialize ScreenUtil for width and height adaptation
 
@@ -87,14 +89,14 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                 height: ScreenUtil().setHeight(30),
                                 width: ScreenUtil().setWidth(30),
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color:isDarkMode? Colors.white :Colors.black,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: SvgPicture.asset(
                                     'assets/images/back_arrow.svg',
-                                    color: Colors.black,
+                                    color:isDarkMode? Colors.black:Colors.white,
                                   ),
                                 ),
                               ),
@@ -105,10 +107,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
                             SizedBox(
                               height: ScreenUtil().setHeight(85),
                               width: ScreenUtil().setWidth(280),
-                              child: const Text(
+                              child:  Text(
                                 'Welcome back! Glad to see you, Again!',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: isDarkMode? Colors.white :Colors.black,
                                   fontSize: 30,
                                   fontFamily: 'Urbanist',
                                   fontWeight: FontWeight.w700,
@@ -221,11 +223,11 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                   onPressed: (){
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>const ScreenForgetPass()));
                                   },
-                                  child: const Text(
+                                  child:  Text(
                                     
                                     'Forgot Password?',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color:isDarkMode? Colors.white: Colors.black,
                                       fontSize: 14,
                                       fontFamily: 'Urbanist',
                                       fontWeight: FontWeight.w600,
@@ -275,8 +277,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                         style: ButtonStyle(
                                           backgroundColor:
                                               WidgetStateProperty.all<Color>(
-                                            const Color(
-                                                0xFFFFAC4B), // Set background color here
+                                            const  Color(0xFF0075BE), // Set background color here
                                           ),
                                           shape: WidgetStateProperty.all<
                                               RoundedRectangleBorder>(
@@ -428,10 +429,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
                   Text.rich(
                     TextSpan(
                       children: [
-                        const TextSpan(
+                         TextSpan(
                           text: 'Don’t have an account? ',
                           style: TextStyle(
-                            color: Colors.white,
+                            color:isDarkMode? Colors.white :Colors.black,
                             fontSize: 15,
                             fontFamily: 'Urbanist',
                             fontWeight: FontWeight.w500,
@@ -441,8 +442,8 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         ),
                         TextSpan(
                           text: 'Register Now',
-                          style: const TextStyle(
-                            color: Color(0xFFB9FFFE),
+                          style:  TextStyle(
+                            color: isDarkMode ?Color(0xFFB9FFFE): Color(0xFFFFAC4B),
                             fontSize: 15,
                             fontFamily: 'Urbanist',
                             fontWeight: FontWeight.w700,

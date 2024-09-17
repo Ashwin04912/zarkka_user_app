@@ -7,6 +7,7 @@ import 'package:tailme/presentation/ContactUs/ScreenContactUs.dart';
 import 'package:tailme/presentation/MyProfile/screen_my_profiles.dart';
 import 'package:tailme/core/widgets/ProfileRepeating.dart';
 import 'package:tailme/presentation/SavedAddress/saved_address_screen.dart';
+import 'package:tailme/theme_util.dart';
 
 class ScreenProfile extends StatefulWidget {
   const ScreenProfile({super.key});
@@ -18,8 +19,9 @@ class ScreenProfile extends StatefulWidget {
 class _ScreenProfileState extends State<ScreenProfile> {
   @override
   Widget build(BuildContext context) {
+   bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
-      backgroundColor: const Color(0xFF343333),
+      backgroundColor:isDarkMode? const Color(0xFF343333): Colors.white,  
       body: Padding(
         padding: EdgeInsets.only(
             top: 101.h, left: 22.w, right: 22.w), // Using .h and .w

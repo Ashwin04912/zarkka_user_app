@@ -317,8 +317,7 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                     style: ButtonStyle(
                                       backgroundColor:
                                           WidgetStateProperty.all<Color>(
-                                        const Color(
-                                            0xFFFFAC4B), // Set background color here
+                                        const Color(0xFF0075BE), // Set background color here
                                       ),
                                       shape: WidgetStateProperty.all<
                                           RoundedRectangleBorder>(

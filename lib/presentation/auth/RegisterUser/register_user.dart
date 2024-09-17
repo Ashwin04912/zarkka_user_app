@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/application/auth/RegisterUser/register_user_bloc.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
+import 'package:tailme/theme_util.dart';
 
 import '../../../domain/auth/RegisterUser/model/user_register_model.dart';
 
@@ -31,9 +32,10 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFF343333),
+        // backgroundColor: const Color(0xFF343333),
         body: Column(
           children: [
             Expanded(
@@ -58,9 +60,10 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             debugPrint("navigate work");
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                       ScreenOtpVerfication(email: emailController.text, isForget: false,)),
-                              
+                                  builder: (context) => ScreenOtpVerfication(
+                                        email: emailController.text,
+                                        isForget: false,
+                                      )),
                             );
                           });
                         },
@@ -83,14 +86,17 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 height: 30,
                                 width: 30,
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: SvgPicture.asset(
                                     'assets/images/back_arrow.svg',
-                                    color: Colors.black,
+                                    color: isDarkMode
+                                        ? Colors.black
+                                        : Colors.white,
                                   ),
                                 ),
                               ),
@@ -98,13 +104,14 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             const SizedBox(
                               height: 20,
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 85,
                               width: 280,
                               child: Text(
                                 'Welcome back! Glad to see you, Again!',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black,
                                   fontSize: 30,
                                   fontFamily: 'Urbanist',
                                   fontWeight: FontWeight.w700,
@@ -114,7 +121,18 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             const SizedBox(
                               height: 57,
                             ),
+                            Text(
+                              "Username",
+                              style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  height: 2,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black),
+                            ),
                             TextFormField(
+                              style: const TextStyle(color: Colors.black,fontFamily: 'Raleway'),
+                              cursorColor: Colors.black,
                               controller: usernameController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -148,7 +166,18 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             const SizedBox(
                               height: 15,
                             ),
+                            Text(
+                              "Email",
+                              style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  height: 2,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black),
+                            ),
                             TextFormField(
+                               style: const TextStyle(color: Colors.black,fontFamily: 'Raleway'),
+                              cursorColor: Colors.black,
                               controller: emailController,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -184,7 +213,18 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             const SizedBox(
                               height: 15,
                             ),
+                            Text(
+                              "password",
+                              style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  height: 2,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black),
+                            ),
                             TextFormField(
+                               style: const TextStyle(color: Colors.black,fontFamily: 'Raleway'),
+                              cursorColor: Colors.black,
                               obscureText: state.isPassEyePressed,
                               controller: passwordController,
                               validator: (value) {
@@ -232,7 +272,18 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             const SizedBox(
                               height: 15,
                             ),
+                            Text(
+                              "Confirm Password",
+                              style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  height: 2,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black),
+                            ),
                             TextFormField(
+                               style: const TextStyle(color: Colors.black,fontFamily: 'Raleway'),
+                              cursorColor: Colors.black,
                               obscureText: state.isCpassEyePressed,
                               controller: confirmPasswordController,
                               validator: (value) {
@@ -280,11 +331,10 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                             const SizedBox(
                               height: 50,
                             ),
-                            BlocBuilder<RegisterUserBloc,
-                                RegisterUserState>(
+                            BlocBuilder<RegisterUserBloc, RegisterUserState>(
                               builder: (context, state) {
                                 if (state.isSubmitting) {
-                                  return  Center(
+                                  return Center(
                                     child: LoadingAnimationWidget.stretchedDots(
                                       size: 50,
                                       color: Colors.blue,
@@ -292,8 +342,8 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                   );
                                 }
                                 return SizedBox(
-                                   width: double.infinity,
-                                height: ScreenUtil().setHeight(50),
+                                  width: double.infinity,
+                                  height: ScreenUtil().setHeight(50),
                                   child: ElevatedButton(
                                     onPressed: () async {
                                       _isButtonClicked = true;
@@ -317,7 +367,8 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                     style: ButtonStyle(
                                       backgroundColor:
                                           WidgetStateProperty.all<Color>(
-                                        const Color(0xFF0075BE), // Set background color here
+                                        const Color(
+                                            0xFF0075BE), // Set background color here
                                       ),
                                       shape: WidgetStateProperty.all<
                                           RoundedRectangleBorder>(
@@ -361,10 +412,12 @@ class _ScreenUserRegistrationState extends State<ScreenUserRegistration> {
                                 const SizedBox(
                                   width: 5,
                                 ),
-                                const Text(
+                                Text(
                                   'Or Login with',
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: isDarkMode
+                                        ? Colors.white
+                                        : Colors.black,
                                     fontSize: 14,
                                     fontFamily: 'Urbanist',
                                     fontWeight: FontWeight.w600,

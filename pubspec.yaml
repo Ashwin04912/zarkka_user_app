@@ -3,6 +3,8 @@ description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
 
+
+
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -56,6 +58,8 @@ dependencies:
   shimmer: ^3.0.0
   image_picker: ^1.1.2
   dotted_border: ^2.1.0
+  flutter_launcher_icons: ^0.13.1
+  rename_app: ^1.6.1
 
 
 dev_dependencies:

@@ -47,7 +47,15 @@ class MainApp extends StatelessWidget {
         ],
         child: MaterialApp(
           darkTheme: ThemeData(
-            
+            // textTheme: const TextTheme(
+            //   bodyLarge: TextStyle(
+            //     color: Color(0xFF1D1D1D),
+            //     fontSize: 15,
+            //     fontFamily: 'Urbanist',
+            //     fontWeight: FontWeight.w500,
+            //     height: 0.08,
+            //   ),
+            // ),
             appBarTheme: const AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle(
                 // Status bar color
@@ -65,6 +73,15 @@ class MainApp extends StatelessWidget {
           ),
           themeMode: ThemeMode.system,
           theme: ThemeData(
+            // textTheme: const TextTheme(
+            //   bodyLarge: TextStyle(
+            //     color: Color(0xFF1D1D1D),
+            //     fontSize: 15,
+            //     fontFamily: 'Urbanist',
+            //     fontWeight: FontWeight.w500,
+            //     height: 0.08,
+            //   ),
+            // ),
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle(

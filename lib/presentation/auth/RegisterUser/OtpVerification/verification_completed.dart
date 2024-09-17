@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/presentation/auth/Login/ScreenLogin.dart';
 
+import '../../../../theme_util.dart';
+
 class OtpVerificationCompleted extends StatefulWidget {
   final bool isResetPass;
   const OtpVerificationCompleted({super.key, required this.isResetPass});
@@ -43,6 +45,7 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     double circleSize = 140.h;
     double iconSize = 108.h;
 
@@ -70,7 +73,7 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
                         axisAlignment: -1,
                         child: Center(
                             child: Icon(Icons.check,
-                                color: Colors.white, size: iconSize))),
+                                color: Colors.white , size: iconSize))),
                   ),
                 ),
               ),
@@ -83,7 +86,7 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
                       ? Text(
                           'Password Changed!',
                           style: TextStyle(
-                              color: Colors.white,
+                              color:isDarkMode? isDarkMode? Colors.white :Colors.black :Colors.black,
                               fontSize: 24.sp,
                               fontFamily: 'Urbanist',
                               fontWeight: FontWeight.w600),
@@ -91,18 +94,18 @@ class _OtpVerificationCompletedState extends State<OtpVerificationCompleted>
                       : Text(
                           'Otp Verification Completed',
                           style: TextStyle(
-                              color: Colors.white,
+                              color: isDarkMode? Colors.white :Colors.black,
                               fontSize: 24.sp,
                               fontFamily: 'Urbanist',
                               fontWeight: FontWeight.w600),
                         ),
                         const SizedBox(height: 5,),
                   widget.isResetPass
-                      ? const Text(
+                      ?  Text(
                           'Your password has been changed \n successfully.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Color(0xFF8390A1),
+                            color:isDarkMode? Color(0xFF8390A1) :Colors.black,
                             fontSize: 15,
                             fontFamily: 'Urbanist',
                             fontWeight: FontWeight.w500,

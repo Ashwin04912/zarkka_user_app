@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/presentation/my_orders/screen_my_orders.dart';
+import 'package:tailme/theme_util.dart';
 
 import '../../application/shop/shop_bloc.dart';
 
@@ -39,6 +41,7 @@ class _ScreenShopState extends State<ScreenShop> {
   ];
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
       appBar: ReusableWidgets.getAppBar(context),
       body: SingleChildScrollView(
@@ -55,14 +58,14 @@ class _ScreenShopState extends State<ScreenShop> {
                   children: [
                     SvgPicture.asset(
                       'assets/images/back_arrow.svg',
-                      color: Colors.white,
+                      color: isDarkMode ? Colors.white : Colors.black,
                       height: 20,
                     ),
                     const SizedBox(width: 5),
                     Text(
                       widget.shopname,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: isDarkMode ? Colors.white : Colors.black,
                         fontSize: 24,
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w700,
@@ -77,7 +80,8 @@ class _ScreenShopState extends State<ScreenShop> {
                 height: 140,
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
-                  color: const Color(0xFFBCAD92),
+                  color:
+                      isDarkMode ? const Color(0xFFBCAD92) : Colors.transparent,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),
@@ -88,14 +92,16 @@ class _ScreenShopState extends State<ScreenShop> {
                 ),
               ),
               const SizedBox(height: 10),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     'Choose one',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color(0xFFA2A2A2),
+                      color: isDarkMode
+                          ? const Color(0xFFA2A2A2)
+                          : const Color(0xFF363636),
                       fontSize: 12,
                       fontFamily: 'Raleway',
                       fontWeight: FontWeight.w600,
@@ -108,8 +114,10 @@ class _ScreenShopState extends State<ScreenShop> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Container(
                   decoration: BoxDecoration(
+                    border: Border.all(
+                        color: isDarkMode ? Colors.transparent : Colors.black),
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[700],
+                    color: isDarkMode ? Colors.grey[700] : Colors.transparent,
                   ),
                   width: double.infinity,
                   child: BlocBuilder<ShopBloc, ShopState>(
@@ -121,13 +129,17 @@ class _ScreenShopState extends State<ScreenShop> {
                             child: CheckboxListTile(
                               activeColor: Colors.black,
                               side: WidgetStateBorderSide.resolveWith(
-                                  (states) => const BorderSide(
-                                      width: 1, color: Colors.white)),
+                                  (states) => BorderSide(
+                                      width: 1,
+                                      color: isDarkMode
+                                          ? Colors.white
+                                          : const Color(0xFF616161))),
                               checkColor: Colors.white,
-                              title: const Text(
+                              title: Text(
                                 "Alteration", // Use the title relevant to each option
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black,
                                   fontSize: 16,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w400,
@@ -140,18 +152,29 @@ class _ScreenShopState extends State<ScreenShop> {
                               },
                             ),
                           ),
+                          Divider(
+                            thickness: 1,
+                            color: isDarkMode
+                                ? const Color.fromARGB(255, 172, 158, 158)
+                                : Colors.black,
+                          ),
                           SizedBox(
                             height: 50.h,
                             child: CheckboxListTile(
                               activeColor: Colors.black,
                               side: WidgetStateBorderSide.resolveWith(
-                                  (states) => const BorderSide(
-                                      width: 1, color: Colors.white)),
+                                  (states) => BorderSide(
+                                        width: 1,
+                                        color: isDarkMode
+                                            ? Colors.white
+                                            : const Color(0xFF616161),
+                                      )),
                               checkColor: Colors.white,
-                              title: const Text(
+                              title: Text(
                                 "Stitching", // Use the title relevant to each option
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black,
                                   fontSize: 16,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w400,
@@ -176,12 +199,14 @@ class _ScreenShopState extends State<ScreenShop> {
               const SizedBox(
                 height: 10,
               ),
-              const Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Text(
                   'Add on',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color(0xFFA2A2A2),
+                    color: isDarkMode
+                        ? const Color(0xFFA2A2A2)
+                        : const Color(0xFF363636),
                     fontSize: 12,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w600,
@@ -192,8 +217,10 @@ class _ScreenShopState extends State<ScreenShop> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Container(
                   decoration: BoxDecoration(
+                    border: Border.all(
+                        color: isDarkMode ? Colors.transparent : Colors.black),
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[700],
+                    color: isDarkMode ? Colors.grey[700] : Colors.transparent,
                   ),
                   width: double.infinity,
                   child: BlocBuilder<ShopBloc, ShopState>(
@@ -205,13 +232,17 @@ class _ScreenShopState extends State<ScreenShop> {
                             child: CheckboxListTile(
                               activeColor: Colors.black,
                               side: WidgetStateBorderSide.resolveWith(
-                                  (states) => const BorderSide(
-                                      width: 1, color: Colors.white)),
+                                  (states) => BorderSide(
+                                      width: 1,
+                                      color: isDarkMode
+                                          ? Colors.white
+                                          : const Color(0xFF616161))),
                               checkColor: Colors.white,
-                              title: const Text(
+                              title: Text(
                                 "Embroidery", // Use the title relevant to each option
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black,
                                   fontSize: 16,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w400,
@@ -219,22 +250,34 @@ class _ScreenShopState extends State<ScreenShop> {
                               ),
                               value: state.isEmbroidary,
                               onChanged: (value) {
-                               BlocProvider.of<ShopBloc>(context).add( ShopEvent.embroidaryClickedEvent(isChecked: value!));
+                                BlocProvider.of<ShopBloc>(context).add(
+                                    ShopEvent.embroidaryClickedEvent(
+                                        isChecked: value!));
                               },
                             ),
+                          ),
+                          Divider(
+                            thickness: 1,
+                            color: isDarkMode
+                                ? const Color.fromARGB(255, 172, 158, 158)
+                                : Colors.black,
                           ),
                           SizedBox(
                             height: 50.h,
                             child: CheckboxListTile(
                               activeColor: Colors.black,
                               side: WidgetStateBorderSide.resolveWith(
-                                  (states) => const BorderSide(
-                                      width: 1, color: Colors.white)),
+                                  (states) => BorderSide(
+                                      width: 1,
+                                      color: isDarkMode
+                                          ? Colors.white
+                                          : const Color(0xFF616161))),
                               checkColor: Colors.white,
-                              title: const Text(
+                              title: Text(
                                 "Handwork", // Use the title relevant to each option
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black,
                                   fontSize: 16,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w400,
@@ -245,7 +288,9 @@ class _ScreenShopState extends State<ScreenShop> {
 
                               value: state.isHandWork,
                               onChanged: (value) {
-                                BlocProvider.of<ShopBloc>(context).add( ShopEvent.handWorkClickedEvent(isChecked: value!));
+                                BlocProvider.of<ShopBloc>(context).add(
+                                    ShopEvent.handWorkClickedEvent(
+                                        isChecked: value!));
                               },
                             ),
                           ),
@@ -255,11 +300,13 @@ class _ScreenShopState extends State<ScreenShop> {
                   ),
                 ),
               ),
-              const Text(
+              Text(
                 'Describe additional design',
                 textAlign: TextAlign.right,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: isDarkMode
+                      ? const Color(0xFFA2A2A2)
+                      : const Color(0xFF363636),
                   fontSize: 17,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.w400,
@@ -291,15 +338,19 @@ class _ScreenShopState extends State<ScreenShop> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color: const Color(0xFF616161),
+                    border: Border.all(color:isDarkMode? Colors.transparent: Colors.black),
+                    color: isDarkMode
+                        ? const Color(0xFF616161)
+                        : Colors.transparent,
                     borderRadius: BorderRadius.circular(10)),
                 child: TextFormField(
                   style: const TextStyle(color: Colors.white),
                   maxLines: 3,
-                  decoration: const InputDecoration(
-                      hintText: "      eg : Straight Cut Salwar Suit",
+                  decoration: InputDecoration(
+                      hintText: "    eg : Straight Cut Salwar Suit",
                       hintStyle: TextStyle(
-                        color: Color(0x99E8E8E8),
+                        color:
+                            isDarkMode ? const Color(0x99E8E8E8) : Colors.black,
                         fontSize: 10,
                         fontFamily: 'Urbanist',
                         fontWeight: FontWeight.w500,
@@ -311,6 +362,16 @@ class _ScreenShopState extends State<ScreenShop> {
                 ),
               ),
               const SizedBox(height: 20),
+              Text(
+                'Upload your reference design here',
+                style: TextStyle(
+                  color:isDarkMode?Colors.white: const Color(0xFF030303),
+                  fontSize: 8,
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w500,
+                  height: 4,
+                ),
+              ),
               InkWell(
                 onTap: () async {
                   BlocProvider.of<ShopBloc>(context)
@@ -320,26 +381,54 @@ class _ScreenShopState extends State<ScreenShop> {
                   //     await picker.pickImage(source: ImageSource.gallery);
                   //     print(image!.name);
                 },
-                child: Container(
-                  width: double.infinity,
-                  height: 85,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFF616161),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                child: DottedBorder(
+                  color: isDarkMode ? Colors.white : Colors.blue,
+                  strokeWidth: 1,
+                  borderType: BorderType.RRect,
+                  radius: const Radius.circular(10),
+                  child: Container(
+                    
+                    width: double.infinity,
+                    height: 85,
+                    decoration: ShapeDecoration(
+                      
+                      color: isDarkMode
+                          ? const Color(0xFF616161)
+                          : Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
-                  ),
-                  child: BlocBuilder<ShopBloc, ShopState>(
-                    builder: (context, state) {
-                      if (state.isLoaded) {
+                    child: BlocBuilder<ShopBloc, ShopState>(
+                      builder: (context, state) {
+                        if (state.isLoaded) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // SvgPicture.asset('assets/images/home/upload.svg'),
+                              Text(
+                                state.fileName,
+                                style: TextStyle(
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.blue,
+                                  fontSize: 13,
+                                  fontFamily: 'Urbanist',
+                                  fontWeight: FontWeight.w500,
+                                  height: 0,
+                                ),
+                              ),
+                            ],
+                          );
+                        }
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // SvgPicture.asset('assets/images/home/upload.svg'),
+                            SvgPicture.asset('assets/images/home/upload.svg',
+                                color: isDarkMode ? Colors.white : Colors.blue),
                             Text(
-                              state.fileName,
-                              style: const TextStyle(
-                                color: Colors.white,
+                              '  Upload image',
+                              style: TextStyle(
+                                color: isDarkMode ? Colors.white : Colors.blue,
                                 fontSize: 13,
                                 fontFamily: 'Urbanist',
                                 fontWeight: FontWeight.w500,
@@ -348,35 +437,19 @@ class _ScreenShopState extends State<ScreenShop> {
                             ),
                           ],
                         );
-                      }
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/images/home/upload.svg'),
-                          const Text(
-                            '  Upload',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontFamily: 'Urbanist',
-                              fontWeight: FontWeight.w500,
-                              height: 0,
-                            ),
-                          ),
-                        ],
-                      );
-                    },
+                      },
+                    ),
                   ),
                 ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+               Text(
                 'Select from below',
                 textAlign: TextAlign.right,
                 style: TextStyle(
-                  color: Colors.white,
+                  color:isDarkMode? Colors.white:Colors.black,
                   fontSize: 17,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.w400,
@@ -386,9 +459,9 @@ class _ScreenShopState extends State<ScreenShop> {
               DropdownButtonHideUnderline(
                   child: DropdownButton2(
                 isExpanded: true,
-                hint: const Row(
+                hint: Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Expanded(
@@ -397,7 +470,7 @@ class _ScreenShopState extends State<ScreenShop> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color:isDarkMode? Colors.white :Colors.black,
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -409,10 +482,10 @@ class _ScreenShopState extends State<ScreenShop> {
                           value: item,
                           child: Text(
                             item,
-                            style: const TextStyle(
+                            style:  TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color:isDarkMode? Colors.white :Colors.black,
                             ),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -424,10 +497,10 @@ class _ScreenShopState extends State<ScreenShop> {
                     dropdownValue = newValue;
                   });
                 },
-                iconStyleData: const IconStyleData(
+                iconStyleData:  IconStyleData(
                   iconSize: 14,
-                  iconEnabledColor: Colors.white,
-                  iconDisabledColor: Colors.white,
+                  iconEnabledColor:isDarkMode? Colors.white :Colors.black,
+                  iconDisabledColor:isDarkMode? Colors.white :Colors.black,
                 ),
                 buttonStyleData: ButtonStyleData(
                   height: 50,
@@ -438,16 +511,16 @@ class _ScreenShopState extends State<ScreenShop> {
                     border: Border.all(
                       color: Colors.black26,
                     ),
-                    color: const Color(0xFF616161),
+                    color:isDarkMode? const Color(0xFF616161) :Colors.white,
                   ),
-                  elevation: 2,
+                  elevation: 1,
                 ),
                 dropdownStyleData: DropdownStyleData(
                   maxHeight: 200,
                   width: 200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: const Color(0xFF616161),
+                    color:isDarkMode? const Color(0xFF616161) :Colors.white,
                   ),
                   offset: const Offset(-20, 0),
                   scrollbarTheme: ScrollbarThemeData(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/core/widgets/ProfileRepeating.dart';
+import 'package:tailme/theme_util.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ScreenContactUs extends StatelessWidget {
@@ -8,13 +10,22 @@ class ScreenContactUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: const Text(
+        leading: InkWell(
+          onTap: ()=>Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SvgPicture.asset('assets/images/back_arrow.svg',color:isDarkMode? Colors.white:Colors.black,),
+          ),
+        ),
+        title:  Text(
           'Contact us',
           style: TextStyle(
-            color: Colors.white,
+            color: isDarkMode? Colors.white:Colors.black,
             fontSize: 15,
             fontFamily: 'Raleway',
             fontWeight: FontWeight.bold,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/domain/AddAddress/model/address_model.dart';
 import 'package:tailme/presentation/SavedAddress/saved_address_screen.dart';
 import '../../application/AddAddress/add_address_bloc.dart';
+import '../../theme_util.dart';
 
 class ScreenEditAddress extends StatelessWidget {
   final AddressModel address;
@@ -17,6 +19,7 @@ class ScreenEditAddress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     final formKey = GlobalKey<FormState>();
     // Declare controllers first
     final TextEditingController nameController;
@@ -48,10 +51,22 @@ class ScreenEditAddress extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SvgPicture.asset(
+              'assets/images/back_arrow.svg',
+              color: isDarkMode ? Colors.white : Colors.black,
+            ),
+          ),
+        ),
+        title: Text(
           'Edit address',
           style: TextStyle(
-            color: Colors.white,
+            color: isDarkMode ? Colors.white : Colors.black,
             fontSize: 16,
             fontFamily: 'Raleway',
             fontWeight: FontWeight.w600,
@@ -102,7 +117,7 @@ class ScreenEditAddress extends StatelessWidget {
               if (state.isSubmiting) {
                 return Center(
                   child: LoadingAnimationWidget.staggeredDotsWave(
-                    color: Colors.white,
+                    color: Colors.blue,
                     size: 200,
                   ),
                 );
@@ -114,10 +129,10 @@ class ScreenEditAddress extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Divider(),
-                    const Text(
+                    Text(
                       'Save address as *',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: isDarkMode ? Colors.white : Colors.black,
                         fontSize: 15,
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w500,
@@ -141,8 +156,10 @@ class ScreenEditAddress extends StatelessWidget {
                                 side: BorderSide(
                                   width: 0.80,
                                   color: state.isHome
-                                      ? Colors.blue
-                                      : Colors.white, // Use state.isHome
+                                     ? Colors.blue
+                                      : (isDarkMode
+                                          ? Colors.white
+                                          : Colors.black), // Use state.isHome
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -152,7 +169,10 @@ class ScreenEditAddress extends StatelessWidget {
                                 'Home',
                                 style: TextStyle(
                                   color:
-                                      state.isHome ? Colors.blue : Colors.white,
+                                      state.isHome ? Colors.blue
+                                      : (isDarkMode
+                                          ? Colors.white
+                                          : Colors.black),
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w500,
@@ -177,7 +197,9 @@ class ScreenEditAddress extends StatelessWidget {
                                   width: 0.80,
                                   color: state.isWork
                                       ? Colors.blue
-                                      : Colors.white, // Use state.isWork
+                                      : (isDarkMode
+                                          ? Colors.white
+                                          : Colors.black), // Use state.isWork
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -187,7 +209,10 @@ class ScreenEditAddress extends StatelessWidget {
                                 'Work',
                                 style: TextStyle(
                                   color:
-                                      state.isWork ? Colors.blue : Colors.white,
+                                      state.isWork ? Colors.blue
+                                      : (isDarkMode
+                                          ? Colors.white
+                                          : Colors.black),
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w500,
@@ -212,7 +237,9 @@ class ScreenEditAddress extends StatelessWidget {
                                   width: 0.80,
                                   color: state.isOthers
                                       ? Colors.blue
-                                      : Colors.white, // Use state.isOthers
+                                      : (isDarkMode
+                                          ? Colors.white
+                                          : Colors.black), // Use state.isOthers
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -223,7 +250,9 @@ class ScreenEditAddress extends StatelessWidget {
                                 style: TextStyle(
                                   color: state.isOthers
                                       ? Colors.blue
-                                      : Colors.white,
+                                      : (isDarkMode
+                                          ? Colors.white
+                                          : Colors.black),
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w500,
@@ -242,8 +271,8 @@ class ScreenEditAddress extends StatelessWidget {
                         controller: nameController,
                         maxLength: null,
                         keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
+                        style:  TextStyle(
+                            color:isDarkMode? Colors.white :Colors.black, fontFamily: 'Raleway'),
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
                           counterText: '',
@@ -269,8 +298,8 @@ class ScreenEditAddress extends StatelessWidget {
                         controller: contactController,
                         maxLength: 10,
                         keyboardType: TextInputType.phone,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
+                        style:  TextStyle(
+                            color:isDarkMode? Colors.white :Colors.black, fontFamily: 'Raleway'),
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
                           counterText: '',
@@ -299,8 +328,8 @@ class ScreenEditAddress extends StatelessWidget {
                         controller: pincodeController,
                         maxLength: 6,
                         keyboardType: TextInputType.number,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
+                        style:  TextStyle(
+                            color: isDarkMode? Colors.white :Colors.black, fontFamily: 'Raleway'),
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
                           counterText: '',
@@ -329,8 +358,8 @@ class ScreenEditAddress extends StatelessWidget {
                         controller: flatController,
                         maxLength: null,
                         keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
+                        style:  TextStyle(
+                            color: isDarkMode? Colors.white :Colors.black, fontFamily: 'Raleway'),
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
                           counterText: '',
@@ -356,8 +385,8 @@ class ScreenEditAddress extends StatelessWidget {
                         controller: areaController,
                         maxLength: null,
                         keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
+                        style:  TextStyle(
+                            color: isDarkMode? Colors.white :Colors.black, fontFamily: 'Raleway'),
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
                           counterText: '',
@@ -383,8 +412,8 @@ class ScreenEditAddress extends StatelessWidget {
                         controller: landmarkController,
                         maxLength: null,
                         keyboardType: TextInputType.text,
-                        style: const TextStyle(
-                            color: Colors.white, fontFamily: 'Raleway'),
+                        style:  TextStyle(
+                            color: isDarkMode? Colors.white :Colors.black, fontFamily: 'Raleway'),
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
                           counterText: '',
@@ -417,8 +446,8 @@ class ScreenEditAddress extends StatelessWidget {
                           ));
                         },
                         style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.all<Color>(Colors.white),
+                          backgroundColor: WidgetStateProperty.all<Color>(
+                              const Color(0xFF0075BE)),
                           shape:
                               WidgetStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
@@ -430,7 +459,7 @@ class ScreenEditAddress extends StatelessWidget {
                           'Save Address',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 17,
                             fontFamily: 'Raleway',
                             fontWeight: FontWeight.w600,

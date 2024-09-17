@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/application/auth/login/login_bloc.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
+import 'package:tailme/theme_util.dart';
 
 class ScreenForgetPass extends StatefulWidget {
   const ScreenForgetPass({super.key});
@@ -25,8 +26,8 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(111, 118, 130, 0.37),
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
@@ -73,20 +74,20 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                     children: [
                       
                       SizedBox(height: 55.h),
-                      const Text(
+                       Text(
                         'Forgot Password?',
                         style: TextStyle(
-                          color: Colors.white,
+                          color:isDarkMode? Colors.white :Colors.black,
                           fontFamily: 'urbanist',
                           fontWeight: FontWeight.w700,
                           fontSize: 30,
                         ),
                       ),
                       SizedBox(height: 8.h),
-                      const Text(
+                       Text(
                         "Don't worry! It occurs. Please enter the email address linked with your account.",
                         style: TextStyle(
-                          color: Color.fromARGB(255, 172, 166, 166),
+                          color:isDarkMode? const Color.fromARGB(255, 172, 166, 166) :const Color(0xFFCF7000),
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                           fontFamily: 'urbanist',
@@ -143,7 +144,7 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                                 style: ButtonStyle(
                                   backgroundColor:
                                       WidgetStateProperty.all<Color>(
-                                    const Color(0xFFFFAC4B),
+                                    const  Color(0xFF0075BE),
                                   ),
                                   shape: WidgetStateProperty.all<
                                       RoundedRectangleBorder>(
@@ -153,6 +154,7 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                                   ),
                                 ),
                                 onPressed: () async {
+                                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>ScreenOtpVerfication(email: '', isForget: true)));
                                   if (_formKey.currentState?.validate() ??
                                       false) {
                                     BlocProvider.of<LoginBloc>(context).add(
@@ -178,10 +180,10 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(
+                           Text(
                             'Remember Password?',
                             style: TextStyle(
-                              color: Colors.white,
+                              color:isDarkMode? Colors.white :Colors.black,
                               fontFamily: 'Urbanist',
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
@@ -194,7 +196,7 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                             child: const Text(
                               'Login',
                               style: TextStyle(
-                                color: Color(0xFFFFAC4B),
+                                color: Color(0xFFCF7000),
                                 fontFamily: 'urbanist',
                                 fontSize: 15,
                                 fontWeight: FontWeight.w700,

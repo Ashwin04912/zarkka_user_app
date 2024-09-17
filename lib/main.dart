@@ -9,6 +9,7 @@ import 'package:tailme/application/auth/login/login_bloc.dart';
 import 'package:tailme/application/shop/shop_bloc.dart';
 import 'package:tailme/injection.dart';
 import 'package:tailme/presentation/SplashScreen/splash_screen.dart';
+import 'package:tailme/theme_util.dart';
 
 import 'application/AddAddress/add_address_bloc.dart';
 
@@ -20,10 +21,12 @@ void main() async {
 
 // ignore: must_be_immutable
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+  const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context) {//
+  Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
+    //
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor:
           Color(0xFF343333), // Change to your Scaffold's background color
@@ -32,19 +35,51 @@ class MainApp extends StatelessWidget {
       designSize: const Size(393, 812),
       builder: (context, child) => MultiBlocProvider(
         providers: [
-          BlocProvider<HomeBloc>(create: (context)=>getIt<HomeBloc>()),
-           BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
-          BlocProvider<RegisterUserBloc>(create: (context) => getIt<RegisterUserBloc> ()),
-          BlocProvider<OtpVerificationBloc>(create: (context) => getIt<OtpVerificationBloc> ()),
-          BlocProvider<AddAddressBloc>(create : (context)=> getIt<AddAddressBloc>()),
-          BlocProvider<ShopBloc>(create : (context)=> getIt<ShopBloc>()),
+          BlocProvider<HomeBloc>(create: (context) => getIt<HomeBloc>()),
+          BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
+          BlocProvider<RegisterUserBloc>(
+              create: (context) => getIt<RegisterUserBloc>()),
+          BlocProvider<OtpVerificationBloc>(
+              create: (context) => getIt<OtpVerificationBloc>()),
+          BlocProvider<AddAddressBloc>(
+              create: (context) => getIt<AddAddressBloc>()),
+          BlocProvider<ShopBloc>(create: (context) => getIt<ShopBloc>()),
         ],
         child: MaterialApp(
-          theme: ThemeData(
-            scaffoldBackgroundColor: const Color(0xFF343333),
+          darkTheme: ThemeData(
+            
             appBarTheme: const AppBarTheme(
-              color: Color(0xFF343333),
-              iconTheme: IconThemeData(color: Colors.white),
+              systemOverlayStyle: SystemUiOverlayStyle(
+                // Status bar color
+                statusBarColor: Colors.transparent,
+
+                // Status bar brightness (optional)
+                statusBarIconBrightness:
+                    Brightness.dark, // For Android (dark icons)
+                statusBarBrightness: Brightness.light, // For iOS (dark icons)
+              ),
+            ),
+            scaffoldBackgroundColor: const Color(0xFF343333),
+            primaryColor: Colors.blue,
+            brightness: Brightness.dark,
+          ),
+          themeMode: ThemeMode.system,
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle(
+                // Status bar color
+                statusBarColor: Colors.transparent,
+                // Status bar brightness (optional)
+                statusBarIconBrightness: isDarkMode
+                    ? Brightness.light
+                    : Brightness.dark, // For Android (dark icons)
+                statusBarBrightness: isDarkMode
+                    ? Brightness.light
+                    : Brightness.dark, // For iOS (dark icons)
+              ),
+              color: const Color(0xFF343333),
+              iconTheme: const IconThemeData(color: Colors.white),
             ),
           ),
           debugShowCheckedModeBanner: false,
@@ -56,5 +91,3 @@ class MainApp extends StatelessWidget {
 }
 
 //////
-
-

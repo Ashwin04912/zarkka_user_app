@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
-import 'package:tailme/application/auth/login/login_bloc.dart';
-import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/screen_OtpVerification.dart';
+import 'package:tailme/theme_util.dart';
 
 import '../RegisterUser/OtpVerification/verification_completed.dart';
 
@@ -32,8 +30,9 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(111, 118, 130, 0.37),
+      // backgroundColor: const Color.fromRGBO(111, 118, 130, 0.37),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
@@ -66,20 +65,20 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                   children: [
                     
                     SizedBox(height: 55.h),
-                    const Text(
+                     Text(
                       'Create new password',
                       style: TextStyle(
-                        color: Colors.white,
+                        color:isDarkMode? Colors.white:Colors.black,
                         fontFamily: 'urbanist',
                         fontWeight: FontWeight.w700,
                         fontSize: 30,
                       ),
                     ),
                     SizedBox(height: 8.h),
-                    const Text(
+                     Text(
                       "Your new password must be unique from those previously used.",
                       style: TextStyle(
-                        color: Color.fromARGB(255, 172, 166, 166),
+                        color:isDarkMode? Color.fromARGB(255, 172, 166, 166):Color(0xFFCF7000),
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
                         fontFamily: 'urbanist',
@@ -168,7 +167,7 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                             child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all<Color>(
-                                  const Color(0xFFFFAC4B),
+                                  const  Color(0xFF0075BE),
                                 ),
                                 shape: WidgetStateProperty.all<
                                     RoundedRectangleBorder>(

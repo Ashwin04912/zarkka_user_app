@@ -8,7 +8,7 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
   
-      backgroundColor:const Color(0xFF343333),
+      // backgroundColor:const Color(0xFF343333),
       title: SizedBox(
         width: 290,
         child: TextFormField(

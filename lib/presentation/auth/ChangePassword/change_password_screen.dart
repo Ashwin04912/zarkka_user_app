@@ -1,33 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
+import 'package:tailme/theme_util.dart';
 
 class ScreenChangePassword extends StatelessWidget {
   const ScreenChangePassword({super.key});
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SvgPicture.asset(
+              'assets/images/back_arrow.svg',
+              color: isDarkMode ? Colors.white : Colors.black,
+            ),
+          ),
+        ),
         title: const Text('Change Password'),
-        titleTextStyle: const TextStyle(
-          color: Colors.white,
+        titleTextStyle: TextStyle(
+          color: isDarkMode ? Colors.white : Colors.black,
           fontSize: 16,
           fontFamily: 'Raleway',
           fontWeight: FontWeight.w800,
           height: 0.06,
         ),
-        centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 51.h, left: 32.w, right: 32.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Enter Old Password',
               style: TextStyle(
-                color: Colors.white,
+                color: isDarkMode ? Colors.white : Colors.black,
                 fontSize: 12,
                 fontFamily: 'Raleway',
                 fontWeight: FontWeight.w400,
@@ -60,10 +74,10 @@ class ScreenChangePassword extends StatelessWidget {
             SizedBox(
               height: 43.h,
             ),
-            const Text(
-              'Enter Old Password',
+            Text(
+              'Enter New Password',
               style: TextStyle(
-                color: Colors.white,
+                color: isDarkMode ? Colors.white : Colors.black,
                 fontSize: 12,
                 fontFamily: 'Raleway',
                 fontWeight: FontWeight.w400,

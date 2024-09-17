@@ -8,17 +8,18 @@ import 'package:tailme/presentation/Shop/ScreenShop.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/core/widgets/imagewithtext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tailme/theme_util.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-
+bool isDarkMode = ThemeUtil.isDarkMode(context);
     BlocProvider.of<HomeBloc>(context)
         .add(const HomeEvent.getItems(category: "Women"));
     return Scaffold(
-      backgroundColor: const Color(0xFF343333),
+      // backgroundColor: const Color(0xFF343333),
       appBar: ReusableWidgets.getAppBar(context),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -33,10 +34,10 @@ class ScreenHome extends StatelessWidget {
                 SizedBox(
                   height: ScreenUtil().setHeight(10),
                 ),
-                const Text(
+                 Text(
                   'Categories',
                   style: TextStyle(
-                    color: Colors.white,
+                    color:isDarkMode? Colors.white :Colors.black,
                     fontSize: 24,
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.w700,
@@ -108,10 +109,10 @@ class ScreenHome extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: ScreenUtil().setHeight(30)),
-                  child: const Text(
+                  child:  Text(
                     'Offers',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: isDarkMode? Colors.white :Colors.black,
                       fontSize: 24,
                       fontFamily: 'Raleway',
                       fontWeight: FontWeight.w700,
@@ -147,13 +148,13 @@ class ScreenHome extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: ScreenUtil().setHeight(30)),
-                  child: const Text(
+                  child:  Text(
                     'Find your styles',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: isDarkMode? Colors.white :Colors.black,
                       fontSize: 24,
                       fontFamily: 'Raleway',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),

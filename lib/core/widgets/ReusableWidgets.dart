@@ -3,33 +3,35 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/presentation/Notification/Screen_notification.dart';
 import 'package:tailme/presentation/wishlist/Screen_wishlist.dart';
+import 'package:tailme/theme_util.dart';
 
 class ReusableWidgets {
   static getAppBar(BuildContext context) {
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: const Color(0xFF343333),
+      backgroundColor:Colors.transparent,
       title: SizedBox(
         width: 290.w,
         child: TextFormField(
           decoration: InputDecoration(
             hintText: 'Stores,Materials,Products....',
-            hintStyle:  const TextStyle(
-              color: Colors.white,
+            hintStyle:   TextStyle(
+              color:isDarkMode?Colors.white: const Color(0xFF1D1D1D),
               fontSize: 14,
               fontFamily: 'Raleway',
               fontWeight: FontWeight.w400,
               
             ),
-            prefixIcon: const Padding(
-              padding: EdgeInsets.all(10.0),
+            prefixIcon:  Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Icon(
                 Icons.search,
-                color: Colors.white,
+                color: isDarkMode?Colors.white: const Color(0xFF1D1D1D),
               ),
             ),
             filled: true,
-            fillColor: const Color(0xFF646E77),
+            fillColor: isDarkMode?const Color(0xFF646E77): const Color(0xFFCFCFCF),
             contentPadding:
                  EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
             border: OutlineInputBorder(
@@ -47,7 +49,7 @@ class ReusableWidgets {
                 MaterialPageRoute(
                     builder: (context) => const ScreenWishlist()));
           },
-          icon: SvgPicture.asset('assets/images/home/heart_ic.svg'),
+          icon: SvgPicture.asset('assets/images/home/heart_ic.svg',color: isDarkMode?Colors.white:Colors.black,),
         ),
         IconButton(
           onPressed: () {
@@ -56,7 +58,7 @@ class ReusableWidgets {
                 MaterialPageRoute(
                     builder: (context) => const ScreenWishlist()));
           },
-          icon: SvgPicture.asset('assets/images/home/cart.svg'),
+          icon: SvgPicture.asset('assets/images/home/cart.svg',color: isDarkMode?Colors.white:Colors.black,),
         ),
         IconButton(
           onPressed: () {
@@ -65,7 +67,7 @@ class ReusableWidgets {
                 MaterialPageRoute(
                     builder: (context) => const ScreenNotification()));
           },
-          icon: SvgPicture.asset('assets/images/home/Alert_Bell.svg'),
+          icon: SvgPicture.asset('assets/images/home/Alert_Bell.svg',color: isDarkMode?Colors.white:Colors. black,),
         ),
       ],
     );

@@ -24,7 +24,7 @@ class ScreenSavedAddress extends StatelessWidget {
   // Loading state to show progress indicator
   @override
   Widget build(BuildContext context) {
-   bool isDarkMode = ThemeUtil.isDarkMode(context);
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     debugPrint("i came again");
     BlocProvider.of<AddAddressBloc>(context)
         .add(const AddAddressEvent.getAllAddress());
@@ -32,16 +32,19 @@ class ScreenSavedAddress extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: InkWell(
-          onTap: ()=>Navigator.pop(context),
+          onTap: () => Navigator.pop(context),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: SvgPicture.asset('assets/images/back_arrow.svg',color:isDarkMode? Colors.white:Colors.black,),
+            child: SvgPicture.asset(
+              'assets/images/back_arrow.svg',
+              color: isDarkMode ? Colors.white : Colors.black,
+            ),
           ),
         ),
-        title:  Text(
+        title: Text(
           'Saved Addresses',
           style: TextStyle(
-            color:isDarkMode? Colors.white :Colors.black,
+            color: isDarkMode ? Colors.white : Colors.black,
             fontSize: 15,
             fontFamily: 'Raleway',
             fontWeight: FontWeight.w800,
@@ -62,7 +65,7 @@ class ScreenSavedAddress extends StatelessWidget {
                   width: double.infinity,
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: isDarkMode? Color(0x99D9D9D9) :Color(0xB20075BE),
+                    color: isDarkMode ? Color(0x99D9D9D9) : Color(0xB20075BE),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -85,7 +88,6 @@ class ScreenSavedAddress extends StatelessWidget {
                                 'assets/images/current_location.svg',
                                 height: 20.h,
                                 width: 20.h,
-                                
                               ),
                               SizedBox(
                                 width: 10.w,
@@ -100,7 +102,11 @@ class ScreenSavedAddress extends StatelessWidget {
                                 ),
                               ),
                               const Spacer(),
-                              Icon(Icons.arrow_forward_ios,size: 20,color: Colors.white,)
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 20,
+                                color: Colors.white,
+                              )
                               // SvgPicture.asset(
                               //   'assets/images/arrow_left.svg',
                               //   height: 17.h,
@@ -141,7 +147,11 @@ class ScreenSavedAddress extends StatelessWidget {
                                 ),
                               ),
                               const Spacer(),
-                             Icon(Icons.arrow_forward_ios,size: 20,color: Colors.white,)
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 20,
+                                color: Colors.white,
+                              )
                             ],
                           ),
                         )
@@ -158,7 +168,7 @@ class ScreenSavedAddress extends StatelessWidget {
                     Text(
                       'Saved Addresses',
                       style: TextStyle(
-                        color: isDarkMode? Colors.white :Colors.black,
+                        color: isDarkMode ? Colors.white : Colors.black,
                         fontSize: 15,
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w800,
@@ -194,7 +204,6 @@ class ScreenSavedAddress extends StatelessWidget {
                     state.isEditDataGot.fold(() {}, (some) {
                       some.fold((f) {
                         final message = f.maybeWhen(
-                         
                           userNotFound: () =>
                               "Credentials..Login again and check",
                           networkFailure: () => "Network Issue!! Try Again",
@@ -206,7 +215,10 @@ class ScreenSavedAddress extends StatelessWidget {
                           style: const TextStyle(color: Colors.red),
                         )));
                       }, (s) {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ScreenEditAddress(address: state.addressess,)));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ScreenEditAddress(
+                                  address: state.addressess,
+                                )));
                       });
                     });
                   },
@@ -226,7 +238,9 @@ class ScreenSavedAddress extends StatelessWidget {
                             SizedBox(
                               height: 8.h,
                             ),
-                             Divider(color:isDarkMode? Colors.white : Colors.black),
+                            Divider(
+                                color:
+                                    isDarkMode ? Colors.white : Colors.black),
                             SizedBox(
                               height: 8.h,
                             ),
@@ -243,8 +257,10 @@ class ScreenSavedAddress extends StatelessWidget {
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                     Icon(Icons.push_pin_outlined,
-                                        color:isDarkMode? Colors.white:Colors.black),
+                                    Icon(Icons.push_pin_outlined,
+                                        color: isDarkMode
+                                            ? Colors.white
+                                            : Colors.black),
                                     SizedBox(width: 10.w),
                                     Column(
                                       crossAxisAlignment:
@@ -252,8 +268,10 @@ class ScreenSavedAddress extends StatelessWidget {
                                       children: [
                                         Text(
                                           addressType.toString().toUpperCase(),
-                                          style:  TextStyle(
-                                            color: isDarkMode? Colors.white:Colors.black,
+                                          style: TextStyle(
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 16,
                                             fontFamily: 'Raleway',
                                             fontWeight: FontWeight.w800,
@@ -261,8 +279,10 @@ class ScreenSavedAddress extends StatelessWidget {
                                         ),
                                         Text(
                                           '${address.flat}, ${address.area}\n${address.pincode}',
-                                          style:  TextStyle(
-                                            color: isDarkMode? Colors.white:Colors.black,
+                                          style: TextStyle(
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 16,
                                             fontFamily: 'Raleway',
                                             fontWeight: FontWeight.w400,
@@ -278,12 +298,14 @@ class ScreenSavedAddress extends StatelessWidget {
                                     const SizedBox(width: 28),
                                     GestureDetector(
                                       onTap: () {
-                                        print("recovery address is: ${state.addressess.toJson()}");
+                                        print(
+                                            "recovery address is: ${state.addressess.toJson()}");
                                         BlocProvider.of<AddAddressBloc>(context)
                                             .add(AddAddressEvent
                                                 .editButtonPressedEvent(
                                                     adddressId:
-                                                        address.addressId, address: state.addressess));
+                                                        address.addressId,
+                                                    address: state.addressess));
                                         // Navigator.push(
                                         //     context,
                                         //     MaterialPageRoute(

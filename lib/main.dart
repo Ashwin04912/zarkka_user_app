@@ -71,8 +71,7 @@ class MainApp extends StatelessWidget {
             primaryColor: Colors.blue,
             brightness: Brightness.dark,
           ),
-          // themeMode: ThemeMode.system,
-          themeMode: ThemeMode.light,
+          themeMode: ThemeMode.system,
           theme: ThemeData(
             // textTheme: const TextTheme(
             //   bodyLarge: TextStyle(

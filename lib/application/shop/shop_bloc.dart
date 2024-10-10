@@ -105,7 +105,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
               isHandWork: false,
               filePath: File(''),
               handWork: '',
-              // isLoading: false,
+              isLoading: false,
               addOn: const []));
         },
       );

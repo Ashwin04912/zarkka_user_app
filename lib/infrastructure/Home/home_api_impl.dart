@@ -29,6 +29,7 @@ class HomeApiImpl extends IHomePageFacade {
       );
       if (response.statusCode == 200) {
         debugPrint("successfully got list");
+        // debugPrint(response.data);
         return right(HomePageRespModel.fromJson(response.data));
       } else {
         print("server error");

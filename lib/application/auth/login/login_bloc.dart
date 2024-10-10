@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/core/failures/auth/auth_failure.dart';
 import 'package:tailme/infrastructure/auth/auth_repository.dart';
 import '../../../domain/auth/Login/model/user_login_model.dart';
@@ -16,6 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final _authFacde = AuthRepository();
   LoginBloc() : super(LoginState.initial()) {
     on<LoginEvent>((event, emit) async {
+     
       await event.map(
         loginButtonPressedEvent: (valueEP) async {
           emit(

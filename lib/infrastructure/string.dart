@@ -12,4 +12,5 @@ const String forgetpass = 'user/password-reset/forgot-password';
 const String verifyOtpForResetPass = 'user/password-reset/verify-otp';
 const String resetPass = 'user/password-reset/reset-password';
 const String getitems = 'items/get-items';
+const String createOrderItem = 'user/orders/create-orderItem';
 

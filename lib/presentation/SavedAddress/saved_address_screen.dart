@@ -194,7 +194,6 @@ class ScreenSavedAddress extends StatelessWidget {
                     state.isEditDataGot.fold(() {}, (some) {
                       some.fold((f) {
                         final message = f.maybeWhen(
-                         
                           userNotFound: () =>
                               "Credentials..Login again and check",
                           networkFailure: () => "Network Issue!! Try Again",
@@ -206,7 +205,10 @@ class ScreenSavedAddress extends StatelessWidget {
                           style: const TextStyle(color: Colors.red),
                         )));
                       }, (s) {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ScreenEditAddress(address: state.addressess,)));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ScreenEditAddress(
+                                  address: state.addressess,
+                                )));
                       });
                     });
                   },
@@ -278,12 +280,14 @@ class ScreenSavedAddress extends StatelessWidget {
                                     const SizedBox(width: 28),
                                     GestureDetector(
                                       onTap: () {
-                                        print("recovery address is: ${state.addressess.toJson()}");
+                                        print(
+                                            "recovery address is: ${state.addressess.toJson()}");
                                         BlocProvider.of<AddAddressBloc>(context)
                                             .add(AddAddressEvent
                                                 .editButtonPressedEvent(
                                                     adddressId:
-                                                        address.addressId, address: state.addressess));
+                                                        address.addressId,
+                                                    address: state.addressess));
                                         // Navigator.push(
                                         //     context,
                                         //     MaterialPageRoute(

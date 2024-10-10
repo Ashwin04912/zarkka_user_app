@@ -30,6 +30,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isWork: false,
             isOthers: false,
             isEditDataGot: none(),
+            editAddressSuccessOrFailureResponse: none(),
             showErrorMessages: false,
             successOrfailure: none(),
             addAddressSuccessOrFailureResponse: none(),
@@ -49,6 +50,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             successOrfailure: none(),
             addAddressSuccessOrFailureResponse: none(),
             isDataGot: none(),
+            editAddressSuccessOrFailureResponse: none(),
             isSubmiting: false,
             isNavigate: false,
           ));
@@ -64,6 +66,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             successOrfailure: none(),
             addAddressSuccessOrFailureResponse: none(),
             isDataGot: none(),
+            editAddressSuccessOrFailureResponse: none(),
             isSubmiting: false,
             isNavigate: false,
           ));
@@ -78,6 +81,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             showErrorMessages: false,
             addressess: AddressModel(status: '', addresses: []),
             isNavigate: false,
+            editAddressSuccessOrFailureResponse: none(),
           ));
 
           final resp = await addressApi.saveAddress(
@@ -96,6 +100,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
               emit(state.copyWith(
                   showErrorMessages: true,
                   isDataGot: none(),
+                  editAddressSuccessOrFailureResponse: none(),
                   addAddressSuccessOrFailureResponse: some(left(failure)),
                   isSubmiting: false,
                   isNavigate: false,
@@ -107,6 +112,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                   addAddressSuccessOrFailureResponse: some(right(unit)),
                   isSubmiting: false,
                   isEditDataGot: none(),
+                  editAddressSuccessOrFailureResponse: none(),
                   isNavigate: false,
                   addressess: AddressModel(
                       status: success.status, addresses: success.addresses)));
@@ -121,6 +127,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             isDataGot: none(),
             successOrfailure: none(),
             isEditDataGot: none(),
+            editAddressSuccessOrFailureResponse: none(),
             showErrorMessages: false,
             addressess: AddressModel(status: '', addresses: []),
             isNavigate: false,
@@ -134,6 +141,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isGettingAddress: false,
                 isDataGot: some(left(failure)),
                 isEditDataGot: none(),
+                editAddressSuccessOrFailureResponse: none(),
                 showErrorMessages: true,
                 addressess: AddressModel(status: '', addresses: []),
                 isNavigate: false,
@@ -146,6 +154,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isDataGot: some(right(unit)),
                 isEditDataGot: none(),
                 showErrorMessages: false,
+                editAddressSuccessOrFailureResponse: none(),
                 addressess: AddressModel(
                   status: success.status,
                   addresses: success.addresses,
@@ -167,6 +176,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
               status: state.addressess.status,
               addresses: updatedAddresses,
             ),
+            editAddressSuccessOrFailureResponse: none(),
             isGettingAddress: false,
             successOrfailure: none(),
             isEditDataGot: none(),
@@ -187,6 +197,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                   status: state.addressess.status,
                   addresses: state.addressess.addresses, // Restore addresses
                 ),
+                editAddressSuccessOrFailureResponse: none(),
                 isGettingAddress: false,
                 successOrfailure: some(left(failure)),
                 showErrorMessages: true,
@@ -199,6 +210,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                   isGettingAddress: false,
                   successOrfailure: some(right(unit)),
                   showErrorMessages: false,
+                  editAddressSuccessOrFailureResponse: none(),
                   isNavigate: false,
                   isEditDataGot: none()));
             },
@@ -209,6 +221,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
               isLocationLoading: true,
               pinCode: '',
               landmark: '',
+              editAddressSuccessOrFailureResponse: none(),
               isNavigate: false,
               locality: '',
               isEditDataGot: none()));
@@ -219,16 +232,18 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
               isLocationLoading: false,
               pinCode: placemark.postalCode.toString(),
               landmark: placemark.subLocality.toString(),
+              editAddressSuccessOrFailureResponse: none(),
               locality: placemark.locality.toString(),
               isEditDataGot: none(),
               isNavigate: true));
         },
         editButtonPressedEvent: (_editButtonPressedEvent value) async {
-          recoveryAddress= value.address;
-          
+          recoveryAddress = value.address;
+
           emit(state.copyWith(
             isGettingAddress: true,
             isDataGot: none(),
+            editAddressSuccessOrFailureResponse: none(),
             successOrfailure: none(),
             showErrorMessages: false,
             isEditDataGot: none(),
@@ -243,12 +258,12 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
             (failure) {
               emit(state.copyWith(
                 isGettingAddress: false,
-                isDataGot: none(),
+                isDataGot: some(left(failure)),
                 showErrorMessages: true,
-                addressess: AddressModel(status: '', addresses:[]),
+                editAddressSuccessOrFailureResponse: none(),
+                addressess: AddressModel(status: '', addresses: []),
                 isNavigate: false,
                 isEditDataGot: some(left(failure)),
-
               ));
               add(const AddAddressEvent.getAllAddress());
             },
@@ -266,6 +281,7 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
                 isNavigate: false,
                 isDataGot: none(),
                 showErrorMessages: false,
+                editAddressSuccessOrFailureResponse: none(),
                 isEditDataGot: some(right(unit)),
                 addressess: AddressModel(
                   status: success.status,
@@ -277,7 +293,6 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
               ));
               add(const AddAddressEvent.getAllAddress());
             },
-            
           );
         },
         editSubmitButtonPressedEvent:

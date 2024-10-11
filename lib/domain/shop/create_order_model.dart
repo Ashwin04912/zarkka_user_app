@@ -1,4 +1,9 @@
+// To parse this JSON data, do
+//
+//     final createOrderModel = createOrderModelFromJson(jsonString);
+
 import 'dart:convert';
+import 'dart:io';
 
 CreateOrderModel createOrderModelFromJson(String str) => CreateOrderModel.fromJson(json.decode(str));
 
@@ -6,11 +11,11 @@ String createOrderModelToJson(CreateOrderModel data) => json.encode(data.toJson(
 
 class CreateOrderModel {
     String token;
-    String image;
+    File image;
     String serviceDescription;
     String serviceType;
     String itemId;
-    String addons;
+    List<String> addons;
     String designReference;
     String measurements;
 
@@ -31,7 +36,7 @@ class CreateOrderModel {
         serviceDescription: json["serviceDescription"],
         serviceType: json["serviceType"],
         itemId: json["itemId"],
-        addons: json["addons"],
+        addons: List<String>.from(json["addons"].map((x) => x)),
         designReference: json["designReference"],
         measurements: json["measurements"],
     );
@@ -42,7 +47,7 @@ class CreateOrderModel {
         "serviceDescription": serviceDescription,
         "serviceType": serviceType,
         "itemId": itemId,
-        "addons": addons,
+        "addons": List<dynamic>.from(addons.map((x) => x)),
         "designReference": designReference,
         "measurements": measurements,
     };

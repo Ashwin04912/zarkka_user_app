@@ -36,11 +36,11 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i716.HomeBloc>(() => _i716.HomeBloc());
-    gh.factory<_i398.ShopBloc>(() => _i398.ShopBloc());
-    gh.factory<_i722.LoginBloc>(() => _i722.LoginBloc());
-    gh.factory<_i171.OtpVerificationBloc>(() => _i171.OtpVerificationBloc());
-    gh.factory<_i210.RegisterUserBloc>(() => _i210.RegisterUserBloc());
     gh.factory<_i861.AddAddressBloc>(() => _i861.AddAddressBloc());
+    gh.factory<_i210.RegisterUserBloc>(() => _i210.RegisterUserBloc());
+    gh.factory<_i171.OtpVerificationBloc>(() => _i171.OtpVerificationBloc());
+    gh.factory<_i722.LoginBloc>(() => _i722.LoginBloc());
+    gh.factory<_i398.ShopBloc>(() => _i398.ShopBloc());
     gh.lazySingleton<_i53.IAuthFacade>(() => _i886.AuthRepository());
     gh.lazySingleton<_i1040.IAddAddressFacade>(() => _i272.AddAddressRepo());
     gh.lazySingleton<_i806.IHomePageFacade>(() => _i31.HomeApiImpl());

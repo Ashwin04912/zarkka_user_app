@@ -17,5 +17,7 @@ class ShopEvent with _$ShopEvent {
   const factory ShopEvent.proceedToCheckoutEventPressed({
     required CreateOrderModel orderModel
   }) = _proceedToCheckoutEventPressed;
+  const factory ShopEvent.clearAllEvent() = _clearAllEvent;
+  
   
 }

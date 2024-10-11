@@ -11,9 +11,11 @@ class CreateOrderRepo implements IShopFacade {
   Future<Either<FormFailure, Unit>> proceedToCheckout(
       {required CreateOrderModel orderModel}) async {
     try {
+      print('$baseUrl$createOrderItem');
+      print(orderModel.toJson());
       var data = FormData.fromMap({
-        'files': [
-          await MultipartFile.fromFile(orderModel.image, filename: 'Mydesign')
+        'image': [
+          await MultipartFile.fromFile(orderModel.image.path, filename: 'Mydesign')
         ],
         'token': orderModel.token,
         'serviceDescription': orderModel.serviceDescription,
@@ -23,18 +25,16 @@ class CreateOrderRepo implements IShopFacade {
         'designReference': orderModel.designReference,
         'measurements': orderModel.measurements
       });
-
       var dio = Dio();
-
       var response = await dio.request(
-        '$baseUrl$createOrderItem',
+        'https://tailor-app-backend-2o5l.onrender.com/api/v1/user/orders/create-orderItem',
         options: Options(
           method: 'POST',
         ),
         data: data,
       );
-
       if (response.statusCode == 200) {
+        print(response.data);
         return right(unit);
       } else {
         return left(const FormFailure.serverFailure());

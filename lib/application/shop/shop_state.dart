@@ -13,12 +13,13 @@ class ShopState with _$ShopState {
     required bool isEmbroidary,
     required String handWork,
     required bool isHandWork,
-    required String filePath,
+    required File filePath,
     required String designReference,
    required bool isLoading,
+   required List<String> addOn,
   }) = _ShopState;
 
-  factory ShopState.initial() => const ShopState(
+  factory ShopState.initial() => ShopState(
         fileName: '',
         isLoaded: false,
         alteration: '',
@@ -29,8 +30,9 @@ class ShopState with _$ShopState {
         isEmbroidary: false,
         embroidary: '',
         isHandWork: false,
-        filePath: '',
+        filePath: File(''),
         handWork: '',
-        isLoading: false
+        isLoading: false,
+        addOn: const []
       );
 }

@@ -44,3 +44,6 @@ app.*.map.json
 
 #credentials
 passwords
+
+android_backup
+dummyAndroid

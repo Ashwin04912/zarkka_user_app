@@ -26,6 +26,7 @@ mixin _$ShopEvent {
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +39,7 @@ mixin _$ShopEvent {
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +52,7 @@ mixin _$ShopEvent {
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +70,7 @@ mixin _$ShopEvent {
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +84,7 @@ mixin _$ShopEvent {
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +97,7 @@ mixin _$ShopEvent {
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +175,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) {
     return uploadButtonClickedEvent();
   }
@@ -184,6 +191,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) {
     return uploadButtonClickedEvent?.call();
   }
@@ -199,6 +207,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) {
     if (uploadButtonClickedEvent != null) {
@@ -222,6 +231,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) {
     return uploadButtonClickedEvent(this);
   }
@@ -238,6 +248,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) {
     return uploadButtonClickedEvent?.call(this);
   }
@@ -253,6 +264,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) {
     if (uploadButtonClickedEvent != null) {
@@ -318,6 +330,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) {
     return alterationClickedEvent();
   }
@@ -333,6 +346,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) {
     return alterationClickedEvent?.call();
   }
@@ -348,6 +362,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) {
     if (alterationClickedEvent != null) {
@@ -371,6 +386,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) {
     return alterationClickedEvent(this);
   }
@@ -387,6 +403,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) {
     return alterationClickedEvent?.call(this);
   }
@@ -402,6 +419,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) {
     if (alterationClickedEvent != null) {
@@ -466,6 +484,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) {
     return stitchingClickedEvent();
   }
@@ -481,6 +500,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) {
     return stitchingClickedEvent?.call();
   }
@@ -496,6 +516,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) {
     if (stitchingClickedEvent != null) {
@@ -519,6 +540,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) {
     return stitchingClickedEvent(this);
   }
@@ -535,6 +557,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) {
     return stitchingClickedEvent?.call(this);
   }
@@ -550,6 +573,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) {
     if (stitchingClickedEvent != null) {
@@ -643,6 +667,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) {
     return embroidaryClickedEvent(isChecked);
   }
@@ -658,6 +683,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) {
     return embroidaryClickedEvent?.call(isChecked);
   }
@@ -673,6 +699,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) {
     if (embroidaryClickedEvent != null) {
@@ -696,6 +723,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) {
     return embroidaryClickedEvent(this);
   }
@@ -712,6 +740,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) {
     return embroidaryClickedEvent?.call(this);
   }
@@ -727,6 +756,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) {
     if (embroidaryClickedEvent != null) {
@@ -828,6 +858,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) {
     return handWorkClickedEvent(isChecked);
   }
@@ -843,6 +874,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) {
     return handWorkClickedEvent?.call(isChecked);
   }
@@ -858,6 +890,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) {
     if (handWorkClickedEvent != null) {
@@ -881,6 +914,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) {
     return handWorkClickedEvent(this);
   }
@@ -897,6 +931,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) {
     return handWorkClickedEvent?.call(this);
   }
@@ -912,6 +947,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) {
     if (handWorkClickedEvent != null) {
@@ -1012,6 +1048,7 @@ class _$designReferenceImpl implements _designReference {
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) {
     return designReference(this.designReference);
   }
@@ -1027,6 +1064,7 @@ class _$designReferenceImpl implements _designReference {
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) {
     return designReference?.call(this.designReference);
   }
@@ -1042,6 +1080,7 @@ class _$designReferenceImpl implements _designReference {
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) {
     if (designReference != null) {
@@ -1065,6 +1104,7 @@ class _$designReferenceImpl implements _designReference {
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) {
     return designReference(this);
   }
@@ -1081,6 +1121,7 @@ class _$designReferenceImpl implements _designReference {
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) {
     return designReference?.call(this);
   }
@@ -1096,6 +1137,7 @@ class _$designReferenceImpl implements _designReference {
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) {
     if (designReference != null) {
@@ -1200,6 +1242,7 @@ class _$proceedToCheckoutEventPressedImpl
     required TResult Function(String designReference) designReference,
     required TResult Function(CreateOrderModel orderModel)
         proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
   }) {
     return proceedToCheckoutEventPressed(orderModel);
   }
@@ -1215,6 +1258,7 @@ class _$proceedToCheckoutEventPressedImpl
     TResult? Function(String designReference)? designReference,
     TResult? Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
   }) {
     return proceedToCheckoutEventPressed?.call(orderModel);
   }
@@ -1230,6 +1274,7 @@ class _$proceedToCheckoutEventPressedImpl
     TResult Function(String designReference)? designReference,
     TResult Function(CreateOrderModel orderModel)?
         proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
     required TResult orElse(),
   }) {
     if (proceedToCheckoutEventPressed != null) {
@@ -1253,6 +1298,7 @@ class _$proceedToCheckoutEventPressedImpl
     required TResult Function(_designReference value) designReference,
     required TResult Function(_proceedToCheckoutEventPressed value)
         proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
   }) {
     return proceedToCheckoutEventPressed(this);
   }
@@ -1269,6 +1315,7 @@ class _$proceedToCheckoutEventPressedImpl
     TResult? Function(_designReference value)? designReference,
     TResult? Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
   }) {
     return proceedToCheckoutEventPressed?.call(this);
   }
@@ -1284,6 +1331,7 @@ class _$proceedToCheckoutEventPressedImpl
     TResult Function(_designReference value)? designReference,
     TResult Function(_proceedToCheckoutEventPressed value)?
         proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
     required TResult orElse(),
   }) {
     if (proceedToCheckoutEventPressed != null) {
@@ -1309,6 +1357,158 @@ abstract class _proceedToCheckoutEventPressed implements ShopEvent {
 }
 
 /// @nodoc
+abstract class _$$clearAllEventImplCopyWith<$Res> {
+  factory _$$clearAllEventImplCopyWith(
+          _$clearAllEventImpl value, $Res Function(_$clearAllEventImpl) then) =
+      __$$clearAllEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$clearAllEventImplCopyWithImpl<$Res>
+    extends _$ShopEventCopyWithImpl<$Res, _$clearAllEventImpl>
+    implements _$$clearAllEventImplCopyWith<$Res> {
+  __$$clearAllEventImplCopyWithImpl(
+      _$clearAllEventImpl _value, $Res Function(_$clearAllEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ShopEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$clearAllEventImpl implements _clearAllEvent {
+  const _$clearAllEventImpl();
+
+  @override
+  String toString() {
+    return 'ShopEvent.clearAllEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$clearAllEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() uploadButtonClickedEvent,
+    required TResult Function() alterationClickedEvent,
+    required TResult Function() stitchingClickedEvent,
+    required TResult Function(bool isChecked) embroidaryClickedEvent,
+    required TResult Function(bool isChecked) handWorkClickedEvent,
+    required TResult Function(String designReference) designReference,
+    required TResult Function(CreateOrderModel orderModel)
+        proceedToCheckoutEventPressed,
+    required TResult Function() clearAllEvent,
+  }) {
+    return clearAllEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? uploadButtonClickedEvent,
+    TResult? Function()? alterationClickedEvent,
+    TResult? Function()? stitchingClickedEvent,
+    TResult? Function(bool isChecked)? embroidaryClickedEvent,
+    TResult? Function(bool isChecked)? handWorkClickedEvent,
+    TResult? Function(String designReference)? designReference,
+    TResult? Function(CreateOrderModel orderModel)?
+        proceedToCheckoutEventPressed,
+    TResult? Function()? clearAllEvent,
+  }) {
+    return clearAllEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? uploadButtonClickedEvent,
+    TResult Function()? alterationClickedEvent,
+    TResult Function()? stitchingClickedEvent,
+    TResult Function(bool isChecked)? embroidaryClickedEvent,
+    TResult Function(bool isChecked)? handWorkClickedEvent,
+    TResult Function(String designReference)? designReference,
+    TResult Function(CreateOrderModel orderModel)?
+        proceedToCheckoutEventPressed,
+    TResult Function()? clearAllEvent,
+    required TResult orElse(),
+  }) {
+    if (clearAllEvent != null) {
+      return clearAllEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_uploadButtonClickedEvent value)
+        uploadButtonClickedEvent,
+    required TResult Function(_alterationClickedEvent value)
+        alterationClickedEvent,
+    required TResult Function(_stitchingClickedEvent value)
+        stitchingClickedEvent,
+    required TResult Function(_embroidaryClickedEvent value)
+        embroidaryClickedEvent,
+    required TResult Function(_handWorkClickedEvent value) handWorkClickedEvent,
+    required TResult Function(_designReference value) designReference,
+    required TResult Function(_proceedToCheckoutEventPressed value)
+        proceedToCheckoutEventPressed,
+    required TResult Function(_clearAllEvent value) clearAllEvent,
+  }) {
+    return clearAllEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_uploadButtonClickedEvent value)?
+        uploadButtonClickedEvent,
+    TResult? Function(_alterationClickedEvent value)? alterationClickedEvent,
+    TResult? Function(_stitchingClickedEvent value)? stitchingClickedEvent,
+    TResult? Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
+    TResult? Function(_handWorkClickedEvent value)? handWorkClickedEvent,
+    TResult? Function(_designReference value)? designReference,
+    TResult? Function(_proceedToCheckoutEventPressed value)?
+        proceedToCheckoutEventPressed,
+    TResult? Function(_clearAllEvent value)? clearAllEvent,
+  }) {
+    return clearAllEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_uploadButtonClickedEvent value)? uploadButtonClickedEvent,
+    TResult Function(_alterationClickedEvent value)? alterationClickedEvent,
+    TResult Function(_stitchingClickedEvent value)? stitchingClickedEvent,
+    TResult Function(_embroidaryClickedEvent value)? embroidaryClickedEvent,
+    TResult Function(_handWorkClickedEvent value)? handWorkClickedEvent,
+    TResult Function(_designReference value)? designReference,
+    TResult Function(_proceedToCheckoutEventPressed value)?
+        proceedToCheckoutEventPressed,
+    TResult Function(_clearAllEvent value)? clearAllEvent,
+    required TResult orElse(),
+  }) {
+    if (clearAllEvent != null) {
+      return clearAllEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _clearAllEvent implements ShopEvent {
+  const factory _clearAllEvent() = _$clearAllEventImpl;
+}
+
+/// @nodoc
 mixin _$ShopState {
   String get fileName => throw _privateConstructorUsedError;
   bool get isLoaded => throw _privateConstructorUsedError;
@@ -1320,9 +1520,10 @@ mixin _$ShopState {
   bool get isEmbroidary => throw _privateConstructorUsedError;
   String get handWork => throw _privateConstructorUsedError;
   bool get isHandWork => throw _privateConstructorUsedError;
-  String get filePath => throw _privateConstructorUsedError;
+  File get filePath => throw _privateConstructorUsedError;
   String get designReference => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  List<String> get addOn => throw _privateConstructorUsedError;
 
   /// Create a copy of ShopState
   /// with the given fields replaced by the non-null parameter values.
@@ -1347,9 +1548,10 @@ abstract class $ShopStateCopyWith<$Res> {
       bool isEmbroidary,
       String handWork,
       bool isHandWork,
-      String filePath,
+      File filePath,
       String designReference,
-      bool isLoading});
+      bool isLoading,
+      List<String> addOn});
 }
 
 /// @nodoc
@@ -1380,6 +1582,7 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
     Object? filePath = null,
     Object? designReference = null,
     Object? isLoading = null,
+    Object? addOn = null,
   }) {
     return _then(_value.copyWith(
       fileName: null == fileName
@@ -1425,7 +1628,7 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
       filePath: null == filePath
           ? _value.filePath
           : filePath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as File,
       designReference: null == designReference
           ? _value.designReference
           : designReference // ignore: cast_nullable_to_non_nullable
@@ -1434,6 +1637,10 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      addOn: null == addOn
+          ? _value.addOn
+          : addOn // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -1457,9 +1664,10 @@ abstract class _$$ShopStateImplCopyWith<$Res>
       bool isEmbroidary,
       String handWork,
       bool isHandWork,
-      String filePath,
+      File filePath,
       String designReference,
-      bool isLoading});
+      bool isLoading,
+      List<String> addOn});
 }
 
 /// @nodoc
@@ -1488,6 +1696,7 @@ class __$$ShopStateImplCopyWithImpl<$Res>
     Object? filePath = null,
     Object? designReference = null,
     Object? isLoading = null,
+    Object? addOn = null,
   }) {
     return _then(_$ShopStateImpl(
       fileName: null == fileName
@@ -1533,7 +1742,7 @@ class __$$ShopStateImplCopyWithImpl<$Res>
       filePath: null == filePath
           ? _value.filePath
           : filePath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as File,
       designReference: null == designReference
           ? _value.designReference
           : designReference // ignore: cast_nullable_to_non_nullable
@@ -1542,6 +1751,10 @@ class __$$ShopStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      addOn: null == addOn
+          ? _value._addOn
+          : addOn // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -1562,7 +1775,9 @@ class _$ShopStateImpl implements _ShopState {
       required this.isHandWork,
       required this.filePath,
       required this.designReference,
-      required this.isLoading});
+      required this.isLoading,
+      required final List<String> addOn})
+      : _addOn = addOn;
 
   @override
   final String fileName;
@@ -1585,15 +1800,22 @@ class _$ShopStateImpl implements _ShopState {
   @override
   final bool isHandWork;
   @override
-  final String filePath;
+  final File filePath;
   @override
   final String designReference;
   @override
   final bool isLoading;
+  final List<String> _addOn;
+  @override
+  List<String> get addOn {
+    if (_addOn is EqualUnmodifiableListView) return _addOn;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_addOn);
+  }
 
   @override
   String toString() {
-    return 'ShopState(fileName: $fileName, isLoaded: $isLoaded, alteration: $alteration, isAlteration: $isAlteration, stitching: $stitching, isStitching: $isStitching, embroidary: $embroidary, isEmbroidary: $isEmbroidary, handWork: $handWork, isHandWork: $isHandWork, filePath: $filePath, designReference: $designReference, isLoading: $isLoading)';
+    return 'ShopState(fileName: $fileName, isLoaded: $isLoaded, alteration: $alteration, isAlteration: $isAlteration, stitching: $stitching, isStitching: $isStitching, embroidary: $embroidary, isEmbroidary: $isEmbroidary, handWork: $handWork, isHandWork: $isHandWork, filePath: $filePath, designReference: $designReference, isLoading: $isLoading, addOn: $addOn)';
   }
 
   @override
@@ -1626,7 +1848,8 @@ class _$ShopStateImpl implements _ShopState {
             (identical(other.designReference, designReference) ||
                 other.designReference == designReference) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            const DeepCollectionEquality().equals(other._addOn, _addOn));
   }
 
   @override
@@ -1644,7 +1867,8 @@ class _$ShopStateImpl implements _ShopState {
       isHandWork,
       filePath,
       designReference,
-      isLoading);
+      isLoading,
+      const DeepCollectionEquality().hash(_addOn));
 
   /// Create a copy of ShopState
   /// with the given fields replaced by the non-null parameter values.
@@ -1667,9 +1891,10 @@ abstract class _ShopState implements ShopState {
       required final bool isEmbroidary,
       required final String handWork,
       required final bool isHandWork,
-      required final String filePath,
+      required final File filePath,
       required final String designReference,
-      required final bool isLoading}) = _$ShopStateImpl;
+      required final bool isLoading,
+      required final List<String> addOn}) = _$ShopStateImpl;
 
   @override
   String get fileName;
@@ -1692,11 +1917,13 @@ abstract class _ShopState implements ShopState {
   @override
   bool get isHandWork;
   @override
-  String get filePath;
+  File get filePath;
   @override
   String get designReference;
   @override
   bool get isLoading;
+  @override
+  List<String> get addOn;
 
   /// Create a copy of ShopState
   /// with the given fields replaced by the non-null parameter values.

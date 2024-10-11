@@ -11,4 +11,11 @@ class ShopEvent with _$ShopEvent {
   const factory ShopEvent.handWorkClickedEvent({
     required bool isChecked
   }) = _handWorkClickedEvent;
+  const factory ShopEvent.designReference({
+    required String designReference
+  }) = _designReference;
+  const factory ShopEvent.proceedToCheckoutEventPressed({
+    required CreateOrderModel orderModel
+  }) = _proceedToCheckoutEventPressed;
+  
 }

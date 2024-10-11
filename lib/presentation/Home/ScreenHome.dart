@@ -232,6 +232,8 @@ bool isDarkMode = ThemeUtil.isDarkMode(context);
                               Navigator.of(context)
                                   .push(MaterialPageRoute(builder: (context) {
                                 return ScreenShop(
+                                  // itemId: element.itemId,
+                                  itemId: "66dc9816380acd2c38cd7e61",
                                   shopname: element.name,
                                   location: "Ernakulam",
                                   image: element.images[0],

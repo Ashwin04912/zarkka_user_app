@@ -12,19 +12,25 @@ class ShopState with _$ShopState {
     required String embroidary,
     required bool isEmbroidary,
     required String handWork,
-    required bool isHandWork
+    required bool isHandWork,
+    required String filePath,
+    required String designReference,
+   required bool isLoading,
   }) = _ShopState;
 
   factory ShopState.initial() => const ShopState(
         fileName: '',
         isLoaded: false,
         alteration: '',
+        designReference: '',
         stitching: '',
         isAlteration: false,
         isStitching: false,
         isEmbroidary: false,
         embroidary: '',
         isHandWork: false,
+        filePath: '',
         handWork: '',
+        isLoading: false
       );
 }

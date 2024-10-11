@@ -1,6 +1,4 @@
-// To parse this JSON data, do
-//
-//     final addressModel = addressModelFromJson(jsonString);
+
 
 import 'dart:convert';
 
@@ -37,7 +35,6 @@ class Address {
     String flat;
     String area;
     String landmark;
-    String id;
 
     Address({
         required this.addressId,
@@ -48,7 +45,6 @@ class Address {
         required this.flat,
         required this.area,
         required this.landmark,
-        required this.id,
     });
 
     factory Address.fromJson(Map<String, dynamic> json) => Address(
@@ -60,7 +56,6 @@ class Address {
         flat: json["flat"],
         area: json["area"],
         landmark: json["landmark"],
-        id: json["_id"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -72,7 +67,6 @@ class Address {
         "flat": flat,
         "area": area,
         "landmark": landmark,
-        "_id": id,
     };
 }
 

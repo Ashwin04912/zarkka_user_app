@@ -74,16 +74,12 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
         submitPressed: (value) async {
           emit(state.copyWith(
             isSubmiting: true,
-            successOrfailure: none(),
-            isEditDataGot: none(),
+            // Reset previous results
             addAddressSuccessOrFailureResponse: none(),
-            isDataGot: none(),
             showErrorMessages: false,
-            addressess: AddressModel(status: '', addresses: []),
-            isNavigate: false,
-            editAddressSuccessOrFailureResponse: none(),
           ));
 
+          // Make API call
           final resp = await addressApi.saveAddress(
             name: value.name,
             contact: value.contact,
@@ -98,26 +94,17 @@ class AddAddressBloc extends Bloc<AddAddressEvent, AddAddressState> {
           resp.fold(
             (failure) {
               emit(state.copyWith(
-                  showErrorMessages: true,
-                  isDataGot: none(),
-                  editAddressSuccessOrFailureResponse: none(),
-                  addAddressSuccessOrFailureResponse: some(left(failure)),
-                  isSubmiting: false,
-                  isNavigate: false,
-                  addressess: AddressModel(status: '', addresses: [])));
+                showErrorMessages: true,
+                addAddressSuccessOrFailureResponse: some(left(failure)),
+                isSubmiting: false,
+              ));
             },
             (success) {
               emit(state.copyWith(
-                  showErrorMessages: false,
-                  addAddressSuccessOrFailureResponse: some(right(unit)),
-                  isSubmiting: false,
-                  isEditDataGot: none(),
-                  editAddressSuccessOrFailureResponse: none(),
-                  isNavigate: false,
-                  addressess: AddressModel(
-                      status: success.status, addresses: success.addresses)));
-              // After adding address, trigger fetching all addresses
-              // add(const AddAddressEvent.getAllAddress());
+                addAddressSuccessOrFailureResponse: some(right(unit)),
+                isSubmiting: false,
+                addressess: success, // Set the new address data here
+              ));
             },
           );
         },

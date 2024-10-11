@@ -15,7 +15,7 @@ class ShopEvent with _$ShopEvent {
     required String designReference
   }) = _designReference;
   const factory ShopEvent.proceedToCheckoutEventPressed({
-    required CreateOrderModel orderModel
+    required CreateOrderReqModel orderModel
   }) = _proceedToCheckoutEventPressed;
   const factory ShopEvent.clearAllEvent() = _clearAllEvent;
   

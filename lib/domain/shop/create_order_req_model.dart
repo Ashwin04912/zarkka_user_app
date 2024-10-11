@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final createOrderModel = createOrderModelFromJson(jsonString);
+//     final CreateOrderReqModel = CreateOrderReqModelFromJson(jsonString);
 
 import 'dart:convert';
 import 'dart:io';
 
-CreateOrderModel createOrderModelFromJson(String str) => CreateOrderModel.fromJson(json.decode(str));
+CreateOrderReqModel createOrderReqModelFromJson(String str) => CreateOrderReqModel.fromJson(json.decode(str));
 
-String createOrderModelToJson(CreateOrderModel data) => json.encode(data.toJson());
+String createOrderReqModelToJson(CreateOrderReqModel data) => json.encode(data.toJson());
 
-class CreateOrderModel {
+class CreateOrderReqModel {
     String token;
     File image;
     String serviceDescription;
@@ -19,7 +19,7 @@ class CreateOrderModel {
     String designReference;
     String measurements;
 
-    CreateOrderModel({
+    CreateOrderReqModel({
         required this.token,
         required this.image,
         required this.serviceDescription,
@@ -30,7 +30,7 @@ class CreateOrderModel {
         required this.measurements,
     });
 
-    factory CreateOrderModel.fromJson(Map<String, dynamic> json) => CreateOrderModel(
+    factory CreateOrderReqModel.fromJson(Map<String, dynamic> json) => CreateOrderReqModel(
         token: json["token"],
         image: json["image"],
         serviceDescription: json["serviceDescription"],

@@ -16,7 +16,9 @@ class ShopState with _$ShopState {
     required File filePath,
     required String designReference,
    required bool isLoading,
+   required Option<Either<FormFailure, CreateOrderRespModel>> successOrfailure,
    required List<String> addOn,
+   required bool canNavigate,
   }) = _ShopState;
 
   factory ShopState.initial() => ShopState(
@@ -33,6 +35,8 @@ class ShopState with _$ShopState {
         filePath: File(''),
         handWork: '',
         isLoading: false,
-        addOn: const []
+        addOn: const [],
+        successOrfailure: none(),
+        canNavigate: false
       );
 }

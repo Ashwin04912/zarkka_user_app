@@ -24,7 +24,7 @@ mixin _$ShopEvent {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) =>
@@ -37,7 +37,7 @@ mixin _$ShopEvent {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) =>
@@ -50,7 +50,7 @@ mixin _$ShopEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -173,7 +173,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -189,7 +189,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -205,7 +205,7 @@ class _$uploadButtonClickedEventImpl implements _uploadButtonClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -328,7 +328,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -344,7 +344,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -360,7 +360,7 @@ class _$alterationClickedEventImpl implements _alterationClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -482,7 +482,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -498,7 +498,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -514,7 +514,7 @@ class _$stitchingClickedEventImpl implements _stitchingClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -665,7 +665,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -681,7 +681,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -697,7 +697,7 @@ class _$embroidaryClickedEventImpl implements _embroidaryClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -856,7 +856,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -872,7 +872,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -888,7 +888,7 @@ class _$handWorkClickedEventImpl implements _handWorkClickedEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -1046,7 +1046,7 @@ class _$designReferenceImpl implements _designReference {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -1062,7 +1062,7 @@ class _$designReferenceImpl implements _designReference {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -1078,7 +1078,7 @@ class _$designReferenceImpl implements _designReference {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -1167,7 +1167,7 @@ abstract class _$$proceedToCheckoutEventPressedImplCopyWith<$Res> {
           $Res Function(_$proceedToCheckoutEventPressedImpl) then) =
       __$$proceedToCheckoutEventPressedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CreateOrderModel orderModel});
+  $Res call({CreateOrderReqModel orderModel});
 }
 
 /// @nodoc
@@ -1190,7 +1190,7 @@ class __$$proceedToCheckoutEventPressedImplCopyWithImpl<$Res>
       orderModel: null == orderModel
           ? _value.orderModel
           : orderModel // ignore: cast_nullable_to_non_nullable
-              as CreateOrderModel,
+              as CreateOrderReqModel,
     ));
   }
 }
@@ -1202,7 +1202,7 @@ class _$proceedToCheckoutEventPressedImpl
   const _$proceedToCheckoutEventPressedImpl({required this.orderModel});
 
   @override
-  final CreateOrderModel orderModel;
+  final CreateOrderReqModel orderModel;
 
   @override
   String toString() {
@@ -1240,7 +1240,7 @@ class _$proceedToCheckoutEventPressedImpl
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -1256,7 +1256,7 @@ class _$proceedToCheckoutEventPressedImpl
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -1272,7 +1272,7 @@ class _$proceedToCheckoutEventPressedImpl
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -1343,10 +1343,10 @@ class _$proceedToCheckoutEventPressedImpl
 
 abstract class _proceedToCheckoutEventPressed implements ShopEvent {
   const factory _proceedToCheckoutEventPressed(
-          {required final CreateOrderModel orderModel}) =
+          {required final CreateOrderReqModel orderModel}) =
       _$proceedToCheckoutEventPressedImpl;
 
-  CreateOrderModel get orderModel;
+  CreateOrderReqModel get orderModel;
 
   /// Create a copy of ShopEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1403,7 +1403,7 @@ class _$clearAllEventImpl implements _clearAllEvent {
     required TResult Function(bool isChecked) embroidaryClickedEvent,
     required TResult Function(bool isChecked) handWorkClickedEvent,
     required TResult Function(String designReference) designReference,
-    required TResult Function(CreateOrderModel orderModel)
+    required TResult Function(CreateOrderReqModel orderModel)
         proceedToCheckoutEventPressed,
     required TResult Function() clearAllEvent,
   }) {
@@ -1419,7 +1419,7 @@ class _$clearAllEventImpl implements _clearAllEvent {
     TResult? Function(bool isChecked)? embroidaryClickedEvent,
     TResult? Function(bool isChecked)? handWorkClickedEvent,
     TResult? Function(String designReference)? designReference,
-    TResult? Function(CreateOrderModel orderModel)?
+    TResult? Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult? Function()? clearAllEvent,
   }) {
@@ -1435,7 +1435,7 @@ class _$clearAllEventImpl implements _clearAllEvent {
     TResult Function(bool isChecked)? embroidaryClickedEvent,
     TResult Function(bool isChecked)? handWorkClickedEvent,
     TResult Function(String designReference)? designReference,
-    TResult Function(CreateOrderModel orderModel)?
+    TResult Function(CreateOrderReqModel orderModel)?
         proceedToCheckoutEventPressed,
     TResult Function()? clearAllEvent,
     required TResult orElse(),
@@ -1523,7 +1523,10 @@ mixin _$ShopState {
   File get filePath => throw _privateConstructorUsedError;
   String get designReference => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  Option<Either<FormFailure, CreateOrderRespModel>> get successOrfailure =>
+      throw _privateConstructorUsedError;
   List<String> get addOn => throw _privateConstructorUsedError;
+  bool get canNavigate => throw _privateConstructorUsedError;
 
   /// Create a copy of ShopState
   /// with the given fields replaced by the non-null parameter values.
@@ -1551,7 +1554,9 @@ abstract class $ShopStateCopyWith<$Res> {
       File filePath,
       String designReference,
       bool isLoading,
-      List<String> addOn});
+      Option<Either<FormFailure, CreateOrderRespModel>> successOrfailure,
+      List<String> addOn,
+      bool canNavigate});
 }
 
 /// @nodoc
@@ -1582,7 +1587,9 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
     Object? filePath = null,
     Object? designReference = null,
     Object? isLoading = null,
+    Object? successOrfailure = null,
     Object? addOn = null,
+    Object? canNavigate = null,
   }) {
     return _then(_value.copyWith(
       fileName: null == fileName
@@ -1637,10 +1644,18 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      successOrfailure: null == successOrfailure
+          ? _value.successOrfailure
+          : successOrfailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, CreateOrderRespModel>>,
       addOn: null == addOn
           ? _value.addOn
           : addOn // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      canNavigate: null == canNavigate
+          ? _value.canNavigate
+          : canNavigate // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -1667,7 +1682,9 @@ abstract class _$$ShopStateImplCopyWith<$Res>
       File filePath,
       String designReference,
       bool isLoading,
-      List<String> addOn});
+      Option<Either<FormFailure, CreateOrderRespModel>> successOrfailure,
+      List<String> addOn,
+      bool canNavigate});
 }
 
 /// @nodoc
@@ -1696,7 +1713,9 @@ class __$$ShopStateImplCopyWithImpl<$Res>
     Object? filePath = null,
     Object? designReference = null,
     Object? isLoading = null,
+    Object? successOrfailure = null,
     Object? addOn = null,
+    Object? canNavigate = null,
   }) {
     return _then(_$ShopStateImpl(
       fileName: null == fileName
@@ -1751,10 +1770,18 @@ class __$$ShopStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      successOrfailure: null == successOrfailure
+          ? _value.successOrfailure
+          : successOrfailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, CreateOrderRespModel>>,
       addOn: null == addOn
           ? _value._addOn
           : addOn // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      canNavigate: null == canNavigate
+          ? _value.canNavigate
+          : canNavigate // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1776,7 +1803,9 @@ class _$ShopStateImpl implements _ShopState {
       required this.filePath,
       required this.designReference,
       required this.isLoading,
-      required final List<String> addOn})
+      required this.successOrfailure,
+      required final List<String> addOn,
+      required this.canNavigate})
       : _addOn = addOn;
 
   @override
@@ -1805,6 +1834,8 @@ class _$ShopStateImpl implements _ShopState {
   final String designReference;
   @override
   final bool isLoading;
+  @override
+  final Option<Either<FormFailure, CreateOrderRespModel>> successOrfailure;
   final List<String> _addOn;
   @override
   List<String> get addOn {
@@ -1814,8 +1845,11 @@ class _$ShopStateImpl implements _ShopState {
   }
 
   @override
+  final bool canNavigate;
+
+  @override
   String toString() {
-    return 'ShopState(fileName: $fileName, isLoaded: $isLoaded, alteration: $alteration, isAlteration: $isAlteration, stitching: $stitching, isStitching: $isStitching, embroidary: $embroidary, isEmbroidary: $isEmbroidary, handWork: $handWork, isHandWork: $isHandWork, filePath: $filePath, designReference: $designReference, isLoading: $isLoading, addOn: $addOn)';
+    return 'ShopState(fileName: $fileName, isLoaded: $isLoaded, alteration: $alteration, isAlteration: $isAlteration, stitching: $stitching, isStitching: $isStitching, embroidary: $embroidary, isEmbroidary: $isEmbroidary, handWork: $handWork, isHandWork: $isHandWork, filePath: $filePath, designReference: $designReference, isLoading: $isLoading, successOrfailure: $successOrfailure, addOn: $addOn, canNavigate: $canNavigate)';
   }
 
   @override
@@ -1849,7 +1883,11 @@ class _$ShopStateImpl implements _ShopState {
                 other.designReference == designReference) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            const DeepCollectionEquality().equals(other._addOn, _addOn));
+            (identical(other.successOrfailure, successOrfailure) ||
+                other.successOrfailure == successOrfailure) &&
+            const DeepCollectionEquality().equals(other._addOn, _addOn) &&
+            (identical(other.canNavigate, canNavigate) ||
+                other.canNavigate == canNavigate));
   }
 
   @override
@@ -1868,7 +1906,9 @@ class _$ShopStateImpl implements _ShopState {
       filePath,
       designReference,
       isLoading,
-      const DeepCollectionEquality().hash(_addOn));
+      successOrfailure,
+      const DeepCollectionEquality().hash(_addOn),
+      canNavigate);
 
   /// Create a copy of ShopState
   /// with the given fields replaced by the non-null parameter values.
@@ -1894,7 +1934,10 @@ abstract class _ShopState implements ShopState {
       required final File filePath,
       required final String designReference,
       required final bool isLoading,
-      required final List<String> addOn}) = _$ShopStateImpl;
+      required final Option<Either<FormFailure, CreateOrderRespModel>>
+          successOrfailure,
+      required final List<String> addOn,
+      required final bool canNavigate}) = _$ShopStateImpl;
 
   @override
   String get fileName;
@@ -1923,7 +1966,11 @@ abstract class _ShopState implements ShopState {
   @override
   bool get isLoading;
   @override
+  Option<Either<FormFailure, CreateOrderRespModel>> get successOrfailure;
+  @override
   List<String> get addOn;
+  @override
+  bool get canNavigate;
 
   /// Create a copy of ShopState
   /// with the given fields replaced by the non-null parameter values.

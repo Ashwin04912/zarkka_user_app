@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tailme/application/my_orders/my_orders_bloc.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/theme_util.dart';
@@ -82,8 +84,9 @@ class ScreenMyOrders extends StatelessWidget {
                                 Text(
                                   'Blouse',
                                   style: TextStyle(
-                                    color:
-                                        isDarkMode ? Colors.white : Colors.black,
+                                    color: isDarkMode
+                                        ? Colors.white
+                                        : Colors.black,
                                     fontSize: 22,
                                     fontFamily: 'Raleway',
                                     fontWeight: FontWeight.w700,
@@ -92,8 +95,9 @@ class ScreenMyOrders extends StatelessWidget {
                                 Text(
                                   '\$65',
                                   style: TextStyle(
-                                    color:
-                                        isDarkMode ? Colors.white : Colors.black,
+                                    color: isDarkMode
+                                        ? Colors.white
+                                        : Colors.black,
                                     fontSize: 14,
                                     fontFamily: 'Raleway',
                                     fontWeight: FontWeight.w700,
@@ -104,21 +108,24 @@ class ScreenMyOrders extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    Container(
-                                      alignment: Alignment.center,
-                                      height: 25,
-                                      width: 25,
-                                      decoration: const BoxDecoration(
-                                        color: Color(0xFF343434),
-                                      ),
-                                      child: const Text(
-                                        '-',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 30,
-                                          fontFamily: 'Raleway',
-                                          fontWeight: FontWeight.w500,
-                                          height: 0.22,
+                                    InkWell(
+                                      onTap: (){BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.decrement());},
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        height: 25,
+                                        width: 25,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFF343434),
+                                        ),
+                                        child: const Text(
+                                          '-',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 30,
+                                            fontFamily: 'Raleway',
+                                            fontWeight: FontWeight.w500,
+                                            height: 0.22,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -129,32 +136,44 @@ class ScreenMyOrders extends StatelessWidget {
                                       decoration: const BoxDecoration(
                                         color: Colors.white,
                                       ),
-                                      child: const Text(
-                                        '0',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 17,
-                                          fontFamily: 'Raleway',
-                                          fontWeight: FontWeight.w500,
-                                          height: 0.22,
-                                        ),
+
+                                      //counter bloc
+                                      child: BlocBuilder<MyOrdersBloc,
+                                          MyOrdersState>(
+                                        builder: (context, state) {
+                                          return  Text(
+                                            state.itemCount.toString(),
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 17,
+                                              fontFamily: 'Raleway',
+                                              fontWeight: FontWeight.w500,
+                                              height: 0.22,
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      height: 25,
-                                      width: 25,
-                                      decoration: const BoxDecoration(
-                                        color: Color(0xFF343434),
-                                      ),
-                                      child: const Text(
-                                        '+',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 30,
-                                          fontFamily: 'Raleway',
-                                          fontWeight: FontWeight.w500,
-                                          height: 0.22,
+                                    InkWell(
+                                      onTap: (){
+                                        BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.increment());
+                                      },
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        height: 25,
+                                        width: 25,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFF343434),
+                                        ),
+                                        child: const Text(
+                                          '+',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 30,
+                                            fontFamily: 'Raleway',
+                                            fontWeight: FontWeight.w500,
+                                            height: 0.22,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -176,7 +195,7 @@ class ScreenMyOrders extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(
+                  return const SizedBox(
                     height: 8,
                   );
                 },
@@ -430,7 +449,9 @@ class ScreenMyOrders extends StatelessWidget {
                 ),
               ),
               // const Spacer(),
-              SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               CommonButton(ontap: () {}, buttonText: "Place Order")
             ],
           ),

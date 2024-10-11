@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/presentation/Notification/Screen_notification.dart';
+import 'package:tailme/presentation/my_orders/screen_my_orders.dart';
 import 'package:tailme/presentation/wishlist/Screen_wishlist.dart';
 import 'package:tailme/theme_util.dart';
 
@@ -56,7 +57,7 @@ class ReusableWidgets {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ScreenWishlist()));
+                    builder: (context) => const ScreenMyOrders()));
           },
           icon: SvgPicture.asset('assets/images/home/cart.svg',color: isDarkMode?Colors.white:Colors.black,),
         ),

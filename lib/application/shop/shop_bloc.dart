@@ -1,13 +1,15 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tailme/core/failures/form/form_failures.dart';
+import 'package:tailme/domain/shop/create_order_resp_model.dart';
 import 'package:tailme/infrastructure/shop/shop_api_impl.dart';
-
-import '../../domain/shop/create_order_model.dart';
+import '../../domain/shop/create_order_req_model.dart';
 
 part 'shop_event.dart';
 part 'shop_state.dart';
@@ -15,11 +17,12 @@ part 'shop_bloc.freezed.dart';
 
 @injectable
 class ShopBloc extends Bloc<ShopEvent, ShopState> {
-  final repo = CreateOrderRepo();
+  final repo= CreateOrderRepo();
   final ImagePicker picker = ImagePicker();
+
   ShopBloc() : super(ShopState.initial()) {
     on<ShopEvent>((event, emit) async {
-      await event.map(
+        await event.map(
         uploadButtonClickedEvent: (value) async {
           emit(state.copyWith(
             fileName: '',
@@ -27,13 +30,17 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
             isLoaded: false,
           ));
 
-          final XFile? image =
-              await picker.pickImage(source: ImageSource.gallery);
+          final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
-          emit(state.copyWith(
-              fileName: image!.name,
+          if (image != null) {
+            emit(state.copyWith(
+              fileName: image.name,
               isLoaded: true,
-              filePath: File(image.path)));
+              filePath: File(image.path),
+            ));
+          } else {
+            emit(state.copyWith(isLoaded: false));
+          }
         },
         alterationClickedEvent: (_alterationClickedEvent value) {
           emit(state.copyWith(
@@ -45,15 +52,16 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
         },
         stitchingClickedEvent: (_stitchingClickedEvent value) {
           emit(state.copyWith(
-              stitching: "Stitching",
-              alteration: '',
-              isStitching: true,
-              isAlteration: false));
+            stitching: "Stitching",
+            alteration: '',
+            isStitching: true,
+            isAlteration: false,
+          ));
         },
         embroidaryClickedEvent: (_embroidaryClickedEvent value) {
-          final currentAddOns = [...state.addOn];
+          final currentAddOns = List<String>.from(state.addOn);
           if (value.isChecked) {
-            if (!currentAddOns.contains("Embroidery")) {
+            if (!currentAddOns.contains("embroidery")) {
               currentAddOns.add("embroidery");
             }
           } else {
@@ -66,7 +74,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
           ));
         },
         handWorkClickedEvent: (_handWorkClickedEvent value) {
-          final currentAddOns = [...state.addOn];
+          final currentAddOns = List<String>.from(state.addOn);
           if (value.isChecked) {
             if (!currentAddOns.contains("handwork")) {
               currentAddOns.add("handwork");
@@ -83,18 +91,27 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
         designReference: (_designReference value) {
           emit(state.copyWith(designReference: value.designReference));
         },
-        proceedToCheckoutEventPressed:
-            (_proceedToCheckoutEventPressed value) async {
-          emit(state.copyWith(isLoading: true));
-          final result =
-              await repo.proceedToCheckout(orderModel: value.orderModel);
+        proceedToCheckoutEventPressed: (_proceedToCheckoutEventPressed value) async {
+          emit(state.copyWith(isLoading: true, successOrfailure: none()));
+          final result = await repo.proceedToCheckout(orderModel: value.orderModel);
 
-          emit(state.copyWith(isLoading: false));
-        },
-        clearAllEvent: (_clearAllEvent value) {
-          emit(state.copyWith(
+          result.fold((failure) {
+            emit(state.copyWith(
+              canNavigate: false,
+              isLoading: false,
+              successOrfailure: some(left(failure)),
+            ));
+          }, (success) {
+            emit(state.copyWith(
+              isLoading: false,
+              successOrfailure: some(right(success)),
+              canNavigate: true
+            ));
+            // Reset fields after successful checkout
+            emit(state.copyWith(
               fileName: 'Upload image',
-              // isLoaded: false,
+              filePath: File(''),
+              isLoaded: false,
               alteration: '',
               designReference: '',
               stitching: '',
@@ -103,12 +120,34 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
               isEmbroidary: false,
               embroidary: '',
               isHandWork: false,
-              filePath: File(''),
               handWork: '',
               isLoading: false,
-              addOn: const []));
+              addOn: const [],
+              canNavigate: false
+            ));
+            // Navigate to success page if necessary
+            // This should be done outside the bloc, usually in the UI layer
+            // You can use a callback or state to trigger navigation
+          });
+        },
+        clearAllEvent: (_clearAllEvent value) {
+          emit(state.copyWith(
+            fileName: 'Upload image',
+            filePath: File(''),
+            isLoaded: false, // Ensure this is set to false
+            alteration: '',
+            designReference: '',
+            stitching: '',
+            isAlteration: false,
+            isStitching: false,
+            isEmbroidary: false,
+            embroidary: '',
+            isHandWork: false,
+            handWork: '',
+            isLoading: false,
+            addOn: const [],
+          ));
         },
       );
     });
-  }
-}
+  }}

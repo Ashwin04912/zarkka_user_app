@@ -11,7 +11,7 @@ String createOrderRespModelToJson(CreateOrderRespModel data) => json.encode(data
 class CreateOrderRespModel {
     String status;
     List<String> message;
-    Data data;
+    List<Datum> data;
 
     CreateOrderRespModel({
         required this.status,
@@ -22,56 +22,36 @@ class CreateOrderRespModel {
     factory CreateOrderRespModel.fromJson(Map<String, dynamic> json) => CreateOrderRespModel(
         status: json["status"],
         message: List<String>.from(json["message"].map((x) => x)),
-        data: Data.fromJson(json["data"]),
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
         "status": status,
         "message": List<dynamic>.from(message.map((x) => x)),
-        "data": data.toJson(),
+        "data": List<dynamic>.from(data.map((x) => x.toJson())),
     };
 }
 
-class Data {
-    String serviceDescription;
+class Datum {
     String orderItemId;
-    String itemId;
-    String serviceType;
-    String designReference;
-    List<String> addons;
-    String imageId;
     double price;
+    String itemImageUrl;
 
-    Data({
-        required this.serviceDescription,
+    Datum({
         required this.orderItemId,
-        required this.itemId,
-        required this.serviceType,
-        required this.designReference,
-        required this.addons,
-        required this.imageId,
         required this.price,
+        required this.itemImageUrl,
     });
 
-    factory Data.fromJson(Map<String, dynamic> json) => Data(
-        serviceDescription: json["serviceDescription"],
+    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         orderItemId: json["orderItemId"],
-        itemId: json["itemId"],
-        serviceType: json["serviceType"],
-        designReference: json["designReference"],
-        addons: List<String>.from(json["addons"].map((x) => x)),
-        imageId: json["imageId"],
         price: json["price"]?.toDouble(),
+        itemImageUrl: json["itemImageUrl"],
     );
 
     Map<String, dynamic> toJson() => {
-        "serviceDescription": serviceDescription,
         "orderItemId": orderItemId,
-        "itemId": itemId,
-        "serviceType": serviceType,
-        "designReference": designReference,
-        "addons": List<dynamic>.from(addons.map((x) => x)),
-        "imageId": imageId,
         "price": price,
+        "itemImageUrl": itemImageUrl,
     };
 }

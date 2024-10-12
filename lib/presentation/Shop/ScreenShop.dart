@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tailme/application/my_orders/my_orders_bloc.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/domain/shop/create_order_req_model.dart';
@@ -49,6 +50,7 @@ class ScreenShop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("item id = $itemId");
     bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
       appBar: ReusableWidgets.getAppBar(context),
@@ -62,22 +64,30 @@ class ScreenShop extends StatelessWidget {
           listener: (context, state) {
             state.successOrfailure.fold(() {}, (some) {
               some.fold((f) {
-                  final message = f.maybeWhen(
-                            validationFailure: () =>
-                                "Missing required fields",
-                           userNotFound: ()=>"Unauthorized access! Login and try again..",
-                            orElse: () => "some error occured",
-                          );
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(SnackBar(content: Text(message,style: TextStyle(color: Colors.red),)));
+                final message = f.maybeWhen(
+                  validationFailure: () => "Missing required fields",
+                  userNotFound: () =>
+                      "Unauthorized access! Login and try again..",
+                  orElse: () => "some error occured",
+                );
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(
+                  message,
+                  style: TextStyle(color: Colors.red),
+                )));
               }, (s) {
-                 if (state.canNavigate) {
-              // Assuming CreateOrderResponseModel is your success type
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const ScreenMyOrders()),
-              );
-            }
+                if (state.canNavigate) {
+                  // Assuming CreateOrderResponseModel is your success type
+                   BlocProvider.of<MyOrdersBloc>(context)
+                                  .add(MyOrdersEvent.initialCount(s.data.length));
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ScreenMyOrders(
+                              orderData: s,
+                            )),
+                  );
+                }
               });
             });
           },
@@ -680,6 +690,7 @@ class ScreenShop extends StatelessWidget {
                           return CommonButton(
                             buttonText: "\$69 Proceed to checkout",
                             ontap: () async {
+                             
                               final SharedPreferences pref =
                                   await SharedPreferences.getInstance();
                               final token = pref.getString('token') ?? '';

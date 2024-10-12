@@ -2,13 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:injectable/injectable.dart';
 import 'package:tailme/application/my_orders/my_orders_bloc.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
+import 'package:tailme/domain/shop/create_order_resp_model.dart';
+import 'package:tailme/infrastructure/string.dart';
 import 'package:tailme/theme_util.dart';
 
-class ScreenMyOrders extends StatelessWidget {
-  const ScreenMyOrders({super.key});
+class ScreenMyOrders extends StatefulWidget {
+  ScreenMyOrders({super.key, this.orderData});
+
+  final CreateOrderRespModel? orderData;
+
+  @override
+  State<ScreenMyOrders> createState() => _ScreenMyOrdersState();
+}
+
+class _ScreenMyOrdersState extends State<ScreenMyOrders> {
+  // @override
+  // void initState() {
+  //   print("init worded");
+  //   if (widget.orderData != null) {
+  //     debugPrint(widget.orderData!.data.length.toString());
+  //     BlocProvider.of<MyOrdersBloc>(context)
+  //         .add(MyOrdersEvent.initialCount(16));
+  //   }
+  //   // super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +57,7 @@ class ScreenMyOrders extends StatelessWidget {
             fontSize: 17,
             fontFamily: 'Raleway',
             fontWeight: FontWeight.w700,
-            height: 0.06,
+            height: 1.0,
           ),
         ),
       ),
@@ -46,9 +67,11 @@ class ScreenMyOrders extends StatelessWidget {
           child: Column(
             children: [
               ListView.separated(
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 3,
+                itemCount: widget.orderData?.data.length ?? 0,
                 itemBuilder: (BuildContext context, int index) {
+                  final order = widget.orderData!.data[index];
                   return Container(
                     width: double.infinity,
                     decoration: ShapeDecoration(
@@ -69,9 +92,9 @@ class ScreenMyOrders extends StatelessWidget {
                             height: 88,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              image: const DecorationImage(
+                              image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://www.beatitude.in/cdn/shop/articles/BA_BL_V107_1029_01_1024x.webp?v=1687177662"),
+                                    "https://tailor-app-backend-2o5l.onrender.com${order.itemImageUrl}"),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -93,7 +116,7 @@ class ScreenMyOrders extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  '\$65',
+                                  order.price.toString(),
                                   style: TextStyle(
                                     color: isDarkMode
                                         ? Colors.white
@@ -109,7 +132,11 @@ class ScreenMyOrders extends StatelessWidget {
                                 Row(
                                   children: [
                                     InkWell(
-                                      onTap: (){BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.decrement());},
+                                      onTap: () {
+                                        BlocProvider.of<MyOrdersBloc>(context)
+                                            .add(
+                                                MyOrdersEvent.decrement(index));
+                                      },
                                       child: Container(
                                         alignment: Alignment.center,
                                         height: 25,
@@ -124,7 +151,7 @@ class ScreenMyOrders extends StatelessWidget {
                                             fontSize: 30,
                                             fontFamily: 'Raleway',
                                             fontWeight: FontWeight.w500,
-                                            height: 0.22,
+                                            height: 1.0,
                                           ),
                                         ),
                                       ),
@@ -141,22 +168,24 @@ class ScreenMyOrders extends StatelessWidget {
                                       child: BlocBuilder<MyOrdersBloc,
                                           MyOrdersState>(
                                         builder: (context, state) {
-                                          return  Text(
-                                            state.itemCount.toString(),
+                                          return Text(
+                                            state.itemCount[index].toString(),
                                             style: const TextStyle(
                                               color: Colors.black,
                                               fontSize: 17,
                                               fontFamily: 'Raleway',
                                               fontWeight: FontWeight.w500,
-                                              height: 0.22,
+                                              height: 1.0,
                                             ),
                                           );
                                         },
                                       ),
                                     ),
                                     InkWell(
-                                      onTap: (){
-                                        BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.increment());
+                                      onTap: () {
+                                        BlocProvider.of<MyOrdersBloc>(context)
+                                            .add(
+                                                MyOrdersEvent.increment(index));
                                       },
                                       child: Container(
                                         alignment: Alignment.center,
@@ -172,7 +201,7 @@ class ScreenMyOrders extends StatelessWidget {
                                             fontSize: 30,
                                             fontFamily: 'Raleway',
                                             fontWeight: FontWeight.w500,
-                                            height: 0.22,
+                                            height: 1.0,
                                           ),
                                         ),
                                       ),
@@ -228,7 +257,7 @@ class ScreenMyOrders extends StatelessWidget {
                         fontSize: 10.29,
                         fontFamily: 'Urbanist',
                         fontWeight: FontWeight.w600,
-                        height: 0,
+                        height: 1.0,
                       ),
                     ),
                   ],
@@ -244,7 +273,7 @@ class ScreenMyOrders extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                       width: 1,
-                      color: Colors.white.withOpacity(0.20000000298023224),
+                      color: Colors.white.withOpacity(0.20),
                     ),
                     borderRadius: BorderRadius.circular(13),
                   ),
@@ -265,10 +294,9 @@ class ScreenMyOrders extends StatelessWidget {
                               fontSize: 13,
                               fontFamily: 'Raleway',
                               fontWeight: FontWeight.w600,
-                              height: 0,
+                              height: 1.0,
                             ),
                           ),
-                          // const Spacer(),
                           Text(
                             "\$168",
                             textAlign: TextAlign.right,
@@ -277,7 +305,7 @@ class ScreenMyOrders extends StatelessWidget {
                               fontSize: 13,
                               fontFamily: 'Raleway',
                               fontWeight: FontWeight.w600,
-                              height: 0,
+                              height: 1.0,
                             ),
                           )
                         ],
@@ -293,10 +321,9 @@ class ScreenMyOrders extends StatelessWidget {
                               fontSize: 13,
                               fontFamily: 'Raleway',
                               fontWeight: FontWeight.w600,
-                              height: 0,
+                              height: 1.0,
                             ),
                           ),
-                          // const Spacer(),
                           Text(
                             "\$0",
                             textAlign: TextAlign.right,
@@ -305,7 +332,7 @@ class ScreenMyOrders extends StatelessWidget {
                               fontSize: 13,
                               fontFamily: 'Raleway',
                               fontWeight: FontWeight.w600,
-                              height: 0,
+                              height: 1.0,
                             ),
                           )
                         ],
@@ -314,17 +341,16 @@ class ScreenMyOrders extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Delivery Fee',
+                            'Delivery Charge',
                             textAlign: TextAlign.right,
                             style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black,
                               fontSize: 13,
                               fontFamily: 'Raleway',
                               fontWeight: FontWeight.w600,
-                              height: 0,
+                              height: 1.0,
                             ),
                           ),
-                          // const Spacer(),
                           Text(
                             "\$0",
                             textAlign: TextAlign.right,
@@ -333,14 +359,13 @@ class ScreenMyOrders extends StatelessWidget {
                               fontSize: 13,
                               fontFamily: 'Raleway',
                               fontWeight: FontWeight.w600,
-                              height: 0,
+                              height: 1.0,
                             ),
                           )
                         ],
                       ),
                       const Divider(
                         thickness: 1,
-                        color: Colors.grey,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -350,22 +375,21 @@ class ScreenMyOrders extends StatelessWidget {
                             textAlign: TextAlign.right,
                             style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black,
-                              fontSize: 16,
+                              fontSize: 13,
                               fontFamily: 'Raleway',
-                              fontWeight: FontWeight.bold,
-                              height: 0,
+                              fontWeight: FontWeight.w600,
+                              height: 1.0,
                             ),
                           ),
-                          // const Spacer(),
                           Text(
                             "\$168",
                             textAlign: TextAlign.right,
                             style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black,
-                              fontSize: 16,
+                              fontSize: 13,
                               fontFamily: 'Raleway',
-                              fontWeight: FontWeight.bold,
-                              height: 0,
+                              fontWeight: FontWeight.w600,
+                              height: 1.0,
                             ),
                           )
                         ],
@@ -374,84 +398,7 @@ class ScreenMyOrders extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: double.infinity,
-                height: 89.h,
-                decoration: ShapeDecoration(
-                  color: const Color(0x3FD9D9D9),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SvgPicture.asset(
-                            'assets/images/arrow.svg',
-                            color: isDarkMode ? Colors.white : Colors.black,
-                          ),
-                          const SizedBox(width: 15),
-                          SizedBox(
-                            width: 187,
-                            height: 50,
-                            child: Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Home\n',
-                                    style: TextStyle(
-                                      color: isDarkMode
-                                          ? Colors.white
-                                          : Colors.black,
-                                      fontSize: 16,
-                                      fontFamily: 'Raleway',
-                                      fontWeight: FontWeight.w700,
-                                      height: 0,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text:
-                                        '4140 Parker Rd Kadavanthra\nKochi 682020',
-                                    style: TextStyle(
-                                      color: isDarkMode
-                                          ? Colors.white
-                                          : Colors.black,
-                                      fontSize: 13,
-                                      fontFamily: 'Raleway',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          // const Spacer(),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.edit_note,
-                                color: Color(0xFF4BBB38),
-                              )),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              // const Spacer(),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               CommonButton(ontap: () {}, buttonText: "Place Order")
             ],
           ),

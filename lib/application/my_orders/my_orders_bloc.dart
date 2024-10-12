@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tailme/domain/shop/create_order_resp_model.dart';
 
 part 'my_orders_event.dart';
 part 'my_orders_state.dart';
@@ -18,17 +19,22 @@ class MyOrdersBloc extends Bloc<MyOrdersEvent, MyOrdersState> {
         increment: (value) {
           // Create a new list from the current state, increment the item at the given index
           final newCount = List<int>.from(state.itemCount);
+          
           newCount[value.index]++;
           emit(state.copyWith(itemCount: newCount));
         },
         decrement: (value) {
           // Decrement the count only if it's greater than 0
           final newCount = List<int>.from(state.itemCount);
-          if (newCount[value.index] > 0) {
+          if (newCount[value.index] > 1) {
             newCount[value.index]--;
           }
           emit(state.copyWith(itemCount: newCount));
-        },
+        }, getProceededOrders: (_getProceededOrders value) { 
+          emit(state.copyWith(
+            model: value.model
+          ));
+         },
       );
     });
   }

@@ -17,12 +17,12 @@ part 'shop_bloc.freezed.dart';
 
 @injectable
 class ShopBloc extends Bloc<ShopEvent, ShopState> {
-  final repo= CreateOrderRepo();
+  final repo = CreateOrderRepo();
   final ImagePicker picker = ImagePicker();
 
   ShopBloc() : super(ShopState.initial()) {
     on<ShopEvent>((event, emit) async {
-        await event.map(
+      await event.map(
         uploadButtonClickedEvent: (value) async {
           emit(state.copyWith(
             fileName: '',
@@ -30,7 +30,8 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
             isLoaded: false,
           ));
 
-          final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+          final XFile? image =
+              await picker.pickImage(source: ImageSource.gallery);
 
           if (image != null) {
             emit(state.copyWith(
@@ -91,9 +92,14 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
         designReference: (_designReference value) {
           emit(state.copyWith(designReference: value.designReference));
         },
-        proceedToCheckoutEventPressed: (_proceedToCheckoutEventPressed value) async {
-          emit(state.copyWith(isLoading: true, successOrfailure: none()));
-          final result = await repo.proceedToCheckout(orderModel: value.orderModel);
+        proceedToCheckoutEventPressed:
+            (_proceedToCheckoutEventPressed value) async {
+          emit(state.copyWith(
+            isLoading: true,
+            successOrfailure: none(),
+            ));
+          final result =
+              await repo.proceedToCheckout(orderModel: value.orderModel);
 
           result.fold((failure) {
             emit(state.copyWith(
@@ -103,28 +109,26 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
             ));
           }, (success) {
             emit(state.copyWith(
-              isLoading: false,
-              successOrfailure: some(right(success)),
-              canNavigate: true
-            ));
+                isLoading: false,
+                successOrfailure: some(right(success)),
+                canNavigate: true));
             // Reset fields after successful checkout
             emit(state.copyWith(
-              fileName: 'Upload image',
-              filePath: File(''),
-              isLoaded: false,
-              alteration: '',
-              designReference: '',
-              stitching: '',
-              isAlteration: false,
-              isStitching: false,
-              isEmbroidary: false,
-              embroidary: '',
-              isHandWork: false,
-              handWork: '',
-              isLoading: false,
-              addOn: const [],
-              canNavigate: false
-            ));
+                fileName: 'Upload image',
+                filePath: File(''),
+                isLoaded: false,
+                alteration: '',
+                designReference: '',
+                stitching: '',
+                isAlteration: false,
+                isStitching: false,
+                isEmbroidary: false,
+                embroidary: '',
+                isHandWork: false,
+                handWork: '',
+                isLoading: false,
+                addOn: const [],
+                canNavigate: false));
             // Navigate to success page if necessary
             // This should be done outside the bloc, usually in the UI layer
             // You can use a callback or state to trigger navigation
@@ -150,4 +154,5 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
         },
       );
     });
-  }}
+  }
+}

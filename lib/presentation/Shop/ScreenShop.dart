@@ -73,19 +73,17 @@ class ScreenShop extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(
                   message,
-                  style: TextStyle(color: Colors.red),
+                  style: const TextStyle(color: Colors.red),
                 )));
               }, (s) {
                 if (state.canNavigate) {
-                  // Assuming CreateOrderResponseModel is your success type
-                   BlocProvider.of<MyOrdersBloc>(context)
-                                  .add(MyOrdersEvent.initialCount(s.data.length));
+                  BlocProvider.of<MyOrdersBloc>(context)
+                      .add(MyOrdersEvent.getProceededOrders(model: s));
+                  BlocProvider.of<MyOrdersBloc>(context)
+                      .add(MyOrdersEvent.initialCount(s.data.length));
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => ScreenMyOrders(
-                              orderData: s,
-                            )),
+                    MaterialPageRoute(builder: (context) => ScreenMyOrders()),
                   );
                 }
               });
@@ -690,7 +688,6 @@ class ScreenShop extends StatelessWidget {
                           return CommonButton(
                             buttonText: "\$69 Proceed to checkout",
                             ontap: () async {
-                             
                               final SharedPreferences pref =
                                   await SharedPreferences.getInstance();
                               final token = pref.getString('token') ?? '';

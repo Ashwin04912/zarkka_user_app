@@ -21,6 +21,7 @@ mixin _$MyOrdersEvent {
     required TResult Function(int length) initialCount,
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
+    required TResult Function(CreateOrderRespModel model) getProceededOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$MyOrdersEvent {
     TResult? Function(int length)? initialCount,
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
+    TResult? Function(CreateOrderRespModel model)? getProceededOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$MyOrdersEvent {
     TResult Function(int length)? initialCount,
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
+    TResult Function(CreateOrderRespModel model)? getProceededOrders,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$MyOrdersEvent {
     required TResult Function(_InitialCount value) initialCount,
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
+    required TResult Function(_getProceededOrders value) getProceededOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$MyOrdersEvent {
     TResult? Function(_InitialCount value)? initialCount,
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_getProceededOrders value)? getProceededOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$MyOrdersEvent {
     TResult Function(_InitialCount value)? initialCount,
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
+    TResult Function(_getProceededOrders value)? getProceededOrders,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$InitialCountImpl implements _InitialCount {
     required TResult Function(int length) initialCount,
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
+    required TResult Function(CreateOrderRespModel model) getProceededOrders,
   }) {
     return initialCount(length);
   }
@@ -164,6 +171,7 @@ class _$InitialCountImpl implements _InitialCount {
     TResult? Function(int length)? initialCount,
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
+    TResult? Function(CreateOrderRespModel model)? getProceededOrders,
   }) {
     return initialCount?.call(length);
   }
@@ -174,6 +182,7 @@ class _$InitialCountImpl implements _InitialCount {
     TResult Function(int length)? initialCount,
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
+    TResult Function(CreateOrderRespModel model)? getProceededOrders,
     required TResult orElse(),
   }) {
     if (initialCount != null) {
@@ -188,6 +197,7 @@ class _$InitialCountImpl implements _InitialCount {
     required TResult Function(_InitialCount value) initialCount,
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
+    required TResult Function(_getProceededOrders value) getProceededOrders,
   }) {
     return initialCount(this);
   }
@@ -198,6 +208,7 @@ class _$InitialCountImpl implements _InitialCount {
     TResult? Function(_InitialCount value)? initialCount,
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_getProceededOrders value)? getProceededOrders,
   }) {
     return initialCount?.call(this);
   }
@@ -208,6 +219,7 @@ class _$InitialCountImpl implements _InitialCount {
     TResult Function(_InitialCount value)? initialCount,
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
+    TResult Function(_getProceededOrders value)? getProceededOrders,
     required TResult orElse(),
   }) {
     if (initialCount != null) {
@@ -300,6 +312,7 @@ class _$IncrementImpl implements _Increment {
     required TResult Function(int length) initialCount,
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
+    required TResult Function(CreateOrderRespModel model) getProceededOrders,
   }) {
     return increment(index);
   }
@@ -310,6 +323,7 @@ class _$IncrementImpl implements _Increment {
     TResult? Function(int length)? initialCount,
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
+    TResult? Function(CreateOrderRespModel model)? getProceededOrders,
   }) {
     return increment?.call(index);
   }
@@ -320,6 +334,7 @@ class _$IncrementImpl implements _Increment {
     TResult Function(int length)? initialCount,
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
+    TResult Function(CreateOrderRespModel model)? getProceededOrders,
     required TResult orElse(),
   }) {
     if (increment != null) {
@@ -334,6 +349,7 @@ class _$IncrementImpl implements _Increment {
     required TResult Function(_InitialCount value) initialCount,
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
+    required TResult Function(_getProceededOrders value) getProceededOrders,
   }) {
     return increment(this);
   }
@@ -344,6 +360,7 @@ class _$IncrementImpl implements _Increment {
     TResult? Function(_InitialCount value)? initialCount,
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_getProceededOrders value)? getProceededOrders,
   }) {
     return increment?.call(this);
   }
@@ -354,6 +371,7 @@ class _$IncrementImpl implements _Increment {
     TResult Function(_InitialCount value)? initialCount,
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
+    TResult Function(_getProceededOrders value)? getProceededOrders,
     required TResult orElse(),
   }) {
     if (increment != null) {
@@ -446,6 +464,7 @@ class _$DecrementImpl implements _Decrement {
     required TResult Function(int length) initialCount,
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
+    required TResult Function(CreateOrderRespModel model) getProceededOrders,
   }) {
     return decrement(index);
   }
@@ -456,6 +475,7 @@ class _$DecrementImpl implements _Decrement {
     TResult? Function(int length)? initialCount,
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
+    TResult? Function(CreateOrderRespModel model)? getProceededOrders,
   }) {
     return decrement?.call(index);
   }
@@ -466,6 +486,7 @@ class _$DecrementImpl implements _Decrement {
     TResult Function(int length)? initialCount,
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
+    TResult Function(CreateOrderRespModel model)? getProceededOrders,
     required TResult orElse(),
   }) {
     if (decrement != null) {
@@ -480,6 +501,7 @@ class _$DecrementImpl implements _Decrement {
     required TResult Function(_InitialCount value) initialCount,
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
+    required TResult Function(_getProceededOrders value) getProceededOrders,
   }) {
     return decrement(this);
   }
@@ -490,6 +512,7 @@ class _$DecrementImpl implements _Decrement {
     TResult? Function(_InitialCount value)? initialCount,
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_getProceededOrders value)? getProceededOrders,
   }) {
     return decrement?.call(this);
   }
@@ -500,6 +523,7 @@ class _$DecrementImpl implements _Decrement {
     TResult Function(_InitialCount value)? initialCount,
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
+    TResult Function(_getProceededOrders value)? getProceededOrders,
     required TResult orElse(),
   }) {
     if (decrement != null) {
@@ -522,8 +546,163 @@ abstract class _Decrement implements MyOrdersEvent {
 }
 
 /// @nodoc
+abstract class _$$getProceededOrdersImplCopyWith<$Res> {
+  factory _$$getProceededOrdersImplCopyWith(_$getProceededOrdersImpl value,
+          $Res Function(_$getProceededOrdersImpl) then) =
+      __$$getProceededOrdersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CreateOrderRespModel model});
+}
+
+/// @nodoc
+class __$$getProceededOrdersImplCopyWithImpl<$Res>
+    extends _$MyOrdersEventCopyWithImpl<$Res, _$getProceededOrdersImpl>
+    implements _$$getProceededOrdersImplCopyWith<$Res> {
+  __$$getProceededOrdersImplCopyWithImpl(_$getProceededOrdersImpl _value,
+      $Res Function(_$getProceededOrdersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MyOrdersEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? model = null,
+  }) {
+    return _then(_$getProceededOrdersImpl(
+      model: null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as CreateOrderRespModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$getProceededOrdersImpl implements _getProceededOrders {
+  const _$getProceededOrdersImpl({required this.model});
+
+  @override
+  final CreateOrderRespModel model;
+
+  @override
+  String toString() {
+    return 'MyOrdersEvent.getProceededOrders(model: $model)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$getProceededOrdersImpl &&
+            (identical(other.model, model) || other.model == model));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, model);
+
+  /// Create a copy of MyOrdersEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$getProceededOrdersImplCopyWith<_$getProceededOrdersImpl> get copyWith =>
+      __$$getProceededOrdersImplCopyWithImpl<_$getProceededOrdersImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int length) initialCount,
+    required TResult Function(int index) increment,
+    required TResult Function(int index) decrement,
+    required TResult Function(CreateOrderRespModel model) getProceededOrders,
+  }) {
+    return getProceededOrders(model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int length)? initialCount,
+    TResult? Function(int index)? increment,
+    TResult? Function(int index)? decrement,
+    TResult? Function(CreateOrderRespModel model)? getProceededOrders,
+  }) {
+    return getProceededOrders?.call(model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int length)? initialCount,
+    TResult Function(int index)? increment,
+    TResult Function(int index)? decrement,
+    TResult Function(CreateOrderRespModel model)? getProceededOrders,
+    required TResult orElse(),
+  }) {
+    if (getProceededOrders != null) {
+      return getProceededOrders(model);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialCount value) initialCount,
+    required TResult Function(_Increment value) increment,
+    required TResult Function(_Decrement value) decrement,
+    required TResult Function(_getProceededOrders value) getProceededOrders,
+  }) {
+    return getProceededOrders(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitialCount value)? initialCount,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_getProceededOrders value)? getProceededOrders,
+  }) {
+    return getProceededOrders?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialCount value)? initialCount,
+    TResult Function(_Increment value)? increment,
+    TResult Function(_Decrement value)? decrement,
+    TResult Function(_getProceededOrders value)? getProceededOrders,
+    required TResult orElse(),
+  }) {
+    if (getProceededOrders != null) {
+      return getProceededOrders(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getProceededOrders implements MyOrdersEvent {
+  const factory _getProceededOrders(
+      {required final CreateOrderRespModel model}) = _$getProceededOrdersImpl;
+
+  CreateOrderRespModel get model;
+
+  /// Create a copy of MyOrdersEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$getProceededOrdersImplCopyWith<_$getProceededOrdersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MyOrdersState {
   List<int> get itemCount => throw _privateConstructorUsedError;
+  CreateOrderRespModel get model => throw _privateConstructorUsedError;
 
   /// Create a copy of MyOrdersState
   /// with the given fields replaced by the non-null parameter values.
@@ -538,7 +717,7 @@ abstract class $MyOrdersStateCopyWith<$Res> {
           MyOrdersState value, $Res Function(MyOrdersState) then) =
       _$MyOrdersStateCopyWithImpl<$Res, MyOrdersState>;
   @useResult
-  $Res call({List<int> itemCount});
+  $Res call({List<int> itemCount, CreateOrderRespModel model});
 }
 
 /// @nodoc
@@ -557,12 +736,17 @@ class _$MyOrdersStateCopyWithImpl<$Res, $Val extends MyOrdersState>
   @override
   $Res call({
     Object? itemCount = null,
+    Object? model = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
           ? _value.itemCount
           : itemCount // ignore: cast_nullable_to_non_nullable
               as List<int>,
+      model: null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as CreateOrderRespModel,
     ) as $Val);
   }
 }
@@ -575,7 +759,7 @@ abstract class _$$MyOrdersStateImplCopyWith<$Res>
       __$$MyOrdersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<int> itemCount});
+  $Res call({List<int> itemCount, CreateOrderRespModel model});
 }
 
 /// @nodoc
@@ -592,12 +776,17 @@ class __$$MyOrdersStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? itemCount = null,
+    Object? model = null,
   }) {
     return _then(_$MyOrdersStateImpl(
       itemCount: null == itemCount
           ? _value._itemCount
           : itemCount // ignore: cast_nullable_to_non_nullable
               as List<int>,
+      model: null == model
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as CreateOrderRespModel,
     ));
   }
 }
@@ -605,7 +794,7 @@ class __$$MyOrdersStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MyOrdersStateImpl implements _MyOrdersState {
-  _$MyOrdersStateImpl({required final List<int> itemCount})
+  _$MyOrdersStateImpl({required final List<int> itemCount, required this.model})
       : _itemCount = itemCount;
 
   final List<int> _itemCount;
@@ -617,8 +806,11 @@ class _$MyOrdersStateImpl implements _MyOrdersState {
   }
 
   @override
+  final CreateOrderRespModel model;
+
+  @override
   String toString() {
-    return 'MyOrdersState(itemCount: $itemCount)';
+    return 'MyOrdersState(itemCount: $itemCount, model: $model)';
   }
 
   @override
@@ -627,12 +819,13 @@ class _$MyOrdersStateImpl implements _MyOrdersState {
         (other.runtimeType == runtimeType &&
             other is _$MyOrdersStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._itemCount, _itemCount));
+                .equals(other._itemCount, _itemCount) &&
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_itemCount));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_itemCount), model);
 
   /// Create a copy of MyOrdersState
   /// with the given fields replaced by the non-null parameter values.
@@ -644,11 +837,14 @@ class _$MyOrdersStateImpl implements _MyOrdersState {
 }
 
 abstract class _MyOrdersState implements MyOrdersState {
-  factory _MyOrdersState({required final List<int> itemCount}) =
-      _$MyOrdersStateImpl;
+  factory _MyOrdersState(
+      {required final List<int> itemCount,
+      required final CreateOrderRespModel model}) = _$MyOrdersStateImpl;
 
   @override
   List<int> get itemCount;
+  @override
+  CreateOrderRespModel get model;
 
   /// Create a copy of MyOrdersState
   /// with the given fields replaced by the non-null parameter values.

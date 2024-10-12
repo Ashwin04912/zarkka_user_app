@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tailme/domain/my_orders/place_order_req_model.dart';
 import 'package:tailme/domain/shop/create_order_resp_model.dart';
 
 part 'my_orders_event.dart';
@@ -34,7 +35,9 @@ class MyOrdersBloc extends Bloc<MyOrdersEvent, MyOrdersState> {
           emit(state.copyWith(
             model: value.model
           ));
-         },
+         }, placeOrderButtonClickedEvent: (_placeOrderButtonClickedEvent value) { 
+          
+          },
       );
     });
   }

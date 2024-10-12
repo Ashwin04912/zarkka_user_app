@@ -22,6 +22,8 @@ mixin _$MyOrdersEvent {
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
     required TResult Function(CreateOrderRespModel model) getProceededOrders,
+    required TResult Function(PlaceOrderReqModel orders)
+        placeOrderButtonClickedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,7 @@ mixin _$MyOrdersEvent {
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
     TResult? Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult? Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +41,7 @@ mixin _$MyOrdersEvent {
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
     TResult Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +51,8 @@ mixin _$MyOrdersEvent {
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
     required TResult Function(_getProceededOrders value) getProceededOrders,
+    required TResult Function(_placeOrderButtonClickedEvent value)
+        placeOrderButtonClickedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +61,8 @@ mixin _$MyOrdersEvent {
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
     TResult? Function(_getProceededOrders value)? getProceededOrders,
+    TResult? Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +71,8 @@ mixin _$MyOrdersEvent {
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
     TResult Function(_getProceededOrders value)? getProceededOrders,
+    TResult Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,6 +171,8 @@ class _$InitialCountImpl implements _InitialCount {
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
     required TResult Function(CreateOrderRespModel model) getProceededOrders,
+    required TResult Function(PlaceOrderReqModel orders)
+        placeOrderButtonClickedEvent,
   }) {
     return initialCount(length);
   }
@@ -172,6 +184,7 @@ class _$InitialCountImpl implements _InitialCount {
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
     TResult? Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult? Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
   }) {
     return initialCount?.call(length);
   }
@@ -183,6 +196,7 @@ class _$InitialCountImpl implements _InitialCount {
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
     TResult Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (initialCount != null) {
@@ -198,6 +212,8 @@ class _$InitialCountImpl implements _InitialCount {
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
     required TResult Function(_getProceededOrders value) getProceededOrders,
+    required TResult Function(_placeOrderButtonClickedEvent value)
+        placeOrderButtonClickedEvent,
   }) {
     return initialCount(this);
   }
@@ -209,6 +225,8 @@ class _$InitialCountImpl implements _InitialCount {
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
     TResult? Function(_getProceededOrders value)? getProceededOrders,
+    TResult? Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
   }) {
     return initialCount?.call(this);
   }
@@ -220,6 +238,8 @@ class _$InitialCountImpl implements _InitialCount {
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
     TResult Function(_getProceededOrders value)? getProceededOrders,
+    TResult Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (initialCount != null) {
@@ -313,6 +333,8 @@ class _$IncrementImpl implements _Increment {
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
     required TResult Function(CreateOrderRespModel model) getProceededOrders,
+    required TResult Function(PlaceOrderReqModel orders)
+        placeOrderButtonClickedEvent,
   }) {
     return increment(index);
   }
@@ -324,6 +346,7 @@ class _$IncrementImpl implements _Increment {
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
     TResult? Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult? Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
   }) {
     return increment?.call(index);
   }
@@ -335,6 +358,7 @@ class _$IncrementImpl implements _Increment {
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
     TResult Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (increment != null) {
@@ -350,6 +374,8 @@ class _$IncrementImpl implements _Increment {
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
     required TResult Function(_getProceededOrders value) getProceededOrders,
+    required TResult Function(_placeOrderButtonClickedEvent value)
+        placeOrderButtonClickedEvent,
   }) {
     return increment(this);
   }
@@ -361,6 +387,8 @@ class _$IncrementImpl implements _Increment {
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
     TResult? Function(_getProceededOrders value)? getProceededOrders,
+    TResult? Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
   }) {
     return increment?.call(this);
   }
@@ -372,6 +400,8 @@ class _$IncrementImpl implements _Increment {
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
     TResult Function(_getProceededOrders value)? getProceededOrders,
+    TResult Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (increment != null) {
@@ -465,6 +495,8 @@ class _$DecrementImpl implements _Decrement {
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
     required TResult Function(CreateOrderRespModel model) getProceededOrders,
+    required TResult Function(PlaceOrderReqModel orders)
+        placeOrderButtonClickedEvent,
   }) {
     return decrement(index);
   }
@@ -476,6 +508,7 @@ class _$DecrementImpl implements _Decrement {
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
     TResult? Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult? Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
   }) {
     return decrement?.call(index);
   }
@@ -487,6 +520,7 @@ class _$DecrementImpl implements _Decrement {
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
     TResult Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (decrement != null) {
@@ -502,6 +536,8 @@ class _$DecrementImpl implements _Decrement {
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
     required TResult Function(_getProceededOrders value) getProceededOrders,
+    required TResult Function(_placeOrderButtonClickedEvent value)
+        placeOrderButtonClickedEvent,
   }) {
     return decrement(this);
   }
@@ -513,6 +549,8 @@ class _$DecrementImpl implements _Decrement {
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
     TResult? Function(_getProceededOrders value)? getProceededOrders,
+    TResult? Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
   }) {
     return decrement?.call(this);
   }
@@ -524,6 +562,8 @@ class _$DecrementImpl implements _Decrement {
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
     TResult Function(_getProceededOrders value)? getProceededOrders,
+    TResult Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (decrement != null) {
@@ -618,6 +658,8 @@ class _$getProceededOrdersImpl implements _getProceededOrders {
     required TResult Function(int index) increment,
     required TResult Function(int index) decrement,
     required TResult Function(CreateOrderRespModel model) getProceededOrders,
+    required TResult Function(PlaceOrderReqModel orders)
+        placeOrderButtonClickedEvent,
   }) {
     return getProceededOrders(model);
   }
@@ -629,6 +671,7 @@ class _$getProceededOrdersImpl implements _getProceededOrders {
     TResult? Function(int index)? increment,
     TResult? Function(int index)? decrement,
     TResult? Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult? Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
   }) {
     return getProceededOrders?.call(model);
   }
@@ -640,6 +683,7 @@ class _$getProceededOrdersImpl implements _getProceededOrders {
     TResult Function(int index)? increment,
     TResult Function(int index)? decrement,
     TResult Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (getProceededOrders != null) {
@@ -655,6 +699,8 @@ class _$getProceededOrdersImpl implements _getProceededOrders {
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
     required TResult Function(_getProceededOrders value) getProceededOrders,
+    required TResult Function(_placeOrderButtonClickedEvent value)
+        placeOrderButtonClickedEvent,
   }) {
     return getProceededOrders(this);
   }
@@ -666,6 +712,8 @@ class _$getProceededOrdersImpl implements _getProceededOrders {
     TResult? Function(_Increment value)? increment,
     TResult? Function(_Decrement value)? decrement,
     TResult? Function(_getProceededOrders value)? getProceededOrders,
+    TResult? Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
   }) {
     return getProceededOrders?.call(this);
   }
@@ -677,6 +725,8 @@ class _$getProceededOrdersImpl implements _getProceededOrders {
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
     TResult Function(_getProceededOrders value)? getProceededOrders,
+    TResult Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
     required TResult orElse(),
   }) {
     if (getProceededOrders != null) {
@@ -697,6 +747,177 @@ abstract class _getProceededOrders implements MyOrdersEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$getProceededOrdersImplCopyWith<_$getProceededOrdersImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$placeOrderButtonClickedEventImplCopyWith<$Res> {
+  factory _$$placeOrderButtonClickedEventImplCopyWith(
+          _$placeOrderButtonClickedEventImpl value,
+          $Res Function(_$placeOrderButtonClickedEventImpl) then) =
+      __$$placeOrderButtonClickedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PlaceOrderReqModel orders});
+}
+
+/// @nodoc
+class __$$placeOrderButtonClickedEventImplCopyWithImpl<$Res>
+    extends _$MyOrdersEventCopyWithImpl<$Res,
+        _$placeOrderButtonClickedEventImpl>
+    implements _$$placeOrderButtonClickedEventImplCopyWith<$Res> {
+  __$$placeOrderButtonClickedEventImplCopyWithImpl(
+      _$placeOrderButtonClickedEventImpl _value,
+      $Res Function(_$placeOrderButtonClickedEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MyOrdersEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? orders = null,
+  }) {
+    return _then(_$placeOrderButtonClickedEventImpl(
+      orders: null == orders
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderReqModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$placeOrderButtonClickedEventImpl
+    implements _placeOrderButtonClickedEvent {
+  const _$placeOrderButtonClickedEventImpl({required this.orders});
+
+  @override
+  final PlaceOrderReqModel orders;
+
+  @override
+  String toString() {
+    return 'MyOrdersEvent.placeOrderButtonClickedEvent(orders: $orders)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$placeOrderButtonClickedEventImpl &&
+            (identical(other.orders, orders) || other.orders == orders));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, orders);
+
+  /// Create a copy of MyOrdersEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$placeOrderButtonClickedEventImplCopyWith<
+          _$placeOrderButtonClickedEventImpl>
+      get copyWith => __$$placeOrderButtonClickedEventImplCopyWithImpl<
+          _$placeOrderButtonClickedEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int length) initialCount,
+    required TResult Function(int index) increment,
+    required TResult Function(int index) decrement,
+    required TResult Function(CreateOrderRespModel model) getProceededOrders,
+    required TResult Function(PlaceOrderReqModel orders)
+        placeOrderButtonClickedEvent,
+  }) {
+    return placeOrderButtonClickedEvent(orders);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int length)? initialCount,
+    TResult? Function(int index)? increment,
+    TResult? Function(int index)? decrement,
+    TResult? Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult? Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
+  }) {
+    return placeOrderButtonClickedEvent?.call(orders);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int length)? initialCount,
+    TResult Function(int index)? increment,
+    TResult Function(int index)? decrement,
+    TResult Function(CreateOrderRespModel model)? getProceededOrders,
+    TResult Function(PlaceOrderReqModel orders)? placeOrderButtonClickedEvent,
+    required TResult orElse(),
+  }) {
+    if (placeOrderButtonClickedEvent != null) {
+      return placeOrderButtonClickedEvent(orders);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialCount value) initialCount,
+    required TResult Function(_Increment value) increment,
+    required TResult Function(_Decrement value) decrement,
+    required TResult Function(_getProceededOrders value) getProceededOrders,
+    required TResult Function(_placeOrderButtonClickedEvent value)
+        placeOrderButtonClickedEvent,
+  }) {
+    return placeOrderButtonClickedEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitialCount value)? initialCount,
+    TResult? Function(_Increment value)? increment,
+    TResult? Function(_Decrement value)? decrement,
+    TResult? Function(_getProceededOrders value)? getProceededOrders,
+    TResult? Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
+  }) {
+    return placeOrderButtonClickedEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialCount value)? initialCount,
+    TResult Function(_Increment value)? increment,
+    TResult Function(_Decrement value)? decrement,
+    TResult Function(_getProceededOrders value)? getProceededOrders,
+    TResult Function(_placeOrderButtonClickedEvent value)?
+        placeOrderButtonClickedEvent,
+    required TResult orElse(),
+  }) {
+    if (placeOrderButtonClickedEvent != null) {
+      return placeOrderButtonClickedEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _placeOrderButtonClickedEvent implements MyOrdersEvent {
+  const factory _placeOrderButtonClickedEvent(
+          {required final PlaceOrderReqModel orders}) =
+      _$placeOrderButtonClickedEventImpl;
+
+  PlaceOrderReqModel get orders;
+
+  /// Create a copy of MyOrdersEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$placeOrderButtonClickedEventImplCopyWith<
+          _$placeOrderButtonClickedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

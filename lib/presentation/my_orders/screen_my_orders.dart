@@ -3,15 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/application/my_orders/my_orders_bloc.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
+import 'package:tailme/domain/my_orders/place_order_req_model.dart';
 import 'package:tailme/domain/shop/create_order_resp_model.dart';
 import 'package:tailme/infrastructure/string.dart';
 import 'package:tailme/theme_util.dart';
 
 class ScreenMyOrders extends StatefulWidget {
-  ScreenMyOrders({super.key});
+  const ScreenMyOrders({super.key});
 
   @override
   State<ScreenMyOrders> createState() => _ScreenMyOrdersState();
@@ -230,7 +232,7 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                     height: 15,
                   ),
                   InkWell(
-                    onTap:()=> Navigator.of(context).pop(),
+                    onTap: () => Navigator.of(context).pop(),
                     child: Container(
                       height: 18.h,
                       width: 78.w,
@@ -273,7 +275,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
                           width: 1,
-                          color: Colors.white.withOpacity(0.20),
+                          color: isDarkMode
+                              ? Colors.white.withOpacity(0.20)
+                              : Colors.black.withOpacity(0.20),
                         ),
                         borderRadius: BorderRadius.circular(13),
                       ),
@@ -407,13 +411,100 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                     ),
                   ),
                   const SizedBox(height: 20),
+                  Container(
+                    width: double.infinity,
+                    height: 89.h,
+                    decoration: ShapeDecoration(
+                      color: const Color(0x3FD9D9D9),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/images/arrow.svg',
+                                color: isDarkMode ? Colors.white : Colors.black,
+                              ),
+                              const SizedBox(width: 15),
+                              SizedBox(
+                                width: 187,
+                                height: 50,
+                                child: Text.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Home\n',
+                                        style: TextStyle(
+                                          color: isDarkMode
+                                              ? Colors.white
+                                              : Colors.black,
+                                          fontSize: 16,
+                                          fontFamily: 'Raleway',
+                                          fontWeight: FontWeight.w700,
+                                          height: 0,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            '4140 Parker Rd Kadavanthra\nKochi 682020',
+                                        style: TextStyle(
+                                          color: isDarkMode
+                                              ? Colors.white
+                                              : Colors.black,
+                                          fontSize: 13,
+                                          fontFamily: 'Raleway',
+                                          fontWeight: FontWeight.w400,
+                                          height: 0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              // const Spacer(),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.edit_note,
+                                    color: Color(0xFF4BBB38),
+                                  )),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
                   CommonButton(
-                      ontap: () {
+                      ontap: () async{
+                        final SharedPreferences prefs =await SharedPreferences.getInstance();
+                       final  token =  prefs.getString('token')??'';
+                        List<OrderItem> orderItem = [];
                         for (int i = 0; i < state.itemCount.length; i++) {
+                          orderItem.add(OrderItem(
+                              orderItemId: state.model.data[i].orderItemId,
+                              qty: state.itemCount[i]));
+
                           debugPrint(
                               "count of $i ${state.itemCount[i]} ${state.model.data[i].orderItemId}");
                         }
+                      print(orderItem.asMap().toString());
+
+                 final model =       PlaceOrderReqModel(
+                            token: token, orderItems: orderItem, addressId: 'deb9030f-7b98-484e-91fd-743dd72fb148');
+
+                            BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.placeOrderButtonClickedEvent(orders: model));
                       },
+
+
                       buttonText: "Place Order")
                 ],
               );

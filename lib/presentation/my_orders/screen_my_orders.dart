@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:injectable/injectable.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/application/my_orders/my_orders_bloc.dart';
 import 'package:tailme/core/widgets/CommonButton.dart';
@@ -10,6 +11,7 @@ import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/domain/my_orders/place_order_req_model.dart';
 import 'package:tailme/domain/shop/create_order_resp_model.dart';
 import 'package:tailme/infrastructure/string.dart';
+import 'package:tailme/presentation/PaymentSuccess/ScreenPaymentSuccess.dart';
 import 'package:tailme/theme_util.dart';
 
 class ScreenMyOrders extends StatefulWidget {
@@ -56,7 +58,23 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
           padding: const EdgeInsets.all(22.0),
           child: BlocConsumer<MyOrdersBloc, MyOrdersState>(
             listener: (context, state) {
-              // TODO: implement listener
+              state.successOrFailure.fold(() {}, (some) {
+                some.fold((f) {
+                  final message = f.maybeWhen(
+                    cancelledByUser: () => "",
+                    networkFailure: () => "Check your network connection",
+                    userNotFound: () => "Login and try again",
+                    validationFailure: () => "Some required fields are missing",
+                    serverFailure: () => "server error..Try again later",
+                    orElse: () => "Some Error Occured",
+                  );
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(message)));
+                }, (s) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => ScreenPaymentSuccessful()));
+                });
+              });
             },
             builder: (context, state) {
               return Column(
@@ -483,29 +501,52 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  CommonButton(
-                      ontap: () async{
-                        final SharedPreferences prefs =await SharedPreferences.getInstance();
-                       final  token =  prefs.getString('token')??'';
-                        List<OrderItem> orderItem = [];
-                        for (int i = 0; i < state.itemCount.length; i++) {
-                          orderItem.add(OrderItem(
-                              orderItemId: state.model.data[i].orderItemId,
-                              qty: state.itemCount[i]));
+                  state.isSubmitting
+                      ? Center(
+                          child: LoadingAnimationWidget.stretchedDots(
+                            size: 50,
+                            color: Colors.blue,
+                          ),
+                        )
+                      : CommonButton(
+                          ontap: () async {
+                            final SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            final token = prefs.getString('token') ?? '';
 
-                          debugPrint(
-                              "count of $i ${state.itemCount[i]} ${state.model.data[i].orderItemId}");
-                        }
-                      print(orderItem.asMap().toString());
+                            List<OrderItem> orderItem = [];
+                            for (int i = 0; i < state.itemCount.length; i++) {
+                              debugPrint(state.model.data[i].orderItemId);
+                              orderItem.add(OrderItem(
+                                  orderItemId: state.model.data[i].orderItemId,
+                                  qty: state.itemCount[i]));
 
-                 final model =       PlaceOrderReqModel(
-                            token: token, orderItems: orderItem, addressId: 'deb9030f-7b98-484e-91fd-743dd72fb148');
+                              debugPrint(
+                                  "count of $i ${state.itemCount[i]} ${state.model.data[i].orderItemId}");
+                            }
 
-                            BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.placeOrderButtonClickedEvent(orders: model));
-                      },
+                            // Convert orderItem list to a JSON-compatible format and print it
+                            print(orderItem
+                                .map((item) => {
+                                      'orderItemId': item.orderItemId,
+                                      'qty': item.qty,
+                                    })
+                                .toList()
+                                .toString());
 
+                            final model = PlaceOrderReqModel(
+                              token: token,
+                              orderItems: orderItem,
+                              addressId: 'deb9030f-7b98-484e-91fd-743dd72fb148',
+                            );
 
-                      buttonText: "Place Order")
+                            BlocProvider.of<MyOrdersBloc>(context).add(
+                              MyOrdersEvent.placeOrderButtonClickedEvent(
+                                  orders: model),
+                            );
+                          },
+                          buttonText: "Place Order",
+                        )
                 ],
               );
             },

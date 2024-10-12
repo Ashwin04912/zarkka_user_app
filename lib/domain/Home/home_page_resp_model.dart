@@ -28,26 +28,26 @@ class Item {
     String name;
     List<String> images;
     String category;
-    // String itemId;
+    String itemId;
 
     Item({
         required this.name,
         required this.images,
         required this.category,
-        // required this.itemId
+        required this.itemId
     });
 
     factory Item.fromJson(Map<String, dynamic> json) => Item(
         name: json["name"],
         images: List<String>.from(json["images"].map((x) => x)),
         category: json["category"],
-        // itemId : json["itemId"],
+        itemId : json["itemId"],
     );
 
     Map<String, dynamic> toJson() => {
         "name": name,
         "images": List<dynamic>.from(images.map((x) => x)),
         "category": category,
-        // "itemId" : itemId
+        "itemId" : itemId
     };
 }

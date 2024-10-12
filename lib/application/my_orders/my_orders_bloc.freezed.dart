@@ -924,6 +924,9 @@ abstract class _placeOrderButtonClickedEvent implements MyOrdersEvent {
 mixin _$MyOrdersState {
   List<int> get itemCount => throw _privateConstructorUsedError;
   CreateOrderRespModel get model => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
+  Option<Either<FormFailure, PlaceOrderRespModel>> get successOrFailure =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of MyOrdersState
   /// with the given fields replaced by the non-null parameter values.
@@ -938,7 +941,11 @@ abstract class $MyOrdersStateCopyWith<$Res> {
           MyOrdersState value, $Res Function(MyOrdersState) then) =
       _$MyOrdersStateCopyWithImpl<$Res, MyOrdersState>;
   @useResult
-  $Res call({List<int> itemCount, CreateOrderRespModel model});
+  $Res call(
+      {List<int> itemCount,
+      CreateOrderRespModel model,
+      bool isSubmitting,
+      Option<Either<FormFailure, PlaceOrderRespModel>> successOrFailure});
 }
 
 /// @nodoc
@@ -958,6 +965,8 @@ class _$MyOrdersStateCopyWithImpl<$Res, $Val extends MyOrdersState>
   $Res call({
     Object? itemCount = null,
     Object? model = null,
+    Object? isSubmitting = null,
+    Object? successOrFailure = null,
   }) {
     return _then(_value.copyWith(
       itemCount: null == itemCount
@@ -968,6 +977,14 @@ class _$MyOrdersStateCopyWithImpl<$Res, $Val extends MyOrdersState>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as CreateOrderRespModel,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      successOrFailure: null == successOrFailure
+          ? _value.successOrFailure
+          : successOrFailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, PlaceOrderRespModel>>,
     ) as $Val);
   }
 }
@@ -980,7 +997,11 @@ abstract class _$$MyOrdersStateImplCopyWith<$Res>
       __$$MyOrdersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<int> itemCount, CreateOrderRespModel model});
+  $Res call(
+      {List<int> itemCount,
+      CreateOrderRespModel model,
+      bool isSubmitting,
+      Option<Either<FormFailure, PlaceOrderRespModel>> successOrFailure});
 }
 
 /// @nodoc
@@ -998,6 +1019,8 @@ class __$$MyOrdersStateImplCopyWithImpl<$Res>
   $Res call({
     Object? itemCount = null,
     Object? model = null,
+    Object? isSubmitting = null,
+    Object? successOrFailure = null,
   }) {
     return _then(_$MyOrdersStateImpl(
       itemCount: null == itemCount
@@ -1008,6 +1031,14 @@ class __$$MyOrdersStateImplCopyWithImpl<$Res>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as CreateOrderRespModel,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      successOrFailure: null == successOrFailure
+          ? _value.successOrFailure
+          : successOrFailure // ignore: cast_nullable_to_non_nullable
+              as Option<Either<FormFailure, PlaceOrderRespModel>>,
     ));
   }
 }
@@ -1015,7 +1046,11 @@ class __$$MyOrdersStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MyOrdersStateImpl implements _MyOrdersState {
-  _$MyOrdersStateImpl({required final List<int> itemCount, required this.model})
+  _$MyOrdersStateImpl(
+      {required final List<int> itemCount,
+      required this.model,
+      required this.isSubmitting,
+      required this.successOrFailure})
       : _itemCount = itemCount;
 
   final List<int> _itemCount;
@@ -1028,10 +1063,14 @@ class _$MyOrdersStateImpl implements _MyOrdersState {
 
   @override
   final CreateOrderRespModel model;
+  @override
+  final bool isSubmitting;
+  @override
+  final Option<Either<FormFailure, PlaceOrderRespModel>> successOrFailure;
 
   @override
   String toString() {
-    return 'MyOrdersState(itemCount: $itemCount, model: $model)';
+    return 'MyOrdersState(itemCount: $itemCount, model: $model, isSubmitting: $isSubmitting, successOrFailure: $successOrFailure)';
   }
 
   @override
@@ -1041,12 +1080,20 @@ class _$MyOrdersStateImpl implements _MyOrdersState {
             other is _$MyOrdersStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._itemCount, _itemCount) &&
-            (identical(other.model, model) || other.model == model));
+            (identical(other.model, model) || other.model == model) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.successOrFailure, successOrFailure) ||
+                other.successOrFailure == successOrFailure));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_itemCount), model);
+      runtimeType,
+      const DeepCollectionEquality().hash(_itemCount),
+      model,
+      isSubmitting,
+      successOrFailure);
 
   /// Create a copy of MyOrdersState
   /// with the given fields replaced by the non-null parameter values.
@@ -1060,12 +1107,19 @@ class _$MyOrdersStateImpl implements _MyOrdersState {
 abstract class _MyOrdersState implements MyOrdersState {
   factory _MyOrdersState(
       {required final List<int> itemCount,
-      required final CreateOrderRespModel model}) = _$MyOrdersStateImpl;
+      required final CreateOrderRespModel model,
+      required final bool isSubmitting,
+      required final Option<Either<FormFailure, PlaceOrderRespModel>>
+          successOrFailure}) = _$MyOrdersStateImpl;
 
   @override
   List<int> get itemCount;
   @override
   CreateOrderRespModel get model;
+  @override
+  bool get isSubmitting;
+  @override
+  Option<Either<FormFailure, PlaceOrderRespModel>> get successOrFailure;
 
   /// Create a copy of MyOrdersState
   /// with the given fields replaced by the non-null parameter values.

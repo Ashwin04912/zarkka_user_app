@@ -5,7 +5,12 @@ import 'package:tailme/core/widgets/CommonButton.dart';
 import 'package:tailme/theme_util.dart';
 
 class ScreenChangePassword extends StatelessWidget {
-  const ScreenChangePassword({super.key});
+  ScreenChangePassword({super.key});
+
+  final _formKey = GlobalKey<FormState>();
+  final _oldPasswordController = TextEditingController();
+  final _newPasswordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,106 +40,131 @@ class ScreenChangePassword extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.only(top: 51.h, left: 32.w, right: 32.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Enter Old Password',
-              style: TextStyle(
-                color: isDarkMode ? Colors.white : Colors.black,
-                fontSize: 12,
-                fontFamily: 'Raleway',
-                fontWeight: FontWeight.w400,
-                height: 0.11,
-              ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            TextFormField(
-              textAlignVertical: TextAlignVertical.top,
-              decoration: InputDecoration(
-                hintText: "Password",
-                hintStyle: const TextStyle(
-                  color: Color(0xFF707070),
-                  fontSize: 15,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Enter Old Password',
+                style: TextStyle(
+                  color: isDarkMode ? Colors.white : Colors.black,
+                  fontSize: 12,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.w400,
-                  height: 0.25,
-                ),
-                filled: true,
-                fillColor: Colors.grey[200], // Set background color to grey
-                border: OutlineInputBorder(
-                  borderRadius:
-                      BorderRadius.circular(10), // Set border radius to 10
-                  borderSide: BorderSide.none, // Hide the border side
+                  height: 0.11,
                 ),
               ),
-            ),
-            SizedBox(
-              height: 43.h,
-            ),
-            Text(
-              'Enter New Password',
-              style: TextStyle(
-                color: isDarkMode ? Colors.white : Colors.black,
-                fontSize: 12,
-                fontFamily: 'Raleway',
-                fontWeight: FontWeight.w400,
-                height: 0.11,
+              SizedBox(height: 15.h),
+              TextFormField(
+                controller: _oldPasswordController,
+                textAlignVertical: TextAlignVertical.top,
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  hintStyle: const TextStyle(
+                    color: Color(0xFF707070),
+                    fontSize: 15,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.w400,
+                    height: 0.25,
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                obscureText: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your old password';
+                  }
+                  return null;
+                },
               ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            TextFormField(
-              textAlignVertical: TextAlignVertical.top,
-              decoration: InputDecoration(
-                hintText: "Enter New Password",
-                hintStyle: const TextStyle(
-                  color: Color(0xFF707070),
-                  fontSize: 15,
+              SizedBox(height: 43.h),
+              Text(
+                'Enter New Password',
+                style: TextStyle(
+                  color: isDarkMode ? Colors.white : Colors.black,
+                  fontSize: 12,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.w400,
-                  height: 0.25,
-                ),
-                filled: true,
-                fillColor: Colors.grey[200], // Set background color to grey
-                border: OutlineInputBorder(
-                  borderRadius:
-                      BorderRadius.circular(10), // Set border radius to 10
-                  borderSide: BorderSide.none, // Hide the border side
+                  height: 0.11,
                 ),
               ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            TextFormField(
-              textAlignVertical: TextAlignVertical.top,
-              decoration: InputDecoration(
-                hintText: "Re-Enter New Password",
-                hintStyle: const TextStyle(
-                  color: Color(0xFF707070),
-                  fontSize: 15,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w400,
-                  height: 0.25,
+              SizedBox(height: 15.h),
+              TextFormField(
+                controller: _newPasswordController,
+                textAlignVertical: TextAlignVertical.top,
+                decoration: InputDecoration(
+                  hintText: "Enter New Password",
+                  hintStyle: const TextStyle(
+                    color: Color(0xFF707070),
+                    fontSize: 15,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.w400,
+                    height: 0.25,
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
-                filled: true,
-                fillColor: Colors.grey[200], // Set background color to grey
-                border: OutlineInputBorder(
-                  borderRadius:
-                      BorderRadius.circular(10), // Set border radius to 10
-                  borderSide: BorderSide.none, // Hide the border side
-                ),
+                obscureText: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a new password';
+                  } else if (value.length < 6) {
+                    return 'Password must be at least 6 characters long';
+                  }
+                  return null;
+                },
               ),
-            ),
-            SizedBox(
-              height: 50.h,
-            ),
-            CommonButton(ontap: () {}, buttonText: "Save changes")
-          ],
+              SizedBox(height: 15.h),
+              TextFormField(
+                controller: _confirmPasswordController,
+                textAlignVertical: TextAlignVertical.top,
+                decoration: InputDecoration(
+                  hintText: "Re-Enter New Password",
+                  hintStyle: const TextStyle(
+                    color: Color(0xFF707070),
+                    fontSize: 15,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.w400,
+                    height: 0.25,
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                obscureText: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please confirm your new password';
+                  } else if (value != _newPasswordController.text) {
+                    return 'Passwords do not match';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 50.h),
+              CommonButton(
+                ontap: () {
+                  if (_formKey.currentState?.validate() == true) {
+                    // Perform password change logic
+                  }
+                },
+                buttonText: "Save changes",
+              ),
+            ],
+          ),
         ),
       ),
     );

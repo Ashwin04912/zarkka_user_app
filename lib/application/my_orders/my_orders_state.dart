@@ -8,6 +8,7 @@ class MyOrdersState with _$MyOrdersState {
     required CreateOrderRespModel model,
     required bool isSubmitting,
     required Option<Either<FormFailure,PlaceOrderRespModel>> successOrFailure,
+    required bool isDataPresent
   }) = _MyOrdersState;
 
  
@@ -15,6 +16,7 @@ class MyOrdersState with _$MyOrdersState {
         itemCount: itemCount,
         model: CreateOrderRespModel(status: '', message: [], data: []),
         isSubmitting: false,
-        successOrFailure: none()
+        successOrFailure: none(),
+        isDataPresent: false
       );
 }

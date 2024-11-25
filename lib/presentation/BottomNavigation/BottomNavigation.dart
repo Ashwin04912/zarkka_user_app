@@ -6,15 +6,22 @@ import 'package:tailme/presentation/ProfileTab/ScreenProfile.dart';
 import 'package:tailme/theme_util.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({super.key});
+  final int selectedIndex; // Accept the selectedIndex parameter
+
+  const BottomNavigation({super.key, this.selectedIndex = 0}); // Default to 0 (Home)
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  int _selectedIndex = 0;
-  
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectedIndex; // Initialize _selectedIndex with the passed value
+  }
 
   final List<Widget> _widgetOptions = <Widget>[
     const ScreenHome(),
@@ -32,13 +39,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget build(BuildContext context) {
     bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
-      // backgroundColor: isDarkMode? Color(0xFF343333) :Colors.white,
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: const Color(0xFF0075BE), // Set selected icon color
-        unselectedItemColor:isDarkMode? Colors.white :Color(0xFF1D1D1D), // Set unselected icon color
+        selectedItemColor: const Color(0xFF0075BE),
+        unselectedItemColor: isDarkMode ? Colors.white : const Color(0xFF1D1D1D),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        backgroundColor: isDarkMode? const Color(0xFF393939) :Colors.white,
+        backgroundColor: isDarkMode ? const Color(0xFF393939) : Colors.white,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: SizedBox(
@@ -46,7 +52,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               height: 30,
               child: ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                  _selectedIndex == 0 ? const Color(0xFF0075BE) : (isDarkMode ? Colors.white:Colors.black),
+                  _selectedIndex == 0 ? const Color(0xFF0075BE) : (isDarkMode ? Colors.white : Colors.black),
                   BlendMode.srcIn,
                 ),
                 child: SvgPicture.asset(
@@ -64,7 +70,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               height: 24,
               child: ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                  _selectedIndex == 1 ? const  Color(0xFF0075BE) : (isDarkMode ? Colors.white:Colors.black),
+                  _selectedIndex == 1 ? const Color(0xFF0075BE) : (isDarkMode ? Colors.white : Colors.black),
                   BlendMode.srcIn,
                 ),
                 child: SvgPicture.asset(
@@ -81,7 +87,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               height: 24,
               child: ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                  _selectedIndex == 2 ? const Color(0xFF0075BE) : (isDarkMode ? Colors.white:Colors.black),
+                  _selectedIndex == 2 ? const Color(0xFF0075BE) : (isDarkMode ? Colors.white : Colors.black),
                   BlendMode.srcIn,
                 ),
                 child: SvgPicture.asset(

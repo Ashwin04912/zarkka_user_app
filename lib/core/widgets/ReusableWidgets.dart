@@ -18,7 +18,7 @@ class ReusableWidgets {
         width: 290.w,
         child: TextFormField(
           decoration: InputDecoration(
-            hintText: 'Stores,Materials,Products....',
+            hintText: 'Search Materials,Products....',
             hintStyle:   TextStyle(
               color:isDarkMode?Colors.white: const Color(0xFF1D1D1D),
               fontSize: 14,
@@ -45,22 +45,22 @@ class ReusableWidgets {
         ),
       ),
       actions: [
+        // IconButton(
+        //   onPressed: () {
+        //     Navigator.push(
+        //         context,
+        //         MaterialPageRoute(
+        //             builder: (context) => const ScreenWishlist()));
+        //   },
+        //   icon: SvgPicture.asset('assets/images/home/heart_ic.svg',color: isDarkMode?Colors.white:Colors.black,),
+        // ),
         IconButton(
           onPressed: () {
+            // BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.getProceededOrders(model: model));
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const ScreenWishlist()));
-          },
-          icon: SvgPicture.asset('assets/images/home/heart_ic.svg',color: isDarkMode?Colors.white:Colors.black,),
-        ),
-        IconButton(
-          onPressed: () {
-            // BlocProvider.of<MyOrdersBloc>(context).add(MyOrdersEvent.initialCount(3));
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>  ScreenMyOrders()));
+                    builder: (context) =>  const ScreenMyOrders()));
           },
           icon: SvgPicture.asset('assets/images/home/cart.svg',color: isDarkMode?Colors.white:Colors.black,),
         ),

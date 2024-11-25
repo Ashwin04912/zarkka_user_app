@@ -20,14 +20,24 @@ class MyOrdersBloc extends Bloc<MyOrdersEvent, MyOrdersState> {
       await event.map(
         initialCount: (value) {
           // Initialize the itemCount list with the correct length
-          emit(state.copyWith(itemCount: List<int>.filled(value.length, 1)));
+          emit(state.copyWith(
+            itemCount: List<int>.filled(value.length, 1),
+            successOrFailure: none(),
+            isDataPresent: true
+          ));
         },
         increment: (value) {
           // Create a new list from the current state, increment the item at the given index
           final newCount = List<int>.from(state.itemCount);
 
           newCount[value.index]++;
-          emit(state.copyWith(itemCount: newCount));
+          emit(
+            state.copyWith(
+              isDataPresent: true,
+              itemCount: newCount,
+              successOrFailure: none(),
+            ),
+          );
         },
         decrement: (value) {
           // Decrement the count only if it's greater than 0
@@ -35,16 +45,21 @@ class MyOrdersBloc extends Bloc<MyOrdersEvent, MyOrdersState> {
           if (newCount[value.index] > 1) {
             newCount[value.index]--;
           }
-          emit(state.copyWith(itemCount: newCount));
+          emit(state.copyWith(
+            itemCount: newCount,
+            successOrFailure: none(),
+            isDataPresent: true
+          ));
         },
         getProceededOrders: (_getProceededOrders value) {
-          emit(state.copyWith(model: value.model));
+          emit(state.copyWith(model: value.model,isDataPresent: true));
         },
         placeOrderButtonClickedEvent:
             (_placeOrderButtonClickedEvent value) async {
           emit(state.copyWith(
             isSubmitting: true,
             successOrFailure: none(),
+            isDataPresent: true
           ));
           final resp = await api.proceedToCheckout(orderModel: value.orders);
 
@@ -52,10 +67,23 @@ class MyOrdersBloc extends Bloc<MyOrdersEvent, MyOrdersState> {
             emit(state.copyWith(
               isSubmitting: false,
               successOrFailure: some(left(f)),
+              isDataPresent: true
             ));
           }, (s) {
-            emit(state.copyWith(
-                isSubmitting: false, successOrFailure: some(right(s))));
+            if(s.data.orderItems.isEmpty){
+               emit(state.copyWith(
+              isSubmitting: false,
+              successOrFailure: some(right(s)),
+              isDataPresent : false,
+            ));
+            }else{
+                emit(state.copyWith(
+              isSubmitting: false,
+              successOrFailure: some(right(s)),
+              isDataPresent : true,
+            ));
+            }
+           
           });
         },
       );

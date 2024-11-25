@@ -36,22 +36,26 @@ class Datum {
     String orderItemId;
     double price;
     String itemImageUrl;
+    String name;
 
     Datum({
         required this.orderItemId,
         required this.price,
         required this.itemImageUrl,
+        required this.name
     });
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         orderItemId: json["orderItemId"],
         price: json["price"]?.toDouble(),
         itemImageUrl: json["itemImageUrl"],
+        name: json["name"]
     );
 
     Map<String, dynamic> toJson() => {
         "orderItemId": orderItemId,
         "price": price,
         "itemImageUrl": itemImageUrl,
+        "name": name
     };
 }

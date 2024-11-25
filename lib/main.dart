@@ -28,9 +28,14 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isDarkMode = ThemeUtil.isDarkMode(context);
     //
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor:
-          Color(0xFF343333), // Change to your Scaffold's background color
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Make status bar transparent
+      statusBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
+      systemNavigationBarColor: isDarkMode
+          ? Colors.black
+          : Colors.white, // Change navigation bar color
+      systemNavigationBarIconBrightness:
+          isDarkMode ? Brightness.light : Brightness.dark,
     ));
     return ScreenUtilInit(
       designSize: const Size(393, 812),
@@ -45,7 +50,8 @@ class MainApp extends StatelessWidget {
           BlocProvider<AddAddressBloc>(
               create: (context) => getIt<AddAddressBloc>()),
           BlocProvider<ShopBloc>(create: (context) => getIt<ShopBloc>()),
-            BlocProvider<MyOrdersBloc>(create: (context) => getIt<MyOrdersBloc>()),
+          BlocProvider<MyOrdersBloc>(
+              create: (context) => getIt<MyOrdersBloc>()),
         ],
         child: MaterialApp(
           darkTheme: ThemeData(

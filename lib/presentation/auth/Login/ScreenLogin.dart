@@ -66,7 +66,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                               const SnackBar(content: Text('Login success')));
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                                builder: (context) => const BottomNavigation()),
+                                builder: (context) => const BottomNavigation(selectedIndex: 0,)),
                             (route) => false,
                           );
                         });

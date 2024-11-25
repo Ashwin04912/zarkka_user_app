@@ -99,8 +99,9 @@ class AddAddressRepo implements IAddAddressFacade {
       );
 
       if (response.statusCode == 200) {
-        debugPrint("i got response");
+        debugPrint("i got response ");
         final addressModel = AddressModel.fromJson(response.data);
+        debugPrint(addressModel.addresses[0].addressId);
         return right(addressModel);
       } else {
         debugPrint(response.data);

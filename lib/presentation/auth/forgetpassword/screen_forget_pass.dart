@@ -97,6 +97,7 @@ class _ScreenForgetPassState extends State<ScreenForgetPass> {
                       Form(
                         key: _formKey,
                         child: TextFormField(
+                          style: TextStyle(color: const Color.fromARGB(255, 56, 55, 55)),
                           controller: emailController,
                           textAlignVertical: TextAlignVertical.top,
                           decoration: InputDecoration(

@@ -60,6 +60,7 @@ dependencies:
   dotted_border: ^2.1.0
   flutter_launcher_icons: ^0.13.1
   rename_app: ^1.6.1
+  lottie: ^3.1.2
 
 
 dev_dependencies:

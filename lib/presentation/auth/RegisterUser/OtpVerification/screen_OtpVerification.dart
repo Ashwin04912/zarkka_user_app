@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tailme/application/auth/OtpVerification/otp_verification_bloc.dart';
-import 'package:tailme/presentation/PaymentSuccess/ScreenPaymentSuccess.dart';
+import 'package:tailme/presentation/order_completed/screen_order_completed.dart';
 import 'package:tailme/presentation/auth/RegisterUser/OtpVerification/verification_completed.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:tailme/presentation/auth/forgetpassword/new_password_screen.dart';
@@ -249,6 +249,7 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
       width: 68.w,
       child: Center(
         child: TextFormField(
+          
           onChanged: (value) {
             if (value.length == 1) {
               FocusScope.of(context).nextFocus();
@@ -261,7 +262,10 @@ class _ScreenOtpVerficationState extends State<ScreenOtpVerfication> {
             fillColor: Colors.white,
           ),
           controller: controller,
-          style: Theme.of(context).textTheme.headlineMedium,
+        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+  color: Colors.black, // Replace with your desired color
+),
+
           keyboardType: TextInputType.number,
           textAlign: TextAlign.center,
           inputFormatters: [

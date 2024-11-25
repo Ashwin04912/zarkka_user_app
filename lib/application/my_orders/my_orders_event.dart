@@ -13,6 +13,6 @@ class MyOrdersEvent with _$MyOrdersEvent {
   const factory MyOrdersEvent.placeOrderButtonClickedEvent({
     required PlaceOrderReqModel orders,
   }) = _placeOrderButtonClickedEvent;
-  
+    
   
 }

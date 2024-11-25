@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tailme/presentation/BottomNavigation/BottomNavigation.dart';
 import 'package:tailme/presentation/Logo/ScreenLogo.dart';
@@ -24,7 +25,7 @@ class _SplashscreenState extends State<Splashscreen> {
           MaterialPageRoute(
             builder: (context) => finaltoken == null
                 ? const ScreenLogo()
-                : const BottomNavigation(),
+                : const BottomNavigation(selectedIndex: 0,),
           ),
         );
       });
@@ -34,11 +35,9 @@ class _SplashscreenState extends State<Splashscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Center(
-        child: CircularProgressIndicator(
-          color: Colors.white,
-        ),
+        child: SvgPicture.asset('assets/icon/logo.svg')
       ),
     );
   }

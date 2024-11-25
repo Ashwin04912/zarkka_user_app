@@ -90,6 +90,7 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                       child: Column(
                         children: [
                           TextFormField(
+                            style:TextStyle(color: Colors.black),
                             controller: _passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
@@ -120,6 +121,7 @@ class _ScreenNewPasswordState extends State<ScreenNewPassword> {
                           ),
                           SizedBox(height: 10.h),
                           TextFormField(
+                            style:TextStyle(color: Colors.black),
                             controller: _confirmPasswordController,
                             obscureText: true,
                             decoration: InputDecoration(

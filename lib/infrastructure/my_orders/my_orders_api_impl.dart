@@ -16,7 +16,8 @@ class MyOrderRepo extends IMyOrdersFacade {
   Future<Either<FormFailure, PlaceOrderRespModel>> proceedToCheckout(
       {required PlaceOrderReqModel orderModel}) async {
     try {
-      print("hello ${orderModel.orderItems[1].orderItemId} ");
+      print('$baseUrl$placeOrder');
+      // print("hello ${orderModel.orderItems[1].orderItemId} ");
       
       
     
@@ -28,7 +29,7 @@ class MyOrderRepo extends IMyOrdersFacade {
       });
       var dio = Dio();
       var response = await dio.request(
-        '4https://tailor-app-backend-2o5l.onrender.com/api/v1/user/orders/place-order',
+        '$baseUrl$placeOrder',
         options: Options(
           method: 'POST',
         ),

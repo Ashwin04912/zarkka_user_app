@@ -11,7 +11,7 @@ import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/domain/my_orders/place_order_req_model.dart';
 import 'package:tailme/domain/shop/create_order_resp_model.dart';
 import 'package:tailme/infrastructure/string.dart';
-import 'package:tailme/presentation/PaymentSuccess/ScreenPaymentSuccess.dart';
+import 'package:tailme/presentation/order_completed/screen_order_completed.dart';
 import 'package:tailme/theme_util.dart';
 
 class ScreenMyOrders extends StatefulWidget {
@@ -22,6 +22,7 @@ class ScreenMyOrders extends StatefulWidget {
 }
 
 class _ScreenMyOrdersState extends State<ScreenMyOrders> {
+  // bool isDataNotPresent = false;
   // @override
   @override
   Widget build(BuildContext context) {
@@ -53,30 +54,54 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(22.0),
-          child: BlocConsumer<MyOrdersBloc, MyOrdersState>(
-            listener: (context, state) {
-              state.successOrFailure.fold(() {}, (some) {
-                some.fold((f) {
-                  final message = f.maybeWhen(
-                    cancelledByUser: () => "",
-                    networkFailure: () => "Check your network connection",
-                    userNotFound: () => "Login and try again",
-                    validationFailure: () => "Some required fields are missing",
-                    serverFailure: () => "server error..Try again later",
-                    orElse: () => "Some Error Occured",
-                  );
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text(message)));
-                }, (s) {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => ScreenPaymentSuccessful()));
-                });
+      body: Padding(
+        padding: const EdgeInsets.all(22.0),
+        child: BlocConsumer<MyOrdersBloc, MyOrdersState>(
+          listener: (context, state) {
+            state.successOrFailure.fold(() {}, (some) {
+              some.fold((f) {
+                final message = f.maybeWhen(
+                  cancelledByUser: () => "",
+                  networkFailure: () => "Check your network connection",
+                  userNotFound: () => "Login and try again",
+                  validationFailure: () => "Some required fields are missing",
+                  serverFailure: () => "server error..Try again later",
+                  orElse: () => "Some Error Occured",
+                );
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(message)));
+              }, (s) {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const ScreenOrderCompleted()));
+                // if (s.data.orderItems.isEmpty) {
+                //   setState(() {
+                //     isDataNotPresent = true;
+                //   });
+                // }
               });
-            },
-            builder: (context, state) {
+            });
+          },
+          builder: (context, state) {
+            if (!state.isDataPresent) {
+              // Show SVG if order items are not present
+              return Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'assets/images/shopping.png',
+                      height: 150, // Adjust the size as needed
+                    ),
+                    const SizedBox(
+                        height: 16), // Add spacing between image and text
+                    const Text(
+                      "Emptyyy",
+                      style: TextStyle(color: Colors.white, fontSize: 28),
+                    ),
+                  ],
+                ),
+              );
+            } else {
               return Column(
                 children: [
                   ListView.separated(
@@ -92,8 +117,8 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                               ? const Color(0x47D9D9D9)
                               : const Color(0x47878787),
                           shape: RoundedRectangleBorder(
-                            side:
-                                const BorderSide(width: 1, color: Colors.white),
+                            side: const BorderSide(
+                                width: 1, color: Colors.white),
                             borderRadius: BorderRadius.circular(11),
                           ),
                         ),
@@ -108,7 +133,7 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                   borderRadius: BorderRadius.circular(7),
                                   image: DecorationImage(
                                     image: NetworkImage(
-                                        "https://tailor-app-backend-2o5l.onrender.com${order.itemImageUrl}"),
+                                        "$baseUrl${order.itemImageUrl}"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -116,10 +141,11 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Blouse',
+                                      order.name,
                                       style: TextStyle(
                                         color: isDarkMode
                                             ? Colors.white
@@ -178,7 +204,7 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                           decoration: const BoxDecoration(
                                             color: Colors.white,
                                           ),
-
+      
                                           //counter bloc
                                           child: BlocBuilder<MyOrdersBloc,
                                               MyOrdersState>(
@@ -312,8 +338,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 'Item Total',
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -324,8 +351,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 "\$168",
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -341,8 +369,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 'Service Charge',
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -353,8 +382,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 "\$0",
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -370,8 +400,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 'Delivery Charge',
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -382,8 +413,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 "\$0",
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -402,8 +434,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 'Grand Total',
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -414,8 +447,9 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                 "\$168",
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                  color:
-                                      isDarkMode ? Colors.white : Colors.black,
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize: 13,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.w600,
@@ -449,7 +483,8 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                             children: [
                               SvgPicture.asset(
                                 'assets/images/arrow.svg',
-                                color: isDarkMode ? Colors.white : Colors.black,
+                                color:
+                                    isDarkMode ? Colors.white : Colors.black,
                               ),
                               const SizedBox(width: 15),
                               SizedBox(
@@ -513,18 +548,19 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                             final SharedPreferences prefs =
                                 await SharedPreferences.getInstance();
                             final token = prefs.getString('token') ?? '';
-
+      
                             List<OrderItem> orderItem = [];
                             for (int i = 0; i < state.itemCount.length; i++) {
                               debugPrint(state.model.data[i].orderItemId);
                               orderItem.add(OrderItem(
-                                  orderItemId: state.model.data[i].orderItemId,
+                                  orderItemId:
+                                      state.model.data[i].orderItemId,
                                   qty: state.itemCount[i]));
-
+      
                               debugPrint(
                                   "count of $i ${state.itemCount[i]} ${state.model.data[i].orderItemId}");
                             }
-
+      
                             // Convert orderItem list to a JSON-compatible format and print it
                             print(orderItem
                                 .map((item) => {
@@ -533,13 +569,14 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                                     })
                                 .toList()
                                 .toString());
-
+      
                             final model = PlaceOrderReqModel(
                               token: token,
                               orderItems: orderItem,
-                              addressId: 'deb9030f-7b98-484e-91fd-743dd72fb148',
+                              addressId:
+                                  '9509fbff-616a-4995-a49f-d061f3df8978',
                             );
-
+      
                             BlocProvider.of<MyOrdersBloc>(context).add(
                               MyOrdersEvent.placeOrderButtonClickedEvent(
                                   orders: model),
@@ -549,8 +586,8 @@ class _ScreenMyOrdersState extends State<ScreenMyOrders> {
                         )
                 ],
               );
-            },
-          ),
+            }
+          },
         ),
       ),
     );

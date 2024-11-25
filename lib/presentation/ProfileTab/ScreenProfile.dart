@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tailme/application/AddAddress/add_address_bloc.dart';
 import 'package:tailme/presentation/auth/ChangePassword/change_password_screen.dart';
 import 'package:tailme/presentation/ContactUs/ScreenContactUs.dart';
 import 'package:tailme/presentation/MyProfile/screen_my_profiles.dart';
@@ -19,9 +17,9 @@ class ScreenProfile extends StatefulWidget {
 class _ScreenProfileState extends State<ScreenProfile> {
   @override
   Widget build(BuildContext context) {
-   bool isDarkMode = ThemeUtil.isDarkMode(context);
+    bool isDarkMode = ThemeUtil.isDarkMode(context);
     return Scaffold(
-      backgroundColor:isDarkMode? const Color(0xFF343333): Colors.white,  
+      backgroundColor: isDarkMode ? const Color(0xFF343333) : Colors.white,
       body: Padding(
         padding: EdgeInsets.only(
             top: 101.h, left: 22.w, right: 22.w), // Using .h and .w
@@ -53,7 +51,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const ScreenChangePassword()),
+                      builder: (context) => ScreenChangePassword()),
                 );
               },
               child: ProfileRepeatingWidget(

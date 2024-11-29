@@ -43,10 +43,10 @@ class AuthRepository implements IAuthFacade {
       );
 
       if (response.statusCode == 201) {
-        print("i got response");
+        debugPrint("i got response");
         return right(unit);
       } else {
-        print(response.data);
+        debugPrint(response.data);
         return left(const AuthFailure.serverError());
       }
     } on DioException catch (e) {
@@ -106,7 +106,7 @@ class AuthRepository implements IAuthFacade {
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
         if (e.response?.statusCode == 401) {
-          print("hello");
+          debugPrint("hello");
           return left(const AuthFailure.invalidEmailAndPasswordCombination());
         } else if (e.response?.statusCode == 404) {
           return left(const AuthFailure.userNotFound());
@@ -173,9 +173,8 @@ class AuthRepository implements IAuthFacade {
     required String otp,
     required String email,
   }) async {
-  
     try {
-      print("reached api");
+      debugPrint("reached api");
       var headers = {'Content-Type': 'application/json'};
       var data = json.encode({"email": email, "otp": otp});
       var dio = Dio();
@@ -189,7 +188,7 @@ class AuthRepository implements IAuthFacade {
         data: data,
       );
 
-      print("reset token is ${response.data['passwordResetToken']}");
+      debugPrint("reset token is ${response.data['passwordResetToken']}");
       if (response.statusCode == 200) {
         return right(response.data['passwordResetToken']);
       } else {
@@ -205,8 +204,7 @@ class AuthRepository implements IAuthFacade {
         } else if (e.response?.statusCode == 400) {
           debugPrint("invalid otp");
           return left(const AuthFailure.invalidOtp());
-        }
-        else if (e.response?.statusCode == 401) {
+        } else if (e.response?.statusCode == 401) {
           debugPrint("expired otp");
           return left(const AuthFailure.otpExpired());
         }
@@ -225,7 +223,7 @@ class AuthRepository implements IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> resendOtp({required String email}) async {
     try {
-      print("i reached api call $email");
+      debugPrint("i reached api call $email");
       var headers = {'Content-Type': 'application/json'};
       var data = json.encode({"email": email});
       var dio = Dio();
@@ -237,7 +235,7 @@ class AuthRepository implements IAuthFacade {
         ),
         data: data,
       );
-      print(response.statusCode);
+ 
 
       if (response.statusCode == 200) {
         debugPrint('otp sent');
@@ -251,7 +249,7 @@ class AuthRepository implements IAuthFacade {
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
         if (e.response?.statusCode == 404) {
-          print("user not found");
+          debugPrint("user not found");
           return left(const AuthFailure.userNotFound());
         } else if (e.response?.statusCode == 400) {
           debugPrint("email already verified");
@@ -273,8 +271,8 @@ class AuthRepository implements IAuthFacade {
   Future<Either<AuthFailure, Unit>> forgetPassword(
       {required String email}) async {
     try {
-      print('$baseUrl$forgetpass');
-      print(email);
+      debugPrint('$baseUrl$forgetpass');
+      debugPrint(email);
       var headers = {'Content-Type': 'application/json'};
       var data = json.encode({"email": email});
       var dio = Dio();
@@ -286,22 +284,22 @@ class AuthRepository implements IAuthFacade {
         ),
         data: data,
       );
-      print(response.statusCode);
+
 
       if (response.statusCode == 200) {
-        print("success");
+        debugPrint("success");
         return right(unit);
       } else {
         return left(const AuthFailure.serverError());
       }
     } on DioException catch (e) {
       if (e.type == DioExceptionType.cancel) {
-        print("somemee");
+        debugPrint("somemee");
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
         if (e.response?.statusCode == 404) {
-          print("hello");
-          print(e.response);
+          debugPrint("hello");
+          // debugPrint(e.response);
           return left(const AuthFailure.userNotFound());
         } else if (e.response?.statusCode == 400) {
           debugPrint("invalidEmailFormat");
@@ -326,9 +324,10 @@ class AuthRepository implements IAuthFacade {
       required String newPassword,
       required String confirmPassword}) async {
     try {
-      print("reset password triggereed");
-      print('$baseUrl$resetPass $passwordResetToken, $email , $newPassword, $confirmPassword');
-      print(email);
+      debugPrint("reset password triggereed");
+      debugPrint(
+          '$baseUrl$resetPass $passwordResetToken, $email , $newPassword, $confirmPassword');
+      debugPrint(email);
       var headers = {'Content-Type': 'application/json'};
       var data = json.encode({
         "passwordResetToken": passwordResetToken,
@@ -345,25 +344,24 @@ class AuthRepository implements IAuthFacade {
         ),
         data: data,
       );
-      print(response.statusCode);
+
 
       if (response.statusCode == 200) {
-        print("success");
+        debugPrint("success");
         return right(unit);
       } else {
         return left(const AuthFailure.serverError());
       }
     } on DioException catch (e) {
       if (e.type == DioExceptionType.cancel) {
-        print("cancelledByUser");
+        debugPrint("cancelledByUser");
         return left(const AuthFailure.cancelledByUser());
       } else if (e.response != null) {
         if (e.response?.statusCode == 404) {
-          print("hello");
-          print(e.response);
+
           return left(const AuthFailure.userNotFound());
         } else if (e.response?.statusCode == 400) {
-          print("invalidOtp");
+          debugPrint("invalidOtp");
           return left(const AuthFailure.passwordNotMatch());
         }
         // Dio error with a response
@@ -376,5 +374,61 @@ class AuthRepository implements IAuthFacade {
         return left(const AuthFailure.serverError());
       }
     }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> changePassowordWithOldPassword({
+    required String oldPassword,
+    required String newPassword,
+    required String reNewPassword,
+    required String email,
+  }) async{
+    try {
+      var headers = {'Content-Type': 'application/json'};
+      var dio = Dio();
+      var data = json.encode({
+        "email": email,
+        "oldPassword": oldPassword,
+        "newPassword": newPassword,
+        "confirmPassword": reNewPassword
+      });
+
+      var response = await dio.request(
+        '$baseUrl$changePassword',
+        options: Options(method: 'POST', headers: headers),
+        data: data,
+      );
+
+      if(response.statusCode == 200){
+        return(right(unit));
+      }
+      else{
+        return left(const AuthFailure.serverError());
+      }
+
+      
+    } on DioException catch (e) {
+     if (e.type == DioExceptionType.cancel) {
+        debugPrint("cancelledByUser");
+        return left(const AuthFailure.cancelledByUser());
+      } else if (e.response != null) {
+        if (e.response?.statusCode == 404) {
+
+          return left(const AuthFailure.userNotFound());
+        } else if (e.response?.statusCode == 400) {
+          debugPrint("invalidOtp");
+          return left(const AuthFailure.passwordNotMatch());
+        }
+        // Dio error with a response
+        debugPrint(
+            'Dio error! Status: ${e.response?.statusCode}, Data: ${e.response?.data}');
+        return left(const AuthFailure.serverError());
+      } else {
+        // Dio error without a response
+        debugPrint('Dio error! Message: ${e.message}');
+        return left(const AuthFailure.serverError());
+      }
+    }
+  
   }
 }

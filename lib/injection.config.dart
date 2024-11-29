@@ -12,6 +12,7 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import 'application/AddAddress/add_address_bloc.dart' as _i861;
+import 'application/auth/change_password/change_password_bloc.dart' as _i593;
 import 'application/auth/login/login_bloc.dart' as _i722;
 import 'application/auth/OtpVerification/otp_verification_bloc.dart' as _i171;
 import 'application/auth/RegisterUser/register_user_bloc.dart' as _i210;
@@ -44,6 +45,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i180.MyOrdersBloc>(() => _i180.MyOrdersBloc());
     gh.factory<_i861.AddAddressBloc>(() => _i861.AddAddressBloc());
     gh.factory<_i716.HomeBloc>(() => _i716.HomeBloc());
+    gh.factory<_i593.ChangePasswordBloc>(() => _i593.ChangePasswordBloc());
     gh.factory<_i171.OtpVerificationBloc>(() => _i171.OtpVerificationBloc());
     gh.factory<_i210.RegisterUserBloc>(() => _i210.RegisterUserBloc());
     gh.factory<_i722.LoginBloc>(() => _i722.LoginBloc());

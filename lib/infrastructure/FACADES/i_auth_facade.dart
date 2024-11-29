@@ -31,4 +31,11 @@ abstract class IAuthFacade {
       required String passwordResetToken,
       required String newPassword,
       required String confirmPassword});
+
+  Future<Either<AuthFailure, Unit>> changePassowordWithOldPassword({
+    required String email,
+    required String oldPassword,
+    required String newPassword,
+    required String reNewPassword,
+  });
 }

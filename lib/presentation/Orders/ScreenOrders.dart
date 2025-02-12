@@ -1,9 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tailme/application/orders/bloc/orders_bloc.dart';
 import 'package:tailme/core/widgets/ReusableWidgets.dart';
 import 'package:tailme/core/widgets/orderslist.dart';
 
-class ScreenOrders extends StatelessWidget {
+
+class ScreenOrders extends StatefulWidget {
   const ScreenOrders({super.key});
+
+  @override
+  State<ScreenOrders> createState() => _ScreenOrdersState();
+}
+
+class _ScreenOrdersState extends State<ScreenOrders> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+
+    // Listen for tab changes
+    _tabController.addListener(() {
+      if (!_tabController.indexIsChanging) {
+        // Dispatch event based on active tab
+        if (_tabController.index == 0) {
+          context.read<OrdersBloc>().add(const OrdersEvent.getUpcommingOrders());
+        } else {
+          // context.read<OrdersBloc>().add(FetchPreviousOrdersEvent());
+        }
+      }
+    });
+
+    // Initial load for the first tab
+    context.read<OrdersBloc>().add(const OrdersEvent.getUpcommingOrders());
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +58,7 @@ class ScreenOrders extends StatelessWidget {
                   color: Colors.grey[200],
                 ),
                 child: TabBar(
+                  controller: _tabController, // Attach the TabController
                   labelColor: Colors.white,
                   unselectedLabelColor: Colors.black,
                   indicator: BoxDecoration(
@@ -33,9 +71,8 @@ class ScreenOrders extends StatelessWidget {
                       width: double.infinity,
                       child: Tab(
                           child: Text(
-                        'Previous',
+                        'Upcoming',
                         style: TextStyle(
-                          
                           fontSize: 17,
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.w600,
@@ -47,9 +84,8 @@ class ScreenOrders extends StatelessWidget {
                       width: double.infinity,
                       child: Tab(
                           child: Text(
-                        'Upcoming',
+                        'Previous',
                         style: TextStyle(
-                          
                           fontSize: 17,
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.w600,
@@ -61,11 +97,12 @@ class ScreenOrders extends StatelessWidget {
                 ),
               ),
             ),
-            const Expanded(
+            Expanded(
               child: TabBarView(
-                children: [
-                  OrdersList(),
-                  OrdersList(),
+                controller: _tabController, // Attach the TabController
+                children: const [
+                  OrdersList(isPrevious: false),
+                  OrdersList(isPrevious: true),
                 ],
               ),
             ),

@@ -9,8 +9,7 @@
 ### 👗 Users
 - Place custom stitching orders with uploaded designs or written descriptions
 - Track order status in real-time
-- Chat with admin or support team
-- Receive notifications for updates
+- Add custom stitching images
 
 ### 🛠️ Admin
 - Manage and approve user orders
@@ -46,23 +45,3 @@
 
 ---
 
-## 📲 Getting Started
-
-```bash
-git clone https://github.com/<your-username>/zarkka-app.git
-cd zarkka-app
-flutter pub get
-flutter run
-📸 Screenshots
-(Add screenshots of user interface, admin dashboard, delivery view, etc.)
-📂 Folder Structure
-lib/
-├── features/
-│   ├── auth/
-│   ├── user/
-│   ├── admin/
-│   ├── delivery/
-├── core/
-├── services/
-├── widgets/
-📝 License
